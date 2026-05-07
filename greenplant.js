@@ -818,7 +818,7 @@ const EnvironmentalImpact = () => {
 }
 
 const ProjectsGallery = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const projects = [
     { title: "Biogazownia Rolnicza", spec: "1.2 MW / Gnojowica i kiszonka", img: "https://images.unsplash.com/photo-1534073133331-c4b62a557083?q=80&w=2000&auto=format&fit=crop" },
@@ -834,7 +834,7 @@ const ProjectsGallery = () => {
           className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out pointer-events-none"
           style={{ 
             backgroundImage: `url(${proj.img})`, 
-            opacity: hoveredIndex === i ? 0.3 : 0,
+            opacity: activeIndex === i ? 0.3 : 0,
             filter: 'grayscale(50%)'
           }}
         ></div>
@@ -854,8 +854,9 @@ const ProjectsGallery = () => {
             <FadeIn key={i} delay={i * 100}>
               <div 
                 className="group border-b border-[#EAE6DF]/10 py-12 md:py-16 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6 interactive-element"
-                onMouseEnter={() => setHoveredIndex(i)}
-                onMouseLeave={() => setHoveredIndex(null)}
+                onMouseEnter={() => setActiveIndex(i)}
+                onFocus={() => setActiveIndex(i)}
+                onClick={() => setActiveIndex(i)}
               >
                 <h3 className="text-5xl md:text-7xl lg:text-[6rem] font-serif font-light text-outline text-outline-hover transition-all duration-500 uppercase tracking-tight">
                   {proj.title}
