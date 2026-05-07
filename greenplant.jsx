@@ -716,16 +716,16 @@ const KineticBreak = () => {
       <div className="absolute inset-0 bg-topo opacity-10 pointer-events-none"></div>
       
       <div className="w-[200%] flex animate-marquee whitespace-nowrap opacity-20">
-        <h2 className="text-[12vw] font-serif uppercase tracking-tighter text-outline-massive leading-none">
+        <h2 className="text-[clamp(2.8rem,9vw,9rem)] font-serif uppercase tracking-tighter text-outline-massive leading-none">
           STABILNE ZRÓDŁO PRZYCHODU • ODPADY W ENERGIĘ • 
         </h2>
-        <h2 className="text-[12vw] font-serif uppercase tracking-tighter text-outline-massive leading-none">
+        <h2 className="text-[clamp(2.8rem,9vw,9rem)] font-serif uppercase tracking-tighter text-outline-massive leading-none">
           STABILNE ZRÓDŁO PRZYCHODU • ODPADY W ENERGIĘ • 
         </h2>
       </div>
       
       <div className="w-[200%] flex animate-marquee-reverse whitespace-nowrap mt-[-2vw]">
-        <h2 className="text-[12vw] font-serif uppercase tracking-tighter text-[#C6A87C] leading-none mix-blend-difference opacity-80">
+        <h2 className="text-[clamp(2.8rem,9vw,9rem)] font-serif uppercase tracking-tighter text-[#C6A87C] leading-none mix-blend-difference opacity-80">
           ZAMKNIĘTY OBIEG SUROWCÓW • ZAMKNIĘTY OBIEG SUROWCÓW • 
         </h2>
       </div>
