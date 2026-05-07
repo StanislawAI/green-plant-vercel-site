@@ -103,6 +103,32 @@ const GlobalStyles = () => (
     }
     .accordion-content.open { grid-template-rows: 1fr; }
     .accordion-inner { overflow: hidden; }
+
+    @media (hover: none), (pointer: coarse) {
+      body {
+        cursor: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      html, body {
+        overflow-x: clip;
+      }
+
+      section {
+        scroll-margin-top: 80px;
+      }
+
+      .text-outline,
+      .text-outline-massive {
+        -webkit-text-stroke-width: 0.7px;
+      }
+
+      .animate-marquee,
+      .animate-marquee-reverse {
+        animation-duration: 45s;
+      }
+    }
   `}} />
 );
 
@@ -111,8 +137,14 @@ const GlobalStyles = () => (
 const CustomCursor = () => {
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isTouchLike, setIsTouchLike] = useState(false);
 
   useEffect(() => {
+    const coarsePointerQuery = window.matchMedia("(hover: none), (pointer: coarse)");
+    setIsTouchLike(coarsePointerQuery.matches);
+    const handlePointerChange = (event) => setIsTouchLike(event.matches);
+    coarsePointerQuery.addEventListener("change", handlePointerChange);
+
     const updateCursor = (e) => setPos({ x: e.clientX, y: e.clientY });
     const handleMouseOver = (e) => {
       if (e.target.tagName.toLowerCase() === 'button' || e.target.tagName.toLowerCase() === 'a' || e.target.closest('button') || e.target.closest('a') || e.target.closest('.interactive-element')) {
@@ -125,10 +157,15 @@ const CustomCursor = () => {
     window.addEventListener('mousemove', updateCursor);
     window.addEventListener('mouseover', handleMouseOver);
     return () => {
+      coarsePointerQuery.removeEventListener("change", handlePointerChange);
       window.removeEventListener('mousemove', updateCursor);
       window.removeEventListener('mouseover', handleMouseOver);
     };
   }, []);
+
+  if (isTouchLike) {
+    return null;
+  }
 
   return (
     <>
