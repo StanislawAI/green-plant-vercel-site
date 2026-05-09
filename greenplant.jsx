@@ -7,9 +7,13 @@ const GlobalStyles = () => (
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
     :root {
-      --bg-black: #030404;
+      --bg-black: #020202;
+      --bg-dark: #070808;
       --accent-gold: #C6A87C;
+      --accent-green: #4ADE80;
       --text-light: #EAE6DF;
+      --glass-bg: rgba(7, 8, 8, 0.7);
+      --glass-border: rgba(198, 168, 124, 0.15);
     }
 
     body {
@@ -129,6 +133,34 @@ const GlobalStyles = () => (
         animation-duration: 45s;
       }
     }
+
+    @keyframes scan {
+      0% { top: 0; }
+      100% { top: 100%; }
+    }
+    .animate-scan { animation: scan 3s linear infinite; }
+
+    .glass-morphism {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+    }
+
+    .technical-grid {
+      background-image: 
+        linear-gradient(rgba(198, 168, 124, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(198, 168, 124, 0.03) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    
+    .ken-burns {
+      animation: kenburns 40s ease infinite alternate;
+    }
+    @keyframes kenburns {
+      0% { transform: scale(1) translate(0, 0); }
+      100% { transform: scale(1.15) translate(-2%, -2%); }
+    }
+
   `}} />
 );
 
@@ -200,6 +232,36 @@ const FilmGrain = () => (
   <div className="pointer-events-none fixed inset-0 z-[100] h-full w-full opacity-[0.05] mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
 );
 
+const TechnicalCursor = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isPointer, setIsPointer] = useState(false);
+
+  useEffect(() => {
+    const handleMove = (e) => {
+      setPosition({ x: e.clientX, y: e.clientY });
+      const target = e.target;
+      setIsPointer(window.getComputedStyle(target).cursor === 'pointer');
+    };
+    window.addEventListener('mousemove', handleMove);
+    return () => window.removeEventListener('mousemove', handleMove);
+  }, []);
+
+  return (
+    <div 
+      className="fixed top-0 left-0 w-full h-full pointer-events-none z-[9999] hidden lg:block"
+      style={{ transform: `translate3d(${position.x}px, ${position.y}px, 0)` }}
+    >
+      <div className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${isPointer ? 'scale-150' : 'scale-100'}`}>
+        <div className="w-10 h-10 border border-[#C6A87C]/20 rounded-full flex items-center justify-center">
+          <div className="w-1 h-1 bg-[#C6A87C] rounded-full"></div>
+        </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-[0.5px] bg-[#C6A87C]/10"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-16 w-[0.5px] bg-[#C6A87C]/10"></div>
+      </div>
+    </div>
+  );
+};
+
 const FadeIn = ({ children, delay = 0, direction = 'up', className = '' }) => {
   const [ref, isVisible] = useIntersectionObserver();
   const getTransform = () => {
@@ -219,6 +281,38 @@ const FadeIn = ({ children, delay = 0, direction = 'up', className = '' }) => {
   );
 };
 
+const MagneticButton = ({ children, className = "", onClick }) => {
+  const buttonRef = useRef(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    const { left, top, width, height } = buttonRef.current.getBoundingClientRect();
+    const x = clientX - (left + width / 2);
+    const y = clientY - (top + height / 2);
+    setPosition({ x: x * 0.3, y: y * 0.3 });
+  };
+
+  const handleMouseLeave = () => {
+    setPosition({ x: 0, y: 0 });
+  };
+
+  return (
+    <div
+      ref={buttonRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={`relative inline-block transition-transform duration-300 ease-out ${className}`}
+      style={{ transform: `translate3d(${position.x}px, ${position.y}px, 0)` }}
+      onClick={onClick}
+    >
+      {children}
+    </div>
+  );
+};
+
+// --- COMPONENTS ---
+
 const Crosshair = ({ className = "" }) => (
   <div className={`absolute w-4 h-4 opacity-30 ${className}`}>
     <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#C6A87C]"></div>
@@ -226,7 +320,23 @@ const Crosshair = ({ className = "" }) => (
   </div>
 );
 
-// --- COMPONENTS ---
+const SystemStatus = () => (
+  <div className="fixed top-0 w-full z-[100] bg-[#020202] border-b border-[#C6A87C]/10 py-1.5 px-8 flex justify-between items-center overflow-hidden">
+    <div className="flex items-center gap-6">
+      <div className="flex items-center gap-2">
+        <div className="w-1.5 h-1.5 bg-[#4ADE80] rounded-full animate-pulse shadow-[0_0_8px_#4ADE80]"></div>
+        <span className="font-mono text-[7px] text-[#4ADE80] tracking-[0.3em] uppercase">System Live</span>
+      </div>
+      <div className="hidden sm:flex items-center gap-4 border-l border-[#C6A87C]/10 pl-6">
+        <span className="font-mono text-[7px] text-[#EAE6DF]/30 tracking-[0.2em] uppercase">Grid Sync: 50.02 Hz</span>
+        <span className="font-mono text-[7px] text-[#EAE6DF]/30 tracking-[0.2em] uppercase">Active Load: 1.18 MW</span>
+      </div>
+    </div>
+    <div className="font-mono text-[7px] text-[#C6A87C]/40 tracking-[0.3em] uppercase hidden md:block">
+      LAT: 52.2297 // LON: 21.0122 // T: 14:23:05
+    </div>
+  </div>
+);
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -238,28 +348,30 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-1000 border-b ${scrolled ? 'bg-[#030404]/80 backdrop-blur-2xl border-[#C6A87C]/10 py-5 shadow-[0_20px_40px_rgba(0,0,0,0.8)]' : 'bg-transparent border-transparent py-10'}`}>
-      <div className="max-w-[100rem] mx-auto px-8 flex justify-between items-center">
-        <a href="#" className="flex items-center gap-5 group cursor-pointer interactive-element">
-          <div className="relative w-10 h-10 border border-[#C6A87C]/30 flex items-center justify-center overflow-hidden group-hover:border-[#C6A87C] transition-colors duration-700">
-            <div className="absolute inset-0 bg-[#C6A87C] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"></div>
-            <Leaf className="w-4 h-4 text-[#C6A87C] group-hover:text-[#030404] relative z-10 transition-colors duration-500" strokeWidth={1} />
+    <nav className={`fixed top-8 w-full z-50 transition-all duration-1000 ${scrolled ? 'py-4' : 'py-8'}`}>
+      <div className="max-w-[100rem] mx-auto px-8">
+        <div className={`flex justify-between items-center px-10 py-5 transition-all duration-700 ${scrolled ? 'glass-morphism rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[#C6A87C]/20' : 'bg-transparent border-transparent'}`}>
+          <a href="#" className="flex items-center gap-5 group cursor-pointer interactive-element">
+            <div className="relative w-10 h-10 border border-[#C6A87C]/30 flex items-center justify-center overflow-hidden group-hover:border-[#C6A87C] transition-colors duration-700">
+              <div className="absolute inset-0 bg-[#C6A87C] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"></div>
+              <Leaf className="w-4 h-4 text-[#C6A87C] group-hover:text-[#030404] relative z-10 transition-colors duration-500" strokeWidth={1} />
+            </div>
+            <span className="text-[#EAE6DF] font-serif tracking-widest text-xl hidden sm:block uppercase">
+              Green Plant <span className="text-[#C6A87C] font-light italic lowercase">tech.</span>
+            </span>
+          </a>
+          <div className="hidden md:flex items-center gap-12 text-[9px] font-mono tracking-[0.3em] text-[#EAE6DF]/50 uppercase">
+            {['Podejście', 'Proces', 'Ekonomia', 'Realizacje'].map(link => (
+              <a key={link} href={`#${link.toLowerCase()}`} className="hover:text-[#C6A87C] transition-colors duration-500 relative py-2 group interactive-element">
+                {link}
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#C6A87C] group-hover:w-full transition-all duration-500 ease-out"></span>
+              </a>
+            ))}
           </div>
-          <span className="text-[#EAE6DF] font-serif tracking-widest text-xl hidden sm:block uppercase">
-            Green Plant <span className="text-[#C6A87C] font-light italic lowercase">tech.</span>
-          </span>
-        </a>
-        <div className="hidden md:flex items-center gap-10 text-[10px] font-mono tracking-[0.3em] text-[#EAE6DF]/50 uppercase">
-          {['Podejście', 'Proces', 'Ekonomia', 'Realizacje'].map(link => (
-            <a key={link} href={`#${link.toLowerCase()}`} className="hover:text-[#C6A87C] transition-colors duration-500 relative py-2 group interactive-element">
-              {link}
-              <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#C6A87C] group-hover:w-full transition-all duration-500 ease-out"></span>
-            </a>
-          ))}
+          <a href="#kontakt" className="bg-[#C6A87C] text-[#030404] px-10 py-3.5 text-[9px] font-mono tracking-[0.3em] uppercase hover:bg-transparent hover:text-[#C6A87C] border border-[#C6A87C] transition-all duration-700 flex items-center gap-3 interactive-element rounded-full">
+            Wyceń projekt
+          </a>
         </div>
-        <a href="#kontakt" className="bg-[#030404] border border-[#C6A87C]/40 text-[#C6A87C] px-8 py-3.5 text-[10px] font-mono tracking-[0.3em] uppercase hover:bg-[#C6A87C] hover:text-[#030404] transition-all duration-700 flex items-center gap-3 interactive-element">
-          Wyceń projekt
-        </a>
       </div>
     </nav>
   );
@@ -267,83 +379,102 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-[#030404]">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgc3Ryb2tlPSIjQzZBODYDIiBzdHJva2Utd2lkdGg9IjAuMDUiIGZpbGw9Im5vbmUiPjxwYXRoIGQ9Ik0wIDYwaDYwTTYwIDBmLTYwIi8+PC9nPjwvc3ZnPg==')] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,#000_20%,transparent_100%)] opacity-30"></div>
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(198,168,124,0.08)_0%,transparent_60%)] pointer-events-none"></div>
+    <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-[#020202]">
+      {/* Cinematic Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020202] via-[#020202]/60 to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-transparent to-transparent z-10"></div>
+        <img 
+          src="/Users/stan/.gemini/antigravity/brain/906f4f99-9a59-4b7a-b50b-3a2631808779/biogas_plant_cinematic_1778349683317.png" 
+          alt="Biogas Plant" 
+          className="w-full h-full object-cover ken-burns opacity-40 mix-blend-luminosity"
+        />
+      </div>
 
-      <div className="max-w-[100rem] mx-auto px-8 relative z-10 grid lg:grid-cols-12 gap-16 items-center w-full">
-        <div className="lg:col-span-7 relative z-20">
+      <div className="absolute inset-0 bg-blueprint opacity-10 pointer-events-none z-10"></div>
+
+      <div className="max-w-[100rem] mx-auto px-8 relative z-20 grid lg:grid-cols-12 gap-16 items-center w-full">
+        <div className="lg:col-span-8 relative">
           <FadeIn>
-            <div className="inline-flex items-center gap-4 mb-10 border border-[#C6A87C]/20 px-4 py-2 bg-[#030404]/50 backdrop-blur-md">
-              <span className="w-1.5 h-1.5 bg-[#C6A87C] animate-pulse"></span>
-              <span className="text-[#C6A87C] text-[9px] font-mono tracking-[0.4em] uppercase">Generalny Wykonawca</span>
+            <div className="inline-flex items-center gap-4 mb-12 glass-morphism px-5 py-2 rounded-full">
+              <span className="w-1.5 h-1.5 bg-[#4ADE80] animate-pulse rounded-full shadow-[0_0_8px_#4ADE80]"></span>
+              <span className="text-[#C6A87C] text-[8px] font-mono tracking-[0.5em] uppercase">Nowy Standard Energii Rolniczej</span>
             </div>
           </FadeIn>
           
           <FadeIn delay={100}>
-            <h1 className="text-[5rem] md:text-[7.5rem] font-serif text-[#EAE6DF] leading-[0.85] tracking-tight mb-12 font-light">
-              Stabilna <br />
-              <span className="italic text-[#C6A87C] font-normal pl-8 md:pl-16">energia.</span>
+            <h1 className="text-[5.5rem] md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.8] tracking-tight mb-14 font-light">
+              Inżynieria <br />
+              <span className="italic text-[#C6A87C] font-normal pl-8 md:pl-24">zysku.</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={200}>
-            <p className="text-xl md:text-2xl text-[#EAE6DF]/60 mb-10 leading-relaxed max-w-2xl font-serif font-light italic border-l border-[#C6A87C]/30 pl-6">
-              Projektujemy i budujemy przemysłowe i rolnicze instalacje biogazowe. Transformujemy biomasę w czysty zysk.
-            </p>
-            <p className="text-[11px] font-mono text-[#EAE6DF]/40 max-w-lg leading-loose mb-14 uppercase tracking-[0.2em]">
-              Realizacje pod klucz. Od fundamentów komór fermentacyjnych po synchronizację agregatów CHP z krajową siecią energetyczną.
-            </p>
+            <div className="flex flex-col md:flex-row gap-12 items-start md:items-center">
+              <p className="text-xl md:text-2xl text-[#EAE6DF]/70 leading-relaxed max-w-xl font-serif font-light italic border-l border-[#C6A87C]/30 pl-8">
+                Generalny wykonawca biogazowni. Transformujemy odpady w stabilne źródło dochodu i czystą energię dla przemysłu i rolnictwa.
+              </p>
+              <div className="flex flex-col gap-4">
+                <div className="glass-morphism p-6 rounded-2xl">
+                  <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] uppercase mb-2">Średnia Sprawność CHP</div>
+                  <div className="font-serif text-4xl text-[#EAE6DF]">44.2 <span className="text-lg text-[#C6A87C] italic">%</span></div>
+                </div>
+              </div>
+            </div>
           </FadeIn>
 
-          <FadeIn delay={300}>
-            <a href="#kontakt" className="group inline-flex items-center gap-6 interactive-element">
-              <div className="w-14 h-14 rounded-full border border-[#C6A87C]/40 flex items-center justify-center group-hover:bg-[#C6A87C] transition-colors duration-500">
-                <ArrowRight className="w-5 h-5 text-[#C6A87C] group-hover:text-[#030404] transition-colors" strokeWidth={1} />
+          <FadeIn delay={300} className="mt-16">
+            <div className="flex flex-wrap items-center gap-12">
+              <MagneticButton>
+                <a href="#kontakt" className="group relative px-12 py-6 bg-[#C6A87C] text-[#030404] text-[10px] font-mono tracking-[0.5em] uppercase hover:bg-[#EAE6DF] transition-all duration-500 rounded-full flex items-center gap-6 interactive-element shadow-[0_0_40px_rgba(198,168,124,0.3)]">
+                  Inicjuj Inwestycję
+                  <ArrowRight className="w-5 h-5" strokeWidth={2} />
+                </a>
+              </MagneticButton>
+              <div className="flex items-center gap-6 opacity-40">
+                <div className="w-16 h-[1px] bg-[#C6A87C]"></div>
+                <span className="font-mono text-[8px] tracking-[0.4em] uppercase">Ekspertyza Tier-1</span>
               </div>
-              <span className="text-[#C6A87C] text-[10px] font-mono tracking-[0.3em] uppercase group-hover:tracking-[0.4em] transition-all duration-500">
-                Inicjuj Inwestycję
-              </span>
-            </a>
+            </div>
           </FadeIn>
         </div>
 
-        <FadeIn delay={400} direction="left" className="lg:col-span-5 relative hidden lg:block h-full">
-          <div className="absolute inset-0 border border-[#C6A87C]/10 bg-[#060807]/60 backdrop-blur-xl p-8 flex flex-col group overflow-hidden">
-            <Crosshair className="top-4 left-4" />
-            <Crosshair className="top-4 right-4" />
-            <Crosshair className="bottom-4 left-4" />
-            <Crosshair className="bottom-4 right-4" />
-
-            <div className="flex justify-between items-start relative z-10 mb-auto">
-              <Factory className="text-[#C6A87C]/40 w-8 h-8" strokeWidth={1} />
-              <div className="text-right">
-                <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase mb-2">Instalacja Kogeneracyjna</div>
-                <div className="font-serif text-[#C6A87C] text-xl italic">Fermentacja Mezofilna</div>
-              </div>
-            </div>
-
-            <div className="relative w-full aspect-square flex items-center justify-center my-8">
-               <div className="absolute inset-4 border-[0.5px] border-[#C6A87C]/20 rounded-full"></div>
-               <div className="absolute inset-10 border-[0.5px] border-dashed border-[#C6A87C]/30 rounded-full animate-[spin_60s_linear_infinite]"></div>
-               <div className="absolute w-40 h-40 bg-[#C6A87C]/5 rounded-full blur-[40px]"></div>
-               <div className="absolute inset-0 flex items-center justify-center">
-                  <Leaf className="w-12 h-12 text-[#C6A87C]/60" strokeWidth={0.5} />
+        <FadeIn delay={400} direction="left" className="lg:col-span-4 hidden lg:block">
+           <div className="glass-morphism p-10 rounded-[2.5rem] relative group overflow-hidden">
+             <div className="absolute inset-0 bg-gradient-to-br from-[#C6A87C]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+             <Crosshair className="top-8 left-8" />
+             <Crosshair className="bottom-8 right-8" />
+             
+             <div className="relative z-10">
+               <div className="flex justify-between items-start mb-16">
+                 <div className="w-12 h-12 border border-[#C6A87C]/20 flex items-center justify-center rounded-xl">
+                   <Factory className="text-[#C6A87C] w-6 h-6" strokeWidth={1} />
+                 </div>
+                 <div className="text-right">
+                    <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] mb-1">UNIT_ID</div>
+                    <div className="font-mono text-[10px] text-[#EAE6DF]">GP-2026-X</div>
+                 </div>
                </div>
-               <div className="absolute w-full h-[1px] bg-[#C6A87C]/10"></div>
-               <div className="absolute h-full w-[1px] bg-[#C6A87C]/10"></div>
-            </div>
 
-            <div className="relative z-10 border-t-[0.5px] border-[#C6A87C]/20 pt-6 mt-auto">
-              <div className="flex justify-between font-mono text-[9px] text-[#EAE6DF]/50 uppercase tracking-[0.2em] mb-3">
-                <span>Wydajność Procesu</span>
-                <span className="text-[#C6A87C]">Optymalna</span>
-              </div>
-              <div className="h-[1px] w-full bg-[#EAE6DF]/10 relative">
-                <div className="absolute top-0 left-0 h-full bg-[#C6A87C] w-full shadow-[0_0_15px_rgba(198,168,124,0.4)]"></div>
-              </div>
-            </div>
-          </div>
+               <div className="space-y-8">
+                 {[
+                   { label: "Moc Elektryczna", val: "999 kW" },
+                   { label: "Moc Cieplna", val: "1.1 MW" },
+                   { label: "Wsad dobowy", val: "42 t" }
+                 ].map((item, i) => (
+                   <div key={i} className="border-b border-[#C6A87C]/10 pb-4">
+                     <div className="font-mono text-[8px] text-[#EAE6DF]/40 uppercase tracking-[0.2em] mb-2">{item.label}</div>
+                     <div className="font-serif text-3xl text-[#EAE6DF] font-light">{item.val}</div>
+                   </div>
+                 ))}
+               </div>
+
+               <div className="mt-12 flex items-center gap-4 p-4 bg-[#020202]/50 border border-[#C6A87C]/20 rounded-xl">
+                 <div className="w-2 h-2 bg-[#4ADE80] rounded-full animate-pulse shadow-[0_0_8px_#4ADE80]"></div>
+                 <span className="font-mono text-[9px] text-[#4ADE80] tracking-[0.2em] uppercase">Sonda Lambda: Aktywna</span>
+               </div>
+             </div>
+           </div>
         </FadeIn>
       </div>
     </section>
@@ -351,71 +482,89 @@ const Hero = () => {
 };
 
 const TickerTape = () => {
-  const words = [
-    "FERMENTACJA MEZOFILNA", "KOGENERACJA CHP", "ZBIORNIKI ŻELBETOWE", 
-    "POFERMENT", "ODSIARCZANIE", "SCADA SYSTEM", "GENERALNE WYKONAWSTWO",
-    "FERMENTACJA MEZOFILNA", "KOGENERACJA CHP", "ZBIORNIKI ŻELBETOWE"
-  ];
-
   return (
-    <div className="bg-[#030404] border-y border-[#C6A87C]/10 py-6 overflow-hidden flex items-center relative">
-       <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-[#030404] to-transparent z-10 pointer-events-none"></div>
-       <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-[#030404] to-transparent z-10 pointer-events-none"></div>
-       <div className="flex animate-marquee whitespace-nowrap w-[200%] items-center">
-          {words.map((word, i) => (
-            <div key={i} className="flex items-center">
-              <span className="font-mono text-[10px] text-[#EAE6DF]/30 tracking-[0.4em] uppercase px-8">{word}</span>
-              <div className="w-1.5 h-1.5 rounded-full bg-[#C6A87C]/30"></div>
-            </div>
-          ))}
-       </div>
+    <div className="bg-[#070808] border-y border-[#C6A87C]/10 py-4 overflow-hidden relative z-10">
+      <div className="flex animate-scroll whitespace-nowrap gap-20 items-center">
+        {[...Array(10)].map((_, i) => (
+          <div key={i} className="flex items-center gap-20">
+            <span className="font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.4em] uppercase">Methane Purity: 62.4%</span>
+            <span className="font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.4em] uppercase">Grid Load: 1.25MW</span>
+            <span className="font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.4em] uppercase">Engine Hours: 84,200h</span>
+            <span className="font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.4em] uppercase">CO2 Savings: 4.2t/d</span>
+            <div className="w-1.5 h-1.5 bg-[#C6A87C] rounded-full"></div>
+          </div>
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
 
 const Approach = () => {
   return (
-    <section id="podejscie" className="relative min-h-[90vh] flex items-center bg-[#020202]">
-      <div className="absolute inset-0 flex">
-        <div className="w-1/2 h-full relative hidden md:block">
-          <div className="absolute inset-0 bg-[#030404]/40 z-10"></div>
-          <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1541888087425-ce81df8219b7?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center grayscale mix-blend-luminosity"></div>
-          <div className="absolute right-0 top-0 w-[1px] h-full bg-gradient-to-b from-transparent via-[#C6A87C]/30 to-transparent z-20"></div>
-        </div>
-        <div className="w-full md:w-1/2 h-full bg-topo opacity-50 relative">
-           <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#020202]"></div>
-        </div>
+    <section id="podejscie" className="relative min-h-screen flex items-center bg-[#020202] overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020202] via-[#020202]/80 to-transparent z-10"></div>
+        <div className="absolute inset-0 technical-grid opacity-20"></div>
       </div>
       
       <div className="max-w-[100rem] mx-auto px-8 relative z-20 w-full">
-        <div className="grid md:grid-cols-2 gap-20 items-center">
-          <div className="hidden md:block">
+        <div className="grid lg:grid-cols-2 gap-24 items-center">
+          <div className="relative">
             <FadeIn direction="right">
-              <div className="w-32 h-32 border border-[#C6A87C]/20 p-4">
-                <div className="w-full h-full border border-[#C6A87C]/40 animate-[spin_30s_linear_infinite]"></div>
+              <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">
+                Filozofia Inżynierii
+              </div>
+              <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[1] mb-12 font-light">
+                Materia w <br/>
+                <span className="italic text-[#C6A87C] font-normal">energię.</span>
+              </h2>
+              <p className="text-[#EAE6DF]/70 font-light text-2xl leading-relaxed mb-14 font-serif italic max-w-xl">
+                Biogazownia to nie tylko zbiór betonowych zbiorników. To precyzyjnie dostrojony ekosystem, w którym biologia spotyka się z ciężką inżynierią mechaniczną.
+              </p>
+              
+              <div className="grid grid-cols-2 gap-12">
+                <div>
+                  <div className="text-5xl font-serif text-[#C6A87C] mb-4 font-light">25<span className="text-xl text-[#C6A87C]/40 italic ml-2">lat+</span></div>
+                  <div className="font-mono text-[8px] text-[#EAE6DF]/40 uppercase tracking-[0.4em] leading-loose">Prognozowana <br/>żywotność konstrukcji</div>
+                </div>
+                <div>
+                  <div className="text-5xl font-serif text-[#C6A87C] mb-4 font-light">98<span className="text-xl text-[#C6A87C]/40 italic ml-2">%</span></div>
+                  <div className="font-mono text-[8px] text-[#EAE6DF]/40 uppercase tracking-[0.4em] leading-loose">Dyspozycyjność <br/>agregatów CHP</div>
+                </div>
               </div>
             </FadeIn>
           </div>
-          
-          <FadeIn direction="left" className="py-20 md:py-0">
-            <div className="font-mono text-[#C6A87C] text-[10px] tracking-[0.4em] uppercase mb-8 border-l border-[#C6A87C] pl-4">Filozofia Inwestycji</div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif text-[#EAE6DF] leading-[1.1] mb-10">
-              Budujemy na <br/>
-              <span className="text-outline italic">dekady.</span>
-            </h2>
-            <p className="text-[#EAE6DF]/60 font-light text-lg leading-relaxed mb-12 font-serif italic max-w-lg">
-              Instalacja biogazowa to masywna inwestycja inżynieryjna. Odrzucamy niesprawdzone nowinki. Opieramy się na pancernej architekturze żelbetowej i zachodnich technologiach pompujących.
-            </p>
-            
-            <div className="flex gap-16 border-t-[0.5px] border-[#C6A87C]/20 pt-10">
-              <div>
-                <div className="text-5xl font-serif text-[#C6A87C] mb-3">25<span className="text-xl text-[#C6A87C]/50 italic">+ lat</span></div>
-                <div className="font-mono text-[8px] text-[#EAE6DF]/40 uppercase tracking-[0.3em]">Oczekiwana żywotność</div>
+
+          <FadeIn direction="left" className="relative group">
+            <div className="aspect-square glass-morphism rounded-[3rem] p-12 overflow-hidden relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#C6A87C]/5 to-transparent"></div>
+              <div className="relative z-10 h-full flex flex-col justify-between">
+                <div className="flex justify-between items-start">
+                   <div className="w-16 h-16 border border-[#C6A87C]/20 rounded-2xl flex items-center justify-center">
+                     <Database className="text-[#C6A87C] w-8 h-8" strokeWidth={1} />
+                   </div>
+                   <div className="text-right font-mono text-[8px] text-[#C6A87C] tracking-[0.3em]">
+                     SPEC_REF: BIO-REACTOR-V1
+                   </div>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="h-[1px] w-full bg-[#C6A87C]/10"></div>
+                  <p className="font-serif italic text-xl text-[#EAE6DF]/60 leading-relaxed">
+                    "Odrzucamy półśrodki. Każdy m³ betonu jest weryfikowany pod kątem szczelności gazowej, a każda spawa w układzie CHP przechodzi testy nieniszczące."
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-full bg-[#C6A87C]/20 border border-[#C6A87C]/40 flex items-center justify-center">
+                      <ShieldCheck className="w-5 h-5 text-[#C6A87C]" />
+                    </div>
+                    <span className="font-mono text-[9px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase">Certyfikacja Jakości TUV</span>
+                  </div>
+                </div>
               </div>
-              <div>
-                <div className="text-5xl font-serif text-[#C6A87C] mb-3">24<span className="text-xl text-[#C6A87C]/50 italic">/7</span></div>
-                <div className="font-mono text-[8px] text-[#EAE6DF]/40 uppercase tracking-[0.3em]">Ciągła praca silników</div>
-              </div>
+              
+              {/* Decorative Tech Elements */}
+              <div className="absolute -right-20 -bottom-20 w-64 h-64 border border-[#C6A87C]/5 rounded-full animate-spin-slow"></div>
+              <div className="absolute -right-10 -bottom-10 w-32 h-32 border border-[#C6A87C]/10 rounded-full"></div>
             </div>
           </FadeIn>
         </div>
@@ -426,43 +575,55 @@ const Approach = () => {
 
 const BlueprintProcess = () => {
   const steps = [
-    { num: "01", title: "Audyt i Projekt", desc: "Zaczynamy od dokładnej analizy Twojego substratu (np. gnojowica, obornik, kiszonka). Na tej podstawie dobieramy pojemność komór i moc generatora." },
-    { num: "02", title: "Prace Budowlane", desc: "Wylewamy szczelne żelbetowe zbiorniki fermentacyjne. Instalujemy precyzyjne systemy ogrzewania ściennego oraz zaawansowane układy mieszadeł." },
-    { num: "03", title: "Rozruch i CHP", desc: "Instalacja stacji oczyszczania biogazu, odpalenie silnika kogeneracyjnego (CHP) i wpięcie do sieci elektroenergetycznej z zachowaniem norm." }
+    { num: "01", title: "Analiza Substratu", desc: "Badamy potencjał metanowy Twojej biomasy w laboratorium. Na tej podstawie kalibrujemy pojemność reaktorów." },
+    { num: "02", title: "Inżynieria Procesu", desc: "Projektujemy układ hydrauliczny, systemy mieszania oraz wymiany ciepła. Optymalizujemy przepływ wsadu." },
+    { num: "03", title: "Realizacja Budowy", desc: "Wylewamy szczelne komory żelbetowe i instalujemy agregaty CHP klasy Tier-1." }
   ];
 
   return (
-    <section id="proces" className="relative py-40 bg-[#050606] border-t border-[#C6A87C]/10 overflow-hidden">
-      <div className="absolute inset-0 bg-blueprint z-0"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#050606_80%)] z-0 pointer-events-none"></div>
+    <section id="proces" className="relative py-48 bg-[#050606] border-t border-[#C6A87C]/10 overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/Users/stan/.gemini/antigravity/brain/906f4f99-9a59-4b7a-b50b-3a2631808779/biogas_technical_blueprint_1778350397581.png" 
+          alt="Technical Blueprint" 
+          className="w-full h-full object-cover opacity-[0.07] mix-blend-screen"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050606] via-transparent to-[#050606]"></div>
+      </div>
 
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <FadeIn>
-          <div className="flex flex-col md:flex-row justify-between items-end mb-24 pb-8 border-b-[0.5px] border-[#C6A87C]/20">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-32 pb-12 border-b border-[#C6A87C]/10">
             <div>
-              <h2 className="text-[10px] font-mono tracking-[0.4em] text-[#C6A87C] uppercase mb-4">Metodologia</h2>
-              <p className="text-4xl md:text-5xl font-serif text-[#EAE6DF]">Proces <span className="italic font-light text-[#C6A87C]">Wykonawczy</span></p>
+              <h2 className="text-[9px] font-mono tracking-[0.5em] text-[#C6A87C] uppercase mb-6">Execution Protocol</h2>
+              <p className="text-5xl md:text-7xl font-serif text-[#EAE6DF] leading-tight">Sekwencja <br/><span className="italic font-light text-[#C6A87C]">Wdrożeniowa.</span></p>
             </div>
-            <div className="text-[9px] font-mono text-[#EAE6DF]/30 tracking-[0.3em] uppercase mt-6 md:mt-0">
-              Wdrażanie architektury klasy przemysłowej
+            <div className="text-[10px] font-mono text-[#EAE6DF]/20 tracking-[0.4em] uppercase mt-8 md:mt-0">
+              Technical Standards v2.0
             </div>
           </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-1px bg-[#C6A87C]/10">
           {steps.map((step, i) => (
-            <FadeIn key={i} delay={i * 200} className="relative bg-[#030404]/80 backdrop-blur-sm border border-[#C6A87C]/20 p-10 group hover:bg-[#080A09] transition-colors duration-700 interactive-element">
-              <Crosshair className="top-2 left-2 opacity-10 group-hover:opacity-50 transition-opacity" />
-              <Crosshair className="bottom-2 right-2 opacity-10 group-hover:opacity-50 transition-opacity" />
+            <FadeIn key={i} delay={i * 200} className="relative bg-[#050606] p-16 group hover:bg-[#090b0a] transition-all duration-700 interactive-element">
+              <div className="absolute top-0 left-0 w-full h-[2px] bg-[#C6A87C] scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
               
-              <div className="font-serif text-6xl text-[#C6A87C]/10 absolute right-6 top-6 italic group-hover:text-[#C6A87C]/20 transition-colors duration-700">{step.num}</div>
-              
-              <div className="w-12 h-12 border-[0.5px] border-[#C6A87C]/30 rounded-full flex items-center justify-center mb-10 bg-[#030404]">
-                <div className="w-2 h-2 bg-[#C6A87C] rounded-full group-hover:animate-ping"></div>
+              <div className="font-serif text-8xl text-[#C6A87C]/5 absolute right-12 top-12 italic group-hover:text-[#C6A87C]/10 transition-all duration-700">
+                {step.num}
               </div>
               
-              <h3 className="font-mono text-[11px] tracking-[0.3em] text-[#C6A87C] uppercase mb-6">{step.title}</h3>
-              <p className="font-serif font-light text-[#EAE6DF]/50 leading-relaxed text-lg">{step.desc}</p>
+              <div className="w-14 h-14 border border-[#C6A87C]/20 rounded-xl flex items-center justify-center mb-12 bg-[#020202] group-hover:border-[#C6A87C]/50 transition-colors">
+                <ChevronRight className="w-6 h-6 text-[#C6A87C]" strokeWidth={1} />
+              </div>
+              
+              <h3 className="font-mono text-xs tracking-[0.4em] text-[#C6A87C] uppercase mb-8">{step.title}</h3>
+              <p className="font-serif font-light text-[#EAE6DF]/50 leading-relaxed text-xl italic">{step.desc}</p>
+              
+              <div className="mt-12 flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <span className="w-1.5 h-1.5 bg-[#4ADE80] rounded-full"></span>
+                <span className="font-mono text-[7px] text-[#4ADE80] tracking-[0.2em] uppercase">Verified Phase</span>
+              </div>
             </FadeIn>
           ))}
         </div>
@@ -531,65 +692,98 @@ const ContractModels = () => {
 };
 
 const FeedstockMatrix = () => {
-  const [hoveredRow, setHoveredRow] = useState(null);
+  const [hoveredRow, setHoveredRow] = useState(0);
 
   const substrates = [
-    { name: "Gnojowica Bydlęca", category: "Odpad Rolniczy", yield: "~ 25 m³/t", ch4: "55-60%" },
-    { name: "Obornik Świński", category: "Odpad Rolniczy", yield: "~ 60 m³/t", ch4: "60-65%" },
-    { name: "Kiszonka Kukurydzy", category: "Uprawa Celowa", yield: "~ 200 m³/t", ch4: "52-55%" },
-    { name: "Wysłodki Buraczane", category: "Odpad Przemysłowy", yield: "~ 120 m³/t", ch4: "50-55%" },
-    { name: "Odpady Poubojowe", category: "Odpad Przemysłowy", yield: "~ 300 m³/t", ch4: "65-70%" }
+    { id: "MTRL-01", name: "Gnojowica Bydlęca", category: "Odpad Rolniczy", yield: "25", ch4: "58", temp: "38°C" },
+    { id: "MTRL-02", name: "Obornik Świński", category: "Odpad Rolniczy", yield: "60", ch4: "62", temp: "42°C" },
+    { id: "MTRL-03", name: "Kiszonka Kukurydzy", category: "Uprawa Celowa", yield: "210", ch4: "54", temp: "40°C" },
+    { id: "MTRL-04", name: "Wysłodki Buraczane", category: "Odpad Przemysłowy", yield: "125", ch4: "52", temp: "39°C" },
+    { id: "MTRL-05", name: "Odpady Poubojowe", category: "Odpad Przemysłowy", yield: "320", ch4: "68", temp: "45°C" }
   ];
 
   return (
-    <section className="py-40 bg-[#050606] border-t border-[#C6A87C]/10 relative overflow-hidden">
+    <section className="py-48 bg-[#050606] border-t border-[#C6A87C]/10 relative overflow-hidden">
+      <div className="absolute inset-0 technical-grid opacity-5"></div>
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <FadeIn>
-          <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-20">
-            <div className="max-w-xl">
-              <h2 className="font-mono text-[#C6A87C] text-[10px] tracking-[0.4em] uppercase mb-6">Parametryzacja Wsadu</h2>
-              <h3 className="text-4xl md:text-5xl font-serif text-[#EAE6DF] leading-[1.1]">
-                Macierz <span className="italic font-light text-[#C6A87C]">Substratów.</span>
+          <div className="flex flex-col lg:flex-row justify-between items-end gap-16 mb-32 border-b border-[#C6A87C]/10 pb-16">
+            <div className="max-w-2xl">
+              <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
+                <span className="w-1.5 h-1.5 bg-[#C6A87C] rounded-full animate-pulse"></span>
+                Laboratorium Surowcowe
+              </h2>
+              <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] font-light">
+                Macierz <br/><span className="italic text-[#C6A87C] font-normal">Substratów.</span>
               </h3>
             </div>
-            <p className="text-[#EAE6DF]/40 font-serif italic text-lg font-light max-w-sm">
-              Każda instalacja jest indywidualnie kalibrowana. Wydajność reaktora zależy od precyzyjnej receptury i właściwości biochemicznych Twojej biomasy.
+            <p className="text-[#EAE6DF]/40 font-serif italic text-2xl font-light max-w-sm leading-relaxed text-right">
+              Precyzyjna kalibracja reaktora pod kątem charakterystyki fizykochemicznej wsadu.
             </p>
           </div>
         </FadeIn>
 
-        <div className="border-t-[0.5px] border-[#C6A87C]/30 flex flex-col w-full relative">
-          {substrates.map((sub, i) => (
-            <div 
-              key={i}
-              className="group border-b-[0.5px] border-[#C6A87C]/10 relative interactive-element"
-              onMouseEnter={() => setHoveredRow(i)}
-              onMouseLeave={() => setHoveredRow(null)}
-            >
-              <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-[#C6A87C]/5 to-transparent transition-opacity duration-500 pointer-events-none ${hoveredRow === i ? 'opacity-100' : 'opacity-0'}`}></div>
-              
-              <div className={`relative z-10 py-10 flex flex-col md:flex-row md:items-center justify-between gap-6 px-4 transition-all duration-500 ${hoveredRow !== null && hoveredRow !== i ? 'opacity-30 blur-[2px] scale-[0.98]' : 'opacity-100 scale-100'}`}>
-                <div className="flex items-center gap-10 md:w-1/2">
-                  <span className="font-mono text-[#C6A87C]/30 text-xs w-8">0{i+1}</span>
-                  <div>
-                    <h4 className="font-serif text-4xl md:text-5xl text-[#EAE6DF] font-light mb-2">{sub.name}</h4>
-                    <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#EAE6DF]/50">{sub.category}</span>
+        <div className="grid lg:grid-cols-12 gap-20">
+          <div className="lg:col-span-7 flex flex-col gap-2">
+            {substrates.map((sub, i) => (
+              <div 
+                key={i}
+                className={`group relative p-10 cursor-pointer transition-all duration-700 rounded-3xl ${hoveredRow === i ? 'glass-morphism border-[#C6A87C]/30' : 'border border-transparent opacity-40 hover:opacity-100'}`}
+                onMouseEnter={() => setHoveredRow(i)}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-10">
+                    <span className="font-mono text-[#C6A87C]/40 text-xs">{sub.id}</span>
+                    <h4 className="font-serif text-4xl text-[#EAE6DF] font-light group-hover:translate-x-4 transition-transform duration-500">{sub.name}</h4>
                   </div>
-                </div>
-                
-                <div className="flex items-center gap-12 md:w-1/2 md:justify-end">
-                  <div className="text-left md:text-right">
-                    <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#C6A87C] mb-2">Uzysk Biogazu (świeża masa)</p>
-                    <p className="font-serif text-2xl text-[#EAE6DF] italic">{sub.yield}</p>
-                  </div>
-                  <div className="text-left md:text-right w-24">
-                    <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#C6A87C] mb-2">Zawartość CH4</p>
-                    <p className="font-serif text-2xl text-[#EAE6DF] italic">{sub.ch4}</p>
+                  <div className="hidden md:flex gap-12">
+                     <div className="text-right">
+                        <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.2em] mb-1 uppercase">Uzysk Biogazu</div>
+                        <div className="font-serif text-2xl text-[#EAE6DF] italic">{sub.yield} <span className="text-sm opacity-30">m³/t</span></div>
+                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <div className="lg:col-span-5 sticky top-40 h-fit">
+             <div className="glass-morphism p-12 rounded-[3rem] relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-8 opacity-5">
+                   <Leaf className="w-32 h-32 text-[#C6A87C]" strokeWidth={0.5} />
+                </div>
+                
+                <h5 className="font-mono text-[9px] text-[#C6A87C] tracking-[0.4em] uppercase mb-12 border-b border-[#C6A87C]/20 pb-4">Analiza Detaliczna: {substrates[hoveredRow].id}</h5>
+                
+                <div className="space-y-12">
+                   <div>
+                      <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase mb-4">Kategoria Materiału</div>
+                      <div className="font-serif text-3xl text-[#EAE6DF] italic">{substrates[hoveredRow].category}</div>
+                   </div>
+                   
+                   <div className="grid grid-cols-2 gap-12">
+                      <div>
+                         <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase mb-4">Zawartość CH4</div>
+                         <div className="font-serif text-5xl text-[#C6A87C] font-light">{substrates[hoveredRow].ch4}<span className="text-xl">%</span></div>
+                      </div>
+                      <div>
+                         <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase mb-4">Temp. Procesu</div>
+                         <div className="font-serif text-5xl text-[#C6A87C] font-light">{substrates[hoveredRow].temp}</div>
+                      </div>
+                   </div>
+
+                   <div className="pt-8 border-t border-[#C6A87C]/10">
+                      <div className="flex justify-between items-center mb-4">
+                         <span className="font-mono text-[8px] text-[#EAE6DF]/40 uppercase tracking-[0.2em]">Potencjał Energetyczny</span>
+                         <span className="font-mono text-[8px] text-[#4ADE80] uppercase tracking-[0.2em]">Wysoki</span>
+                      </div>
+                      <div className="h-1 w-full bg-[#020202] rounded-full overflow-hidden">
+                         <div className="h-full bg-[#C6A87C] transition-all duration-1000 ease-out" style={{ width: `${(substrates[hoveredRow].ch4 / 80) * 100}%` }}></div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
         </div>
       </div>
     </section>
@@ -598,66 +792,72 @@ const FeedstockMatrix = () => {
 
 const EconomicsSection = () => {
   return (
-    <section id="ekonomia" className="relative py-40 bg-[#010101] overflow-hidden border-t border-[#C6A87C]/10">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute w-full h-[1px] top-[20%] bg-[#C6A87C]/10"></div>
-        <div className="absolute w-full h-[1px] top-[40%] bg-[#C6A87C]/10"></div>
-        <div className="absolute w-full h-[1px] top-[60%] bg-[#C6A87C]/10"></div>
-        <div className="absolute w-full h-[1px] top-[80%] bg-[#C6A87C]/10"></div>
-        <div className="absolute h-full w-[1px] left-[20%] bg-[#C6A87C]/5"></div>
-        <div className="absolute h-full w-[1px] left-[50%] bg-[#C6A87C]/5"></div>
-        <div className="absolute h-full w-[1px] left-[80%] bg-[#C6A87C]/5"></div>
-      </div>
+    <section id="ekonomia" className="relative py-48 bg-[#010101] overflow-hidden border-t border-[#C6A87C]/10">
+      <div className="absolute inset-0 technical-grid opacity-10"></div>
 
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-32 items-center">
           <FadeIn direction="right">
-            <div className="font-mono text-[#C6A87C] text-[10px] tracking-[0.4em] uppercase mb-8 border-l border-[#C6A87C] pl-4">Inżynieria Finansowa</div>
-            <h2 className="text-5xl md:text-7xl font-serif text-[#EAE6DF] leading-[1.05] mb-10">
-              Zwrot z <br/>
-              <span className="italic text-[#C6A87C] font-light">inwestycji.</span>
+            <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Financial Engineering</div>
+            <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[1] mb-12 font-light">
+              Analiza <br/>
+              <span className="italic text-[#C6A87C] font-normal">rentowności.</span>
             </h2>
-            <p className="text-[#EAE6DF]/50 font-light text-xl leading-relaxed mb-12 font-serif italic">
-              Biogazownia to nie tylko utylizacja odpadów. To przewidywalne, potrójne źródło przychodu dla Twojego przedsiębiorstwa rolnego lub komunalnego.
+            <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
+              Modelujemy zwrot z kapitału w oparciu o realne aukcje OZE i optymalizację zużycia własnego. Biogazownia to fabryka zysku działająca 8000h rocznie.
             </p>
             
-            <div className="space-y-8 border-t-[0.5px] border-[#C6A87C]/20 pt-12">
+            <div className="space-y-10">
               {[
-                { title: "Energia Elektryczna", desc: "Sprzedaż do sieci z gwarantowaną ceną (aukcje OZE) lub zasilanie własnego zakładu.", val: "65%" },
-                { title: "Energia Cieplna", desc: "Darmowe ciepło do ogrzewania budynków, suszarni lub sprzedaży do lokalnej sieci ciepłowniczej.", val: "25%" },
-                { title: "Wysokiej Klasy Nawóz", desc: "Poferment to znakomity, bezwonny nawóz zastępujący drogie nawozy sztuczne.", val: "10%" }
+                { title: "Przychód Elektryczny", desc: "Aukcje OZE lub PPA. Stabilna cena zakontraktowana na 15 lat.", val: "70%" },
+                { title: "Energia Termiczna", desc: "Odzysk ciepła z chłodzenia silników i spalin. Zero kosztów ogrzewania.", val: "20%" },
+                { title: "Substytucja Nawozów", desc: "Poferment jako darmowa alternatywa dla mocznika i fosforanów.", val: "10%" }
               ].map((item, i) => (
-                <div key={i} className="flex justify-between items-start group">
-                  <div className="max-w-sm">
-                    <h4 className="font-serif text-2xl text-[#EAE6DF] mb-2">{item.title}</h4>
-                    <p className="font-mono text-[9px] tracking-widest text-[#EAE6DF]/40 uppercase leading-loose">{item.desc}</p>
+                <div key={i} className="flex justify-between items-start group border-b border-[#C6A87C]/10 pb-8 last:border-0">
+                  <div className="max-w-md">
+                    <h4 className="font-serif text-3xl text-[#EAE6DF] mb-3 font-light">{item.title}</h4>
+                    <p className="font-mono text-[8px] tracking-[0.3em] text-[#EAE6DF]/30 uppercase leading-loose">{item.desc}</p>
                   </div>
-                  <div className="font-serif text-3xl text-[#C6A87C] italic opacity-50 group-hover:opacity-100 transition-opacity">{item.val}</div>
+                  <div className="font-serif text-4xl text-[#C6A87C] italic opacity-40 group-hover:opacity-100 transition-all duration-500 group-hover:translate-x-[-10px]">{item.val}</div>
                 </div>
               ))}
             </div>
           </FadeIn>
 
-          <FadeIn direction="left" className="relative h-full min-h-[400px] flex items-center justify-center">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(198,168,124,0.1)_0%,transparent_70%)]"></div>
-            <svg className="w-full h-auto drop-shadow-[0_0_20px_rgba(198,168,124,0.3)]" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 250 Q 100 250, 150 200 T 300 150 T 500 50" stroke="#C6A87C" strokeWidth="2" strokeDasharray="1000" strokeDashoffset="0">
-                <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="4s" fill="freeze" repeatCount="indefinite" />
-              </path>
-              <path d="M0 250 Q 100 250, 150 200 T 300 150 T 500 50 L 500 300 L 0 300 Z" fill="url(#gradient)" opacity="0.1" />
-              <defs>
-                <linearGradient id="gradient" x1="250" y1="50" x2="250" y2="300" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#C6A87C" />
-                  <stop offset="1" stopColor="#C6A87C" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              <circle cx="150" cy="200" r="4" fill="#030404" stroke="#C6A87C" strokeWidth="2" />
-              <circle cx="300" cy="150" r="4" fill="#030404" stroke="#C6A87C" strokeWidth="2" />
-              <circle cx="500" cy="50" r="6" fill="#C6A87C" className="animate-pulse" />
-            </svg>
-            <div className="absolute right-0 top-10 border-[0.5px] border-[#C6A87C]/30 bg-[#030404]/80 backdrop-blur-md px-6 py-4">
-              <div className="font-mono text-[8px] text-[#EAE6DF]/50 uppercase tracking-[0.3em] mb-2">Szacowany CAPEX Payback</div>
-              <div className="font-serif text-4xl text-[#C6A87C]">5-7 <span className="text-xl text-[#C6A87C]/50 italic">lat</span></div>
+          <FadeIn direction="left" className="relative">
+            <div className="glass-morphism p-12 rounded-[3rem] relative overflow-hidden group">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(198,168,124,0.1)_0%,transparent_70%)]"></div>
+              
+              <div className="flex justify-between items-center mb-16">
+                <span className="font-mono text-[9px] text-[#C6A87C] tracking-[0.4em] uppercase">Cash Flow Projection</span>
+                <span className="font-mono text-[8px] text-[#EAE6DF]/30 uppercase">v3.4 Final</span>
+              </div>
+
+              <div className="h-64 relative flex items-end gap-2 mb-16">
+                 {[...Array(12)].map((_, i) => (
+                   <div 
+                     key={i} 
+                     className="flex-1 bg-gradient-to-t from-[#C6A87C] to-[#C6A87C]/40 group-hover:opacity-100 transition-all duration-700"
+                     style={{ 
+                       height: `${30 + (i * 5)}%`, 
+                       opacity: 0.3 + (i * 0.05),
+                       transitionDelay: `${i * 50}ms`
+                     }}
+                   ></div>
+                 ))}
+                 <div className="absolute top-0 left-0 w-full h-[1px] bg-[#C6A87C]/20 border-dashed border-b"></div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-8">
+                <div className="bg-[#020202]/50 p-8 border border-[#C6A87C]/10 rounded-2xl">
+                   <div className="font-mono text-[8px] text-[#EAE6DF]/30 uppercase tracking-[0.3em] mb-4">Payback Period</div>
+                   <div className="font-serif text-5xl text-[#C6A87C] font-light">5.2 <span className="text-xl text-[#C6A87C]/40 italic">lat</span></div>
+                </div>
+                <div className="bg-[#020202]/50 p-8 border border-[#C6A87C]/10 rounded-2xl">
+                   <div className="font-mono text-[8px] text-[#EAE6DF]/30 uppercase tracking-[0.3em] mb-4">Internal Rate (IRR)</div>
+                   <div className="font-serif text-5xl text-[#C6A87C] font-light">18.4 <span className="text-xl text-[#C6A87C]/40 italic">%</span></div>
+                </div>
+              </div>
             </div>
           </FadeIn>
         </div>
@@ -668,38 +868,38 @@ const EconomicsSection = () => {
 
 const SmartGrid = () => {
   return (
-    <section className="py-40 bg-[#020202] border-t border-[#C6A87C]/10 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(198,168,124,0.05)_0%,transparent_60%)] pointer-events-none"></div>
+    <section className="py-48 bg-[#020202] border-t border-[#C6A87C]/10 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(198,168,124,0.03)_0%,transparent_70%)] pointer-events-none"></div>
       
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <FadeIn>
-          <div className="text-center mb-32">
-            <h2 className="font-mono text-[#C6A87C] text-[10px] tracking-[0.4em] uppercase mb-6">Dystrybucja Zysków</h2>
-            <h3 className="text-5xl md:text-7xl font-serif text-[#EAE6DF] leading-[1.05]">
-              Węzeł <span className="italic font-light text-[#C6A87C]">Integracyjny.</span>
+          <div className="text-center mb-40">
+            <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 flex items-center justify-center gap-4">
+              <Zap className="w-4 h-4" /> Dystrybucja i Integracja
+            </h2>
+            <h3 className="text-6xl md:text-9xl font-serif text-[#EAE6DF] leading-[0.9] font-light">
+              Węzeł <br/><span className="italic text-[#C6A87C] font-normal">Systemowy.</span>
             </h3>
           </div>
         </FadeIn>
 
-        <div className="relative max-w-5xl mx-auto">
-           <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#C6A87C]/20 -translate-y-1/2 hidden md:block"></div>
-           <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C6A87C] to-transparent -translate-y-1/2 opacity-50 hidden md:block animate-[pulse_3s_ease-in-out_infinite]"></div>
+        <div className="relative max-w-6xl mx-auto">
+           <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#C6A87C]/30 to-transparent -translate-y-1/2 hidden md:block"></div>
            
-           <div className="grid md:grid-cols-3 gap-16 md:gap-8 relative z-10">
+           <div className="grid md:grid-cols-3 gap-12 relative z-10">
              {[
-               { icon: <Zap className="w-6 h-6" />, title: "Smart Grid", desc: "Sprzedaż nadwyżek energii elektrycznej do sieci krajowej w godzinach szczytowego zapotrzebowania.", val: "1.2 MW" },
-               { icon: <Factory className="w-6 h-6" />, title: "Ciepło Systemowe", desc: "Zasilanie lokalnych sieci ciepłowniczych lub własnych suszarni rolniczych darmowym ciepłem odpadowym.", val: "1.3 MWt" },
-               { icon: <Leaf className="w-6 h-6" />, title: "Rynek Nawozów", desc: "Dystrybucja certyfikowanego, organicznego pofermentu do okolicznych gospodarstw rolnych.", val: "22 t/doba" }
+               { icon: <Zap className="w-8 h-8" />, title: "Smart Grid", desc: "Zautomatyzowana sprzedaż nadwyżek energii w oparciu o algorytmy Peak Shaving i spotowe ceny energii.", val: "1.2 MW" },
+               { icon: <Factory className="w-8 h-8" />, title: "Ciepło Systemowe", desc: "Redukcja kosztów operacyjnych poprzez zasilanie lokalnej infrastruktury darmową energią cieplną.", val: "1.3 MWt" },
+               { icon: <Leaf className="w-8 h-8" />, title: "Cyrkulacja Nawozów", desc: "Zamknięcie obiegu pierwiastków poprzez dystrybucję stabilizowanego, bezzapachowego pofermentu.", val: "22 t/d" }
              ].map((node, i) => (
-                <FadeIn key={i} delay={i * 200} className={`bg-[#050606] border-[0.5px] border-[#C6A87C]/30 p-10 flex flex-col items-center text-center relative group hover:border-[#C6A87C] transition-colors duration-500 interactive-element ${i === 1 ? 'md:-translate-y-12' : 'md:translate-y-12'}`}>
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(198,168,124,0.05)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                  <div className="w-16 h-16 rounded-full border-[0.5px] border-[#C6A87C]/50 flex items-center justify-center mb-8 bg-[#030404] text-[#C6A87C] group-hover:scale-110 transition-transform duration-500">
+                <FadeIn key={i} delay={i * 200} className={`glass-morphism p-12 flex flex-col items-center text-center group hover:border-[#C6A87C]/60 transition-all duration-700 interactive-element rounded-[3rem] ${i === 1 ? 'md:-translate-y-20' : 'md:translate-y-20'}`}>
+                  <div className="w-24 h-24 rounded-full border border-[#C6A87C]/20 flex items-center justify-center mb-10 bg-[#020202] text-[#C6A87C] group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(198,168,124,0.2)] transition-all duration-700">
                     {node.icon}
                   </div>
-                  <h4 className="font-serif text-2xl text-[#EAE6DF] mb-4">{node.title}</h4>
-                  <p className="font-mono text-[9px] tracking-widest leading-loose text-[#EAE6DF]/40 uppercase mb-8">{node.desc}</p>
-                  <div className="mt-auto border-t-[0.5px] border-[#EAE6DF]/10 pt-6 w-full">
-                    <span className="font-serif text-3xl italic text-[#C6A87C]">{node.val}</span>
+                  <h4 className="font-serif text-3xl text-[#EAE6DF] mb-6 font-light">{node.title}</h4>
+                  <p className="font-mono text-[9px] tracking-widest leading-loose text-[#EAE6DF]/40 uppercase mb-12">{node.desc}</p>
+                  <div className="mt-auto border-t border-[#C6A87C]/10 pt-8 w-full">
+                    <span className="font-serif text-4xl italic text-[#C6A87C]">{node.val}</span>
                   </div>
                 </FadeIn>
              ))}
@@ -821,31 +1021,34 @@ const ProjectsGallery = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const projects = [
-    { title: "Biogazownia Rolnicza", spec: "1.2 MW / Gnojowica i kiszonka", img: "https://images.unsplash.com/photo-1534073133331-c4b62a557083?q=80&w=2000&auto=format&fit=crop" },
-    { title: "Zakład Komunalny", spec: "0.5 MW / Odpady Bio", img: "https://images.unsplash.com/photo-1506501139174-099022df5260?q=80&w=2000&auto=format&fit=crop" },
-    { title: "Instalacja Przemysłowa", spec: "2.0 MW / Odpad poubojowy", img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2000&auto=format&fit=crop" }
+    { title: "Plant Alpha-01", spec: "1.2 MW / Gnojowica i kiszonka", location: "Wielkopolska, PL", img: "/Users/stan/.gemini/antigravity/brain/906f4f99-9a59-4b7a-b50b-3a2631808779/biogas_plant_cinematic_1778349683317.png" },
+    { title: "BioHub Komunalny", spec: "0.5 MW / Odpady Miejskie", location: "Mazowsze, PL", img: "https://images.unsplash.com/photo-1506501139174-099022df5260?q=80&w=2000&auto=format&fit=crop" },
+    { title: "Industrial V3", spec: "2.0 MW / Odpady Przemysłowe", location: "Śląsk, PL", img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2000&auto=format&fit=crop" }
   ];
 
   return (
-    <section id="realizacje" className="relative py-40 bg-[#030404] border-t border-[#C6A87C]/10 min-h-screen flex items-center overflow-hidden transition-colors duration-1000">
+    <section id="realizacje" className="relative py-48 bg-[#030404] border-t border-[#C6A87C]/10 min-h-screen flex items-center overflow-hidden">
       {projects.map((proj, i) => (
         <div 
           key={i} 
-          className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out pointer-events-none"
+          className="absolute inset-0 transition-all duration-1000 ease-in-out pointer-events-none"
           style={{ 
-            backgroundImage: `url(${proj.img})`, 
-            opacity: activeIndex === i ? 0.3 : 0,
-            filter: 'grayscale(50%)'
+            opacity: activeIndex === i ? 0.4 : 0,
+            transform: `scale(${activeIndex === i ? 1 : 1.1})`,
+            zIndex: activeIndex === i ? 1 : 0
           }}
-        ></div>
+        >
+          <img src={proj.img} className="w-full h-full object-cover grayscale mix-blend-luminosity" alt={proj.title} />
+        </div>
       ))}
-      <div className="absolute inset-0 bg-[#030404]/60 mix-blend-multiply pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#030404] via-[#030404]/80 to-transparent z-[2]"></div>
 
       <div className="max-w-[100rem] mx-auto px-8 relative z-10 w-full">
         <FadeIn>
-          <div className="mb-20">
-            <h2 className="font-mono text-[#C6A87C] text-[10px] tracking-[0.4em] uppercase mb-4">Indeks Infrastruktury</h2>
-            <div className="w-12 h-[1px] bg-[#C6A87C]/50"></div>
+          <div className="mb-32 flex items-center gap-12">
+            <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase">Indeks Infrastruktury</h2>
+            <div className="flex-1 h-[1px] bg-[#C6A87C]/10"></div>
+            <span className="font-mono text-[9px] text-[#C6A87C] tracking-[0.4em]">ACT_IDX: 0{activeIndex + 1}</span>
           </div>
         </FadeIn>
 
@@ -853,20 +1056,24 @@ const ProjectsGallery = () => {
           {projects.map((proj, i) => (
             <FadeIn key={i} delay={i * 100}>
               <div 
-                className="group border-b border-[#EAE6DF]/10 py-12 md:py-16 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6 interactive-element"
+                className="group border-b border-[#C6A87C]/10 py-16 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-12 interactive-element"
                 onMouseEnter={() => setActiveIndex(i)}
-                onFocus={() => setActiveIndex(i)}
-                onClick={() => setActiveIndex(i)}
               >
-                <h3 className="text-5xl md:text-7xl lg:text-[6rem] font-serif font-light text-outline text-outline-hover transition-all duration-500 uppercase tracking-tight">
-                  {proj.title}
-                </h3>
-                <div className="flex items-center gap-6 opacity-40 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="relative">
+                  <span className="absolute -left-12 top-0 font-mono text-[10px] text-[#C6A87C]/40">0{i+1}</span>
+                  <h3 className={`text-6xl md:text-9xl font-serif font-light transition-all duration-700 uppercase tracking-tighter ${activeIndex === i ? 'text-[#EAE6DF] translate-x-8' : 'text-outline opacity-30 hover:opacity-100'}`}>
+                    {proj.title}
+                  </h3>
+                </div>
+                
+                <div className={`flex items-center gap-12 transition-all duration-700 ${activeIndex === i ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
                   <div className="text-right">
-                    <p className="font-mono text-[10px] tracking-[0.3em] text-[#C6A87C] uppercase mb-1">Moc / Substrat</p>
-                    <p className="font-serif text-xl text-[#EAE6DF] italic">{proj.spec}</p>
+                    <p className="font-mono text-[8px] tracking-[0.3em] text-[#C6A87C] uppercase mb-2">Location // Specs</p>
+                    <p className="font-serif text-2xl text-[#EAE6DF] italic">{proj.location} — {proj.spec}</p>
                   </div>
-                  <ArrowUpRight className="w-10 h-10 text-[#C6A87C] transform group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-500" strokeWidth={1} />
+                  <div className="w-16 h-16 rounded-full border border-[#C6A87C] flex items-center justify-center group-hover:bg-[#C6A87C] group-hover:text-[#030404] transition-all">
+                    <ArrowUpRight className="w-6 h-6" strokeWidth={1} />
+                  </div>
                 </div>
               </div>
             </FadeIn>
@@ -939,125 +1146,96 @@ const EditorialBento = () => {
 };
 
 const TechStack = () => {
-  const technologies = [
-    { cat: "Kogeneracja (CHP)", brand: "Premium OEM", spec: "Sprawność elektryczna >43%. Praca w reżimie ciągłym." },
-    { cat: "Systemy Pompowe", brand: "Wangen / Netzsch", spec: "Pompy wyporowe śrubowe, odporne na materiały ścierne." },
-    { cat: "Magazynowanie Gazu", brand: "Sattler", spec: "Podwójne membrany EPDM o wysokiej gęstości z systemem kompensacji." },
-    { cat: "Mieszadła", brand: "Suma / Flygt", spec: "Zatapialne i wolnoobrotowe. Pełna certyfikacja ATEX Strefa 1/2." },
-    { cat: "Automatyka", brand: "Siemens S7", spec: "Architektura redundantna. Niezawodność sterowania przemysłowego." },
-    { cat: "Analiza Gazu", brand: "Awite", spec: "Ciągła telemetria spektrometryczna: CH4, H2S, O2, CO2." }
-  ];
-
   return (
-    <section className="py-40 bg-[#050606] border-t border-[#C6A87C]/10 relative overflow-hidden">
-      <div className="absolute inset-0 bg-blueprint z-0 opacity-20"></div>
-      
+    <section className="py-48 bg-[#020202] border-t border-[#C6A87C]/10 relative overflow-hidden">
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
-        <FadeIn>
-          <div className="mb-24">
-            <h2 className="font-mono text-[#C6A87C] text-[10px] tracking-[0.4em] uppercase mb-4">Hardware & Komponenty</h2>
-            <div className="flex flex-col md:flex-row justify-between items-end gap-10 border-b-[0.5px] border-[#C6A87C]/20 pb-8">
-              <h3 className="text-4xl md:text-5xl font-serif text-[#EAE6DF]">
-                Stos <span className="italic font-light text-[#C6A87C]">Technologiczny.</span>
-              </h3>
-              <p className="text-[#EAE6DF]/50 text-lg font-serif italic max-w-sm leading-relaxed text-right">
-                Niezawodność to wypadkowa użytych części. Stosujemy wyłącznie europejski sprzęt klasy Tier-1.
-              </p>
-            </div>
-          </div>
-        </FadeIn>
+        <div className="text-center mb-32">
+           <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10">Hardware Stack // Tier-1</h2>
+           <h3 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.9] font-light italic">Technologie <span className="text-[#C6A87C] not-italic">pancerne.</span></h3>
+        </div>
+        
+        <div className="grid md:grid-cols-4 gap-8">
+           {[
+             { name: "Sielens", role: "Pumping Systems", img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000&auto=format&fit=crop" },
+             { name: "Jenbacher", role: "CHP Generators", img: "https://images.unsplash.com/photo-1542124382-e69a27177e96?q=80&w=1000&auto=format&fit=crop" },
+             { name: "Wangen", role: "Progressing Cavity", img: "https://images.unsplash.com/photo-1535813548-6601f6d0f983?q=80&w=1000&auto=format&fit=crop" },
+             { name: "ABB", role: "Automation & Control", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" }
+           ].map((tech, i) => (
+             <FadeIn key={i} delay={i * 100} className="group relative aspect-square glass-morphism rounded-3xl overflow-hidden interactive-element">
+                <img src={tech.img} className="absolute inset-0 w-full h-full object-cover grayscale opacity-20 group-hover:opacity-40 transition-all duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 p-10 flex flex-col justify-end">
+                   <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] uppercase mb-2">{tech.role}</div>
+                   <div className="font-serif text-3xl text-[#EAE6DF] font-light">{tech.name}</div>
+                </div>
+             </FadeIn>
+           ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-[0.5px] border-[#C6A87C]/20 bg-[#030404]/80 backdrop-blur-md">
-          {technologies.map((tech, i) => (
-            <FadeIn key={i} delay={i * 100} className="border-[0.5px] border-[#C6A87C]/10 p-10 group hover:bg-[#080A09] transition-colors duration-500 interactive-element">
-              <div className="font-mono text-[9px] tracking-[0.3em] text-[#C6A87C]/60 uppercase mb-6 flex items-center gap-3">
-                <span className="w-1 h-1 bg-[#C6A87C] rounded-full"></span>
-                {tech.cat}
-              </div>
-              <h4 className="font-serif text-3xl text-[#EAE6DF] mb-4 font-light">{tech.brand}</h4>
-              <p className="font-mono text-[10px] tracking-widest text-[#EAE6DF]/40 uppercase leading-loose">{tech.spec}</p>
-            </FadeIn>
-          ))}
+const ScadaSystem = () => {
+  return (
+    <section className="py-48 bg-[#050606] relative overflow-hidden border-t border-[#C6A87C]/10">
+      <div className="absolute inset-0 technical-grid opacity-10"></div>
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-32 items-center">
+          <FadeIn direction="right">
+            <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Software Infrastructure</div>
+            <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] mb-12 font-light italic">
+              Cyfrowy <br/><span className="text-[#C6A87C] not-italic">bliźniak.</span>
+            </h2>
+            <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
+              Nasz system SCADA to mózg instalacji. Przetwarza tysiące zmiennych na sekundę, optymalizując proces fermentacji w czasie rzeczywistym.
+            </p>
+          </FadeIn>
+
+          <FadeIn direction="left" className="relative h-[600px] glass-morphism rounded-[3rem] overflow-hidden p-12">
+             <div className="absolute inset-0 bg-[#020202]/50 backdrop-blur-xl"></div>
+             <div className="relative z-10 h-full flex flex-col">
+                <div className="flex justify-between items-center mb-12">
+                   <div className="flex items-center gap-4">
+                      <div className="w-3 h-3 bg-[#4ADE80] rounded-full animate-pulse"></div>
+                      <span className="font-mono text-[9px] text-[#EAE6DF]/80 tracking-[0.3em] uppercase">Control System Online</span>
+                   </div>
+                   <span className="font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.3em]">REF: SCADA_V4.0</span>
+                </div>
+                
+                <div className="flex-1 grid grid-cols-6 gap-2 items-end">
+                   {[...Array(24)].map((_, i) => (
+                     <div 
+                       key={i} 
+                       className="bg-[#C6A87C]/20 border-t border-[#C6A87C]/40" 
+                       style={{ 
+                         height: `${30 + Math.random() * 60}%`,
+                         animation: `pulse ${1 + Math.random()}s infinite alternate`
+                       }}
+                     ></div>
+                   ))}
+                </div>
+                
+                <div className="mt-12 grid grid-cols-3 gap-8 pt-8 border-t border-[#C6A87C]/10">
+                   <div>
+                      <div className="font-mono text-[7px] text-[#EAE6DF]/30 uppercase mb-2">Gas Pressure</div>
+                      <div className="font-serif text-3xl text-[#EAE6DF]">14.2 <span className="text-xs italic text-[#C6A87C]">mbar</span></div>
+                   </div>
+                   <div>
+                      <div className="font-mono text-[7px] text-[#EAE6DF]/30 uppercase mb-2">Oxygen Level</div>
+                      <div className="font-serif text-3xl text-[#EAE6DF]">0.02 <span className="text-xs italic text-[#C6A87C]">%</span></div>
+                   </div>
+                   <div>
+                      <div className="font-mono text-[7px] text-[#EAE6DF]/30 uppercase mb-2">Motor Load</div>
+                      <div className="font-serif text-3xl text-[#EAE6DF]">84.1 <span className="text-xs italic text-[#C6A87C]">%</span></div>
+                   </div>
+                </div>
+             </div>
+          </FadeIn>
         </div>
       </div>
     </section>
   );
 };
-
-const ScadaSystem = () => {
-  return (
-    <section className="py-40 bg-[#030404] border-t border-[#C6A87C]/10 relative overflow-hidden">
-      <div className="absolute inset-0 scanline z-20 pointer-events-none opacity-50 mix-blend-overlay"></div>
-      
-      <div className="max-w-[100rem] mx-auto px-8 relative z-10 grid lg:grid-cols-2 gap-20 items-center">
-        <FadeIn direction="right">
-          <div className="font-mono text-[#C6A87C] text-[10px] tracking-[0.4em] uppercase mb-8 border-l border-[#C6A87C] pl-4">System SCADA</div>
-          <h2 className="text-5xl md:text-6xl font-serif text-[#EAE6DF] leading-[1.1] mb-8">
-            Nadzór <span className="italic text-[#C6A87C] font-light">absolutny.</span>
-          </h2>
-          <p className="text-[#EAE6DF]/60 font-light text-xl leading-relaxed mb-10 font-serif italic max-w-lg">
-            Sercem każdej wybudowanej przez nas instalacji jest centralny system sterowania. Zapomnij o ręcznym regulowaniu zaworów. Cały proces jest w pełni zautomatyzowany.
-          </p>
-          
-          <div className="grid grid-cols-2 gap-8 border-t-[0.5px] border-[#EAE6DF]/10 pt-10">
-            <div>
-              <Database className="text-[#C6A87C] w-6 h-6 mb-4" strokeWidth={1} />
-              <h4 className="font-serif text-2xl text-[#EAE6DF] mb-2">Automatyka</h4>
-              <p className="font-mono text-[9px] tracking-widest text-[#EAE6DF]/40 uppercase leading-loose">Samodzielne sterowanie pompami i mieszadłami na podstawie odczytów pH i temperatury.</p>
-            </div>
-            <div>
-              <Zap className="text-[#C6A87C] w-6 h-6 mb-4" strokeWidth={1} />
-              <h4 className="font-serif text-2xl text-[#EAE6DF] mb-2">Zdalny Dostęp</h4>
-              <p className="font-mono text-[9px] tracking-widest text-[#EAE6DF]/40 uppercase leading-loose">Podgląd wszystkich parametrów biogazowni z poziomu przeglądarki lub telefonu 24/7.</p>
-            </div>
-          </div>
-        </FadeIn>
-
-        <FadeIn direction="left" className="relative">
-          <div className="border-[0.5px] border-[#C6A87C]/30 bg-[#020202] p-6 shadow-[0_0_50px_rgba(198,168,124,0.05)] relative overflow-hidden group">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(198,168,124,0.08)_0%,transparent_80%)]"></div>
-            
-            <div className="flex justify-between items-center border-b-[0.5px] border-[#C6A87C]/20 pb-4 mb-8 relative z-10">
-              <span className="font-mono text-[10px] text-[#C6A87C] tracking-[0.3em] uppercase animate-pulse">Live Feed • Fermentator A</span>
-              <span className="font-mono text-[10px] text-[#EAE6DF]/40">SYS.ON</span>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4 relative z-10 mb-8">
-              <div className="bg-[#050606] border-[0.5px] border-[#C6A87C]/10 p-4">
-                <div className="font-mono text-[8px] text-[#EAE6DF]/30 uppercase tracking-[0.2em] mb-2">Temp. Wew.</div>
-                <div className="font-serif text-3xl text-[#EAE6DF]">42.1 <span className="text-sm text-[#C6A87C] italic">°C</span></div>
-              </div>
-              <div className="bg-[#050606] border-[0.5px] border-[#C6A87C]/10 p-4">
-                <div className="font-mono text-[8px] text-[#EAE6DF]/30 uppercase tracking-[0.2em] mb-2">Poziom CH4</div>
-                <div className="font-serif text-3xl text-[#EAE6DF]">58.4 <span className="text-sm text-[#C6A87C] italic">%</span></div>
-              </div>
-              <div className="bg-[#050606] border-[0.5px] border-[#C6A87C]/10 p-4">
-                <div className="font-mono text-[8px] text-[#EAE6DF]/30 uppercase tracking-[0.2em] mb-2">Ciśnienie Gazu</div>
-                <div className="font-serif text-3xl text-[#EAE6DF]">14.2 <span className="text-sm text-[#C6A87C] italic">mbar</span></div>
-              </div>
-              <div className="bg-[#050606] border-[0.5px] border-[#C6A87C]/10 p-4 relative overflow-hidden">
-                <div className="font-mono text-[8px] text-[#EAE6DF]/30 uppercase tracking-[0.2em] mb-2">Mieszadła</div>
-                <div className="font-serif text-2xl text-[#C6A87C] italic">Aktywne</div>
-                <div className="absolute right-4 bottom-4 w-2 h-2 bg-[#C6A87C] rounded-full animate-ping"></div>
-              </div>
-            </div>
-
-            <div className="h-24 border-[0.5px] border-[#C6A87C]/20 bg-[#030404] relative z-10 flex items-end gap-1 p-2">
-              {[...Array(40)].map((_, i) => (
-                <div 
-                  key={i} 
-                  className="flex-1 bg-[#C6A87C]/40 group-hover:bg-[#C6A87C] transition-colors duration-500" 
-                  style={{ height: `${Math.max(20, Math.random() * 100)}%`, animation: `pulse ${1 + Math.random() * 2}s infinite alternate` }}
-                ></div>
-              ))}
-            </div>
-          </div>
-        </FadeIn>
-      </div>
-    </section>
-  );
-};
-
 const ResearchAndDevelopment = () => {
   return (
     <section className="relative py-40 bg-[#020202] border-t border-[#C6A87C]/10 overflow-hidden">
@@ -1114,92 +1292,78 @@ const Leadership = () => {
       name: "Dział Konstrukcyjny", 
       exp: "Nadzór nad precyzją montażu izolacji termicznej i wylewek żelbetowych. Gwarancja sterylności środowiska.",
       img: "https://images.unsplash.com/photo-1541888087425-ce81df8219b7?q=80&w=1000&auto=format&fit=crop",
-      id: "ENG-01"
+      id: "AUTH_LVL_4",
+      clearance: "TOP SECRET // INDUSTRIAL"
     },
     { 
       role: "Główny Technolog OZE", 
       name: "Dział Biologiczny", 
       exp: "Eksperci od fermentacji metanowej. Parametryzacja środowiska pod kątem maksymalizacji uzysku z powierzonej biomasy.",
       img: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1000&auto=format&fit=crop",
-      id: "BIO-02"
+      id: "AUTH_LVL_4",
+      clearance: "TOP SECRET // BIOLOGIC"
     }
   ];
 
   return (
-    <section className="py-40 bg-[#030404] border-t border-[#C6A87C]/10 relative overflow-hidden">
-      <div className="absolute inset-0 bg-pinstripes opacity-50 z-0"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-[#030404] via-transparent to-[#030404] z-0"></div>
+    <section className="py-48 bg-[#020202] border-t border-[#C6A87C]/10 relative overflow-hidden">
+      <div className="absolute inset-0 technical-grid opacity-5"></div>
 
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <FadeIn>
-          <div className="mb-32 flex flex-col lg:flex-row lg:items-end justify-between gap-12 border-b-[0.5px] border-[#C6A87C]/20 pb-8">
+          <div className="mb-40 flex flex-col lg:flex-row lg:items-end justify-between gap-16 border-b border-[#C6A87C]/10 pb-16">
             <div>
-              <h2 className="text-[10px] font-mono tracking-[0.4em] text-[#C6A87C] uppercase mb-4">Ludzie & Beton</h2>
-              <p className="text-4xl md:text-5xl font-serif text-[#EAE6DF]">Nadzór <span className="italic font-light text-[#C6A87C]">Inżynierski</span></p>
+              <h2 className="text-[9px] font-mono tracking-[0.5em] text-[#C6A87C] uppercase mb-8">Personnel Index</h2>
+              <p className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] font-light">Nadzór <br/><span className="italic font-light text-[#C6A87C]">Weryfikowany.</span></p>
             </div>
-            <p className="text-[#EAE6DF]/50 text-lg font-serif italic max-w-md leading-relaxed">
-              Budowę biogazowni powierza się ekspertom, których doświadczenie mierzy się w megawatach i metrach sześciennych wylanego betonu.
+            <p className="text-[#EAE6DF]/40 text-2xl font-serif italic max-w-md leading-relaxed text-right">
+              Kadra inżynierska z uprawnieniami do projektowania instalacji o wysokim ryzyku gazowym.
             </p>
           </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-x-20 gap-y-24">
+        <div className="grid md:grid-cols-2 gap-32">
           {leaders.map((leader, i) => (
-            <FadeIn key={i} delay={i * 200} className={`group relative flex flex-col items-center md:items-start interactive-element ${i === 1 ? 'md:mt-32' : ''}`}>
-               <div className="absolute -left-10 md:-left-20 -top-20 font-serif text-[12rem] text-[#EAE6DF]/[0.02] italic font-light pointer-events-none group-hover:text-[#C6A87C]/5 transition-colors duration-1000 leading-none z-0">
-                 0{i+1}
-               </div>
-
-               <div className="aspect-[3/4] w-full max-w-[28rem] bg-[#050606] border-[0.5px] border-[#C6A87C]/20 relative overflow-hidden mb-12 grayscale group-hover:grayscale-0 transition-all duration-1000 z-10">
-                  <div className="absolute inset-0 bg-[#0A0C0B] opacity-60 group-hover:opacity-20 transition-opacity duration-1000 mix-blend-multiply z-10 pointer-events-none"></div>
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center opacity-70 group-hover:scale-105 group-hover:translate-x-4 transition-transform duration-500 ease-out z-0"
-                    style={{ backgroundImage: `url(${leader.img})` }}
-                  ></div>
+            <FadeIn key={i} delay={i * 200} className={`group relative flex flex-col interactive-element ${i === 1 ? 'md:mt-40' : ''}`}>
+               <div className="aspect-[4/5] w-full bg-[#050606] border border-[#C6A87C]/20 relative overflow-hidden mb-16 rounded-[2rem]">
+                  <img 
+                    src={leader.img} 
+                    className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[1.5s] group-hover:scale-110 opacity-40 group-hover:opacity-60"
+                    alt={leader.name}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-transparent to-transparent"></div>
                   
-                  <div className="absolute top-4 left-4 w-4 h-[0.5px] bg-[#C6A87C]/50 z-20"></div>
-                  <div className="absolute top-4 left-4 w-[0.5px] h-4 bg-[#C6A87C]/50 z-20"></div>
-                  <div className="absolute bottom-4 right-4 w-4 h-[0.5px] bg-[#C6A87C]/50 z-20"></div>
-                  <div className="absolute bottom-4 right-4 w-[0.5px] h-4 bg-[#C6A87C]/50 z-20"></div>
-                  
-                  <div className="absolute inset-0 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                     <div className="absolute top-0 left-0 w-full h-[1px] bg-[#C6A87C]/50 shadow-[0_0_15px_#C6A87C] animate-scan"></div>
-
-                     <div className="absolute bottom-24 left-6 flex flex-col gap-2">
-                       <div className="font-mono text-[8px] text-[#030404] tracking-[0.4em] uppercase bg-[#C6A87C]/80 px-2 py-1 backdrop-blur-sm w-fit border-[0.5px] border-[#C6A87C]">
-                         ID: {leader.id}
+                  {/* Security Overlay */}
+                  <div className="absolute inset-0 p-12 flex flex-col justify-between z-10">
+                    <div className="flex justify-between items-start">
+                       <div className="glass-morphism px-4 py-2 rounded-lg border-[#C6A87C]/30">
+                          <span className="font-mono text-[8px] text-[#C6A87C] tracking-[0.2em]">{leader.clearance}</span>
                        </div>
-                       <div className="flex items-end gap-[2px] h-4 ml-1">
-                         {[...Array(6)].map((_, j) => (
-                           <div key={j} className="w-1 bg-[#C6A87C]" style={{ height: `${Math.max(20, Math.random() * 100)}%`, animation: `pulse ${0.5 + Math.random()}s infinite alternate` }}></div>
-                         ))}
+                       <div className="w-12 h-12 border border-[#C6A87C]/20 flex items-center justify-center rounded-full animate-spin-slow">
+                          <Plus className="w-4 h-4 text-[#C6A87C]" strokeWidth={1} />
                        </div>
-                     </div>
-
-                     <div className="absolute top-6 right-6 text-right">
-                       <div className="font-mono text-[7px] text-[#EAE6DF]/60 tracking-[0.3em] uppercase mb-1">Status Wizyjny</div>
-                       <div className="flex gap-1 justify-end">
-                         <div className="w-1.5 h-1.5 bg-[#C6A87C] rounded-full animate-pulse"></div>
-                         <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.2em]">REC</div>
+                    </div>
+                    
+                    <div className="flex justify-between items-end">
+                       <div className="space-y-4">
+                          <div className="font-mono text-[7px] text-[#C6A87C] tracking-[0.4em] uppercase opacity-60">Identity Verified</div>
+                          <div className="h-[2px] w-32 bg-[#4ADE80] shadow-[0_0_10px_#4ADE80]"></div>
                        </div>
-                     </div>
-                  </div>
-
-                  <div className="absolute bottom-0 left-0 w-full bg-[#030404]/90 backdrop-blur-md px-8 py-5 border-t-[0.5px] border-r-[0.5px] border-[#C6A87C]/20 z-30 -translate-x-full group-hover:translate-x-0 transition-transform duration-400 ease-out">
-                     <span className="font-mono text-[9px] tracking-[0.3em] text-[#C6A87C] uppercase flex items-center gap-3">
-                       <CheckCircle2 className="w-4 h-4" strokeWidth={1} />
-                       Akredytacja Jakości ISO
-                     </span>
+                       <div className="text-right">
+                          <div className="font-mono text-[9px] text-[#EAE6DF]/40 uppercase tracking-[0.2em] mb-1">Authorization</div>
+                          <div className="font-mono text-xs text-[#C6A87C]">{leader.id}</div>
+                       </div>
+                    </div>
                   </div>
                </div>
                
-               <div className="relative z-10 pl-8 border-l-[0.5px] border-[#C6A87C]/30 max-w-[28rem] w-full group-hover:border-[#C6A87C] transition-colors duration-700">
-                 <h4 className="font-mono text-[9px] tracking-[0.4em] text-[#C6A87C] uppercase mb-5 flex items-center gap-3">
-                   <span className="w-1.5 h-1.5 bg-[#C6A87C] rounded-full group-hover:animate-ping"></span>
-                   {leader.role}
-                 </h4>
-                 <h3 className="font-serif text-4xl text-[#EAE6DF] mb-6 font-light">{leader.name}</h3>
-                 <p className="font-serif font-light text-[#EAE6DF]/50 text-xl italic leading-relaxed">{leader.exp}</p>
+               <div className="pl-12 border-l-2 border-[#C6A87C]/20 group-hover:border-[#C6A87C] transition-colors duration-700">
+                  <h4 className="font-mono text-[10px] tracking-[0.5em] text-[#C6A87C] uppercase mb-6 flex items-center gap-4">
+                    <span className="w-2 h-2 bg-[#C6A87C] rounded-full group-hover:animate-ping"></span>
+                    {leader.role}
+                  </h4>
+                  <h3 className="font-serif text-5xl text-[#EAE6DF] mb-8 font-light">{leader.name}</h3>
+                  <p className="font-serif font-light text-[#EAE6DF]/60 text-2xl italic leading-relaxed">{leader.exp}</p>
                </div>
             </FadeIn>
           ))}
@@ -1207,49 +1371,155 @@ const Leadership = () => {
       </div>
     </section>
   )
-}
+};
 
 const OperationsMaintenance = () => {
   return (
-    <section className="py-40 bg-[#020202] border-t border-[#C6A87C]/10 relative overflow-hidden">
-      {/* Background Graphic representing a continuous cycle */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] pointer-events-none opacity-[0.03]">
-        <svg viewBox="0 0 100 100" className="w-full h-full animate-[spin_120s_linear_infinite]">
-          <circle cx="50" cy="50" r="48" fill="none" stroke="#EAE6DF" strokeWidth="0.2" strokeDasharray="1 2" />
-          <circle cx="50" cy="50" r="40" fill="none" stroke="#C6A87C" strokeWidth="0.5" />
-          <circle cx="50" cy="50" r="32" fill="none" stroke="#EAE6DF" strokeWidth="0.2" strokeDasharray="4 4" />
-        </svg>
-      </div>
-
+    <section className="py-48 bg-[#050606] border-t border-[#C6A87C]/10 relative overflow-hidden">
+      <div className="absolute inset-0 technical-grid opacity-5"></div>
+      
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-16 items-center">
-          <FadeIn className="lg:col-span-5">
-            <div className="font-mono text-[#C6A87C] text-[10px] tracking-[0.4em] uppercase mb-8 border-l border-[#C6A87C] pl-4">Wsparcie Post-Koncesyjne</div>
-            <h2 className="text-5xl md:text-7xl font-serif text-[#EAE6DF] leading-[1.05] mb-10">
+        <div className="grid lg:grid-cols-12 gap-24 items-center">
+          <FadeIn className="lg:col-span-6">
+            <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Mission Control // O&M</div>
+            <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] mb-12 font-light">
               Utrzymanie <br/>
-              <span className="italic text-[#C6A87C] font-light">ruchu. (O&M)</span>
+              <span className="italic text-[#C6A87C] font-normal">ruchu.</span>
             </h2>
-            <p className="text-[#EAE6DF]/50 font-light text-xl leading-relaxed mb-12 font-serif italic">
-              Oddanie kluczy to dopiero początek. Zapewniamy kompleksowy serwis mechaniczny, elektryczny oraz wsparcie biologiczne, aby Twoja biogazownia pracowała bez przestojów.
+            <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
+              Przekazanie kluczy to dopiero początek. Nasze centrum operacyjne monitoruje parametry biologiczne i mechaniczne 24/7, gwarantując ciągłość generacji.
             </p>
-            <button className="bg-transparent border-[0.5px] border-[#C6A87C]/50 text-[#C6A87C] px-8 py-4 text-[9px] font-mono tracking-[0.3em] uppercase hover:bg-[#C6A87C] hover:text-[#030404] transition-all duration-700 interactive-element">
-              Pobierz SLA (Service Level Agreement)
-            </button>
+            
+            <div className="grid grid-cols-2 gap-10">
+              <div className="p-8 glass-morphism rounded-3xl">
+                 <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] uppercase mb-4">Uptime SLA</div>
+                 <div className="font-serif text-5xl text-[#EAE6DF] font-light">98.5 <span className="text-xl text-[#C6A87C]/40 italic">%</span></div>
+              </div>
+              <div className="p-8 glass-morphism rounded-3xl">
+                 <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] uppercase mb-4">Response Time</div>
+                 <div className="font-serif text-5xl text-[#EAE6DF] font-light">24 <span className="text-xl text-[#C6A87C]/40 italic">h</span></div>
+              </div>
+            </div>
           </FadeIn>
 
-          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+          <div className="lg:col-span-6 grid grid-cols-1 gap-6">
             {[
-              { num: "24/7", title: "Monitoring SCADA", desc: "Zdalny nadzór nad parametrami pracy agregatów i komór przez nasze centrum dyspozytorskie." },
-              { num: "48h", title: "Gwarancja Reakcji", desc: "Mobilne ekipy serwisowe gotowe do usunięcia usterki mechanicznej lub elektronicznej na terenie całego kraju." },
-              { num: "Magazyn", title: "Części Zamienne", desc: "Kluczowe podzespoły (pompy, uszczelnienia, części silnikowe) trzymamy w naszym krajowym buforze magazynowym." },
-              { num: "Biolog", title: "Opieka Technologiczna", desc: "Cykliczne badanie pofermentu i optymalizacja dawkowania substratu w celu utrzymania stabilności flory bakteryjnej." }
-            ].map((feature, i) => (
-              <FadeIn key={i} delay={i * 150} className="border-[0.5px] border-[#EAE6DF]/10 bg-[#030404]/50 backdrop-blur-sm p-8 group hover:border-[#C6A87C]/50 transition-colors duration-500 interactive-element">
-                <div className="font-serif text-4xl text-[#C6A87C] italic mb-6 opacity-80 group-hover:opacity-100 transition-opacity">{feature.num}</div>
-                <h4 className="font-mono text-[11px] tracking-widest uppercase text-[#EAE6DF] mb-4">{feature.title}</h4>
-                <p className="font-serif font-light text-[#EAE6DF]/40 text-lg leading-relaxed">{feature.desc}</p>
+              { title: "Zdalna Diagnostyka SCADA", desc: "Podgląd na żywo każdego zaworu i mieszadła. Wykrywanie anomalii zanim staną się awarią.", icon: <Zap className="w-6 h-6" /> },
+              { title: "Nadzór Technologa", desc: "Cotygodniowa analiza parametrów fermentacji. Optymalizacja diety reaktora.", icon: <Leaf className="w-6 h-6" /> },
+              { title: "Serwis Mechaniczny Tier-1", desc: "Autoryzowany serwis agregatów CHP i systemów pompujących. Oryginalne części.", icon: <Factory className="w-6 h-6" /> }
+            ].map((item, i) => (
+              <FadeIn key={i} delay={i * 150} className="group glass-morphism p-10 flex gap-8 items-center rounded-[2.5rem] hover:border-[#C6A87C]/40 transition-all duration-700">
+                <div className="w-16 h-16 rounded-2xl border border-[#C6A87C]/10 flex items-center justify-center bg-[#020202] text-[#C6A87C] group-hover:scale-110 transition-all duration-700">
+                  {item.icon}
+                </div>
+                <div>
+                  <h4 className="font-mono text-[9px] tracking-widest uppercase text-[#EAE6DF] mb-2">{item.title}</h4>
+                  <p className="font-serif italic text-[#EAE6DF]/40 font-light text-lg">{item.desc}</p>
+                </div>
               </FadeIn>
             ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const SafetyStandards = () => {
+  const standards = [
+    { title: "Dyrektywa ATEX", desc: "Zabezpieczenie przeciwwybuchowe EX dla stref zagrożonych metanem.", code: "DIRECTIVE 2014/34/EU" },
+    { title: "Standardy UDT", desc: "Dozór techniczny nad zbiornikami ciśnieniowymi i rurociągami.", code: "UDT REGULATION" },
+    { title: "Ochrona PPOŻ", desc: "Zintegrowane systemy oddymiania i aktywne pochodnie bezpieczeństwa.", code: "NFPA-EN STANDARDS" },
+    { title: "Certyfikacja CE", desc: "Zgodność z europejskimi normami maszynowymi i bezpieczeństwa pracy.", code: "MD 2006/42/EC" }
+  ];
+
+  return (
+    <section className="py-48 bg-[#020202] border-t border-[#C6A87C]/10 relative overflow-hidden">
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <FadeIn>
+          <div className="mb-32">
+             <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 flex items-center gap-4">
+               <ShieldCheck className="w-5 h-5" /> Compliance Framework
+             </h2>
+             <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] font-light">Bezpieczeństwo <br/><span className="italic text-[#C6A87C] font-normal">normatywne.</span></h3>
+          </div>
+        </FadeIn>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#C6A87C]/10 border border-[#C6A87C]/10">
+          {standards.map((std, i) => (
+            <FadeIn key={i} delay={i * 100} className="bg-[#020202] p-12 group hover:bg-[#050606] transition-all duration-700 interactive-element">
+               <div className="font-mono text-[7px] text-[#C6A87C] tracking-[0.3em] uppercase mb-8 opacity-40 group-hover:opacity-100">{std.code}</div>
+               <h4 className="font-serif text-3xl text-[#EAE6DF] mb-6 font-light group-hover:text-[#C6A87C] transition-colors">{std.title}</h4>
+               <p className="font-serif italic text-[#EAE6DF]/40 text-lg leading-relaxed">{std.desc}</p>
+               <div className="mt-12 w-8 h-[1px] bg-[#C6A87C]/20 group-hover:w-full transition-all duration-700"></div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
+const TechnicalFAQ = () => {
+  const [openIndex, setOpenIndex] = useState(0);
+
+  const faqs = [
+    { q: "Metodologia Pozyskiwania Decyzji", a: "Zarządzamy pełnym procesem administracyjnym: od Karty Informacyjnej Przedsięwzięcia (KIP), przez raport środowiskowy, aż po ostateczne PNB i koncesję energetyczną.", doc: "PROC-ADM-01" },
+    { q: "Parametryzacja Hydrauliki Procesowej", a: "Stosujemy autorskie algorytmy doboru mocy mieszadeł i wydajności pomp w zależności od reologii substratu, co redukuje zużycie energii o 15%.", doc: "TECH-HYD-V4" },
+    { q: "Architektura Cyberbezpieczeństwa", a: "Systemy SCADA pracują w odizolowanych sieciach VLAN z szyfrowanym dostępem VPN, zapewniając ochronę przed nieautoryzowanym dostępem do sterowników PLC.", doc: "CYB-SEC-PRO" },
+    { q: "Logistyka Pofermentu i Odwadniania", a: "Projektujemy zintegrowane systemy separacji faz i magazynowania pofermentu, optymalizując koszty transportu i nawożenia na polach.", doc: "LOG-BIO-S7" }
+  ];
+
+  return (
+    <section className="py-48 bg-[#050606] border-t border-[#C6A87C]/10 relative overflow-hidden">
+      <div className="absolute inset-0 technical-grid opacity-5"></div>
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-24 items-start">
+         
+         <FadeIn className="lg:col-span-4 sticky top-40">
+                         <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Knowledge Repository</div>
+
+             <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] font-light">
+               Dokumentacja <br/>
+               <span className="italic text-[#C6A87C] font-normal">operacyjna.</span>
+             </h3>
+             <p className="text-[#EAE6DF]/40 font-serif italic text-2xl font-light mt-12 leading-relaxed">
+               Zbiór procedur i standardów technicznych definiujących każdą fazę życia instalacji.
+             </p>
+         </FadeIn>
+
+          <div className="lg:col-span-7 flex flex-col gap-4">
+             {faqs.map((faq, i) => (
+               <FadeIn key={i} delay={i * 100}>
+                 <div 
+                   className={`glass-morphism p-10 cursor-pointer group transition-all duration-700 rounded-[2rem] ${openIndex === i ? 'border-[#C6A87C]/40' : 'opacity-40 hover:opacity-100'}`}
+                   onClick={() => setOpenIndex(i)}
+                 >
+                   <div className="flex justify-between items-center gap-10">
+                     <div className="flex items-center gap-8">
+                       <span className="font-mono text-[9px] text-[#C6A87C] tracking-[0.2em]">{faq.doc}</span>
+                       <h4 className="font-serif text-3xl text-[#EAE6DF] font-light transition-colors duration-300">
+                         {faq.q}
+                       </h4>
+                     </div>
+                     <Plus className={`w-6 h-6 text-[#C6A87C] transition-transform duration-500 ${openIndex === i ? 'rotate-45' : ''}`} strokeWidth={1} />
+                   </div>
+                   
+                   {openIndex === i && (
+                     <FadeIn className="pt-10 mt-10 border-t border-[#C6A87C]/10">
+                       <p className="font-serif italic text-xl text-[#EAE6DF]/60 leading-relaxed">
+                         {faq.a}
+                       </p>
+                       <div className="mt-8 flex items-center gap-4">
+                          <div className="w-2 h-2 bg-[#4ADE80] rounded-full"></div>
+                          <span className="font-mono text-[8px] text-[#4ADE80] tracking-[0.3em] uppercase">Status: Verified Document</span>
+                       </div>
+                     </FadeIn>
+                   )}
+                 </div>
+               </FadeIn>
+             ))}
           </div>
         </div>
       </div>
@@ -1257,139 +1527,34 @@ const OperationsMaintenance = () => {
   )
 }
 
-const SafetyStandards = () => {
-  const standards = [
-    { title: "Dyrektywa ATEX", desc: "Zabezpieczenie przeciwwybuchowe EX dla wszystkich stref zagrożonych wyciekiem metanu. Zero kompromisów." },
-    { title: "Certyfikacja CE", desc: "Pełna zgodność z rygorystycznymi europejskimi normami maszynowymi. Homologacja komponentów." },
-    { title: "Standardy UDT", desc: "Instalacje ciśnieniowe podlegające ścisłemu dozorowi Urzędu Dozoru Technicznego w każdym etapie wylewek." },
-    { title: "Ochrona PPOŻ", desc: "Zintegrowane systemy oddymiania i aktywne, bezdymne pochodnie bezpieczeństwa nadmiarowego gazu." }
-  ];
-
-  return (
-    <section className="py-40 bg-[#020202] border-t border-[#C6A87C]/10 relative overflow-hidden">
-       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(198,168,124,0.05)_0%,transparent_50%)] pointer-events-none"></div>
-       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
-          <FadeIn>
-             <div className="mb-24 flex flex-col md:flex-row justify-between items-end gap-10">
-                <div className="max-w-xl">
-                   <h2 className="font-mono text-[#C6A87C] text-[10px] tracking-[0.4em] uppercase mb-6 flex items-center gap-3">
-                     <ShieldCheck className="w-4 h-4" /> Zgodność i Normy
-                   </h2>
-                   <h3 className="text-4xl md:text-6xl font-serif text-[#EAE6DF] leading-[1.1]">
-                     Standardy <br/><span className="italic font-light text-[#C6A87C]">Bezpieczeństwa.</span>
-                   </h3>
-                </div>
-                <p className="text-[#EAE6DF]/50 text-lg font-serif italic max-w-sm leading-relaxed border-l border-[#C6A87C]/30 pl-6 pb-2">
-                   Przemysł biogazowy to środowisko podwyższonego ryzyka. Projektujemy i budujemy w reżimie najwyższych, europejskich dyrektyw.
-                </p>
-             </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-             {standards.map((std, i) => (
-                <FadeIn key={i} delay={i*150} className="border-[0.5px] border-[#C6A87C]/20 bg-[#030404] p-10 group hover:bg-[#070908] transition-colors duration-700 relative overflow-hidden interactive-element flex flex-col justify-between min-h-[300px]">
-                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#C6A87C]/5 rounded-bl-full group-hover:scale-[2] transition-transform duration-[1.5s] ease-out"></div>
-                   
-                   <div>
-                     <div className="font-mono text-[10px] text-[#C6A87C]/40 mb-8 tracking-widest">REG.0{i+1}</div>
-                     <h4 className="font-serif text-3xl text-[#EAE6DF] mb-6 font-light">{std.title}</h4>
-                   </div>
-                   
-                   <p className="font-mono text-[9px] tracking-widest leading-loose text-[#EAE6DF]/40 uppercase relative z-10 group-hover:text-[#EAE6DF]/60 transition-colors duration-500">
-                     {std.desc}
-                   </p>
-                </FadeIn>
-             ))}
-          </div>
-       </div>
-    </section>
-  )
-}
-
-const TechnicalFAQ = () => {
-  const [openIndex, setOpenIndex] = useState(0);
-
-  const faqs = [
-    { q: "Jakie pozyskujemy pozwolenia na budowę?", a: "Prowadzimy inwestora przez cały proces formalny. Uzyskujemy decyzję środowiskową, warunki zabudowy (lub wpis do MPZP), pozwolenie na budowę oraz warunki przyłączeniowe do sieci energetycznej." },
-    { q: "Jaki jest czas realizacji inwestycji?", a: "Dla typowej biogazowni rolniczej o mocy 500 kW - 1 MW, proces budowlany i rozruch technologiczny zajmuje zazwyczaj od 8 do 12 miesięcy po uzyskaniu wszystkich prawomocnych pozwoleń." },
-    { q: "Czy pomagacie w doborze substratu?", a: "Tak. Nasi technolodzy badają dostępną biomasę w laboratorium. Tworzymy tzw. 'recepturę wsadu', która determinuje dobór technologii i wielkość komór, gwarantując stałą produkcję metanu." },
-    { q: "Jak wygląda serwis po oddaniu instalacji?", a: "Zapewniamy pełen serwis gwarancyjny i pogwarancyjny, w tym zdalny monitoring SCADA. Posiadamy mobilne ekipy serwisowe, które dbają o przeglądy agregatów CHP i układów pompowych." }
-  ];
-
-  return (
-    <section className="py-40 bg-[#050606] border-t border-[#C6A87C]/10 relative">
-       <div className="absolute inset-0 bg-blueprint z-0 opacity-50"></div>
-       <div className="max-w-[100rem] mx-auto px-8 relative z-10 grid lg:grid-cols-12 gap-16 items-start">
-         
-         <FadeIn className="lg:col-span-4 sticky top-40">
-            <h2 className="font-mono text-[#C6A87C] text-[10px] tracking-[0.4em] uppercase mb-6">Baza Wiedzy</h2>
-            <h3 className="text-4xl md:text-5xl font-serif text-[#EAE6DF] leading-[1.1] mb-8">
-              Dokumentacja <br/>
-              <span className="italic font-light text-[#C6A87C]">Operacyjna.</span>
-            </h3>
-            <p className="text-[#EAE6DF]/40 font-serif italic text-lg font-light">Najważniejsze aspekty procesu inwestycyjnego zdemistyfikowane.</p>
-         </FadeIn>
-
-         <div className="lg:col-span-8 flex flex-col gap-2">
-            {faqs.map((faq, i) => (
-              <FadeIn key={i} delay={i * 100}>
-                <div 
-                  className="border-b-[0.5px] border-[#C6A87C]/20 py-8 cursor-pointer group interactive-element"
-                  onClick={() => setOpenIndex(i === openIndex ? -1 : i)}
-                >
-                  <div className="flex justify-between items-center gap-6">
-                    <div className="flex items-center gap-8">
-                      <span className="font-mono text-[10px] text-[#C6A87C]/40 uppercase tracking-[0.2em] w-12">DOC.0{i+1}</span>
-                      <h4 className={`font-mono text-xs md:text-sm tracking-widest uppercase transition-colors duration-300 ${openIndex === i ? 'text-[#C6A87C]' : 'text-[#EAE6DF] group-hover:text-[#C6A87C]/70'}`}>
-                        {faq.q}
-                      </h4>
-                    </div>
-                    <ChevronDown className={`w-5 h-5 text-[#C6A87C]/50 transition-transform duration-500 ${openIndex === i ? 'rotate-180' : ''}`} strokeWidth={1} />
-                  </div>
-                  <div className={`accordion-content ${openIndex === i ? 'open' : ''}`}>
-                    <div className="accordion-inner">
-                      <p className="font-serif italic text-xl text-[#EAE6DF]/60 leading-relaxed pl-20 pt-8 pb-4">
-                        {faq.a}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-         </div>
-       </div>
-    </section>
-  )
-}
-
 const ServiceCoverage = () => {
   return (
-    <section className="relative py-40 bg-[#020202] border-t border-[#C6A87C]/10 overflow-hidden">
-      <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
-         <div className="w-[1000px] h-[1000px] border-[0.5px] border-[#C6A87C] rounded-full absolute flex items-center justify-center">
-            <div className="absolute w-[800px] h-[800px] border-[0.5px] border-[#C6A87C] rounded-full"></div>
-            <div className="absolute w-[600px] h-[600px] border-[0.5px] border-dashed border-[#C6A87C] rounded-full animate-[spin_60s_linear_infinite_reverse]"></div>
-            <div className="absolute w-[400px] h-[400px] border-[0.5px] border-[#C6A87C] rounded-full"></div>
-            <div className="w-full h-[0.5px] bg-[#C6A87C] absolute"></div>
-            <div className="h-full w-[0.5px] bg-[#C6A87C] absolute"></div>
-            <div className="absolute top-[30%] right-[35%] w-2 h-2 bg-[#C6A87C] rounded-full animate-ping"></div>
-            <div className="absolute top-[60%] left-[40%] w-1 h-1 bg-[#C6A87C] rounded-full shadow-[0_0_10px_#C6A87C]"></div>
-            <div className="absolute bottom-[25%] right-[20%] w-1.5 h-1.5 bg-[#C6A87C] rounded-full shadow-[0_0_10px_#C6A87C]"></div>
-         </div>
-      </div>
+    <section className="relative py-48 bg-[#020202] border-t border-[#C6A87C]/10 overflow-hidden">
+      <div className="absolute inset-0 technical-grid opacity-5"></div>
       
       <div className="max-w-[100rem] mx-auto px-8 relative z-10 flex flex-col items-center text-center">
         <FadeIn>
-          <MapPin className="text-[#C6A87C] w-8 h-8 mb-8 mx-auto" strokeWidth={1} />
-          <h2 className="text-4xl md:text-5xl font-serif text-[#EAE6DF] leading-[1.1] mb-6">
-            Logistyka i <span className="italic text-[#C6A87C] font-light">zasięg.</span>
+          <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] px-6 py-1 mx-auto w-fit">Regional Logistics</div>
+          <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] mb-12 font-light">
+            Zasięg <br/><span className="italic text-[#C6A87C] font-normal">operacyjny.</span>
           </h2>
-          <p className="text-[#EAE6DF]/50 font-serif italic text-xl max-w-2xl mx-auto leading-relaxed mb-12">
-            Nasze zespoły projektowe, budowlane i serwisowe operują na terenie całej Polski, zapewniając szybki czas reakcji i pełen nadzór inwestorski bez względu na lokalizację inwestycji.
+          <p className="text-[#EAE6DF]/50 font-serif italic text-2xl max-w-3xl mx-auto leading-relaxed mb-20">
+            Nasze zespoły inżynierskie i serwisowe operują na terenie całego kraju, zapewniając wsparcie techniczne w każdym zakątku Polski.
           </p>
-          <div className="inline-flex items-center gap-4 border border-[#C6A87C]/30 px-6 py-3 bg-[#030404]/80 backdrop-blur-md">
-            <span className="w-2 h-2 bg-[#C6A87C] rounded-full animate-pulse"></span>
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#EAE6DF]/80">Polska Centralna, Północna, Zachodnia</span>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#C6A87C]/10 border border-[#C6A87C]/10 w-full">
+             {[
+               { region: "Polska Północna", city: "Gdańsk Hub", status: "Operational" },
+               { region: "Polska Centralna", city: "Warszawa HQ", status: "Operational" },
+               { region: "Polska Zachodnia", city: "Poznań Hub", status: "Active" },
+               { region: "Polska Południowa", city: "Kraków Hub", status: "Operational" }
+             ].map((node, i) => (
+               <div key={i} className="bg-[#020202] p-10 group hover:bg-[#050606] transition-all">
+                  <div className="font-mono text-[7px] text-[#C6A87C] tracking-[0.3em] uppercase mb-4 opacity-40">{node.status}</div>
+                  <div className="font-serif text-2xl text-[#EAE6DF] mb-2">{node.region}</div>
+                  <div className="font-mono text-[8px] text-[#EAE6DF]/40 uppercase tracking-[0.2em]">{node.city}</div>
+               </div>
+             ))}
           </div>
         </FadeIn>
       </div>
@@ -1412,11 +1577,13 @@ const CTA = () => {
           <p className="text-xl text-[#030404]/70 mb-16 max-w-2xl mx-auto font-serif italic font-light leading-relaxed">
             Przygotujemy rzetelną wycenę budowy biogazowni od podstaw. Solidne technologie, realne terminy.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
-            <button className="w-full sm:w-auto bg-[#030404] text-[#C6A87C] px-12 py-5 text-[10px] font-mono tracking-[0.4em] uppercase hover:bg-transparent hover:text-[#030404] border border-[#030404] transition-all duration-500 interactive-element">
-              Wyślij Zapytanie
-            </button>
-            <button className="w-full sm:w-auto px-12 py-5 text-[10px] font-mono tracking-[0.4em] text-[#030404] border border-[#030404] hover:bg-[#030404] hover:text-[#C6A87C] uppercase transition-all duration-500 interactive-element">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-10">
+            <MagneticButton>
+              <button className="w-full sm:w-auto bg-[#030404] text-[#C6A87C] px-16 py-6 text-[10px] font-mono tracking-[0.5em] uppercase hover:bg-[#1A1C1B] transition-all duration-500 interactive-element rounded-full">
+                Wyślij Zapytanie
+              </button>
+            </MagneticButton>
+            <button className="w-full sm:w-auto px-12 py-6 text-[10px] font-mono tracking-[0.4em] text-[#030404] border-b-2 border-[#030404] hover:bg-[#030404] hover:text-[#C6A87C] uppercase transition-all duration-500 interactive-element">
               (+48) 500 000 000
             </button>
           </div>
@@ -1484,8 +1651,9 @@ export default function App() {
     <>
       <GlobalStyles />
       <div className="min-h-screen relative font-serif selection:bg-[#C6A87C] selection:text-[#030404]">
+        <TechnicalCursor />
         <FilmGrain />
-        <CustomCursor />
+        <SystemStatus />
         <Navbar />
         <Hero />
         <TickerTape />
@@ -1495,9 +1663,6 @@ export default function App() {
         <FeedstockMatrix />
         <EconomicsSection />
         <SmartGrid />
-        <KineticBreak />
-        <CircularImpact />
-        <EnvironmentalImpact />
         <ProjectsGallery />
         <EditorialBento />
         <TechStack />
