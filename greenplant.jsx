@@ -516,9 +516,9 @@ const BootSequence = () => {
       <div className="relative w-full max-w-3xl px-10">
         <div className="flex items-center gap-4 mb-12">
           <div className="w-2 h-2 bg-[#4ADE80] rounded-full animate-pulse shadow-[0_0_12px_#4ADE80]" />
-          <span className="font-mono text-[10px] text-[#4ADE80] tracking-[0.4em] uppercase">Green Plant // Mission Control</span>
+          <span className="font-mono text-[10px] text-[#4ADE80] tracking-[0.4em] uppercase">Green Plant // Centrum Nadzoru</span>
           <div className="flex-1 h-px bg-[#C6A87C]/20" />
-          <span className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em]">v 4.0.26</span>
+          <span className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em]">WER 4.0.26</span>
         </div>
         <div className="space-y-2 font-mono text-[11px] text-[#EAE6DF]/70 mb-12">
           {rows.map((r, i) => (
@@ -557,15 +557,15 @@ const SystemStatus = () => (
     <div className="flex items-center gap-6">
       <div className="flex items-center gap-2">
         <div className="w-1.5 h-1.5 bg-[#4ADE80] rounded-full animate-pulse shadow-[0_0_8px_#4ADE80]"></div>
-        <span className="font-mono text-[7px] text-[#4ADE80] tracking-[0.3em] uppercase">System Live</span>
+        <span className="font-mono text-[7px] text-[#4ADE80] tracking-[0.3em] uppercase">System Aktywny</span>
       </div>
       <div className="hidden sm:flex items-center gap-4 border-l border-[#C6A87C]/10 pl-6">
-        <span className="font-mono text-[7px] text-[#EAE6DF]/30 tracking-[0.2em] uppercase">Grid Sync: 50.02 Hz</span>
-        <span className="font-mono text-[7px] text-[#EAE6DF]/30 tracking-[0.2em] uppercase">Active Load: 1.18 MW</span>
+        <span className="font-mono text-[7px] text-[#EAE6DF]/30 tracking-[0.2em] uppercase">Synch. Sieci: 50.02 Hz</span>
+        <span className="font-mono text-[7px] text-[#EAE6DF]/30 tracking-[0.2em] uppercase">Obciążenie: 1.18 MW</span>
       </div>
     </div>
     <div className="font-mono text-[7px] text-[#C6A87C]/40 tracking-[0.3em] uppercase hidden md:block">
-      LAT: 52.2297 // LON: 21.0122 // T: 14:23:05
+      SZER: 52.2297 // DŁ: 21.0122 // CZAS: 14:23:05
     </div>
   </div>
 );
@@ -783,11 +783,11 @@ const HeroSCADAPanel = () => {
         <div className="flex justify-between items-start mb-10">
           <div className="flex items-center gap-3">
             <div className="w-2.5 h-2.5 bg-[#34D399] rounded-full animate-pulse shadow-[0_0_10px_#34D399]" />
-            <span className="font-mono text-[9px] text-[#34D399] tracking-[0.4em] uppercase">Live // GP-2026-X</span>
+            <span className="font-mono text-[9px] text-[#34D399] tracking-[0.4em] uppercase">Aktywne // GP-2026-X</span>
           </div>
           <div className="text-right">
-            <div className="font-mono text-[8px] text-[#C8A97D]/60 tracking-[0.3em] mb-1">MODEL REF</div>
-            <div className="font-mono text-[10px] text-[#F2EDE4]/80">REACTOR-A1</div>
+            <div className="font-mono text-[8px] text-[#C8A97D]/60 tracking-[0.3em] mb-1">REF. MODELU</div>
+            <div className="font-mono text-[10px] text-[#F2EDE4]/80">REAKTOR-A1</div>
           </div>
         </div>
 
@@ -1374,7 +1374,7 @@ const KineticBreak = () => {
         </h2>
       </div>
       
-      <div className="w-[200%] flex animate-marquee-reverse whitespace-nowrap mt-[-2vw]">
+      <div className="w-[200%] flex animate-marquee-reverse whitespace-nowrap mt-4">
         <h2 className="text-[clamp(2.8rem,9vw,9rem)] font-serif uppercase tracking-tighter text-[#C6A87C] leading-none mix-blend-difference opacity-80">
           ZAMKNIĘTY OBIEG SUROWCÓW • ZAMKNIĘTY OBIEG SUROWCÓW • 
         </h2>
@@ -1650,7 +1650,7 @@ const ScadaSystem = () => {
                 <div className="flex justify-between items-center mb-12">
                    <div className="flex items-center gap-4">
                       <div className="w-3 h-3 bg-[#4ADE80] rounded-full animate-pulse"></div>
-                      <span className="font-mono text-[9px] text-[#EAE6DF]/80 tracking-[0.3em] uppercase">Control System Online</span>
+                      <span className="font-mono text-[9px] text-[#EAE6DF]/80 tracking-[0.3em] uppercase">System Sterowania Aktywny</span>
                    </div>
                    <span className="font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.3em]">REF: SCADA_V4.0</span>
                 </div>
@@ -1834,7 +1834,7 @@ const OperationsMaintenance = () => {
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <div className="grid lg:grid-cols-12 gap-24 items-center">
           <FadeIn className="lg:col-span-6">
-            <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Mission Control // O&M</div>
+            <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Centrum Nadzoru // O&M</div>
             <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] mb-12 font-light">
               Utrzymanie <br/>
               <span className="italic text-[#C6A87C] font-normal">ruchu.</span>
@@ -1987,7 +1987,7 @@ const ServiceCoverage = () => {
       
       <div className="max-w-[100rem] mx-auto px-8 relative z-10 flex flex-col items-center text-center">
         <FadeIn>
-          <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] px-6 py-1 mx-auto w-fit">Regional Logistics</div>
+          <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] px-6 py-1 mx-auto w-fit">Logistyka Regionalna</div>
           <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] mb-12 font-light">
             Zasięg <br/><span className="italic text-[#C6A87C] font-normal">operacyjny.</span>
           </h2>
@@ -1997,10 +1997,10 @@ const ServiceCoverage = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#C6A87C]/10 border border-[#C6A87C]/10 w-full">
              {[
-               { region: "Polska Północna", city: "Gdańsk Hub", status: "Operational" },
-               { region: "Polska Centralna", city: "Warszawa HQ", status: "Operational" },
-               { region: "Polska Zachodnia", city: "Poznań Hub", status: "Active" },
-               { region: "Polska Południowa", city: "Kraków Hub", status: "Operational" }
+               { region: "Polska Północna", city: "Hub Gdańsk", status: "Operacyjny" },
+               { region: "Polska Centralna", city: "Warszawa HQ", status: "Operacyjny" },
+               { region: "Polska Zachodnia", city: "Hub Poznań", status: "Aktywny" },
+               { region: "Polska Południowa", city: "Hub Kraków", status: "Operacyjny" }
              ].map((node, i) => (
                <div key={i} className="bg-[#020202] p-10 group hover:bg-[#050606] transition-all">
                   <div className="font-mono text-[7px] text-[#C6A87C] tracking-[0.3em] uppercase mb-4 opacity-40">{node.status}</div>
@@ -3554,7 +3554,7 @@ const MaterialSamples = () => {
                 {/* Sample number */}
                 <div className="absolute top-6 left-6">
                   <div className="font-mono text-[8px] text-[#EAE6DF]/70 tracking-[0.3em] uppercase backdrop-blur-sm bg-black/30 px-2 py-1 rounded">
-                    SAMPLE N° {String(i + 1).padStart(3, '0')}
+                    PRÓBKA NR {String(i + 1).padStart(3, '0')}
                   </div>
                 </div>
                 {/* Thickness label */}
@@ -3596,7 +3596,7 @@ const KineticBreakII = () => {
     <section className="relative py-32 bg-[#020202] overflow-hidden" data-testid="kinetic-break-2">
       <div className="absolute inset-0 paper-grain opacity-15" />
       <div className="absolute inset-0 bg-topo opacity-10" />
-      <div className="space-y-[-3vw] py-8 relative z-10">
+      <div className="space-y-8 py-8 relative z-10">
         {layers.map((l, i) => (
           <div key={i} className={`flex whitespace-nowrap items-center ${l.dir === 'reverse' ? 'animate-marquee-reverse' : 'animate-marquee'}`}
             style={{ animationDuration: l.dur }}>
@@ -4061,9 +4061,9 @@ const SiteAerial = () => {
 
         <div className="grid lg:grid-cols-12 gap-10 items-start">
           <FadeIn className="lg:col-span-8 relative">
-            <div className="relative aspect-[16/10] glass-morphism rounded-[2rem] overflow-hidden">
+            <div className="relative aspect-[100/80] glass-morphism rounded-[2rem] overflow-hidden">
               {/* Top-down site */}
-              <svg viewBox="0 0 100 62.5" className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+              <svg viewBox="0 0 100 80" className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
                 <defs>
                   <pattern id="grass" patternUnits="userSpaceOnUse" width="3" height="3">
                     <rect width="3" height="3" fill="#0a0c0b" />
@@ -4078,8 +4078,8 @@ const SiteAerial = () => {
                   </pattern>
                 </defs>
                 {/* Plot boundary */}
-                <rect x="0" y="0" width="100" height="62.5" fill="url(#grass)" />
-                <rect x="2" y="2" width="96" height="58.5" fill="none" stroke="#C6A87C" strokeOpacity="0.4" strokeWidth="0.15" strokeDasharray="0.8 0.8" />
+                <rect x="0" y="0" width="100" height="80" fill="url(#grass)" />
+                <rect x="2" y="2" width="96" height="76" fill="none" stroke="#C6A87C" strokeOpacity="0.4" strokeWidth="0.15" strokeDasharray="0.8 0.8" />
                 {/* Road grid */}
                 <path d="M 4 70 L 4 18 L 90 18 L 90 50" fill="none" stroke="url(#asphalt)" strokeWidth="2.5" />
                 <path d="M 4 70 L 4 18 L 90 18 L 90 50" fill="none" stroke="#C6A87C" strokeOpacity="0.25" strokeWidth="0.1" strokeDasharray="0.4 0.4" />
@@ -4092,7 +4092,7 @@ const SiteAerial = () => {
                   <text x="0" y="-3.4" textAnchor="middle" fontSize="1.4" fill="#C6A87C" fillOpacity="0.7" className="font-mono">N</text>
                 </g>
                 {/* Scale */}
-                <g transform="translate(4, 59)">
+                <g transform="translate(4, 76)">
                   <line x1="0" y1="0" x2="20" y2="0" stroke="#C6A87C" strokeOpacity="0.6" strokeWidth="0.15" />
                   <line x1="0" y1="-0.4" x2="0" y2="0.4" stroke="#C6A87C" strokeOpacity="0.6" strokeWidth="0.15" />
                   <line x1="10" y1="-0.3" x2="10" y2="0.3" stroke="#C6A87C" strokeOpacity="0.6" strokeWidth="0.15" />
@@ -4138,7 +4138,7 @@ const SiteAerial = () => {
                 })}
 
                 {/* Property edge label */}
-                <text x="50" y="61" textAnchor="middle" fontSize="0.9" fill="#C6A87C" fillOpacity="0.35" className="font-mono">— PROPERTY LINE — 12 800 m² —</text>
+                <text x="50" y="78.5" textAnchor="middle" fontSize="0.9" fill="#C6A87C" fillOpacity="0.35" className="font-mono">— PROPERTY LINE — 12 800 m² —</text>
               </svg>
               <div className="absolute top-4 left-4 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">SITE PLAN — REF: GP-A1-01</div>
               <div className="absolute top-4 right-4 font-mono text-[9px] text-[#4ADE80] tracking-[0.3em] uppercase">PLOT: 1.28 ha</div>
@@ -4181,14 +4181,14 @@ const SiteAerial = () => {
 // Awards and certifications — wax-seal stamps grid
 const AwardsAndCertifications = () => {
   const items = [
-    { y: '2015', name: 'ISO 14001', sub: 'Środowisko', body: 'Zarządzanie środowiskowe', color: '#C6A87C' },
-    { y: '2015', name: 'ISO 9001', sub: 'Jakość', body: 'System zarządzania jakością', color: '#C6A87C' },
-    { y: '2018', name: 'ISO 45001', sub: 'BHP', body: 'Bezpieczeństwo pracy', color: '#C6A87C' },
-    { y: '2014', name: 'ATEX 2014/34', sub: 'Wybuchowość', body: 'Strefy zagrożone wybuchem', color: '#D97847' },
-    { y: '2018', name: 'EN 60079', sub: 'Strefy EX', body: 'Klasyfikacja ATEX zone 1/2', color: '#D97847' },
-    { y: 'UDT', name: 'Dozór UDT', sub: 'Polska', body: 'Zbiorniki ciśnieniowe', color: '#C6A87C' },
-    { y: '2017', name: 'EN ISO 15614', sub: 'Spawalnictwo', body: 'Kwalifikacja procesów spawania', color: '#4ADE80' },
-    { y: '2018', name: 'ISO 12944', sub: 'Powłoki', body: 'Antykorozja C5', color: '#4ADE80' },
+    { y: 'Standard', name: 'ISO 14001', sub: 'Środowisko', body: 'Zarządzanie środowiskowe', color: '#C6A87C' },
+    { y: 'Standard', name: 'ISO 9001', sub: 'Jakość', body: 'System zarządzania jakością', color: '#C6A87C' },
+    { y: 'Zgodność', name: 'ISO 45001', sub: 'BHP', body: 'Bezpieczeństwo pracy', color: '#C6A87C' },
+    { y: 'Dyrektywa', name: 'ATEX', sub: 'Wybuchowość', body: 'Strefy zagrożone wybuchem', color: '#D97847' },
+    { y: 'Norma', name: 'EN 60079', sub: 'Strefy EX', body: 'Klasyfikacja ATEX zone 1/2', color: '#D97847' },
+    { y: 'Wymóg', name: 'Dozór UDT', sub: 'Polska', body: 'Zbiorniki ciśnieniowe', color: '#C6A87C' },
+    { y: 'Norma', name: 'EN ISO 15614', sub: 'Spawalnictwo', body: 'Kwalifikacja procesów spawania', color: '#4ADE80' },
+    { y: 'Zgodność', name: 'ISO 12944', sub: 'Powłoki', body: 'Antykorozja C5', color: '#4ADE80' },
   ];
   return (
     <section className="relative py-48 bg-[#020202] overflow-hidden" data-testid="awards-cert">
@@ -4488,12 +4488,10 @@ export default function App() {
         <PolandMap />
         <TimelineSince2008 />
         <PressWall />
-        <ProjectsGallery />
         <TechStack />
         <ScadaSystem />
 
         {/* ACT VII — TEAM & STANDARDS */}
-        <Leadership />
         <OperationsMaintenance />
         <SafetyStandards />
         <AwardsAndCertifications />
@@ -4501,7 +4499,6 @@ export default function App() {
         {/* ACT VIII — REFERENCE & CLOSE */}
         <TechnicalFAQ />
         <GlossaryLexicon />
-        <CTA />
         <Footer />
       </div>
     </>
