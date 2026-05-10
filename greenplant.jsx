@@ -1848,10 +1848,10 @@ const OperationsMaintenance = () => {
 
 const SafetyStandards = () => {
   const standards = [
-    { title: "Dyrektywa ATEX", desc: "Zabezpieczenie przeciwwybuchowe EX dla stref zagrożonych metanem.", code: "DIRECTIVE 2014/34/EU" },
-    { title: "Standardy UDT", desc: "Dozór techniczny nad zbiornikami ciśnieniowymi i rurociągami.", code: "UDT REGULATION" },
-    { title: "Ochrona PPOŻ", desc: "Zintegrowane systemy oddymiania i aktywne pochodnie bezpieczeństwa.", code: "NFPA-EN STANDARDS" },
-    { title: "Certyfikacja CE", desc: "Zgodność z europejskimi normami maszynowymi i bezpieczeństwa pracy.", code: "MD 2006/42/EC" }
+    { title: "Dyrektywa ATEX", desc: "Zabezpieczenie przeciwwybuchowe EX dla stref zagrożonych metanem.", code: "DIRECTIVE 2014/34/EU", hue: "#FBBF24" },
+    { title: "Standardy UDT", desc: "Dozór techniczny nad zbiornikami ciśnieniowymi i rurociągami.", code: "UDT REGULATION", hue: "#60A5FA" },
+    { title: "Ochrona PPOŻ", desc: "Zintegrowane systemy oddymiania i aktywne pochodnie bezpieczeństwa.", code: "NFPA-EN STANDARDS", hue: "#F87171" },
+    { title: "Certyfikacja CE", desc: "Zgodność z europejskimi normami maszynowymi i bezpieczeństwa pracy.", code: "MD 2006/42/EC", hue: "#34D399" }
   ];
 
   return (
@@ -1868,11 +1868,12 @@ const SafetyStandards = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#C6A87C]/10 border border-[#C6A87C]/10">
           {standards.map((std, i) => (
-            <FadeIn key={i} delay={i * 100} className="bg-[#020202] p-12 group hover:bg-[#050606] transition-all duration-700 interactive-element">
-               <div className="font-mono text-[7px] text-[#C6A87C] tracking-[0.3em] uppercase mb-8 opacity-40 group-hover:opacity-100">{std.code}</div>
-               <h4 className="font-serif text-3xl text-[#EAE6DF] mb-6 font-light group-hover:text-[#C6A87C] transition-colors">{std.title}</h4>
+            <FadeIn key={i} delay={i * 100} className="bg-[#020202] p-12 group hover:bg-[#050606] transition-all duration-700 interactive-element relative overflow-hidden">
+               <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-transparent to-transparent group-hover:via-[#C6A87C]/30 transition-all duration-700" style={{ backgroundImage: `linear-gradient(to right, transparent, ${std.hue}44, transparent)` }} />
+               <div className="font-mono text-[7px] tracking-[0.3em] uppercase mb-8 opacity-40 group-hover:opacity-100 transition-colors" style={{ color: std.hue }}>{std.code}</div>
+               <h4 className="font-serif text-3xl text-[#EAE6DF] mb-6 font-light group-hover:text-[#EAE6DF] transition-colors">{std.title}</h4>
                <p className="font-serif italic text-[#EAE6DF]/40 text-lg leading-relaxed">{std.desc}</p>
-               <div className="mt-12 w-8 h-[1px] bg-[#C6A87C]/20 group-hover:w-full transition-all duration-700"></div>
+               <div className="mt-12 w-8 h-[1px] transition-all duration-700 group-hover:w-full" style={{ backgroundColor: `${std.hue}44` }}></div>
             </FadeIn>
           ))}
         </div>
@@ -4404,12 +4405,12 @@ const TechnicalSpecSheet = () => {
 
 const TechnologyPartners = () => {
   const partners = [
-    { name: "SIEMENS", role: "SCADA & AUTOMATYKA", delay: 0 },
-    { name: "ABB", role: "NAPĘDY & SILNIKI", delay: 100 },
-    { name: "JENBACHER", role: "KOGENERACJA CHP", delay: 200 },
-    { name: "XYLEM", role: "DYNAMIKA PŁYNÓW", delay: 300 },
-    { name: "ENDRESS+HAUSER", role: "METROLOGIA", delay: 400 },
-    { name: "WOLF", role: "POCHODNIE BIOGAZOWE", delay: 500 }
+    { name: "SIEMENS", role: "SCADA & AUTOMATYKA", delay: 0, hue: "#009adb" },
+    { name: "ABB", role: "NAPĘDY & SILNIKI", delay: 100, hue: "#ff0000" },
+    { name: "JENBACHER", role: "KOGENERACJA CHP", delay: 200, hue: "#ff8c00" },
+    { name: "XYLEM", role: "DYNAMIKA PŁYNÓW", delay: 300, hue: "#00a3e0" },
+    { name: "ENDRESS+HAUSER", role: "METROLOGIA", delay: 400, hue: "#005aab" },
+    { name: "WOLF", role: "POCHODNIE BIOGAZOWE", delay: 500, hue: "#6c8c1e" }
   ];
 
   return (
@@ -4423,9 +4424,15 @@ const TechnologyPartners = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {partners.map((p, i) => (
             <FadeIn key={i} delay={p.delay} className="group cursor-pointer">
-              <div className="border border-[#C6A87C]/10 p-8 h-32 flex flex-col items-center justify-center bg-[#050505] hover:bg-[#C6A87C]/5 transition-all duration-500 rounded-xl">
-                <span className="font-serif text-[#EAE6DF]/40 group-hover:text-[#EAE6DF] text-xl tracking-widest uppercase transition-colors">{p.name}</span>
-                <span className="font-mono text-[7px] text-[#C6A87C]/40 tracking-[0.3em] uppercase mt-4 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 text-center">{p.role}</span>
+              <div 
+                className="border border-[#C6A87C]/10 p-8 h-32 flex flex-col items-center justify-center bg-[#050505] transition-all duration-500 rounded-xl relative overflow-hidden"
+                style={{ '--accent-hue': p.hue }}
+              >
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500" style={{ backgroundColor: p.hue }} />
+                <span className="font-serif text-[#EAE6DF]/40 group-hover:text-[#EAE6DF] text-xl tracking-widest uppercase transition-all duration-500 group-hover:scale-105 z-10" style={{ textShadow: `0 0 20px ${p.hue}00`, color: i % 2 === 0 ? '' : '' }}>
+                   {p.name}
+                </span>
+                <span className="font-mono text-[7px] tracking-[0.3em] uppercase mt-4 opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 text-center z-10" style={{ color: p.hue }}>{p.role}</span>
               </div>
             </FadeIn>
           ))}
