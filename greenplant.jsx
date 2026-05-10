@@ -606,9 +606,15 @@ const Navbar = () => {
               </a>
             ))}
           </div>
-          <a href="#kontakt" className="bg-[#C8A97D] text-[#050505] px-8 py-3 text-[10px] font-mono tracking-[0.25em] uppercase hover:bg-[#F2EDE4] border border-[#C8A97D] hover:border-[#F2EDE4] transition-all duration-500 flex items-center gap-3 interactive-element rounded-full font-medium">
-            Wyceń projekt
-          </a>
+          <div className="flex items-center gap-6">
+            <a href="tel:+48601944451" className="hidden md:flex font-mono text-[12px] text-[#C8A97D] tracking-[0.2em] hover:text-[#F2EDE4] transition-colors items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse"></span>
+              +48 601 944 451
+            </a>
+            <a href="#kontakt" className="bg-[#C8A97D] text-[#050505] px-8 py-3 text-[10px] font-mono tracking-[0.25em] uppercase hover:bg-[#F2EDE4] border border-[#C8A97D] hover:border-[#F2EDE4] transition-all duration-500 flex items-center gap-3 interactive-element rounded-full font-medium">
+              Wyceń projekt
+            </a>
+          </div>
         </div>
       </div>
     </nav>
@@ -2040,8 +2046,9 @@ const CTA = () => {
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" strokeWidth={2} />
                 </a>
               </MagneticButton>
-              <div className="font-mono text-[9px] text-[#F2EDE4]/30 tracking-[0.3em] uppercase">
-                lub +48 601 944 451
+              <div className="font-mono text-xl md:text-3xl text-[#C8A97D] tracking-widest mt-2 flex items-center gap-4">
+                <span className="text-[10px] text-[#F2EDE4]/40 tracking-[0.4em] uppercase">lub</span> 
+                <a href="tel:+48601944451" className="hover:text-[#F2EDE4] transition-colors interactive-element">+48 601 944 451</a>
               </div>
             </div>
 
@@ -4525,8 +4532,9 @@ const ProcessInitiation = () => {
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2} />
                   </a>
                 </MagneticButton>
-                <div className="font-mono text-[9px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase">
-                  LUB +48 601 944 451
+                <div className="font-mono text-xl md:text-3xl text-[#C6A87C] tracking-widest flex items-center gap-4">
+                  <span className="text-[10px] text-[#EAE6DF]/40 tracking-[0.4em] uppercase">lub</span> 
+                  <a href="tel:+48601944451" className="hover:text-[#EAE6DF] transition-colors interactive-element">+48 601 944 451</a>
                 </div>
               </div>
             </FadeIn>
