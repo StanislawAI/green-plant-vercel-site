@@ -611,9 +611,76 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-[#050505]">
+    <section className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-[#050505]" data-testid="hero">
       <div className="absolute inset-0 hero-mesh z-0" />
       <div className="absolute inset-0 bg-blueprint opacity-5 pointer-events-none z-[1]" />
+
+      {/* MASSIVE reactor cross-section watermark behind everything */}
+      <div className="absolute inset-0 z-[1] pointer-events-none flex items-center justify-end opacity-[0.18]">
+        <svg viewBox="0 0 800 800" className="h-[140%] w-auto" style={{ maxWidth: '70%' }}>
+          <defs>
+            <linearGradient id="heroRGrad" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stopColor="#C8A97D" stopOpacity="0" />
+              <stop offset="0.5" stopColor="#C8A97D" stopOpacity="0.5" />
+              <stop offset="1" stopColor="#C8A97D" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          {/* outermost circle */}
+          <circle cx="400" cy="400" r="380" fill="none" stroke="url(#heroRGrad)" strokeWidth="1" strokeDasharray="2 4" />
+          <circle cx="400" cy="400" r="320" fill="none" stroke="#C8A97D" strokeOpacity="0.4" strokeWidth="0.6" />
+          {/* reactor body (vertical) */}
+          <line x1="220" y1="180" x2="220" y2="620" stroke="#C8A97D" strokeOpacity="0.7" />
+          <line x1="580" y1="180" x2="580" y2="620" stroke="#C8A97D" strokeOpacity="0.7" />
+          {/* top dome */}
+          <path d="M 220 180 Q 400 60 580 180" fill="none" stroke="#C8A97D" strokeOpacity="0.7" />
+          <path d="M 240 170 Q 400 80 560 170" fill="none" stroke="#C8A97D" strokeOpacity="0.4" strokeDasharray="2 3" />
+          <path d="M 260 160 Q 400 100 540 160" fill="none" stroke="#C8A97D" strokeOpacity="0.25" strokeDasharray="1 4" />
+          {/* bottom ellipse */}
+          <ellipse cx="400" cy="620" rx="180" ry="30" fill="none" stroke="#C8A97D" strokeOpacity="0.6" />
+          <ellipse cx="400" cy="180" rx="180" ry="22" fill="none" stroke="#C8A97D" strokeOpacity="0.4" strokeDasharray="2 3" />
+          {/* mixer shaft */}
+          <line x1="400" y1="100" x2="400" y2="600" stroke="#C8A97D" strokeOpacity="0.55" strokeWidth="1.5" />
+          <rect x="384" y="80" width="32" height="24" fill="none" stroke="#C8A97D" strokeOpacity="0.7" />
+          <path d="M 350 580 L 450 580 M 350 580 L 376 560 M 450 580 L 424 560" stroke="#C8A97D" strokeOpacity="0.7" strokeWidth="1.5" fill="none" />
+          {/* gas pipe top */}
+          <line x1="580" y1="120" x2="700" y2="120" stroke="#C8A97D" strokeOpacity="0.6" />
+          <line x1="700" y1="120" x2="700" y2="40" stroke="#C8A97D" strokeOpacity="0.6" />
+          <path d="M 692 40 Q 700 10 708 40" fill="#D97847" fillOpacity="0.5" stroke="#D97847" strokeOpacity="0.7" />
+          {/* inlet */}
+          <line x1="100" y1="520" x2="220" y2="520" stroke="#C8A97D" strokeOpacity="0.6" />
+          <polygon points="100,514 90,520 100,526" fill="#C8A97D" fillOpacity="0.6" />
+          {/* outlet */}
+          <line x1="580" y1="520" x2="700" y2="520" stroke="#C8A97D" strokeOpacity="0.6" />
+          <polygon points="700,514 710,520 700,526" fill="#C8A97D" fillOpacity="0.6" />
+          {/* gas bubbles inside */}
+          {[...Array(20)].map((_, i) => (
+            <circle key={i} cx={260 + (i * 19) % 280} cy={400 + (i * 23) % 180} r={2 + (i % 3)}
+              fill="#4ADE80" fillOpacity="0.4">
+              <animate attributeName="cy" values={`${400 + (i*23)%180};220;${400 + (i*23)%180}`} dur={`${3.5 + i*0.3}s`} repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.5;0.05;0.5" dur={`${3.5 + i*0.3}s`} repeatCount="indefinite" />
+            </circle>
+          ))}
+          {/* dimension lines */}
+          <line x1="220" y1="700" x2="580" y2="700" stroke="#C8A97D" strokeOpacity="0.35" />
+          <line x1="220" y1="694" x2="220" y2="706" stroke="#C8A97D" strokeOpacity="0.35" />
+          <line x1="580" y1="694" x2="580" y2="706" stroke="#C8A97D" strokeOpacity="0.35" />
+          <text x="400" y="720" textAnchor="middle" className="font-mono" fontSize="11" fill="#C8A97D" fillOpacity="0.5">⌀ 24 m</text>
+          {/* tick marks around outer circle */}
+          {[...Array(48)].map((_, k) => {
+            const a = (k / 48) * Math.PI * 2;
+            const r1 = 320;
+            const r2 = k % 4 === 0 ? 332 : 325;
+            return <line key={k}
+              x1={400 + Math.cos(a) * r1} y1={400 + Math.sin(a) * r1}
+              x2={400 + Math.cos(a) * r2} y2={400 + Math.sin(a) * r2}
+              stroke="#C8A97D" strokeOpacity={k % 4 === 0 ? 0.5 : 0.2} strokeWidth="0.6" />;
+          })}
+          {/* labels */}
+          <text x="120" y="170" className="font-mono" fontSize="9" fill="#C8A97D" fillOpacity="0.4">DWG-014 / SECT. A-A</text>
+          <text x="640" y="780" className="font-mono" fontSize="9" fill="#C8A97D" fillOpacity="0.4">SCALE 1:200 / GP 2026</text>
+        </svg>
+      </div>
+
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#050505] to-transparent z-[2]" />
 
       <div className="max-w-[100rem] mx-auto px-6 md:px-8 relative z-10 grid lg:grid-cols-12 gap-16 items-center w-full">
@@ -3514,6 +3581,427 @@ const MaterialSamples = () => {
   );
 };
 
+// Kinetic break II — diagonal overlapping massive type
+const KineticBreakII = () => {
+  const layers = [
+    { txt: 'CISZA · POKORA · PROCES ·', size: '12rem', dir: 'normal', dur: '50s', color: 'transparent', stroke: true, ts: '-0.04em' },
+    { txt: 'archeon × archeon × archeon ×', size: '8rem', dir: 'reverse', dur: '35s', color: '#C6A87C', italic: true, opacity: 0.7, ts: '-0.02em' },
+    { txt: 'CH₄ + CO₂ = ENERGIA · CH₄ + CO₂ = ENERGIA ·', size: '5rem', dir: 'normal', dur: '40s', color: '#4ADE80', opacity: 0.5, ts: '0.02em' },
+    { txt: 'POLE → REAKTOR → SIEĆ → DOM → POLE ·', size: '9rem', dir: 'reverse', dur: '60s', color: '#EAE6DF', italic: true, opacity: 0.15, ts: '-0.03em' },
+  ];
+  return (
+    <section className="relative py-32 bg-[#020202] overflow-hidden" data-testid="kinetic-break-2">
+      <div className="absolute inset-0 paper-grain opacity-15" />
+      <div className="absolute inset-0 bg-topo opacity-10" />
+      <div className="space-y-[-3vw] py-8 relative z-10">
+        {layers.map((l, i) => (
+          <div key={i} className={`flex whitespace-nowrap items-center ${l.dir === 'reverse' ? 'animate-marquee-reverse' : 'animate-marquee'}`}
+            style={{ animationDuration: l.dur }}>
+            {[...Array(6)].map((_, k) => (
+              <span
+                key={k}
+                className={`font-serif leading-[0.85] pr-12 ${l.italic ? 'italic' : ''}`}
+                style={{
+                  fontSize: `clamp(3rem, ${l.size}, 16rem)`,
+                  color: l.stroke ? 'transparent' : l.color,
+                  WebkitTextStroke: l.stroke ? `1px ${l.color === 'transparent' ? '#C6A87C50' : l.color}` : '0',
+                  opacity: l.opacity ?? 1,
+                  letterSpacing: l.ts,
+                  fontWeight: l.italic ? 400 : 300,
+                }}>
+                {l.txt}
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+// Kinetic break III — single massive vertical glyph & fragmented words
+const KineticBreakIII = () => {
+  return (
+    <section className="relative bg-[#050505] overflow-hidden flex items-center justify-center" style={{ minHeight: '80vh' }} data-testid="kinetic-break-3">
+      <div className="absolute inset-0 halftone opacity-[0.06]" />
+      <div className="absolute inset-0 bg-pinstripes opacity-30" />
+      {/* Massive italic CH₄ */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span
+          className="font-serif italic font-light leading-[0.78] text-[#C6A87C]/[0.07] select-none"
+          style={{ fontSize: 'clamp(20rem, 50vw, 60rem)', letterSpacing: '-0.06em' }}
+        >
+          CH₄
+        </span>
+      </div>
+      {/* Vertical text edges */}
+      <div className="absolute left-8 top-1/2 -translate-y-1/2 vertical-writing font-mono text-[10px] text-[#C6A87C]/40 tracking-[0.4em] uppercase">
+        Metan · CH₄ · 16.04 g/mol · 35 MJ/m³
+      </div>
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 vertical-writing font-mono text-[10px] text-[#C6A87C]/40 tracking-[0.4em] uppercase" style={{ transform: 'translateY(-50%) rotate(180deg)' }}>
+        Punkt wrzenia · -161.5 °C · Gaz palny · GWP 28
+      </div>
+      {/* Foreground content */}
+      <div className="relative z-10 text-center max-w-5xl px-8">
+        <FadeIn>
+          <div className="font-mono text-[#4ADE80] text-[10px] tracking-[0.5em] uppercase mb-12 flex items-center justify-center gap-4">
+            <span className="w-12 h-px bg-[#4ADE80]" /> Cząsteczka pierwsza · pierwiastek dochodu <span className="w-12 h-px bg-[#4ADE80]" />
+          </div>
+          <h2 className="font-serif text-5xl md:text-[6rem] text-[#EAE6DF] leading-[0.95] font-light mb-12 tracking-tight">
+            Metan to <br/>
+            <span className="italic text-[#C6A87C]">naturalny stan</span> <br/>
+            zamkniętego obiegu.
+          </h2>
+          <p className="font-serif italic text-2xl text-[#EAE6DF]/55 max-w-3xl mx-auto leading-relaxed">
+            Każdy kilogram, który wytworzymy w reaktorze, to kilogram, który nie wydostał się do atmosfery. To nie jest tylko energia. To <span className="text-[#C6A87C] not-italic">geoinżynieria w skali jednego pola</span>.
+          </p>
+        </FadeIn>
+      </div>
+      {/* Corner crosshairs */}
+      <div className="absolute top-12 left-12 reg-mark" />
+      <div className="absolute top-12 right-12 reg-mark" />
+      <div className="absolute bottom-12 left-12 reg-mark" />
+      <div className="absolute bottom-12 right-12 reg-mark" />
+    </section>
+  );
+};
+
+// Vertical company history timeline since 2008
+const TimelineSince2008 = () => {
+  const events = [
+    { year: '2008', title: 'Pierwsza biogazownia', desc: 'Stargard. 0.5 MW. Gnojowica bydlęca. Eksperyment, który zdefiniował firmę.', cat: 'GENESIS' },
+    { year: '2011', title: 'Pierwszy kontrakt EPC', desc: 'Komunalna instalacja w Mazowszu. 0.5 MW. Pierwsza realizacja "pod klucz" dla samorządu.', cat: 'MILESTONE' },
+    { year: '2014', title: 'Autorski SCADA v1', desc: 'Wewnętrzny zespół developuje pierwszy system nadzoru. Koniec uzależnienia od zewnętrznych integratorów.', cat: 'TECH' },
+    { year: '2017', title: 'Aukcja OZE — koszyk dedykowany', desc: 'Skuteczne lobbingowanie ministerstwa. Biogaz rolniczy zyskuje osobny koszyk aukcyjny — bez konkurencji z wiatrem.', cat: 'POLICY' },
+    { year: '2019', title: 'Otwarcie laboratorium BMP', desc: 'Wewnętrzne laboratorium analiz metanowych. Każdy projekt zaczyna się od własnego pomiaru. Koniec przybliżeń.', cat: 'R&D' },
+    { year: '2021', title: 'Ekspansja na CZ + DE', desc: 'Pierwsza realizacja zagraniczna — Bawaria. Adaptacja procesów do regulacji niemieckich i czeskich.', cat: 'EXPANSION' },
+    { year: '2023', title: 'Portfel 12 instalacji', desc: '12 czynnych biogazowni. Łączna moc 18.4 MW. Średnia dyspozycyjność portfela: 96.2%.', cat: 'SCALE' },
+    { year: '2025', title: 'Runda finansowania 40 mln zł', desc: 'EBRD i fundusze PE. Cel: 30 instalacji do 2028. Ekspansja na Skandynawię i Bałkany.', cat: 'CAPITAL' },
+    { year: '2026', title: 'Tu jesteś', desc: '17 instalacji. 84 MW łącznie. 9 w fazie projektowej. 200 inżynierów. Manifest zaktualizowany.', cat: 'NOW', live: true },
+  ];
+  return (
+    <section className="relative py-48 bg-[#030404] overflow-hidden" data-testid="timeline-2008">
+      <div className="absolute inset-0 technical-grid opacity-5" />
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <FadeIn>
+          <div className="grid lg:grid-cols-12 gap-12 items-end mb-24 border-b border-[#C6A87C]/15 pb-12">
+            <div className="lg:col-span-8">
+              <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
+                <Activity className="w-3.5 h-3.5" strokeWidth={1} /> Linia czasu — 18 lat operacji
+              </div>
+              <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
+                Od 2008 <br/><span className="italic text-[#C6A87C] font-normal">do teraz.</span>
+              </h2>
+            </div>
+            <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
+              Dziewięć kamieni milowych. Jeden nieprzerwany kierunek. Polska biogazownia rolnicza dorosła razem z nami.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="relative">
+          {/* Central spine */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#C6A87C]/30 to-transparent hidden md:block" />
+
+          <div className="space-y-24">
+            {events.map((e, i) => {
+              const isRight = i % 2 === 0;
+              return (
+                <FadeIn key={i} delay={i * 60}>
+                  <div className={`grid md:grid-cols-2 gap-12 items-center relative ${isRight ? '' : ''}`}>
+                    {/* Node on spine */}
+                    <div className="absolute left-1/2 -translate-x-1/2 z-10 hidden md:block">
+                      {e.live ? (
+                        <div className="relative">
+                          <div className="w-4 h-4 bg-[#4ADE80] rounded-full" />
+                          <div className="absolute inset-0 w-4 h-4 bg-[#4ADE80] rounded-full animate-ping" />
+                          <div className="absolute -inset-3 border border-[#4ADE80]/40 rounded-full" />
+                        </div>
+                      ) : (
+                        <div className="w-3 h-3 bg-[#020202] border-2 border-[#C6A87C]/60 rounded-full" />
+                      )}
+                    </div>
+
+                    {/* Left side */}
+                    <div className={`${isRight ? 'md:text-right md:pr-20' : 'md:order-2 md:pl-20'}`}>
+                      <div className={`font-mono text-[10px] tracking-[0.4em] uppercase mb-4 ${e.live ? 'text-[#4ADE80]' : 'text-[#C6A87C]/60'}`}>
+                        {e.cat}
+                      </div>
+                      <div className={`font-serif font-light leading-none mb-6 ${e.live ? 'text-[#4ADE80]' : 'text-[#C6A87C]'}`} style={{ fontSize: '7rem' }}>
+                        {e.year}
+                      </div>
+                    </div>
+
+                    {/* Right side */}
+                    <div className={`glass-morphism p-10 rounded-[2rem] relative ${isRight ? '' : 'md:order-1'}`}>
+                      <h3 className="font-serif text-3xl text-[#EAE6DF] font-light leading-tight mb-4">{e.title}</h3>
+                      <p className="font-serif italic text-base text-[#EAE6DF]/55 leading-relaxed">{e.desc}</p>
+                      {e.live && (
+                        <div className="mt-6 flex items-center gap-3 pt-6 border-t border-[#4ADE80]/20">
+                          <span className="w-2 h-2 bg-[#4ADE80] rounded-full animate-pulse shadow-[0_0_8px_#4ADE80]" />
+                          <span className="font-mono text-[9px] text-[#4ADE80] tracking-[0.4em] uppercase">Aktualnie</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </FadeIn>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Engineering drawing margin annotations
+const BlueprintMargin = () => {
+  const notes = [
+    { code: 'N.001', txt: 'Wszystkie wymiary w mm chyba że zaznaczono inaczej.' },
+    { code: 'N.002', txt: 'Tolerancja wymiarowa wg ISO 2768-mK dla wymiarów liniowych.' },
+    { code: 'N.003', txt: 'Spawanie wg EN ISO 15614-1. Wszystkie spoiny klasy B.' },
+    { code: 'N.004', txt: 'Powłoki antykorozyjne — system C5 wg ISO 12944.' },
+    { code: 'N.005', txt: 'Beton hydrotechniczny klasa C35/45 W10 XA3.' },
+    { code: 'N.006', txt: 'Zbrojenie konstrukcyjne stal BSt 500 S, otulina min. 50 mm.' },
+    { code: 'N.007', txt: 'Próba szczelności gazowej przed odbiorem UDT — nadciśnienie 50 mbar / 24h.' },
+    { code: 'N.008', txt: 'Strefy zagrożone wybuchem — klasyfikacja wg PN-EN 60079-10-1.' },
+    { code: 'N.009', txt: 'Uziemienie ekwipotencjalne wszystkich elementów metalowych — rezystancja < 10 Ω.' },
+    { code: 'N.010', txt: 'Sprawdzenie szczelności silnika lambdą — interwał 200 mth.' },
+  ];
+  return (
+    <section className="relative py-32 bg-[#020202] overflow-hidden" data-testid="blueprint-margin">
+      <div className="absolute inset-0 bg-blueprint opacity-15" />
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        {/* Drawing header */}
+        <FadeIn>
+          <div className="border border-[#C6A87C]/30 grid grid-cols-12 mb-16">
+            <div className="col-span-6 p-8 border-r border-[#C6A87C]/30">
+              <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-3">Tytuł rysunku</div>
+              <h2 className="font-serif text-5xl text-[#EAE6DF] font-light leading-tight">
+                Biogazownia rolnicza 1 MW <br/><span className="italic text-[#C6A87C]">— przekrój podłużny.</span>
+              </h2>
+            </div>
+            <div className="col-span-3 grid grid-rows-3">
+              <div className="p-5 border-b border-[#C6A87C]/30 border-r">
+                <div className="font-mono text-[7px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-1">Skala</div>
+                <div className="font-mono text-lg text-[#EAE6DF]">1:200</div>
+              </div>
+              <div className="p-5 border-b border-[#C6A87C]/30 border-r">
+                <div className="font-mono text-[7px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-1">Format</div>
+                <div className="font-mono text-lg text-[#EAE6DF]">A1</div>
+              </div>
+              <div className="p-5 border-r">
+                <div className="font-mono text-[7px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-1">Numer arkusza</div>
+                <div className="font-mono text-lg text-[#EAE6DF]">014 / 47</div>
+              </div>
+            </div>
+            <div className="col-span-3 grid grid-rows-3">
+              <div className="p-5 border-b border-[#C6A87C]/30">
+                <div className="font-mono text-[7px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-1">Rysował</div>
+                <div className="font-serif italic text-lg text-[#EAE6DF]">M. Krawczyk</div>
+              </div>
+              <div className="p-5 border-b border-[#C6A87C]/30">
+                <div className="font-mono text-[7px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-1">Sprawdził</div>
+                <div className="font-serif italic text-lg text-[#EAE6DF]">A. Nowicki</div>
+              </div>
+              <div className="p-5">
+                <div className="font-mono text-[7px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-1">Rev. / Data</div>
+                <div className="font-mono text-lg text-[#EAE6DF]">C / 04.2026</div>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* Annotated drawing area */}
+        <div className="relative border border-[#C6A87C]/20 p-16 min-h-[600px] bg-[#020202]/40">
+          {/* Drawing in middle */}
+          <FadeIn>
+            <div className="absolute inset-12 flex items-center justify-center pointer-events-none">
+              <svg viewBox="0 0 1200 600" className="w-full h-full">
+                <defs>
+                  <pattern id="bm-hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+                    <line x1="0" y1="0" x2="0" y2="6" stroke="#C6A87C" strokeOpacity="0.3" strokeWidth="1" />
+                  </pattern>
+                </defs>
+                {/* Ground */}
+                <line x1="50" y1="500" x2="1150" y2="500" stroke="#C6A87C" strokeOpacity="0.4" strokeWidth="1.5" />
+                <rect x="200" y="500" width="800" height="30" fill="url(#bm-hatch)" />
+                {/* Digesters x2 */}
+                <ellipse cx="400" cy="500" rx="170" ry="25" fill="#0a0c0b" stroke="#C6A87C" strokeOpacity="0.55" />
+                <rect x="230" y="250" width="340" height="250" fill="none" stroke="#C6A87C" strokeOpacity="0.55" />
+                <ellipse cx="400" cy="250" rx="170" ry="25" fill="#0a0c0b" stroke="#C6A87C" strokeOpacity="0.55" />
+                <path d="M 230 250 Q 400 130 570 250" fill="none" stroke="#C6A87C" strokeOpacity="0.55" />
+                <text x="400" y="380" textAnchor="middle" fill="#C6A87C" fillOpacity="0.6" fontSize="12" className="font-mono">REAKTOR I</text>
+                <text x="400" y="395" textAnchor="middle" fill="#C6A87C" fillOpacity="0.4" fontSize="9" className="font-mono">2400 m³</text>
+
+                <ellipse cx="800" cy="500" rx="170" ry="25" fill="#0a0c0b" stroke="#C6A87C" strokeOpacity="0.55" />
+                <rect x="630" y="280" width="340" height="220" fill="none" stroke="#C6A87C" strokeOpacity="0.55" />
+                <ellipse cx="800" cy="280" rx="170" ry="25" fill="#0a0c0b" stroke="#C6A87C" strokeOpacity="0.55" />
+                <path d="M 630 280 Q 800 170 970 280" fill="none" stroke="#C6A87C" strokeOpacity="0.55" />
+                <text x="800" y="380" textAnchor="middle" fill="#C6A87C" fillOpacity="0.6" fontSize="12" className="font-mono">REAKTOR II</text>
+                <text x="800" y="395" textAnchor="middle" fill="#C6A87C" fillOpacity="0.4" fontSize="9" className="font-mono">2400 m³</text>
+
+                {/* CHP building */}
+                <rect x="1020" y="420" width="120" height="80" fill="none" stroke="#C6A87C" strokeOpacity="0.55" />
+                <text x="1080" y="465" textAnchor="middle" fill="#C6A87C" fillOpacity="0.6" fontSize="11" className="font-mono">CHP</text>
+                <text x="1080" y="480" textAnchor="middle" fill="#C6A87C" fillOpacity="0.4" fontSize="8" className="font-mono">999 kW</text>
+
+                {/* Gas pipes between */}
+                <line x1="570" y1="200" x2="630" y2="200" stroke="#4ADE80" strokeOpacity="0.6" strokeDasharray="4 3" />
+                <line x1="970" y1="200" x2="1080" y2="200" stroke="#4ADE80" strokeOpacity="0.6" strokeDasharray="4 3" />
+                <line x1="1080" y1="200" x2="1080" y2="420" stroke="#4ADE80" strokeOpacity="0.6" strokeDasharray="4 3" />
+
+                {/* Substrate silo */}
+                <polygon points="60,500 60,440 130,400 200,440 200,500" fill="none" stroke="#C6A87C" strokeOpacity="0.55" />
+                <text x="130" y="475" textAnchor="middle" fill="#C6A87C" fillOpacity="0.6" fontSize="10" className="font-mono">SUBSTRAT</text>
+                <line x1="200" y1="450" x2="230" y2="450" stroke="#C6A87C" strokeOpacity="0.6" />
+
+                {/* Dimension lines */}
+                <line x1="50" y1="560" x2="1150" y2="560" stroke="#C6A87C" strokeOpacity="0.3" />
+                <line x1="50" y1="555" x2="50" y2="565" stroke="#C6A87C" strokeOpacity="0.3" />
+                <line x1="1150" y1="555" x2="1150" y2="565" stroke="#C6A87C" strokeOpacity="0.3" />
+                <text x="600" y="575" textAnchor="middle" fill="#C6A87C" fillOpacity="0.5" fontSize="10" className="font-mono">120.0 m — całkowita długość zakładu</text>
+
+                {/* Numbered annotations */}
+                {[
+                  { x: 130, y: 425, n: '01' },
+                  { x: 400, y: 200, n: '02' },
+                  { x: 800, y: 230, n: '03' },
+                  { x: 1080, y: 460, n: '04' },
+                  { x: 600, y: 200, n: '05' },
+                ].map((a, i) => (
+                  <g key={i}>
+                    <circle cx={a.x} cy={a.y} r="14" fill="#C6A87C" />
+                    <text x={a.x} y={a.y + 4} textAnchor="middle" fill="#050505" fontSize="10" fontWeight="700" className="font-mono">{a.n}</text>
+                  </g>
+                ))}
+
+                {/* Title block bottom right */}
+                <rect x="950" y="540" width="190" height="40" fill="none" stroke="#C6A87C" strokeOpacity="0.6" />
+                <text x="960" y="557" fill="#C6A87C" fillOpacity="0.6" fontSize="8" className="font-mono">DWG-014/REV.C</text>
+                <text x="960" y="572" fill="#C6A87C" fillOpacity="0.6" fontSize="8" className="font-mono">GREEN PLANT TECH. © 2026</text>
+              </svg>
+            </div>
+          </FadeIn>
+
+          {/* Corner registration marks */}
+          <div className="absolute top-4 left-4 reg-mark" />
+          <div className="absolute top-4 right-4 reg-mark" />
+          <div className="absolute bottom-4 left-4 reg-mark" />
+          <div className="absolute bottom-4 right-4 reg-mark" />
+
+          {/* Side notes column */}
+          <div className="absolute top-8 right-8 max-w-[280px] space-y-1 bg-[#020202]/80 backdrop-blur p-4 border border-[#C6A87C]/15">
+            <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase pb-2 mb-2 border-b border-[#C6A87C]/15">Uwagi techniczne</div>
+            {notes.slice(0, 5).map((n, i) => (
+              <div key={i} className="flex gap-3">
+                <span className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.1em] shrink-0">{n.code}</span>
+                <span className="font-serif italic text-[10px] text-[#EAE6DF]/50 leading-snug">{n.txt}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom annotations grid */}
+        <FadeIn>
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mt-8">
+            {[
+              { n: '01', l: 'Silos kiszonki', d: 'Pojemność 1800 t. Geomembrana EPDM.' },
+              { n: '02', l: 'Reaktor I — hydroliza', d: 'Faza wstępna. Mezofile 38 °C.' },
+              { n: '03', l: 'Reaktor II — metanogeneza', d: 'Faza właściwa. Czas retencji 28 dni.' },
+              { n: '04', l: 'Maszynownia CHP', d: 'Silnik MWM TCG 2016 V12. 999 kWe.' },
+              { n: '05', l: 'Magazyn biogazu', d: 'Membrana podwójna 1200 m³.' },
+            ].map((a, i) => (
+              <div key={i} className="border border-[#C6A87C]/15 p-5 bg-[#020202]/40">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-7 h-7 rounded-full bg-[#C6A87C] flex items-center justify-center">
+                    <span className="font-mono text-[10px] font-bold text-[#050505]">{a.n}</span>
+                  </div>
+                  <span className="font-serif italic text-lg text-[#EAE6DF]">{a.l}</span>
+                </div>
+                <p className="font-serif italic text-[11px] text-[#EAE6DF]/45 leading-relaxed pl-10">{a.d}</p>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+
+        {/* Notes row (extended) */}
+        <FadeIn delay={300}>
+          <div className="mt-12 border-t border-[#C6A87C]/15 pt-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3">
+            {notes.slice(5).map((n, i) => (
+              <div key={i} className="flex gap-4">
+                <span className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.2em] shrink-0 w-12">{n.code}</span>
+                <span className="font-serif italic text-sm text-[#EAE6DF]/50 leading-relaxed">{n.txt}</span>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+};
+
+// Fixed-side scroll progress indicator showing current section name + index
+const SectionIndex = () => {
+  const [info, setInfo] = useState({ idx: 0, total: 0, name: '' });
+  useEffect(() => {
+    const update = () => {
+      const sections = Array.from(document.querySelectorAll('section[data-testid]'));
+      if (!sections.length) return;
+      const vh = window.innerHeight;
+      let activeIdx = 0;
+      sections.forEach((s, i) => {
+        const rect = s.getBoundingClientRect();
+        if (rect.top <= vh * 0.4) activeIdx = i;
+      });
+      const labels = {
+        'reactor-anatomy': 'Anatomia',
+        'molecular-process': 'Biochemia',
+        'editorial-quote': 'Editorial',
+        'poland-map': 'Polska',
+        'manifesto': 'Manifest',
+        'field-to-electricity': 'Z pola do prądu',
+        'microbial-taxonomy': 'Mikrobiologia',
+        'reactor-clock': 'Cykl 24h',
+        'press-wall': 'Prasa',
+        'gantt-build': 'Harmonogram',
+        'energy-comparison': 'Porównanie',
+        'glossary-lexicon': 'Leksykon',
+        'material-samples': 'Materiały',
+        'kinetic-break-2': 'Interludium',
+        'kinetic-break-3': 'Cząsteczka',
+        'timeline-2008': 'Linia czasu',
+        'blueprint-margin': 'Rysunek techniczny',
+        'cta': 'Kontakt',
+        'footer': 'Stopka',
+        'approach': 'Podejście',
+        'ticker-tape': 'Telemetria',
+      };
+      const id = sections[activeIdx].getAttribute('data-testid');
+      setInfo({ idx: activeIdx + 1, total: sections.length, name: labels[id] || id.replace(/-/g, ' ') });
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, []);
+  if (info.idx === 0) return null;
+  return (
+    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden xl:flex items-center gap-4 pointer-events-none" data-testid="section-index">
+      <div className="flex flex-col items-end gap-2 text-right">
+        <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.4em] uppercase">Sekcja</div>
+        <div className="font-serif italic text-xl text-[#EAE6DF]/80 leading-none capitalize">{info.name}</div>
+        <div className="font-mono text-[10px] text-[#C6A87C] tracking-[0.3em] tabular-nums">
+          {String(info.idx).padStart(2, '0')} <span className="text-[#C6A87C]/30">/</span> {String(info.total).padStart(2, '0')}
+        </div>
+      </div>
+      <div className="w-px h-32 bg-gradient-to-b from-transparent via-[#C6A87C]/40 to-transparent relative">
+        <div className="absolute left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-[#4ADE80] rounded-full shadow-[0_0_8px_#4ADE80] transition-all duration-700"
+          style={{ top: `${(info.idx / info.total) * 100}%` }} />
+      </div>
+    </div>
+  );
+};
+
 export default function App() {
   return (
     <>
@@ -3521,6 +4009,7 @@ export default function App() {
       <BootSequence />
       <div className="min-h-screen relative font-serif selection:bg-[#C8A97D] selection:text-[#050505]">
         <ScrollProgressBar />
+        <SectionIndex />
         <CustomCursor />
         <AmbientOrbs />
         <FilmGrain />
@@ -3529,13 +4018,16 @@ export default function App() {
         <TickerTape />
         <Approach />
         <FieldToElectricity />
+        <KineticBreakII />
         <BlueprintProcess />
         <ReactorAnatomy />
+        <BlueprintMargin />
         <MicrobialTaxonomy />
         <ContractModels />
         <FeedstockMatrix />
         <MaterialSamples />
         <MolecularProcess />
+        <KineticBreakIII />
         <ReactorClock />
         <EconomicsSection />
         <EnergyComparison />
@@ -3547,6 +4039,7 @@ export default function App() {
         <PolandMap />
         <ProjectsGallery />
         <PressWall />
+        <TimelineSince2008 />
         <EditorialBento />
         <TechStack />
         <ScadaSystem />
