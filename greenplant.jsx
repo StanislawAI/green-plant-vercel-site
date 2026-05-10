@@ -841,7 +841,7 @@ const HeroSCADAPanel = () => {
 };
 
 const TickerTape = () => {
-  const dataItems = ['Methane Purity: 62.4%', 'Grid Load: 1.25MW', 'Engine Hours: 84,200h', 'CO₂ Savings: 4.2t/d', 'Reactor T: 38.4°C', 'pH: 7.62', 'H₂S: <50ppm', 'VFA: 1.8g/L'];
+  const dataItems = ['Methane Purity: 62.4%', 'Grid Load: 1.25MW', 'Service Interval: 8 000h', 'CO₂ Savings: 4.2t/d', 'Reactor T: 38.4°C', 'pH: 7.62', 'H₂S: <50ppm', 'VFA: 1.8g/L'];
   const editorialItems = ['Inżynieria zysku', 'Materia w energię', 'Obieg zamknięty', 'Zero odpadów'];
   const refItems = ['DWG-014/REV.C', 'PROC-ADM-01', 'CYB-SEC-PRO', 'TECH-HYD-V4', 'LOG-BIO-S7', 'DIRECTIVE 2014/34/EU'];
   return (
@@ -1471,9 +1471,9 @@ const ProjectsGallery = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const projects = [
-    { title: "Plant Alpha-01", spec: "1.2 MW / Gnojowica i kiszonka", location: "Wielkopolska, PL", img: "/Users/stan/.gemini/antigravity/brain/906f4f99-9a59-4b7a-b50b-3a2631808779/biogas_plant_cinematic_1778349683317.png" },
-    { title: "BioHub Komunalny", spec: "0.5 MW / Odpady Miejskie", location: "Mazowsze, PL", img: "https://images.unsplash.com/photo-1506501139174-099022df5260?q=80&w=2000&auto=format&fit=crop" },
-    { title: "Industrial V3", spec: "2.0 MW / Odpady Przemysłowe", location: "Śląsk, PL", img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2000&auto=format&fit=crop" }
+    { title: "Typ A — Rolniczy", spec: "1.0 MW · gnojowica + kiszonka", location: "Wsad: 42 t / dobę", img: "/Users/stan/.gemini/antigravity/brain/906f4f99-9a59-4b7a-b50b-3a2631808779/biogas_plant_cinematic_1778349683317.png" },
+    { title: "Typ B — Komunalny", spec: "0.5 MW · odpady miejskie", location: "Wsad: 18 t / dobę", img: "https://images.unsplash.com/photo-1506501139174-099022df5260?q=80&w=2000&auto=format&fit=crop" },
+    { title: "Typ C — Przemysłowy", spec: "2.0 MW · odpady poubojowe", location: "Wsad: 82 t / dobę", img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2000&auto=format&fit=crop" }
   ];
 
   return (
@@ -1496,7 +1496,7 @@ const ProjectsGallery = () => {
       <div className="max-w-[100rem] mx-auto px-8 relative z-10 w-full">
         <FadeIn>
           <div className="mb-32 flex items-center gap-12">
-            <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase">Indeks Infrastruktury</h2>
+            <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase">Typologie projektowe — modele referencyjne</h2>
             <div className="flex-1 h-[1px] bg-[#C6A87C]/10"></div>
             <span className="font-mono text-[9px] text-[#C6A87C] tracking-[0.4em]">ACT_IDX: 0{activeIndex + 1}</span>
           </div>
@@ -1518,7 +1518,7 @@ const ProjectsGallery = () => {
                 
                 <div className={`flex items-center gap-12 transition-all duration-700 ${activeIndex === i ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
                   <div className="text-right">
-                    <p className="font-mono text-[8px] tracking-[0.3em] text-[#C6A87C] uppercase mb-2">Location // Specs</p>
+                    <p className="font-mono text-[8px] tracking-[0.3em] text-[#C6A87C] uppercase mb-2">Specyfikacja // Wsad dobowy</p>
                     <p className="font-serif text-2xl text-[#EAE6DF] italic">{proj.location} — {proj.spec}</p>
                   </div>
                   <div className="w-16 h-16 rounded-full border border-[#C6A87C] flex items-center justify-center group-hover:bg-[#C6A87C] group-hover:text-[#030404] transition-all">
@@ -3352,7 +3352,7 @@ const EnergyComparison = () => {
             <div>
               <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-3">Źródło danych</div>
               <p className="font-serif italic text-sm text-[#EAE6DF]/50 leading-relaxed">
-                Forum Energii 2025, IEA World Energy Outlook 2024, własne pomiary z 17 instalacji GP. Wartości uśrednione dla projektu 1 MW.
+                Forum Energii 2025, IEA World Energy Outlook 2024, dane branżowe sektora biogazu rolniczego w UE. Wartości uśrednione dla projektu 1 MW.
               </p>
             </div>
             <div>
@@ -4180,14 +4180,14 @@ const SiteAerial = () => {
 // Awards and certifications — wax-seal stamps grid
 const AwardsAndCertifications = () => {
   const items = [
-    { y: '2024', name: 'ISO 14001', sub: 'Środowisko', body: 'Zarządzanie środowiskowe', color: '#C6A87C' },
-    { y: '2023', name: 'ISO 9001', sub: 'Jakość', body: 'System zarządzania jakością', color: '#C6A87C' },
-    { y: '2024', name: 'ISO 45001', sub: 'BHP', body: 'Bezpieczeństwo pracy', color: '#C6A87C' },
-    { y: '2023', name: 'EBA Award', sub: 'European Biogas', body: 'Innowacja Roku', color: '#4ADE80' },
-    { y: '2022', name: 'Forum Energii', sub: 'Polska', body: 'Lider Transformacji', color: '#4ADE80' },
-    { y: '2021', name: 'TÜV Süd', sub: 'Niemcy', body: 'Certyfikacja procesu', color: '#C6A87C' },
-    { y: '2020', name: 'POLBIOM', sub: 'Polska', body: 'Złoty Medal — biogaz', color: '#4ADE80' },
-    { y: '2019', name: 'EU H2020', sub: 'Bruksela', body: 'Grant badawczy', color: '#D97847' },
+    { y: '2015', name: 'ISO 14001', sub: 'Środowisko', body: 'Zarządzanie środowiskowe', color: '#C6A87C' },
+    { y: '2015', name: 'ISO 9001', sub: 'Jakość', body: 'System zarządzania jakością', color: '#C6A87C' },
+    { y: '2018', name: 'ISO 45001', sub: 'BHP', body: 'Bezpieczeństwo pracy', color: '#C6A87C' },
+    { y: '2014', name: 'ATEX 2014/34', sub: 'Wybuchowość', body: 'Strefy zagrożone wybuchem', color: '#D97847' },
+    { y: '2018', name: 'EN 60079', sub: 'Strefy EX', body: 'Klasyfikacja ATEX zone 1/2', color: '#D97847' },
+    { y: 'UDT', name: 'Dozór UDT', sub: 'Polska', body: 'Zbiorniki ciśnieniowe', color: '#C6A87C' },
+    { y: '2017', name: 'EN ISO 15614', sub: 'Spawalnictwo', body: 'Kwalifikacja procesów spawania', color: '#4ADE80' },
+    { y: '2018', name: 'ISO 12944', sub: 'Powłoki', body: 'Antykorozja C5', color: '#4ADE80' },
   ];
   return (
     <section className="relative py-48 bg-[#020202] overflow-hidden" data-testid="awards-cert">
@@ -4197,14 +4197,14 @@ const AwardsAndCertifications = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-end mb-20 border-b border-[#C6A87C]/15 pb-10">
             <div className="lg:col-span-7">
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
-                <ShieldCheck className="w-3.5 h-3.5" strokeWidth={1} /> Galeria pieczęci — certyfikaty i nagrody
+                <ShieldCheck className="w-3.5 h-3.5" strokeWidth={1} /> Standardy referencyjne — według czego projektujemy
               </div>
               <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
-                Osiem pieczęci, <br/><span className="italic text-[#C6A87C] font-normal">jeden mandat.</span>
+                Osiem norm, <br/><span className="italic text-[#C6A87C] font-normal">jedna jakość.</span>
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Każda pieczęć to setki godzin audytu i kilometry dokumentacji. Nie zbieramy ich dla marketingu — zbieramy, bo definiują zakres odpowiedzialności wobec inwestora.
+              Każdy projekt projektujemy do ośmiu zewnętrznych norm. Nie wymieniamy ich dla marketingu — wymieniamy, bo definiują zakres odpowiedzialności wobec inwestora i organów dozoru.
             </p>
           </div>
         </FadeIn>
