@@ -181,7 +181,7 @@ const GlobalStyles = () => (
       transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.4s ease;
     }
     .kinetic-letter.visible { transform: translateY(0); opacity: 1; }
-    .kinetic-word { display: inline-block; overflow: hidden; vertical-align: bottom; }
+    .kinetic-word { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 0.1em; margin-bottom: -0.1em; }
 
     /* Registration / crosshair frames */
     .reg-mark {
@@ -693,7 +693,7 @@ const Hero = () => {
           </div>
 
           <div>
-            <h1 className="text-[4.5rem] md:text-[8rem] lg:text-[10rem] font-serif text-[#F2EDE4] leading-[0.82] tracking-tight mb-12 font-light">
+            <h1 className="text-[4.5rem] md:text-[8rem] lg:text-[10rem] font-serif text-[#F2EDE4] leading-[0.92] pb-4 tracking-tight mb-12 font-light">
               <KineticHeading delay={200} stagger={45}>Inżynieria</KineticHeading>
               <br />
               <span className="italic text-[#C8A97D] font-normal pl-6 md:pl-20 inline-block">
@@ -915,7 +915,7 @@ const Approach = () => {
                 <span className="text-[#C6A87C]/30">/</span>
                 <span className="text-[#C6A87C]/40">§ I</span>
               </div>
-              <h2 className="text-7xl md:text-[10rem] font-serif text-[#EAE6DF] leading-[0.88] mb-12 font-light tracking-tight">
+              <h2 className="text-7xl md:text-[10rem] font-serif text-[#EAE6DF] leading-[0.92] pb-6 mb-12 font-light tracking-tight">
                 <KineticHeading delay={100} stagger={40}>Materia w</KineticHeading><br/>
                 <span className="italic text-[#C6A87C] font-normal"><KineticHeading delay={500} stagger={50}>energię.</KineticHeading></span>
               </h2>
@@ -923,7 +923,7 @@ const Approach = () => {
               {/* Editorial drop-cap body */}
               <div className="max-w-2xl">
                 <p className="text-[#EAE6DF]/70 font-serif text-2xl leading-[1.55] mb-8 font-light">
-                  <span className="float-left font-serif text-[8rem] leading-[0.85] text-[#C6A87C] italic mr-5 mt-2 font-normal">B</span>
+                  <span className="float-left font-serif text-[8rem] leading-[0.92] pb-2 text-[#C6A87C] italic mr-5 mt-2 font-normal">B</span>
                   iogazownia to nie tylko zbiór betonowych zbiorników. To precyzyjnie dostrojony ekosystem, w którym <span className="italic text-[#C6A87C]">biologia</span> spotyka się z ciężką inżynierią mechaniczną — bakterie metanogenne, sterowniki PLC, kwasoodporna stal i podwójne membrany EPDM współpracują w jednym, zamkniętym układzie.
                 </p>
                 <p className="text-[#EAE6DF]/40 font-serif italic text-xl leading-relaxed mb-14 font-light">
@@ -1163,7 +1163,7 @@ const FeedstockMatrix = () => {
                 <span className="w-1.5 h-1.5 bg-[#C6A87C] rounded-full animate-pulse"></span>
                 Laboratorium Surowcowe
               </h2>
-              <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] font-light">
+              <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
                 Macierz <br/><span className="italic text-[#C6A87C] font-normal">Substratów.</span>
               </h3>
             </div>
@@ -1327,7 +1327,7 @@ const SmartGrid = () => {
             <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 flex items-center justify-center gap-4">
               <Zap className="w-4 h-4" /> Dystrybucja i Integracja
             </h2>
-            <h3 className="text-6xl md:text-9xl font-serif text-[#EAE6DF] leading-[0.9] font-light">
+            <h3 className="text-6xl md:text-9xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
               Węzeł <br/><span className="italic text-[#C6A87C] font-normal">Systemowy.</span>
             </h3>
           </div>
@@ -1601,7 +1601,7 @@ const TechStack = () => {
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <div className="text-center mb-32">
            <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10">Specyfikacja referencyjna — komponenty, które instalujemy</h2>
-           <h3 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.9] font-light italic">Technologie <span className="text-[#C6A87C] not-italic">pancerne.</span></h3>
+           <h3 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light italic">Technologie <span className="text-[#C6A87C] not-italic">pancerne.</span></h3>
            <p className="font-serif italic text-xl text-[#EAE6DF]/50 max-w-2xl mx-auto mt-10 leading-relaxed">
              Cztery marki, które definiują standard. Nie podpisujemy z nikim ekskluzywności — wybieramy najlepsze dostępne komponenty dla każdego projektu.
            </p>
@@ -1636,7 +1636,7 @@ const ScadaSystem = () => {
         <div className="grid lg:grid-cols-2 gap-32 items-center">
           <FadeIn direction="right">
             <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Software Infrastructure</div>
-            <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] mb-12 font-light italic">
+            <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 mb-12 font-light italic">
               Cyfrowy <br/><span className="text-[#C6A87C] not-italic">bliźniak.</span>
             </h2>
             <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
@@ -1767,7 +1767,7 @@ const Leadership = () => {
           <div className="mb-40 flex flex-col lg:flex-row lg:items-end justify-between gap-16 border-b border-[#C6A87C]/10 pb-16">
             <div>
               <h2 className="text-[9px] font-mono tracking-[0.5em] text-[#C6A87C] uppercase mb-8">Personnel Index</h2>
-              <p className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] font-light">Nadzór <br/><span className="italic font-light text-[#C6A87C]">Weryfikowany.</span></p>
+              <p className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Nadzór <br/><span className="italic font-light text-[#C6A87C]">Weryfikowany.</span></p>
             </div>
             <p className="text-[#EAE6DF]/40 text-2xl font-serif italic max-w-md leading-relaxed text-right">
               Kadra inżynierska z uprawnieniami do projektowania instalacji o wysokim ryzyku gazowym.
@@ -1835,7 +1835,7 @@ const OperationsMaintenance = () => {
         <div className="grid lg:grid-cols-12 gap-24 items-center">
           <FadeIn className="lg:col-span-6">
             <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Centrum Nadzoru // O&M</div>
-            <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] mb-12 font-light">
+            <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 mb-12 font-light">
               Utrzymanie <br/>
               <span className="italic text-[#C6A87C] font-normal">ruchu.</span>
             </h2>
@@ -1894,7 +1894,7 @@ const SafetyStandards = () => {
              <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 flex items-center gap-4">
                <ShieldCheck className="w-5 h-5" /> Compliance Framework
              </h2>
-             <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] font-light">Bezpieczeństwo <br/><span className="italic text-[#C6A87C] font-normal">normatywne.</span></h3>
+             <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Bezpieczeństwo <br/><span className="italic text-[#C6A87C] font-normal">normatywne.</span></h3>
           </div>
         </FadeIn>
 
@@ -1933,7 +1933,7 @@ const TechnicalFAQ = () => {
          <FadeIn className="lg:col-span-4 sticky top-40">
                          <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Knowledge Repository</div>
 
-             <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] font-light">
+             <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
                Dokumentacja <br/>
                <span className="italic text-[#C6A87C] font-normal">operacyjna.</span>
              </h3>
@@ -1988,7 +1988,7 @@ const ServiceCoverage = () => {
       <div className="max-w-[100rem] mx-auto px-8 relative z-10 flex flex-col items-center text-center">
         <FadeIn>
           <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] px-6 py-1 mx-auto w-fit">Logistyka Regionalna</div>
-          <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] mb-12 font-light">
+          <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 mb-12 font-light">
             Zasięg <br/><span className="italic text-[#C6A87C] font-normal">operacyjny.</span>
           </h2>
           <p className="text-[#EAE6DF]/50 font-serif italic text-2xl max-w-3xl mx-auto leading-relaxed mb-20">
@@ -2031,7 +2031,7 @@ const CTA = () => {
             <span className="w-2 h-2 bg-[#34D399] rounded-full animate-pulse shadow-[0_0_12px_#34D399]" />
             <span className="font-mono text-[#C8A97D] text-[9px] tracking-[0.4em] uppercase">Wolne przepustowości systemowe // Q3 2026</span>
           </div>
-          <h2 className="font-serif text-[#F2EDE4] leading-[0.82] tracking-tight font-light" data-testid="cta-headline">
+          <h2 className="font-serif text-[#F2EDE4] leading-[0.92] pb-2 tracking-tight font-light" data-testid="cta-headline">
             <span className="block text-[5rem] md:text-[10rem] lg:text-[14rem]">
               <KineticHeading delay={100} stagger={40}>Czas na</KineticHeading>
             </span>
@@ -2220,7 +2220,7 @@ const ReactorAnatomy = () => {
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
                 <CrosshairIcon className="w-3.5 h-3.5" strokeWidth={1} /> Schemat techniczny // Exploded View
               </div>
-              <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
+              <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
                 Anatomia <br/><span className="italic text-[#C6A87C] font-normal">reaktora.</span>
               </h2>
             </div>
@@ -2359,7 +2359,7 @@ const MolecularProcess = () => {
             <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 flex items-center justify-center gap-4">
               <Atom className="w-3.5 h-3.5" strokeWidth={1} /> Biochemia procesu
             </div>
-            <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.88] font-light mb-10">
+            <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light mb-10">
               Cztery <span className="italic text-[#C6A87C] font-normal">fazy</span><br/>
               jednej cząsteczki.
             </h2>
@@ -2454,7 +2454,7 @@ const PolandMap = () => {
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
                 <Radar className="w-3.5 h-3.5" strokeWidth={1} /> Polska mapa biogazu rolniczego
               </div>
-              <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
+              <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
                 Rynek <br/><span className="italic text-[#C6A87C] font-normal">regionalny.</span>
               </h2>
             </div>
@@ -2663,7 +2663,7 @@ const FieldToElectricity = () => {
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
                 <Workflow className="w-3.5 h-3.5" strokeWidth={1} /> Sekwencja narracyjna — 5 rozdziałów
               </div>
-              <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
+              <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
                 Z pola <br/><span className="italic text-[#C6A87C] font-normal">do prądu.</span>
               </h2>
             </div>
@@ -2690,7 +2690,7 @@ const FieldToElectricity = () => {
                     <span className="w-8 h-px" style={{ backgroundColor: c.hue }} />
                     {c.ref}
                   </div>
-                  <h3 className="font-serif text-6xl md:text-[7rem] text-[#EAE6DF] leading-[0.9] font-light mb-8">
+                  <h3 className="font-serif text-6xl md:text-[7rem] text-[#EAE6DF] leading-[0.95] pb-1 font-light mb-8">
                     {c.title}<span style={{ color: c.hue }}>.</span>
                   </h3>
                   <p className="font-serif italic text-2xl md:text-3xl text-[#EAE6DF]/70 leading-[1.4] mb-8 max-w-2xl">
@@ -2805,7 +2805,7 @@ const ReactorClock = () => {
             <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center justify-center gap-4">
               <Cog className="w-3.5 h-3.5" strokeWidth={1} /> Cykl dobowy biogazowni
             </div>
-            <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.88] font-light">
+            <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
               Dwadzieścia cztery <br/><span className="italic text-[#C6A87C] font-normal">godziny.</span>
             </h2>
             <p className="font-serif italic text-2xl text-[#EAE6DF]/50 max-w-2xl mx-auto mt-12 leading-relaxed">
@@ -2979,7 +2979,7 @@ const MicrobialTaxonomy = () => {
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
                 <Beaker className="w-3.5 h-3.5" strokeWidth={1} /> Taxonomia mikrobiologiczna — żywa kadra reaktora
               </div>
-              <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
+              <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
                 Niewidzialni <br/><span className="italic text-[#C6A87C] font-normal">pracownicy.</span>
               </h2>
             </div>
@@ -3083,7 +3083,7 @@ const PressWall = () => {
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-6 flex items-center gap-4">
                 <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Polecane lektury — branżowy briefing
               </div>
-              <h2 className="text-5xl md:text-[7rem] font-serif text-[#EAE6DF] leading-[0.9] font-light">
+              <h2 className="text-5xl md:text-[7rem] font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
                 Polecane <br/><span className="italic text-[#C6A87C] font-normal">lektury.</span>
               </h2>
             </div>
@@ -3157,7 +3157,7 @@ const GanttBuild = () => {
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-6 flex items-center gap-4">
                 <GitBranch className="w-3.5 h-3.5" strokeWidth={1} /> Harmonogram — 14 miesięcy
               </div>
-              <h2 className="text-5xl md:text-[7.5rem] font-serif text-[#EAE6DF] leading-[0.9] font-light">
+              <h2 className="text-5xl md:text-[7.5rem] font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
                 Od podpisu <br/>do pierwszego <br/><span className="italic text-[#C6A87C] font-normal">m³ metanu.</span>
               </h2>
             </div>
@@ -3292,7 +3292,7 @@ const EnergyComparison = () => {
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
                 <Gauge className="w-3.5 h-3.5" strokeWidth={1} /> Analiza porównawcza źródeł energii
               </div>
-              <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.88] font-light">
+              <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
                 Cztery źródła, <br/><span className="italic text-[#C6A87C] font-normal">jedno równanie.</span>
               </h2>
             </div>
@@ -3405,7 +3405,7 @@ const GlossaryLexicon = () => {
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
                 <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Leksykon biogazowni — A do U
               </div>
-              <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.88] font-light">
+              <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
                 Słownik <br/><span className="italic text-[#C6A87C] font-normal">branżowy.</span>
               </h2>
             </div>
@@ -3487,7 +3487,7 @@ const MaterialSamples = () => {
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
                 <Wrench className="w-3.5 h-3.5" strokeWidth={1} /> Próbnik materiałów — moodboard architekta
               </div>
-              <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
+              <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
                 Z czego <br/><span className="italic text-[#C6A87C] font-normal">to się składa.</span>
               </h2>
             </div>
@@ -3603,7 +3603,7 @@ const KineticBreakII = () => {
             {[...Array(6)].map((_, k) => (
               <span
                 key={k}
-                className={`font-serif leading-[0.85] pr-12 ${l.italic ? 'italic' : ''}`}
+                className={`font-serif leading-[0.92] pb-2 pr-12 ${l.italic ? 'italic' : ''}`}
                 style={{
                   fontSize: `clamp(3rem, ${l.size}, 16rem)`,
                   color: l.stroke ? 'transparent' : l.color,
@@ -3631,7 +3631,7 @@ const KineticBreakIII = () => {
       {/* Massive italic CH₄ */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <span
-          className="font-serif italic font-light leading-[0.78] text-[#C6A87C]/[0.07] select-none"
+          className="font-serif italic font-light leading-[0.9] pb-2 text-[#C6A87C]/[0.07] select-none"
           style={{ fontSize: 'clamp(20rem, 50vw, 60rem)', letterSpacing: '-0.06em' }}
         >
           CH₄
@@ -3692,7 +3692,7 @@ const TimelineSince2008 = () => {
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
                 <Activity className="w-3.5 h-3.5" strokeWidth={1} /> Linia czasu — 21 lat regulacji
               </div>
-              <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
+              <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
                 Polski biogaz <br/><span className="italic text-[#C6A87C] font-normal">od 2005.</span>
               </h2>
             </div>
@@ -4049,7 +4049,7 @@ const SiteAerial = () => {
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
                 <MapPin className="w-3.5 h-3.5" strokeWidth={1} /> Rzut sytuacyjny — 1.2 ha
               </div>
-              <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.88] font-light">
+              <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
                 Z lotu <br/><span className="italic text-[#C6A87C] font-normal">ptaka.</span>
               </h2>
             </div>
@@ -4200,7 +4200,7 @@ const AwardsAndCertifications = () => {
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
                 <ShieldCheck className="w-3.5 h-3.5" strokeWidth={1} /> Standardy referencyjne — według czego projektujemy
               </div>
-              <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
+              <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
                 Osiem norm, <br/><span className="italic text-[#C6A87C] font-normal">jedna jakość.</span>
               </h2>
             </div>
@@ -4360,7 +4360,7 @@ const TechnicalSpecSheet = () => {
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
                 <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Karta techniczna — REF: GP-2026-X
               </div>
-              <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
+              <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
                 Pełna <br/><span className="italic text-[#C6A87C] font-normal">specyfikacja.</span>
               </h2>
             </div>
@@ -4473,7 +4473,7 @@ const EngineeringDNA = () => {
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           <FadeIn className="lg:col-span-5">
             <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">O Nas // Profil Spółki</div>
-            <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] mb-12 font-light">
+            <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 mb-12 font-light">
               Inżynieria <br/><span className="italic text-[#C6A87C] font-normal">procesowa.</span>
             </h2>
           </FadeIn>
@@ -4513,7 +4513,7 @@ const ProcessInitiation = () => {
                 <span className="w-2 h-2 bg-[#4ADE80] rounded-full animate-pulse shadow-[0_0_12px_#4ADE80]" />
                 <span className="font-mono text-[#EAE6DF] text-[9px] tracking-[0.4em] uppercase">Status: Gotowi do wdrożenia</span>
               </div>
-              <h2 className="font-serif text-[#F2EDE4] leading-[0.85] font-light text-[4.5rem] md:text-[8rem] tracking-tight mb-8">
+              <h2 className="font-serif text-[#F2EDE4] leading-[0.92] pb-2 font-light text-[4.5rem] md:text-[8rem] tracking-tight mb-8">
                 Inicjacja <br/><span className="italic text-[#C6A87C] font-normal">procesu.</span>
               </h2>
               <p className="font-serif italic text-2xl text-[#EAE6DF]/60 leading-relaxed max-w-2xl mb-16">
