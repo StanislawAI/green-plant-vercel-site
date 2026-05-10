@@ -2083,7 +2083,7 @@ const Footer = () => {
             <p className="text-[#EAE6DF]/40 max-w-sm font-serif italic font-light text-lg leading-relaxed mb-10">
               Generalny wykonawca biogazowni rolniczych i komunalnych. Projektowanie, budowa i serwis gwarancyjny — z kontraktową gwarancją uzysku metanowego.
             </p>
-            <div className="space-y-3 font-mono text-[10px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase">
+            <div className="flex flex-wrap gap-x-12 gap-y-4 font-mono text-[10px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase">
               <div>ul. Stanisława Wyspiańskiego 8 // 05-400 Otwock</div>
               <div>NIP 5322124348 // REGON 544014417 // KRS 0001224533</div>
               <div>+48 601 944 451 // kontakt@greenplant.tech</div>
@@ -2108,34 +2108,21 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="md:col-span-3">
-            <h4 className="text-[#C6A87C] font-mono mb-8 uppercase text-[9px] tracking-[0.4em]">Kolofon</h4>
-            <div className="space-y-3 font-mono text-[9px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase leading-relaxed">
-              <div>Złożono krojem <span className="text-[#C6A87C]/80 font-serif italic normal-case tracking-normal text-sm">Cormorant Garamond</span></div>
-              <div>oraz <span className="text-[#C6A87C]/80 font-mono normal-case tracking-normal text-sm">Space Mono</span></div>
-              <div className="pt-3 border-t border-[#C6A87C]/10">Zaprojektowano w Warszawie</div>
-              <div>Substrat — z polskich pól</div>
-              <div className="pt-3 border-t border-[#C6A87C]/10">Wydanie N° 04 // 2026</div>
-              <div>Tom I, Edycja III</div>
+          <div className="md:col-span-12">
+            <h4 className="text-[#C6A87C] font-mono mb-6 uppercase text-[9px] tracking-[0.4em]">Kolofon</h4>
+            <div className="flex flex-wrap gap-x-12 gap-y-6 font-mono text-[9px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase leading-relaxed">
+              <div>Złożono krojem <span className="text-[#C6A87C]/80 font-serif italic normal-case tracking-normal text-sm">Cormorant Garamond</span> oraz <span className="text-[#C6A87C]/80 font-mono normal-case tracking-normal text-sm">Space Mono</span></div>
+              <div className="flex gap-12">
+                <div>Zaprojektowano w Warszawie</div>
+                <div>Substrat — z polskich pól</div>
+              </div>
+              <div className="flex gap-12">
+                <div>Wydanie N° 04 // 2026</div>
+                <div>Tom I, Edycja III</div>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* ASCII art leaf */}
-        <FadeIn>
-          <pre className="text-[#C6A87C]/15 font-mono text-[8px] leading-tight text-center mb-20 hidden md:block">
-{`                    .-.
-                  .'   '.
-                 /       \\
-                |    O    |
-                 \\       /
-                  '.   .'
-                    '-'
-                     |
-                     |
-                  ___|___`}
-          </pre>
-        </FadeIn>
 
         <div className="border-t border-[#C6A87C]/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[#EAE6DF]/30 text-[9px] font-mono uppercase tracking-[0.3em]">
