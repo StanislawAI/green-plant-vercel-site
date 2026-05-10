@@ -4432,6 +4432,130 @@ const TechnicalSpecSheet = () => {
   );
 };
 
+const TechnologyPartners = () => {
+  const partners = [
+    { name: "SIEMENS", role: "SCADA & AUTOMATYKA", delay: 0 },
+    { name: "ABB", role: "NAPĘDY & SILNIKI", delay: 100 },
+    { name: "JENBACHER", role: "KOGENERACJA CHP", delay: 200 },
+    { name: "XYLEM", role: "DYNAMIKA PŁYNÓW", delay: 300 },
+    { name: "ENDRESS+HAUSER", role: "METROLOGIA", delay: 400 },
+    { name: "WOLF", role: "POCHODNIE BIOGAZOWE", delay: 500 }
+  ];
+
+  return (
+    <section className="py-32 bg-[#020202] relative border-b border-[#C6A87C]/10">
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <FadeIn>
+          <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-16 flex items-center gap-4">
+            <span className="w-8 h-px bg-[#C6A87C]/30" /> Ekosystem Technologiczny
+          </div>
+        </FadeIn>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          {partners.map((p, i) => (
+            <FadeIn key={i} delay={p.delay} className="group cursor-pointer">
+              <div className="border border-[#C6A87C]/10 p-8 h-32 flex flex-col items-center justify-center bg-[#050505] hover:bg-[#C6A87C]/5 transition-all duration-500 rounded-xl">
+                <span className="font-serif text-[#EAE6DF]/40 group-hover:text-[#EAE6DF] text-xl tracking-widest uppercase transition-colors">{p.name}</span>
+                <span className="font-mono text-[7px] text-[#C6A87C]/40 tracking-[0.3em] uppercase mt-4 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 text-center">{p.role}</span>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const EngineeringDNA = () => {
+  return (
+    <section className="py-48 bg-[#030404] relative overflow-hidden">
+      <div className="absolute inset-0 bg-pinstripes opacity-20 pointer-events-none" />
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-16 items-start">
+          <FadeIn className="lg:col-span-5">
+            <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">O Nas // Profil Spółki</div>
+            <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.9] mb-12 font-light">
+              Inżynieria <br/><span className="italic text-[#C6A87C] font-normal">procesowa.</span>
+            </h2>
+          </FadeIn>
+          <FadeIn className="lg:col-span-7" delay={200}>
+            <p className="font-serif italic text-3xl text-[#EAE6DF]/80 leading-relaxed mb-10 font-light">
+              Green Plant Tech to nowy podmiot, ale nie uczymy się na błędach inwestora. Nasz zespół wnosi ponad 50 lat skumulowanego doświadczenia z projektów infrastrukturalnych w Europie.
+            </p>
+            <div className="grid md:grid-cols-2 gap-12 pt-10 border-t border-[#C6A87C]/15">
+              <div>
+                <div className="font-mono text-4xl text-[#C6A87C] mb-2 font-light">50<span className="text-xl ml-2">lat</span></div>
+                <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#EAE6DF]/40">Skumulowanego doświadczenia zespołu inżynierskiego</div>
+              </div>
+              <div>
+                <div className="font-mono text-4xl text-[#C6A87C] mb-2 font-light">0<span className="text-xl ml-2">kompromisów</span></div>
+                <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#EAE6DF]/40">Tylko sprawdzone, certyfikowane technologie Tier-1</div>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const ProcessInitiation = () => {
+  return (
+    <section id="kontakt" className="relative py-48 bg-[#020202] overflow-hidden" data-testid="process-initiation">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(74,222,128,0.08)_0%,transparent_70%)] animate-[pulse_8s_ease-in-out_infinite]" />
+      </div>
+
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-16 items-center">
+          <div className="lg:col-span-7">
+            <FadeIn>
+              <div className="inline-flex items-center gap-4 mb-12 glass-morphism px-6 py-3 rounded-full">
+                <span className="w-2 h-2 bg-[#4ADE80] rounded-full animate-pulse shadow-[0_0_12px_#4ADE80]" />
+                <span className="font-mono text-[#EAE6DF] text-[9px] tracking-[0.4em] uppercase">Status: Gotowi do wdrożenia</span>
+              </div>
+              <h2 className="font-serif text-[#F2EDE4] leading-[0.85] font-light text-[4.5rem] md:text-[8rem] tracking-tight mb-8">
+                Inicjacja <br/><span className="italic text-[#C6A87C] font-normal">procesu.</span>
+              </h2>
+              <p className="font-serif italic text-2xl text-[#EAE6DF]/60 leading-relaxed max-w-2xl mb-16">
+                Umów wstępny audyt technologiczny. Weryfikujemy potencjał Twojego zakładu i szacujemy bazowy CAPEX.
+              </p>
+              <div className="flex flex-wrap items-center gap-8">
+                <MagneticButton>
+                  <a href="mailto:kontakt@greenplant.tech" className="group relative bg-[#C6A87C] text-[#050505] px-12 py-6 text-[10px] font-mono tracking-[0.4em] uppercase hover:bg-[#EAE6DF] transition-all duration-500 rounded-full flex items-center gap-5 interactive-element shadow-[0_0_40px_rgba(198,168,124,0.2)] font-bold">
+                    Zarezerwuj audyt
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2} />
+                  </a>
+                </MagneticButton>
+                <div className="font-mono text-[9px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase">
+                  LUB +48 22 000 00 00
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+          
+          <div className="lg:col-span-4 lg:col-start-9 hidden lg:block">
+            <FadeIn delay={300} direction="left">
+              <div className="glass-morphism p-12 rounded-[2rem] border border-[#4ADE80]/20 bg-[#050505]/80">
+                <div className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-8 border-b border-[#C6A87C]/10 pb-4">Gwarancja SLA</div>
+                <div className="space-y-8">
+                  <div>
+                    <div className="font-serif text-5xl text-[#EAE6DF] mb-2 font-light">&lt; 48<span className="text-2xl text-[#C6A87C] italic">h</span></div>
+                    <div className="font-mono text-[8px] tracking-[0.3em] uppercase text-[#EAE6DF]/40">Wstępny audyt potencjału biogazowego</div>
+                  </div>
+                  <div>
+                    <div className="font-serif text-5xl text-[#EAE6DF] mb-2 font-light">100<span className="text-2xl text-[#C6A87C] italic">%</span></div>
+                    <div className="font-mono text-[8px] tracking-[0.3em] uppercase text-[#EAE6DF]/40">Poufności parametrów (podpisujemy NDA)</div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default function App() {
   return (
     <>
@@ -4492,6 +4616,8 @@ export default function App() {
         <ScadaSystem />
 
         {/* ACT VII — TEAM & STANDARDS */}
+        <EngineeringDNA />
+        <TechnologyPartners />
         <OperationsMaintenance />
         <SafetyStandards />
         <AwardsAndCertifications />
@@ -4499,6 +4625,7 @@ export default function App() {
         {/* ACT VIII — REFERENCE & CLOSE */}
         <TechnicalFAQ />
         <GlossaryLexicon />
+        <ProcessInitiation />
         <Footer />
       </div>
     </>
