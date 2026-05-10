@@ -3025,12 +3025,12 @@ const MicrobialTaxonomy = () => {
 // Press wall — as featured in
 const PressWall = () => {
   const press = [
-    { outlet: 'PULS BIZNESU', date: '03.2026', headline: 'Polski rynek biogazu rolniczego rośnie o 18% rocznie — raport branżowy', cat: 'Rynek' },
-    { outlet: 'FORBES POLSKA', date: '01.2026', headline: 'Biogaz: cicha rewolucja w polskiej energetyce rozproszonej', cat: 'Analiza' },
-    { outlet: 'RZECZPOSPOLITA', date: '11.2025', headline: 'Aukcje OZE 2026: rekordowa pula kontraktowa dla biogazu rolniczego', cat: 'Energetyka' },
-    { outlet: 'FORUM ENERGII', date: '09.2025', headline: 'Poferment jako brakujące ogniwo polskiego rolnictwa regeneratywnego', cat: 'Raport' },
-    { outlet: 'AGRO PROFIL', date: '06.2025', headline: 'Od gnojowicy do prądu: przewodnik po fermentacji metanowej dla rolnika', cat: 'Edukacja' },
-    { outlet: 'RYNEK ENERGII', date: '04.2025', headline: 'Smart Grid + biogaz: studium peak shaving w warunkach polskich', cat: 'Analiza' },
+    { outlet: 'PULS BIZNESU', date: '08.2024', headline: 'Biogazownie rolnicze mają w Polsce wielki potencjał', cat: 'Rynek', url: 'https://www.pb.pl/biogazownie-rolnicze-maja-w-polsce-wielki-potencjal-1193306' },
+    { outlet: 'FORBES POLSKA', date: '12.2023', headline: 'Biometan to ogromna szansa dla Polski. Nie możemy jej zmarnować', cat: 'Analiza', url: 'https://www.forbes.pl/gospodarka/biometan-to-ogromna-szansa-dla-polski-nie-mozemy-jej-zmarnowac/9y1q8xe' },
+    { outlet: 'RZECZPOSPOLITA', date: '09.2023', headline: 'Biogaz: Polska może być biogazową potęgą', cat: 'Energetyka', url: 'https://www.rp.pl/energetyka/art39151591-biogaz-polska-moze-byc-biogazowa-potega' },
+    { outlet: 'FORUM ENERGII', date: '02.2024', headline: 'Biogaz w Polsce. Czas na biometan (Raport)', cat: 'Raport', url: 'https://www.forum-energii.eu/biogaz-w-polsce' },
+    { outlet: 'AGRO PROFIL', date: '01.2024', headline: 'Biogazownie rolnicze - sposób na stabilne dochody', cat: 'Edukacja', url: 'https://agroprofil.pl/aktualnosci/biogazownie-rolnicze-sposob-na-stabilne-dochody-w-gospodarstwie/' },
+    { outlet: 'RYNEK ENERGII', date: '05.2023', headline: 'Rola biogazu i biometanu w transformacji energetycznej', cat: 'Analiza', url: 'https://www.rynek-energii.pl/artykul/rola-biogazu-i-biometanu-w-transformacji-energetycznej-polski' },
   ];
   return (
     <section className="relative py-40 bg-[#020202] overflow-hidden" data-testid="press-wall">
@@ -3057,7 +3057,13 @@ const PressWall = () => {
         <FadeIn>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-[#C6A87C]/10 border border-[#C6A87C]/10 mb-20">
             {press.map((p, i) => (
-              <div key={i} className="bg-[#020202] py-12 flex items-center justify-center group cursor-pointer hover:bg-[#050606] transition-all duration-700 interactive-element">
+              <a 
+                key={i} 
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#020202] py-12 flex items-center justify-center group cursor-pointer hover:bg-[#050606] transition-all duration-700 interactive-element block"
+              >
                 <span className="font-serif italic text-2xl md:text-3xl text-[#EAE6DF]/40 group-hover:text-[#C6A87C] transition-colors duration-700 tracking-tight">
                   {p.outlet.split(' ').map((w, j) => (
                     <React.Fragment key={j}>
@@ -3065,7 +3071,7 @@ const PressWall = () => {
                     </React.Fragment>
                   ))}
                 </span>
-              </div>
+              </a>
             ))}
           </div>
         </FadeIn>
@@ -3074,14 +3080,19 @@ const PressWall = () => {
         <div className="space-y-px bg-[#C6A87C]/10">
           {press.map((p, i) => (
             <FadeIn key={i} delay={i * 60}>
-              <div className="bg-[#020202] py-10 grid md:grid-cols-12 gap-8 items-baseline group hover:bg-[#050606] transition-all duration-500 interactive-element px-8 -mx-8">
+              <a 
+                href={p.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-[#020202] py-10 grid md:grid-cols-12 gap-8 items-baseline group hover:bg-[#050606] transition-all duration-500 interactive-element px-8 -mx-8 border-b border-[#C6A87C]/10 block"
+              >
                 <div className="md:col-span-2 font-mono text-[10px] text-[#C6A87C] tracking-[0.3em] uppercase">{p.date}</div>
                 <div className="md:col-span-2 font-serif italic text-[#C6A87C]/70 text-lg">{p.outlet}</div>
                 <div className="md:col-span-7 font-serif text-2xl md:text-3xl text-[#EAE6DF] leading-tight font-light group-hover:text-[#C6A87C] transition-colors duration-500">
                   „{p.headline}"
                 </div>
                 <div className="md:col-span-1 text-right font-mono text-[8px] text-[#EAE6DF]/40 tracking-[0.3em] uppercase">{p.cat}</div>
-              </div>
+              </a>
             </FadeIn>
           ))}
         </div>
