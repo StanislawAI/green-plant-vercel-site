@@ -500,14 +500,14 @@ const BootSequence = () => {
   }, []);
   if (done) return null;
   const rows = [
-    { d: 100, txt: '> POWER ON ............................ OK' },
-    { d: 280, txt: '> SCADA HANDSHAKE ..................... OK' },
-    { d: 460, txt: '> PRESSURE SENSORS [12/12] ............ OK' },
-    { d: 640, txt: '> CH₄ ANALYZER ........................ 62.4 %' },
-    { d: 820, txt: '> REACTOR TEMPERATURE ................. 38.4 °C' },
-    { d: 1000, txt: '> CHP TIER-1 ENGINE ................... READY' },
-    { d: 1180, txt: '> AUTH: GP-2026-X ..................... GRANTED' },
-    { d: 1360, txt: '> SUBSTRAT INJECTION QUEUE ........... 21 t' },
+    { d: 100, txt: '> ZASILANIE ........................... OK' },
+    { d: 280, txt: '> KOMUNIKACJA SCADA ................... OK' },
+    { d: 460, txt: '> CZUJNIKI CIŚNIENIA [12/12] .......... OK' },
+    { d: 640, txt: '> ANALIZATOR CH₄ ...................... 62.4 %' },
+    { d: 820, txt: '> TEMPERATURA REAKTORA ................ 38.4 °C' },
+    { d: 1000, txt: '> SILNIK CHP TIER-1 ................... GOTOWY' },
+    { d: 1180, txt: '> AUTORYZACJA: GP-2026-X .............. PRZYZNANA' },
+    { d: 1360, txt: '> KOLEJKA DOZOWANIA WSADU ............. 21 t' },
   ];
   return (
     <div className="boot-overlay fixed inset-0 z-[1000] bg-[#020202] flex items-center justify-center" data-testid="boot-overlay">
@@ -693,22 +693,22 @@ const Hero = () => {
           </div>
 
           <div>
-            <h1 className="text-[4.5rem] md:text-[8rem] lg:text-[10rem] font-serif text-[#F2EDE4] leading-[0.92] pb-4 tracking-tight mb-12 font-light">
-              <KineticHeading delay={200} stagger={45}>Inżynieria</KineticHeading>
+            <h1 className="text-[4.5rem] md:text-[8rem] lg:text-[11rem] font-serif text-[#F2EDE4] leading-[0.88] pb-4 tracking-tighter mb-12 font-light">
+              <KineticHeading delay={200} stagger={45}>Stabilność</KineticHeading>
               <br />
-              <span className="italic text-[#C8A97D] font-normal pl-6 md:pl-20 inline-block">
-                <KineticHeading delay={650} stagger={55}>zysku.</KineticHeading>
+              <span className="italic text-[#C8A97D] font-normal pl-4 md:pl-16 inline-block">
+                <KineticHeading delay={650} stagger={55}>przemysłowa.</KineticHeading>
               </span>
             </h1>
           </div>
 
           <div>
-            <div className="draw-line h-[1px] w-32 bg-gradient-to-r from-[#C8A97D] to-transparent mb-10" />
+            <div className="draw-line h-[1px] w-48 bg-gradient-to-r from-[#C8A97D] to-transparent mb-12" />
           </div>
 
           <div>
-            <p className="text-lg md:text-xl text-[#F2EDE4]/60 leading-relaxed max-w-lg font-serif font-light italic mb-14">
-              Generalny wykonawca biogazowni. Transformujemy odpady w stabilne źródło dochodu i czystą energię dla przemysłu i rolnictwa.
+            <p className="text-xl md:text-2xl text-[#F2EDE4]/70 leading-relaxed max-w-xl font-serif font-light italic mb-16">
+              Generalne wykonawstwo biogazowni 0.5 MW. Budujemy aktywa energetyczne, które transformują odpady w przewidywalny kapitał i niezależność operacyjną.
             </p>
           </div>
 
@@ -716,7 +716,7 @@ const Hero = () => {
             <div className="flex flex-wrap items-center gap-10">
               <MagneticButton>
                 <a href="#kontakt" className="group relative px-10 py-5 bg-[#C8A97D] text-[#050505] text-[10px] font-mono tracking-[0.4em] uppercase hover:bg-[#F2EDE4] transition-all duration-500 rounded-full flex items-center gap-5 interactive-element shadow-[0_0_50px_rgba(200,169,125,0.25)] font-medium">
-                  Inicjuj Inwestycję
+                  Zainicjuj Inwestycję
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2} />
                 </a>
               </MagneticButton>
@@ -807,15 +807,15 @@ const HeroSCADAPanel = () => {
             />
             <line x1="0" y1="30" x2="200" y2="30" stroke="#C6A87C" strokeOpacity="0.1" strokeDasharray="2 3" />
           </svg>
-          <div className="absolute top-0 left-0 font-mono text-[7px] text-[#C8A97D]/60 tracking-[0.3em] uppercase">Gas Flow // m³/h</div>
+          <div className="absolute top-0 left-0 font-mono text-[7px] text-[#C8A97D]/60 tracking-[0.3em] uppercase">Przepływ Gazu // m³/h</div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
           {[
-            { l: 'CH₄ Purity', v: ch4, u: '%', g: parseFloat(ch4) > 62 },
-            { l: 'Reactor T°', v: temp, u: '°C', g: true },
-            { l: 'Gas Pressure', v: pressure, u: 'mbar', g: true },
-            { l: 'Engine Load', v: load, u: '%', g: parseFloat(load) > 80 },
+            { l: 'Czystość CH₄', v: ch4, u: '%', g: parseFloat(ch4) > 62 },
+            { l: 'Temp. Reaktora', v: temp, u: '°C', g: true },
+            { l: 'Ciśnienie Gazu', v: pressure, u: 'mbar', g: true },
+            { l: 'Obciążenie Silnika', v: load, u: '%', g: parseFloat(load) > 80 },
           ].map((m, i) => (
             <div key={i} className="bg-[#020202]/40 border border-[#C8A97D]/10 p-5 rounded-2xl">
               <div className="flex items-center gap-2 mb-3">
@@ -841,9 +841,9 @@ const HeroSCADAPanel = () => {
 };
 
 const TickerTape = () => {
-  const dataItems = ['Methane Purity: 62.4%', 'Grid Load: 0.49MW', 'Service Interval: 8 000h', 'CO₂ Savings: 2.1t/d', 'Reactor T: 38.4°C', 'pH: 7.62', 'H₂S: <50ppm', 'VFA: 1.8g/L'];
+  const dataItems = ['Czystość Metanu: 62.4%', 'Obciążenie Sieci: 0.49MW', 'Interwał Serwisowy: 8 000h', 'Oszczędności CO₂: 2.1t/d', 'Temp. Reaktora: 38.4°C', 'pH: 7.62', 'H₂S: <50ppm', 'VFA: 1.8g/L'];
   const editorialItems = ['Inżynieria zysku', 'Materia w energię', 'Obieg zamknięty', 'Zero odpadów'];
-  const refItems = ['DWG-014/REV.C', 'PROC-ADM-01', 'CYB-SEC-PRO', 'TECH-HYD-V4', 'LOG-BIO-S7', 'DIRECTIVE 2014/34/EU'];
+  const refItems = ['DWG-014/REV.C', 'PROC-ADM-01', 'CYB-SEC-PRO', 'TECH-HYD-V4', 'LOG-BIO-S7', 'DYREKTYWA 2014/34/UE'];
   return (
     <div className="bg-[#050505] py-2 overflow-hidden relative z-10 border-y border-[#C6A87C]/10" data-testid="ticker-tape">
       {/* Layer 1: mono data, fast */}
@@ -1041,11 +1041,11 @@ const BlueprintProcess = () => {
         <FadeIn>
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-32 pb-12 border-b border-[#C6A87C]/10">
             <div>
-              <h2 className="text-[9px] font-mono tracking-[0.5em] text-[#C6A87C] uppercase mb-6">Execution Protocol</h2>
+              <h2 className="text-[9px] font-mono tracking-[0.5em] text-[#C6A87C] uppercase mb-6">Protokół Realizacji</h2>
               <p className="text-5xl md:text-7xl font-serif text-[#EAE6DF] leading-tight">Sekwencja <br/><span className="italic font-light text-[#C6A87C]">Wdrożeniowa.</span></p>
             </div>
             <div className="text-[10px] font-mono text-[#EAE6DF]/20 tracking-[0.4em] uppercase mt-8 md:mt-0">
-              Technical Standards v2.0
+              Standardy Techniczne v2.0
             </div>
           </div>
         </FadeIn>
@@ -1068,7 +1068,7 @@ const BlueprintProcess = () => {
               
               <div className="mt-12 flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <span className="w-1.5 h-1.5 bg-[#4ADE80] rounded-full"></span>
-                <span className="font-mono text-[7px] text-[#4ADE80] tracking-[0.2em] uppercase">Verified Phase</span>
+                <span className="font-mono text-[7px] text-[#4ADE80] tracking-[0.2em] uppercase">Faza Zweryfikowana</span>
               </div>
             </FadeIn>
           ))}
@@ -1102,7 +1102,7 @@ const ContractModels = () => {
             <GlowCard className="border-[0.5px] border-[#C8A97D]/20 bg-[#030404]/80 backdrop-blur-md p-12 md:p-16 interactive-element !rounded-none">
               <div className="absolute top-0 right-0 p-6 font-serif text-[8rem] leading-none text-[#C8A97D]/5 italic font-light group-hover:text-[#C8A97D]/10 transition-colors duration-700 pointer-events-none">EPC</div>
               <h3 className="font-mono text-2xl text-[#F2EDE4] mb-2 relative z-10">Model EPC</h3>
-              <p className="font-mono text-[9px] tracking-[0.3em] text-[#C8A97D] uppercase mb-8 relative z-10">Engineering, Procurement, Construction</p>
+              <p className="font-mono text-[9px] tracking-[0.3em] text-[#C8A97D] uppercase mb-8 relative z-10">Projektowanie, Dostawy, Budowa</p>
               <p className="font-serif text-[#F2EDE4]/60 text-xl font-light italic leading-relaxed mb-10 relative z-10 max-w-sm">
                 Klasyczne generalne wykonawstwo "pod klucz". Bierzemy pełną odpowiedzialność za projekt, dostawy materiałów oraz budowę. Inwestor odbiera gotową, działającą instalację z gwarancją uzysku.
               </p>
@@ -1121,7 +1121,7 @@ const ContractModels = () => {
             <GlowCard className="border-[0.5px] border-[#C8A97D]/20 bg-[#030404]/80 backdrop-blur-md p-12 md:p-16 interactive-element !rounded-none">
               <div className="absolute top-0 right-0 p-6 font-serif text-[8rem] leading-none text-[#C8A97D]/5 italic font-light group-hover:text-[#C8A97D]/10 transition-colors duration-700 pointer-events-none">EPCM</div>
               <h3 className="font-mono text-2xl text-[#F2EDE4] mb-2 relative z-10">Model EPCM</h3>
-              <p className="font-mono text-[9px] tracking-[0.3em] text-[#C8A97D] uppercase mb-8 relative z-10">Engineering, Procurement, Construction Management</p>
+              <p className="font-mono text-[9px] tracking-[0.3em] text-[#C8A97D] uppercase mb-8 relative z-10">Projektowanie, Dostawy, Zarządzanie Budową</p>
               <p className="font-serif text-[#F2EDE4]/60 text-xl font-light italic leading-relaxed mb-10 relative z-10 max-w-sm">
                 Pełnimy rolę inżyniera kontraktu i zarządzamy budową. Inwestor podpisuje umowy bezpośrednio z podwykonawcami, zyskując maksymalną transparentność kosztów i oszczędności marży.
               </p>
@@ -1248,7 +1248,7 @@ const EconomicsSection = () => {
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-32 items-center">
           <FadeIn direction="right">
-            <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Financial Engineering</div>
+            <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Inżynieria Finansowa</div>
             <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[1] mb-12 font-light">
               Analiza <br/>
               <span className="italic text-[#C6A87C] font-normal">rentowności.</span>
@@ -1279,7 +1279,7 @@ const EconomicsSection = () => {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(198,168,124,0.1)_0%,transparent_70%)]"></div>
               
               <div className="flex justify-between items-center mb-16">
-                <span className="font-mono text-[9px] text-[#C6A87C] tracking-[0.4em] uppercase">Cash Flow Projection</span>
+                <span className="font-mono text-[9px] text-[#C6A87C] tracking-[0.4em] uppercase">Projekcja Przepływów Pieniężnych</span>
                 <span className="font-mono text-[8px] text-[#EAE6DF]/30 uppercase">v3.4 Final</span>
               </div>
 
@@ -1300,11 +1300,11 @@ const EconomicsSection = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div className="bg-[#020202]/50 p-8 border border-[#C6A87C]/10 rounded-2xl">
-                   <div className="font-mono text-[8px] text-[#EAE6DF]/30 uppercase tracking-[0.3em] mb-4">Payback Period</div>
+                   <div className="font-mono text-[8px] text-[#EAE6DF]/30 uppercase tracking-[0.3em] mb-4">Okres Zwrotu</div>
                    <div className="font-serif text-5xl text-[#C6A87C] font-light"><AnimatedCounter value="5.2" /><span className="text-xl text-[#C6A87C]/40 italic ml-2">lat</span></div>
                 </div>
                 <div className="bg-[#020202]/50 p-8 border border-[#C6A87C]/10 rounded-2xl">
-                   <div className="font-mono text-[8px] text-[#EAE6DF]/30 uppercase tracking-[0.3em] mb-4">Internal Rate (IRR)</div>
+                   <div className="font-mono text-[8px] text-[#EAE6DF]/30 uppercase tracking-[0.3em] mb-4">Wewnętrzna Stopa Zwrotu (IRR)</div>
                    <div className="font-serif text-5xl text-[#C6A87C] font-light"><AnimatedCounter value="18.4" suffix="%" /></div>
                 </div>
               </div>
@@ -1603,7 +1603,7 @@ const ScadaSystem = () => {
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-32 items-center">
           <FadeIn direction="right">
-            <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Software Infrastructure</div>
+            <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Infrastruktura Software</div>
             <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 mb-12 font-light italic">
               Cyfrowy <br/><span className="text-[#C6A87C] not-italic">bliźniak.</span>
             </h2>
@@ -1638,15 +1638,15 @@ const ScadaSystem = () => {
                 
                 <div className="mt-12 grid grid-cols-3 gap-8 pt-8">
                    <div>
-                      <div className="font-mono text-[7px] text-[#EAE6DF]/30 uppercase mb-2">Gas Pressure</div>
+                      <div className="font-mono text-[7px] text-[#EAE6DF]/30 uppercase mb-2">Ciśnienie Gazu</div>
                       <div className="font-serif text-3xl text-[#EAE6DF]">14.2 <span className="text-xs italic text-[#C6A87C]">mbar</span></div>
                    </div>
                    <div>
-                      <div className="font-mono text-[7px] text-[#EAE6DF]/30 uppercase mb-2">Oxygen Level</div>
+                      <div className="font-mono text-[7px] text-[#EAE6DF]/30 uppercase mb-2">Poziom Tlenu</div>
                       <div className="font-serif text-3xl text-[#EAE6DF]">0.02 <span className="text-xs italic text-[#C6A87C]">%</span></div>
                    </div>
                    <div>
-                      <div className="font-mono text-[7px] text-[#EAE6DF]/30 uppercase mb-2">Motor Load</div>
+                      <div className="font-mono text-[7px] text-[#EAE6DF]/30 uppercase mb-2">Obciążenie Silnika</div>
                       <div className="font-serif text-3xl text-[#EAE6DF]">84.1 <span className="text-xs italic text-[#C6A87C]">%</span></div>
                    </div>
                 </div>
@@ -1713,16 +1713,16 @@ const Leadership = () => {
       name: "Dział Konstrukcyjny", 
       exp: "Nadzór nad precyzją montażu izolacji termicznej i wylewek żelbetowych. Gwarancja sterylności środowiska.",
       img: "https://images.unsplash.com/photo-1541888087425-ce81df8219b7?q=80&w=1000&auto=format&fit=crop",
-      id: "AUTH_LVL_4",
-      clearance: "TOP SECRET // INDUSTRIAL"
+      id: "AUTORYZACJA_LVL_4",
+      clearance: "ŚCIŚLE TAJNE // PRZEMYSŁOWE"
     },
     { 
       role: "Główny Technolog OZE", 
       name: "Dział Biologiczny", 
       exp: "Eksperci od fermentacji metanowej. Parametryzacja środowiska pod kątem maksymalizacji uzysku z powierzonej biomasy.",
       img: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1000&auto=format&fit=crop",
-      id: "AUTH_LVL_4",
-      clearance: "TOP SECRET // BIOLOGIC"
+      id: "AUTORYZACJA_LVL_4",
+      clearance: "ŚCIŚLE TAJNE // BIOLOGICZNE"
     }
   ];
 
@@ -1734,7 +1734,7 @@ const Leadership = () => {
         <FadeIn>
           <div className="mb-40 flex flex-col lg:flex-row lg:items-start xl:items-end justify-between gap-16 border-b border-[#C6A87C]/10 pb-16">
             <div>
-              <h2 className="text-[9px] font-mono tracking-[0.5em] text-[#C6A87C] uppercase mb-8">Personnel Index</h2>
+              <h2 className="text-[9px] font-mono tracking-[0.5em] text-[#C6A87C] uppercase mb-8">Indeks Personelu</h2>
               <p className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Nadzór <br/><span className="italic font-light text-[#C6A87C]">Weryfikowany.</span></p>
             </div>
             <p className="text-[#EAE6DF]/40 text-2xl font-serif italic max-w-md leading-relaxed text-right">
@@ -1767,11 +1767,11 @@ const Leadership = () => {
                     
                     <div className="flex justify-between items-end">
                        <div className="space-y-4">
-                          <div className="font-mono text-[7px] text-[#C6A87C] tracking-[0.4em] uppercase opacity-60">Identity Verified</div>
+                          <div className="font-mono text-[7px] text-[#C6A87C] tracking-[0.4em] uppercase opacity-60">Tożsamość Zweryfikowana</div>
                           <div className="h-[2px] w-32 bg-[#4ADE80] shadow-[0_0_10px_#4ADE80]"></div>
                        </div>
                        <div className="text-right">
-                          <div className="font-mono text-[9px] text-[#EAE6DF]/40 uppercase tracking-[0.2em] mb-1">Authorization</div>
+                          <div className="font-mono text-[9px] text-[#EAE6DF]/40 uppercase tracking-[0.2em] mb-1">Autoryzacja</div>
                           <div className="font-mono text-xs text-[#C6A87C]">{leader.id}</div>
                        </div>
                     </div>
@@ -1812,14 +1812,14 @@ const OperationsMaintenance = () => {
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-              <div className="p-8 glass-morphism rounded-3xl">
-                 <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] uppercase mb-4">Uptime SLA</div>
-                 <div className="font-serif text-5xl text-[#EAE6DF] font-light"><AnimatedCounter value="98.5" suffix="%" /></div>
-              </div>
-              <div className="p-8 glass-morphism rounded-3xl">
-                 <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] uppercase mb-4">Response Time</div>
-                 <div className="font-serif text-5xl text-[#EAE6DF] font-light">&lt;<AnimatedCounter value="24" /><span className="text-xl text-[#C6A87C]/40 italic ml-2">h</span></div>
-              </div>
+               <div className="p-8 glass-morphism rounded-3xl">
+                  <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] uppercase mb-4">Uptime SLA</div>
+                  <div className="font-serif text-5xl text-[#EAE6DF] font-light"><AnimatedCounter value="98.5" suffix="%" /></div>
+               </div>
+               <div className="p-8 glass-morphism rounded-3xl">
+                  <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] uppercase mb-4">Czas Reakcji</div>
+                  <div className="font-serif text-5xl text-[#EAE6DF] font-light">&lt;<AnimatedCounter value="24" /><span className="text-xl text-[#C6A87C]/40 italic ml-2">h</span></div>
+               </div>
             </div>
           </FadeIn>
 
@@ -1848,10 +1848,10 @@ const OperationsMaintenance = () => {
 
 const SafetyStandards = () => {
   const standards = [
-    { title: "Dyrektywa ATEX", desc: "Zabezpieczenie przeciwwybuchowe EX dla stref zagrożonych metanem.", code: "DIRECTIVE 2014/34/EU", hue: "#FBBF24" },
-    { title: "Standardy UDT", desc: "Dozór techniczny nad zbiornikami ciśnieniowymi i rurociągami.", code: "UDT REGULATION", hue: "#60A5FA" },
-    { title: "Ochrona PPOŻ", desc: "Zintegrowane systemy oddymiania i aktywne pochodnie bezpieczeństwa.", code: "NFPA-EN STANDARDS", hue: "#F87171" },
-    { title: "Certyfikacja CE", desc: "Zgodność z europejskimi normami maszynowymi i bezpieczeństwa pracy.", code: "MD 2006/42/EC", hue: "#34D399" }
+    { title: "Dyrektywa ATEX", desc: "Zabezpieczenie przeciwwybuchowe EX dla stref zagrożonych metanem.", code: "DYREKTYWA 2014/34/UE", hue: "#FBBF24" },
+    { title: "Standardy UDT", desc: "Dozór techniczny nad zbiornikami ciśnieniowymi i rurociągami.", code: "ROZPORZĄDZENIE UDT", hue: "#60A5FA" },
+    { title: "Ochrona PPOŻ", desc: "Zintegrowane systemy oddymiania i aktywne pochodnie bezpieczeństwa.", code: "NORMY NFPA-EN", hue: "#F87171" },
+    { title: "Certyfikacja CE", desc: "Zgodność z europejskimi normami maszynowymi i bezpieczeństwa pracy.", code: "MD 2006/42/WE", hue: "#34D399" }
   ];
 
   return (
@@ -1860,7 +1860,7 @@ const SafetyStandards = () => {
         <FadeIn>
           <div className="mb-32">
              <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 flex items-center gap-4">
-               <ShieldCheck className="w-5 h-5" /> Compliance Framework
+               <ShieldCheck className="w-5 h-5" /> Ramy Zgodności Technicznej
              </h2>
              <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Bezpieczeństwo <br/><span className="italic text-[#C6A87C] font-normal">normatywne.</span></h3>
           </div>
@@ -1900,7 +1900,7 @@ const TechnicalFAQ = () => {
         <div className="grid lg:grid-cols-12 gap-24 items-start">
          
          <FadeIn className="lg:col-span-4 sticky top-40">
-                         <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Knowledge Repository</div>
+            <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Repozytorium Wiedzy</div>
 
              <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
                Dokumentacja <br/>
@@ -1935,7 +1935,7 @@ const TechnicalFAQ = () => {
                        </p>
                        <div className="mt-8 flex items-center gap-4">
                           <div className="w-2 h-2 bg-[#4ADE80] rounded-full"></div>
-                          <span className="font-mono text-[8px] text-[#4ADE80] tracking-[0.3em] uppercase">Status: Verified Document</span>
+                          <span className="font-mono text-[8px] text-[#4ADE80] tracking-[0.3em] uppercase">Status: Dokument Zweryfikowany</span>
                        </div>
                      </FadeIn>
                    )}
@@ -2028,7 +2028,7 @@ const CTA = () => {
                 </a>
               </MagneticButton>
               <div className="font-mono text-[9px] text-[#F2EDE4]/30 tracking-[0.3em] uppercase">
-                lub +48 22 000 00 00
+                lub +48 601 944 451
               </div>
             </div>
 
@@ -2109,14 +2109,14 @@ const Footer = () => {
           </div>
 
           <div className="md:col-span-3">
-            <h4 className="text-[#C6A87C] font-mono mb-8 uppercase text-[9px] tracking-[0.4em]">Colophon</h4>
+            <h4 className="text-[#C6A87C] font-mono mb-8 uppercase text-[9px] tracking-[0.4em]">Kolofon</h4>
             <div className="space-y-3 font-mono text-[9px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase leading-relaxed">
-              <div>Set in <span className="text-[#C6A87C]/80 font-serif italic normal-case tracking-normal text-sm">Cormorant Garamond</span></div>
-              <div>& <span className="text-[#C6A87C]/80 font-mono normal-case tracking-normal text-sm">Space Mono</span></div>
-              <div className="pt-3 border-t border-[#C6A87C]/10">Engineered in Warsaw</div>
+              <div>Złożono krojem <span className="text-[#C6A87C]/80 font-serif italic normal-case tracking-normal text-sm">Cormorant Garamond</span></div>
+              <div>oraz <span className="text-[#C6A87C]/80 font-mono normal-case tracking-normal text-sm">Space Mono</span></div>
+              <div className="pt-3 border-t border-[#C6A87C]/10">Zaprojektowano w Warszawie</div>
               <div>Substrat — z polskich pól</div>
-              <div className="pt-3 border-t border-[#C6A87C]/10">Issue N° 04 // 2026</div>
-              <div>Vol. I, Ed. III</div>
+              <div className="pt-3 border-t border-[#C6A87C]/10">Wydanie N° 04 // 2026</div>
+              <div>Tom I, Edycja III</div>
             </div>
           </div>
         </div>
@@ -2139,7 +2139,7 @@ const Footer = () => {
 
         <div className="border-t border-[#C6A87C]/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[#EAE6DF]/30 text-[9px] font-mono uppercase tracking-[0.3em]">
-            &copy; 2026 Green Plant Technologies Sp. z o.o. // All rights reserved
+            &copy; 2026 Green Plant Technologies Sp. z o.o. // Wszelkie prawa zastrzeżone
           </p>
           <div className="font-mono text-[9px] text-[#EAE6DF]/30 uppercase tracking-[0.3em]">
             LAT 52.2297 // LON 21.0122
@@ -2178,7 +2178,7 @@ const ReactorAnatomy = () => {
           <div className="grid lg:grid-cols-12 gap-16 items-end mb-24 border-b border-[#C6A87C]/10 pb-12">
             <div className="lg:col-span-7">
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
-                <CrosshairIcon className="w-3.5 h-3.5" strokeWidth={1} /> Schemat techniczny // Exploded View
+                <CrosshairIcon className="w-3.5 h-3.5" strokeWidth={1} /> Schemat techniczny // Widok rozstrzelony
               </div>
               <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
                 Anatomia <br/><span className="italic text-[#C6A87C] font-normal">reaktora.</span>
@@ -2199,9 +2199,9 @@ const ReactorAnatomy = () => {
           {/* SVG anatomy */}
           <FadeIn className="lg:col-span-8 relative">
             <div className="relative aspect-[4/3] glass-morphism rounded-[2rem] overflow-hidden p-6">
-              <div className="absolute top-4 left-6 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">DWG-014 / SECTION A-A</div>
-              <div className="absolute top-4 right-6 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">SCALE 1:200</div>
-              <div className="absolute bottom-4 left-6 font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.3em] uppercase">DRAWN BY GREEN PLANT TECH.</div>
+              <div className="absolute top-4 left-6 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">DWG-014 / PRZEKRÓJ A-A</div>
+              <div className="absolute top-4 right-6 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">SKALA 1:200</div>
+              <div className="absolute bottom-4 left-6 font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.3em] uppercase">OPRACOWANIE: GREEN PLANT TECH.</div>
               <div className="absolute bottom-4 right-6 font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.3em] uppercase">⌀ 24.0 M / H 8.0 M</div>
 
               <svg viewBox="0 0 800 600" className="w-full h-full">
@@ -2365,7 +2365,7 @@ const EditorialQuote = () => {
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C6A87C]/40 to-transparent" />
       <div className="max-w-[80rem] mx-auto px-8 relative z-10">
         <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-16 flex items-center gap-4">
-          <span className="w-6 h-px bg-[#C6A87C]" /> Editorial — N° 04 / 26
+          <span className="w-6 h-px bg-[#C6A87C]" /> Edytorial — N° 04 / 26
         </div>
         <blockquote className="font-serif text-5xl md:text-[6.5rem] text-[#EAE6DF] leading-[1.05] font-light tracking-tight">
           <span className="text-[#C6A87C] italic">„</span>
@@ -2383,7 +2383,7 @@ const EditorialQuote = () => {
             <div className="font-serif italic text-[#EAE6DF]/40 text-lg mt-2">Manifest Energii Rolniczej, 2026</div>
           </div>
           <div className="font-mono text-[9px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase hidden md:block">
-            Set in Cormorant Garamond
+            Złożono krojem Cormorant Garamond
           </div>
         </div>
       </div>
@@ -2427,7 +2427,7 @@ const PolandMap = () => {
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <FadeIn className="lg:col-span-8 relative">
             <div className="aspect-[4/4.5] relative glass-morphism rounded-[2rem] p-10 overflow-hidden">
-              <div className="absolute top-6 left-8 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">MAP // POLAND // 1:2,500,000</div>
+              <div className="absolute top-6 left-8 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">MAPA // POLSKA // 1:2 500 000</div>
               <div className="absolute top-6 right-8 font-mono text-[9px] text-[#4ADE80] tracking-[0.3em] uppercase flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-[#4ADE80] rounded-full animate-pulse" /> ≈ 380 MW
               </div>
@@ -3211,7 +3211,7 @@ const GanttBuild = () => {
             { c: '#C6A87C', l: 'Faza przygotowawcza', d: 'Analizy, pozwolenia, projekt' },
             { c: '#D97847', l: 'Wykonawstwo', d: 'Cywilne + mechaniczne' },
             { c: '#4ADE80', l: 'Rozruch', d: 'I&C, BIO, odbiory' },
-            { c: '#EAE6DF', l: 'Eksploatacja', d: 'COD — pełna moc' },
+            { c: '#EAE6DF', l: 'Eksploatacja', d: 'COD — pełna moc operacyjna' },
           ].map((l, i) => (
             <div key={i} className="flex items-start gap-4">
               <div className="w-6 h-6 mt-1 rounded" style={{ backgroundColor: l.c, opacity: 0.7, boxShadow: `0 0 12px ${l.c}40` }} />
@@ -3560,10 +3560,10 @@ const MaterialSamples = () => {
 // Kinetic break II — diagonal overlapping massive type
 const KineticBreakII = () => {
   const layers = [
-    { txt: 'REAKTOR · MEMBRANA · CHP · SCADA ·', size: '12rem', dir: 'normal', dur: '50s', color: 'transparent', stroke: true, ts: '-0.04em' },
-    { txt: 'archeon × archeon × archeon ×', size: '8rem', dir: 'reverse', dur: '35s', color: '#C6A87C', italic: true, opacity: 0.7, ts: '-0.02em' },
-    { txt: 'CH₄ + CO₂ = ENERGIA · CH₄ + CO₂ = ENERGIA ·', size: '5rem', dir: 'normal', dur: '40s', color: '#4ADE80', opacity: 0.5, ts: '0.02em' },
-    { txt: 'POLE → REAKTOR → SIEĆ → DOM → POLE ·', size: '9rem', dir: 'reverse', dur: '60s', color: '#EAE6DF', italic: true, opacity: 0.15, ts: '-0.03em' },
+    { txt: 'PROJEKT · BUDOWA · OPTYMALIZACJA · SERWIS ·', size: '12rem', dir: 'normal', dur: '50s', color: 'transparent', stroke: true, ts: '-0.04em' },
+    { txt: 'biologia × technologia × ekonomia ×', size: '8rem', dir: 'reverse', dur: '35s', color: '#C6A87C', italic: true, opacity: 0.7, ts: '-0.02em' },
+    { txt: 'CH₄ + CO₂ → CZYSTY KAPITAŁ · CH₄ + CO₂ → CZYSTY KAPITAŁ ·', size: '5rem', dir: 'normal', dur: '40s', color: '#4ADE80', opacity: 0.5, ts: '0.02em' },
+    { txt: 'SUBSTRAT → REAKTOR → ENERGIA → POFERMENT ·', size: '9rem', dir: 'reverse', dur: '60s', color: '#EAE6DF', italic: true, opacity: 0.15, ts: '-0.03em' },
   ];
   return (
     <section className="relative py-32 bg-[#020202] overflow-hidden" data-testid="kinetic-break-2">
@@ -4111,11 +4111,11 @@ const SiteAerial = () => {
                 })}
 
                 {/* Property edge label */}
-                <text x="50" y="78.5" textAnchor="middle" fontSize="0.9" fill="#C6A87C" fillOpacity="0.35" className="font-mono">— PROPERTY LINE — 12 800 m² —</text>
+                <text x="50" y="78.5" textAnchor="middle" fontSize="0.9" fill="#C6A87C" fillOpacity="0.35" className="font-mono">— GRANICA DZIAŁKI — 12 800 m² —</text>
               </svg>
-              <div className="absolute top-4 left-4 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">SITE PLAN — REF: GP-A1-01</div>
-              <div className="absolute top-4 right-4 font-mono text-[9px] text-[#4ADE80] tracking-[0.3em] uppercase">PLOT: 1.28 ha</div>
-              <div className="absolute bottom-4 right-4 font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.3em] uppercase">⌗ Aerial view 0° tilt · Scale 1:1000</div>
+              <div className="absolute top-4 left-4 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">PLAN SYTUACYJNY — REF: GP-A1-01</div>
+              <div className="absolute top-4 right-4 font-mono text-[9px] text-[#4ADE80] tracking-[0.3em] uppercase">DZIAŁKA: 1.28 ha</div>
+              <div className="absolute bottom-4 right-4 font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.3em] uppercase">⌗ Widok z góry 0° · Skala 1:1000</div>
               <div className="absolute -top-3 -left-3 reg-mark" />
               <div className="absolute -top-3 -right-3 reg-mark" />
               <div className="absolute -bottom-3 -left-3 reg-mark" />
@@ -4350,7 +4350,7 @@ const TechnicalSpecSheet = () => {
                 <div>
                   <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-1">Status</div>
                   <div className="font-mono text-base text-[#4ADE80] flex items-center gap-2 justify-end">
-                    <span className="w-1.5 h-1.5 bg-[#4ADE80] rounded-full animate-pulse" /> ACTIVE
+                    <span className="w-1.5 h-1.5 bg-[#4ADE80] rounded-full animate-pulse" /> AKTYWNY
                   </div>
                 </div>
               </div>
@@ -4506,7 +4506,7 @@ const ProcessInitiation = () => {
                   </a>
                 </MagneticButton>
                 <div className="font-mono text-[9px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase">
-                  LUB +48 22 000 00 00
+                  LUB +48 601 944 451
                 </div>
               </div>
             </FadeIn>
