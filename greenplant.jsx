@@ -1869,14 +1869,24 @@ const SafetyStandards = () => {
           </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#C6A87C]/10 border border-[#C6A87C]/10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {standards.map((std, i) => (
-            <FadeIn key={i} delay={i * 100} className="bg-[#020202] p-12 group hover:bg-[#050606] transition-all duration-700 interactive-element relative overflow-hidden">
-               <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-transparent to-transparent group-hover:via-[#C6A87C]/30 transition-all duration-700" style={{ backgroundImage: `linear-gradient(to right, transparent, ${std.hue}44, transparent)` }} />
-               <div className="font-mono text-[7px] tracking-[0.3em] uppercase mb-8 opacity-40 group-hover:opacity-100 transition-colors" style={{ color: std.hue }}>{std.code}</div>
-               <h4 className="font-serif text-3xl text-[#EAE6DF] mb-6 font-light group-hover:text-[#EAE6DF] transition-colors">{std.title}</h4>
-               <p className="font-serif italic text-[#EAE6DF]/40 text-lg leading-relaxed">{std.desc}</p>
-               <div className="mt-12 w-8 h-[1px] transition-all duration-700 group-hover:w-full" style={{ backgroundColor: `${std.hue}44` }}></div>
+            <FadeIn key={i} delay={i * 100} className="p-12 group transition-all duration-700 interactive-element relative overflow-hidden border rounded-2xl"
+               style={{ backgroundColor: `${std.hue}0A`, borderColor: `${std.hue}33` }}
+               onMouseEnter={(e) => {
+                 e.currentTarget.style.backgroundColor = `${std.hue}1A`;
+                 e.currentTarget.style.borderColor = `${std.hue}66`;
+               }}
+               onMouseLeave={(e) => {
+                 e.currentTarget.style.backgroundColor = `${std.hue}0A`;
+                 e.currentTarget.style.borderColor = `${std.hue}33`;
+               }}
+            >
+               <div className="absolute top-0 left-0 w-full h-[3px] transition-all duration-700" style={{ backgroundImage: `linear-gradient(to right, transparent, ${std.hue}, transparent)` }} />
+               <div className="font-mono text-[8px] tracking-[0.3em] uppercase mb-8 transition-colors" style={{ color: std.hue }}>{std.code}</div>
+               <h4 className="font-serif text-3xl text-[#EAE6DF] mb-6 font-light transition-colors" style={{ textShadow: `0 0 20px ${std.hue}40` }}>{std.title}</h4>
+               <p className="font-serif italic text-[#EAE6DF]/60 text-lg leading-relaxed relative z-10">{std.desc}</p>
+               <div className="mt-12 w-8 h-[2px] transition-all duration-700 group-hover:w-full relative z-10" style={{ backgroundColor: std.hue }}></div>
             </FadeIn>
           ))}
         </div>
@@ -4425,18 +4435,26 @@ const TechnologyPartners = () => {
             <span className="w-8 h-px bg-[#C6A87C]/30" /> Ekosystem Technologiczny
           </div>
         </FadeIn>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {partners.map((p, i) => (
             <FadeIn key={i} delay={p.delay} className="group cursor-pointer">
               <div 
-                className="border border-[#C6A87C]/10 p-8 h-32 flex flex-col items-center justify-center bg-[#050505] transition-all duration-500 rounded-xl relative overflow-hidden"
-                style={{ '--accent-hue': p.hue }}
+                className="p-8 h-32 flex flex-col items-center justify-center transition-all duration-500 rounded-xl relative overflow-hidden border"
+                style={{ backgroundColor: `${p.hue}0A`, borderColor: `${p.hue}33` }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = `${p.hue}1A`;
+                  e.currentTarget.style.borderColor = `${p.hue}66`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = `${p.hue}0A`;
+                  e.currentTarget.style.borderColor = `${p.hue}33`;
+                }}
               >
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500" style={{ backgroundColor: p.hue }} />
-                <span className="font-serif text-[#EAE6DF]/40 group-hover:text-[#EAE6DF] text-xl tracking-widest uppercase transition-all duration-500 group-hover:scale-105 z-10" style={{ textShadow: `0 0 20px ${p.hue}00`, color: i % 2 === 0 ? '' : '' }}>
+                <div className="absolute top-0 left-0 w-full h-[2px] transition-all duration-500" style={{ backgroundImage: `linear-gradient(to right, transparent, ${p.hue}, transparent)` }} />
+                <span className="font-serif text-[#EAE6DF] text-xl tracking-widest uppercase transition-all duration-500 group-hover:scale-105 z-10" style={{ textShadow: `0 0 20px ${p.hue}80` }}>
                    {p.name}
                 </span>
-                <span className="font-mono text-[7px] tracking-[0.3em] uppercase mt-4 opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 text-center z-10" style={{ color: p.hue }}>{p.role}</span>
+                <span className="font-mono text-[8px] tracking-[0.3em] uppercase mt-4 opacity-70 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 text-center z-10" style={{ color: p.hue }}>{p.role}</span>
               </div>
             </FadeIn>
           ))}
