@@ -4002,6 +4002,435 @@ const SectionIndex = () => {
   );
 };
 
+// Cursor-following ambient gradient (global subtle light)
+const CursorAmbient = () => {
+  useEffect(() => {
+    const el = document.querySelector('.cursor-ambient');
+    if (!el) return;
+    const onMove = (e) => {
+      el.style.setProperty('--cx', e.clientX + 'px');
+      el.style.setProperty('--cy', e.clientY + 'px');
+    };
+    window.addEventListener('mousemove', onMove, { passive: true });
+    return () => window.removeEventListener('mousemove', onMove);
+  }, []);
+  return (
+    <div className="cursor-ambient fixed inset-0 pointer-events-none z-[150]"
+      style={{
+        background: 'radial-gradient(400px circle at var(--cx, 50%) var(--cy, 50%), rgba(198,168,124,0.06), transparent 60%)',
+        mixBlendMode: 'plus-lighter',
+      }} />
+  );
+};
+
+// Interactive aerial site plan of a single biogas facility
+const SiteAerial = () => {
+  const [hovered, setHovered] = useState(0);
+  const buildings = [
+    { id: '01', name: 'Silos kiszonki', area: '1 800 m²', vol: '5 400 t', x: 12, y: 38, w: 22, h: 14, shape: 'rect' },
+    { id: '02', name: 'Reaktor I — hydroliza', area: '450 m²', vol: '2 400 m³', x: 38, y: 30, w: 12, h: 12, shape: 'circle' },
+    { id: '03', name: 'Reaktor II — metanogeneza', area: '450 m²', vol: '2 400 m³', x: 52, y: 30, w: 12, h: 12, shape: 'circle' },
+    { id: '04', name: 'Zbiornik pofermentu', area: '380 m²', vol: '1 800 m³', x: 66, y: 30, w: 11, h: 11, shape: 'circle' },
+    { id: '05', name: 'Maszynownia CHP', area: '210 m²', vol: '999 kWe', x: 38, y: 55, w: 16, h: 10, shape: 'rect' },
+    { id: '06', name: 'Magazyn biogazu', area: '320 m²', vol: '1 200 m³', x: 56, y: 55, w: 14, h: 10, shape: 'rect' },
+    { id: '07', name: 'Sterownia + SCADA', area: '95 m²', vol: '8 stanowisk', x: 74, y: 55, w: 9, h: 8, shape: 'rect' },
+    { id: '08', name: 'Pochodnia awaryjna', area: '12 m²', vol: 'ATEX zone 1', x: 80, y: 22, w: 4, h: 4, shape: 'circle' },
+    { id: '09', name: 'Wjazd dla cystern', area: '—', vol: 'Brama bezpieczna', x: 5, y: 70, w: 8, h: 5, shape: 'rect' },
+    { id: '10', name: 'Trafostacja 15 kV', area: '40 m²', vol: 'Eaton Power-Xpert', x: 86, y: 65, w: 7, h: 6, shape: 'rect' },
+  ];
+  return (
+    <section className="relative py-48 bg-[#050505] overflow-hidden" data-testid="site-aerial">
+      <div className="absolute inset-0 paper-grain opacity-20" />
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <FadeIn>
+          <div className="grid lg:grid-cols-12 gap-12 items-end mb-20 border-b border-[#C6A87C]/15 pb-10">
+            <div className="lg:col-span-7">
+              <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
+                <MapPin className="w-3.5 h-3.5" strokeWidth={1} /> Rzut sytuacyjny — 1.2 ha
+              </div>
+              <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.88] font-light">
+                Z lotu <br/><span className="italic text-[#C6A87C] font-normal">ptaka.</span>
+              </h2>
+            </div>
+            <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
+              Standardowa biogazownia 1 MW na 1.2 hektarze. 10 obiektów, 320 metrów rurociągów, 3 kilometry kabli sterowniczych. Każdy element ma swoje miejsce — i swój dokument.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid lg:grid-cols-12 gap-10 items-start">
+          <FadeIn className="lg:col-span-8 relative">
+            <div className="relative aspect-[16/10] glass-morphism rounded-[2rem] overflow-hidden">
+              {/* Top-down site */}
+              <svg viewBox="0 0 100 62.5" className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+                <defs>
+                  <pattern id="grass" patternUnits="userSpaceOnUse" width="3" height="3">
+                    <rect width="3" height="3" fill="#0a0c0b" />
+                    <circle cx="1.5" cy="1.5" r="0.2" fill="#4ADE80" fillOpacity="0.15" />
+                  </pattern>
+                  <pattern id="asphalt" patternUnits="userSpaceOnUse" width="2" height="2">
+                    <rect width="2" height="2" fill="#1a1c1d" />
+                  </pattern>
+                  <pattern id="rooftop" patternUnits="userSpaceOnUse" width="4" height="4" patternTransform="rotate(45)">
+                    <rect width="4" height="4" fill="#0e1010" />
+                    <line x1="0" y1="0" x2="0" y2="4" stroke="#C6A87C" strokeOpacity="0.4" strokeWidth="0.3" />
+                  </pattern>
+                </defs>
+                {/* Plot boundary */}
+                <rect x="0" y="0" width="100" height="62.5" fill="url(#grass)" />
+                <rect x="2" y="2" width="96" height="58.5" fill="none" stroke="#C6A87C" strokeOpacity="0.4" strokeWidth="0.15" strokeDasharray="0.8 0.8" />
+                {/* Road grid */}
+                <path d="M 4 70 L 4 18 L 90 18 L 90 50" fill="none" stroke="url(#asphalt)" strokeWidth="2.5" />
+                <path d="M 4 70 L 4 18 L 90 18 L 90 50" fill="none" stroke="#C6A87C" strokeOpacity="0.25" strokeWidth="0.1" strokeDasharray="0.4 0.4" />
+                {/* Underground pipes (dashed) */}
+                <path d="M 44 36 L 56 36 M 56 36 L 67 36 M 44 42 L 44 55 M 56 42 L 56 55 M 67 42 L 67 55" fill="none" stroke="#4ADE80" strokeOpacity="0.45" strokeDasharray="0.5 0.5" strokeWidth="0.2" />
+                {/* Compass */}
+                <g transform="translate(92, 6)">
+                  <circle cx="0" cy="0" r="3" fill="none" stroke="#C6A87C" strokeOpacity="0.4" strokeWidth="0.1" />
+                  <polygon points="0,-2.5 0.8,0.5 0,-0.3 -0.8,0.5" fill="#C6A87C" fillOpacity="0.7" />
+                  <text x="0" y="-3.4" textAnchor="middle" fontSize="1.4" fill="#C6A87C" fillOpacity="0.7" className="font-mono">N</text>
+                </g>
+                {/* Scale */}
+                <g transform="translate(4, 59)">
+                  <line x1="0" y1="0" x2="20" y2="0" stroke="#C6A87C" strokeOpacity="0.6" strokeWidth="0.15" />
+                  <line x1="0" y1="-0.4" x2="0" y2="0.4" stroke="#C6A87C" strokeOpacity="0.6" strokeWidth="0.15" />
+                  <line x1="10" y1="-0.3" x2="10" y2="0.3" stroke="#C6A87C" strokeOpacity="0.6" strokeWidth="0.15" />
+                  <line x1="20" y1="-0.4" x2="20" y2="0.4" stroke="#C6A87C" strokeOpacity="0.6" strokeWidth="0.15" />
+                  <text x="0" y="-1.2" fontSize="1.1" fill="#C6A87C" fillOpacity="0.6" className="font-mono">0</text>
+                  <text x="10" y="-1.2" textAnchor="middle" fontSize="1.1" fill="#C6A87C" fillOpacity="0.6" className="font-mono">50</text>
+                  <text x="20" y="-1.2" textAnchor="middle" fontSize="1.1" fill="#C6A87C" fillOpacity="0.6" className="font-mono">100 m</text>
+                </g>
+
+                {/* Buildings */}
+                {buildings.map((b, i) => {
+                  const cx = b.x + b.w / 2;
+                  const cy = b.y + b.h / 2;
+                  const isActive = hovered === i;
+                  return (
+                    <g key={i} onMouseEnter={() => setHovered(i)} className="cursor-pointer">
+                      {b.shape === 'rect' ? (
+                        <>
+                          <rect x={b.x} y={b.y} width={b.w} height={b.h} fill="url(#rooftop)" />
+                          <rect x={b.x} y={b.y} width={b.w} height={b.h} fill="none" stroke={isActive ? '#4ADE80' : '#C6A87C'} strokeOpacity={isActive ? 1 : 0.7} strokeWidth={isActive ? 0.35 : 0.18} />
+                          {/* Drop shadow indicator */}
+                          <rect x={b.x + 0.2} y={b.y + 0.2} width={b.w} height={b.h} fill="black" fillOpacity="0.3" style={{ filter: 'blur(0.4px)' }} />
+                        </>
+                      ) : (
+                        <>
+                          <circle cx={cx} cy={cy} r={b.w / 2} fill="url(#rooftop)" />
+                          <circle cx={cx} cy={cy} r={b.w / 2} fill="none" stroke={isActive ? '#4ADE80' : '#C6A87C'} strokeOpacity={isActive ? 1 : 0.7} strokeWidth={isActive ? 0.35 : 0.18} />
+                          <circle cx={cx} cy={cy} r={b.w / 2 - 1.5} fill="none" stroke="#C6A87C" strokeOpacity="0.3" strokeWidth="0.1" strokeDasharray="0.3 0.3" />
+                        </>
+                      )}
+                      {/* Numbered label */}
+                      <circle cx={cx} cy={cy} r="1.6" fill={isActive ? '#4ADE80' : '#020202'} stroke="#C6A87C" strokeOpacity={isActive ? 1 : 0.8} strokeWidth="0.12" />
+                      <text x={cx} y={cy + 0.55} textAnchor="middle" fontSize="1.4" fontWeight="700" fill={isActive ? '#050505' : '#C6A87C'} className="font-mono">{b.id}</text>
+                      {/* leader line for active */}
+                      {isActive && (
+                        <>
+                          <line x1={cx} y1={b.y - 0.5} x2={cx + 5} y2={b.y - 5} stroke="#4ADE80" strokeOpacity="0.7" strokeWidth="0.12" />
+                          <text x={cx + 5.3} y={b.y - 4.5} fontSize="1.5" fill="#EAE6DF" className="font-serif" fontStyle="italic">{b.name}</text>
+                        </>
+                      )}
+                    </g>
+                  );
+                })}
+
+                {/* Property edge label */}
+                <text x="50" y="61" textAnchor="middle" fontSize="0.9" fill="#C6A87C" fillOpacity="0.35" className="font-mono">— PROPERTY LINE — 12 800 m² —</text>
+              </svg>
+              <div className="absolute top-4 left-4 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">SITE PLAN — REF: GP-A1-01</div>
+              <div className="absolute top-4 right-4 font-mono text-[9px] text-[#4ADE80] tracking-[0.3em] uppercase">PLOT: 1.28 ha</div>
+              <div className="absolute bottom-4 right-4 font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.3em] uppercase">⌗ Aerial view 0° tilt · Scale 1:1000</div>
+              <div className="absolute -top-3 -left-3 reg-mark" />
+              <div className="absolute -top-3 -right-3 reg-mark" />
+              <div className="absolute -bottom-3 -left-3 reg-mark" />
+              <div className="absolute -bottom-3 -right-3 reg-mark" />
+            </div>
+          </FadeIn>
+
+          <div className="lg:col-span-4 space-y-2">
+            <div className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-4">Indeks obiektów</div>
+            {buildings.map((b, i) => (
+              <button key={i}
+                onMouseEnter={() => setHovered(i)}
+                data-testid={`site-building-${b.id}`}
+                className={`w-full text-left p-4 rounded-xl border transition-all duration-500 ${hovered === i ? 'bg-[#4ADE80]/10 border-[#4ADE80]/30' : 'bg-transparent border-[#C6A87C]/5 opacity-40 hover:opacity-100'}`}>
+                <div className="flex justify-between items-baseline">
+                  <div className="flex items-center gap-4">
+                    <span className={`font-mono text-[10px] tracking-[0.2em] ${hovered === i ? 'text-[#4ADE80]' : 'text-[#C6A87C]/50'}`}>{b.id}</span>
+                    <span className="font-serif italic text-base text-[#EAE6DF]">{b.name}</span>
+                  </div>
+                </div>
+                {hovered === i && (
+                  <div className="flex justify-between mt-3 pl-8 font-mono text-[9px] tracking-[0.2em] uppercase">
+                    <span className="text-[#C6A87C]/60">{b.area}</span>
+                    <span className="text-[#EAE6DF]/60">{b.vol}</span>
+                  </div>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Awards and certifications — wax-seal stamps grid
+const AwardsAndCertifications = () => {
+  const items = [
+    { y: '2024', name: 'ISO 14001', sub: 'Środowisko', body: 'Zarządzanie środowiskowe', color: '#C6A87C' },
+    { y: '2023', name: 'ISO 9001', sub: 'Jakość', body: 'System zarządzania jakością', color: '#C6A87C' },
+    { y: '2024', name: 'ISO 45001', sub: 'BHP', body: 'Bezpieczeństwo pracy', color: '#C6A87C' },
+    { y: '2023', name: 'EBA Award', sub: 'European Biogas', body: 'Innowacja Roku', color: '#4ADE80' },
+    { y: '2022', name: 'Forum Energii', sub: 'Polska', body: 'Lider Transformacji', color: '#4ADE80' },
+    { y: '2021', name: 'TÜV Süd', sub: 'Niemcy', body: 'Certyfikacja procesu', color: '#C6A87C' },
+    { y: '2020', name: 'POLBIOM', sub: 'Polska', body: 'Złoty Medal — biogaz', color: '#4ADE80' },
+    { y: '2019', name: 'EU H2020', sub: 'Bruksela', body: 'Grant badawczy', color: '#D97847' },
+  ];
+  return (
+    <section className="relative py-48 bg-[#020202] overflow-hidden" data-testid="awards-cert">
+      <div className="absolute inset-0 paper-grain opacity-15" />
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <FadeIn>
+          <div className="grid lg:grid-cols-12 gap-12 items-end mb-20 border-b border-[#C6A87C]/15 pb-10">
+            <div className="lg:col-span-7">
+              <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
+                <ShieldCheck className="w-3.5 h-3.5" strokeWidth={1} /> Galeria pieczęci — certyfikaty i nagrody
+              </div>
+              <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
+                Osiem pieczęci, <br/><span className="italic text-[#C6A87C] font-normal">jeden mandat.</span>
+              </h2>
+            </div>
+            <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
+              Każda pieczęć to setki godzin audytu, kilometry dokumentacji, dziesiątki bezsennych nocy zespołu QA. Nie szukamy ich dla marketingu — szukamy ich, bo definiują nasz mandat.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+          {items.map((it, i) => (
+            <FadeIn key={i} delay={i * 80} className="group flex flex-col items-center text-center">
+              <div className="relative w-44 h-44 mb-8 transition-transform duration-700 group-hover:scale-105">
+                {/* Wax seal */}
+                <svg viewBox="0 0 200 200" className="w-full h-full wax-seal">
+                  <defs>
+                    <radialGradient id={`seal-${i}`} cx="0.5" cy="0.4" r="0.6">
+                      <stop offset="0" stopColor={it.color} stopOpacity="0.45" />
+                      <stop offset="1" stopColor={it.color} stopOpacity="0.1" />
+                    </radialGradient>
+                  </defs>
+                  {/* Outer scalloped edge */}
+                  {[...Array(24)].map((_, k) => {
+                    const a = (k / 24) * Math.PI * 2;
+                    return <circle key={k} cx={100 + Math.cos(a) * 90} cy={100 + Math.sin(a) * 90} r="6" fill={`url(#seal-${i})`} stroke={it.color} strokeOpacity="0.4" strokeWidth="0.5" />;
+                  })}
+                  {/* Main seal */}
+                  <circle cx="100" cy="100" r="84" fill={`url(#seal-${i})`} stroke={it.color} strokeOpacity="0.6" strokeWidth="1" />
+                  <circle cx="100" cy="100" r="72" fill="none" stroke={it.color} strokeOpacity="0.35" strokeWidth="0.5" />
+                  {/* Curving text on outer ring */}
+                  <defs>
+                    <path id={`tpath-${i}`} d="M 100 100 m -76 0 a 76 76 0 1 1 152 0 a 76 76 0 1 1 -152 0" fill="none" />
+                  </defs>
+                  <text fill={it.color} fillOpacity="0.65" fontSize="9" className="font-mono" letterSpacing="2">
+                    <textPath href={`#tpath-${i}`} startOffset="5%">
+                      · {it.sub.toUpperCase()} · {it.y} · GREEN PLANT TECH · {it.sub.toUpperCase()} ·
+                    </textPath>
+                  </text>
+                  {/* Inner name */}
+                  <text x="100" y="92" textAnchor="middle" fontSize="14" fill="#EAE6DF" className="font-serif" fontStyle="italic" fontWeight="300">Cert.</text>
+                  <text x="100" y="112" textAnchor="middle" fontSize="20" fill={it.color} className="font-serif" fontWeight="400">{it.name}</text>
+                  <text x="100" y="128" textAnchor="middle" fontSize="9" fill="#EAE6DF" fillOpacity="0.5" className="font-mono" letterSpacing="2">{it.y}</text>
+                  {/* small star or ornament */}
+                  <text x="100" y="148" textAnchor="middle" fontSize="14" fill={it.color} fillOpacity="0.5">✦</text>
+                </svg>
+              </div>
+              <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-2">{it.sub}</div>
+              <div className="font-serif italic text-base text-[#EAE6DF]/60 leading-tight max-w-[180px]">{it.body}</div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Numbered editorial epigraphs
+const NumberedEpigraphs = () => {
+  const epi = [
+    { n: 'I', q: 'Inżynier nie wierzy w „prawie szczelne". Inżynier mierzy.', who: 'Pierwsza zasada konstrukcyjna' },
+    { n: 'II', q: 'Każda biogazownia jest tak dobra jak słabsza spawa. Spawamy najlepiej w Polsce.', who: 'Dział produkcji' },
+    { n: 'III', q: 'Bakterie metanogenne nie negocjują. Ani ceny prądu, ani warunków pogodowych. Pracują 24/7.', who: 'Dział biologii' },
+  ];
+  return (
+    <section className="relative py-40 bg-[#030404] overflow-hidden" data-testid="numbered-epigraphs">
+      <div className="absolute inset-0 bg-stripes opacity-20" />
+      <div className="max-w-[80rem] mx-auto px-8 relative z-10">
+        <FadeIn>
+          <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-20 flex items-center gap-4 justify-center">
+            <span className="w-12 h-px bg-[#C6A87C]/40" /> Trzy zasady · zapisane na ścianach <span className="w-12 h-px bg-[#C6A87C]/40" />
+          </div>
+        </FadeIn>
+        <div className="space-y-20">
+          {epi.map((e, i) => (
+            <FadeIn key={i} delay={i * 120}>
+              <div className="grid md:grid-cols-12 gap-10 items-baseline">
+                <div className="md:col-span-2 text-right">
+                  <div className="font-serif font-light text-[#C6A87C]/30 leading-none" style={{ fontSize: '12rem', WebkitTextStroke: '1px #C6A87C40', color: 'transparent' }}>
+                    {e.n}
+                  </div>
+                </div>
+                <blockquote className="md:col-span-8 font-serif italic text-3xl md:text-5xl text-[#EAE6DF]/85 leading-[1.25] tracking-tight border-l-2 border-[#C6A87C]/30 pl-10">
+                  <span className="text-[#C6A87C] not-italic">„</span>{e.q}<span className="text-[#C6A87C] not-italic">"</span>
+                </blockquote>
+                <div className="md:col-span-2 pt-4 border-t border-[#C6A87C]/15">
+                  <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-1">— Źródło</div>
+                  <div className="font-serif italic text-sm text-[#EAE6DF]/50 leading-tight">{e.who}</div>
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Editorial technical spec sheet for GP-2026-X reference model
+const TechnicalSpecSheet = () => {
+  const sections = [
+    {
+      cat: 'Wymiary konstrukcyjne',
+      ref: 'CON',
+      items: [
+        ['Pojemność reaktora I + II', '4 800 m³'],
+        ['Średnica każdej komory', '24.0 m'],
+        ['Wysokość konstrukcji', '8.0 m'],
+        ['Grubość ścian żelbetowych', '0.40 m'],
+        ['Klasa betonu', 'C35/45 W10 XA3'],
+        ['Powierzchnia działki min.', '1.20 ha'],
+      ],
+    },
+    {
+      cat: 'Charakterystyka procesowa',
+      ref: 'BIO',
+      items: [
+        ['Temperatura procesu', '38.4 °C ± 0.3'],
+        ['pH operacyjne', '7.4 — 7.8'],
+        ['Czas retencji hydraulicznej', '28 dni'],
+        ['Sucha masa wsadu', '8 — 12% TS'],
+        ['Wsad dobowy', '42 t / dobę'],
+        ['Uzysk biogazu', '210 m³ / t TS'],
+      ],
+    },
+    {
+      cat: 'Parametry energetyczne',
+      ref: 'ENG',
+      items: [
+        ['Moc elektryczna nominalna', '999 kWe'],
+        ['Moc cieplna', '1.1 MWt'],
+        ['Sprawność elektryczna CHP', '44.2 %'],
+        ['Sprawność termiczna', '46.0 %'],
+        ['Sprawność całkowita', '90.2 %'],
+        ['Roczna produkcja energii', '8 100 MWh'],
+      ],
+    },
+    {
+      cat: 'Wymagania środowiskowe',
+      ref: 'ENV',
+      items: [
+        ['Hałas (granica działki) max', '45 dB(A) noc'],
+        ['Emisja NOx', '< 500 mg/Nm³'],
+        ['Emisja CO', '< 650 mg/Nm³'],
+        ['Wykorzystanie odpadów', '15 300 t / rok'],
+        ['Redukcja CO₂', '14 500 t / rok'],
+        ['Produkcja pofermentu', '8 030 t / rok'],
+      ],
+    },
+  ];
+  return (
+    <section className="relative py-48 bg-[#020202] overflow-hidden" data-testid="tech-spec-sheet">
+      <div className="absolute inset-0 bg-pinstripes opacity-30" />
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <FadeIn>
+          <div className="grid lg:grid-cols-12 gap-12 items-end mb-20 border-b border-[#C6A87C]/15 pb-10">
+            <div className="lg:col-span-7">
+              <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
+                <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Karta techniczna — REF: GP-2026-X
+              </div>
+              <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
+                Pełna <br/><span className="italic text-[#C6A87C] font-normal">specyfikacja.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-5 space-y-4">
+              <div className="grid grid-cols-3 gap-4 text-right">
+                <div>
+                  <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-1">Wersja</div>
+                  <div className="font-mono text-base text-[#EAE6DF]/80">4.2 / 2026</div>
+                </div>
+                <div>
+                  <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-1">Dokument</div>
+                  <div className="font-mono text-base text-[#EAE6DF]/80">GP-TS-014</div>
+                </div>
+                <div>
+                  <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-1">Status</div>
+                  <div className="font-mono text-base text-[#4ADE80] flex items-center gap-2 justify-end">
+                    <span className="w-1.5 h-1.5 bg-[#4ADE80] rounded-full animate-pulse" /> ACTIVE
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+
+        <div className="grid md:grid-cols-2 gap-px bg-[#C6A87C]/10 border border-[#C6A87C]/10">
+          {sections.map((s, i) => (
+            <FadeIn key={i} delay={i * 80} className="bg-[#020202] p-12">
+              <div className="flex items-baseline justify-between mb-10 pb-6 border-b border-[#C6A87C]/15">
+                <h3 className="font-serif text-3xl text-[#EAE6DF] font-light">{s.cat}</h3>
+                <span className="font-mono text-[10px] text-[#C6A87C] tracking-[0.4em] uppercase">§ {s.ref} · 0{i + 1}</span>
+              </div>
+              <div className="space-y-5">
+                {s.items.map((it, j) => (
+                  <div key={j} className="flex justify-between items-baseline gap-8 group hover:translate-x-1 transition-transform duration-500">
+                    <span className="font-serif italic text-lg text-[#EAE6DF]/70 leading-snug">{it[0]}</span>
+                    <span className="font-mono text-base text-[#C6A87C] tracking-wider whitespace-nowrap pl-4 border-b border-dashed border-[#C6A87C]/20 flex-1 text-right pb-1">
+                      {'.'.repeat(4)} <span className="text-[#EAE6DF]">{it[1]}</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+
+        {/* Sign-off footer */}
+        <FadeIn delay={400}>
+          <div className="mt-12 grid md:grid-cols-4 gap-8 pt-10 border-t border-[#C6A87C]/15">
+            <div>
+              <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-2">Opracował</div>
+              <div className="font-serif italic text-lg text-[#EAE6DF]/70">Dział technologiczny GP</div>
+            </div>
+            <div>
+              <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-2">Sprawdził</div>
+              <div className="font-serif italic text-lg text-[#EAE6DF]/70">M. Sobierajska, P.E.</div>
+            </div>
+            <div>
+              <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-2">Zatwierdził</div>
+              <div className="font-serif italic text-lg text-[#EAE6DF]/70">Zarząd</div>
+            </div>
+            <div>
+              <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-2">Obowiązuje od</div>
+              <div className="font-mono text-base text-[#C6A87C]">01.01.2026</div>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+};
+
 export default function App() {
   return (
     <>
@@ -4011,12 +4440,14 @@ export default function App() {
         <ScrollProgressBar />
         <SectionIndex />
         <CustomCursor />
+        <CursorAmbient />
         <AmbientOrbs />
         <FilmGrain />
         <Navbar />
         <Hero />
         <TickerTape />
         <Approach />
+        <NumberedEpigraphs />
         <FieldToElectricity />
         <KineticBreakII />
         <BlueprintProcess />
@@ -4029,6 +4460,7 @@ export default function App() {
         <MolecularProcess />
         <KineticBreakIII />
         <ReactorClock />
+        <TechnicalSpecSheet />
         <EconomicsSection />
         <EnergyComparison />
         <SmartGrid />
@@ -4037,6 +4469,7 @@ export default function App() {
         <CircularImpact />
         <EnvironmentalImpact />
         <PolandMap />
+        <SiteAerial />
         <ProjectsGallery />
         <PressWall />
         <TimelineSince2008 />
@@ -4047,6 +4480,7 @@ export default function App() {
         <OperationsMaintenance />
         <GanttBuild />
         <SafetyStandards />
+        <AwardsAndCertifications />
         <TechnicalFAQ />
         <GlossaryLexicon />
         <Manifesto />
