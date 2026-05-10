@@ -1389,12 +1389,12 @@ const CircularImpact = () => {
       <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-20 hidden lg:block">
         <svg viewBox="0 0 200 200" className="w-full h-full animate-spin-slow">
           <path id="textPath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="transparent" />
-          <text fill="#C6A87C" className="font-mono text-[11px] tracking-[0.3em] uppercase">
+          <text fill="#C6A87C" className="font-mono text-[8px] tracking-[0.2em] uppercase">
             <textPath href="#textPath" startOffset="0%">
-              • OBIEG ZAMKNIĘTY • ZERO ODPADÓW • ROLNICTWO CYRKULARNE 
+              • OBIEG ZAMKNIĘTY • ZERO ODPADÓW • ROLNICTWO CYRKULARNE •
             </textPath>
             <textPath href="#textPath" startOffset="50%">
-              • OBIEG ZAMKNIĘTY • ZERO ODPADÓW • ROLNICTWO CYRKULARNE 
+              • OBIEG ZAMKNIĘTY • ZERO ODPADÓW • ROLNICTWO CYRKULARNE •
             </textPath>
           </text>
         </svg>
@@ -4234,9 +4234,9 @@ const AwardsAndCertifications = () => {
                   <defs>
                     <path id={`tpath-${i}`} d="M 100 100 m -76 0 a 76 76 0 1 1 152 0 a 76 76 0 1 1 -152 0" fill="none" />
                   </defs>
-                  <text fill={it.color} fillOpacity="0.65" fontSize="9" className="font-mono" letterSpacing="2">
+                  <text fill={it.color} fillOpacity="0.65" fontSize="7" className="font-mono" letterSpacing="1">
                     <textPath href={`#tpath-${i}`} startOffset="5%">
-                      · {it.sub.toUpperCase()} · {it.y} · GREEN PLANT TECH · {it.sub.toUpperCase()} ·
+                      · {it.sub.toUpperCase()} · {it.y.toUpperCase()} · GREEN PLANT TECH · {it.sub.toUpperCase()} ·
                     </textPath>
                   </text>
                   {/* Inner name */}
