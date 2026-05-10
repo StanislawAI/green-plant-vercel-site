@@ -3031,11 +3031,11 @@ const MicrobialTaxonomy = () => {
 const PressWall = () => {
   const press = [
     { outlet: 'PULS BIZNESU', date: '08.2024', headline: 'Biogazownie rolnicze mają w Polsce wielki potencjał', cat: 'Rynek', url: 'https://www.pb.pl/biogazownie-rolnicze-maja-w-polsce-wielki-potencjal-1193306' },
-    { outlet: 'FORBES POLSKA', date: '12.2023', headline: 'Biometan to ogromna szansa dla Polski. Nie możemy jej zmarnować', cat: 'Analiza', url: 'https://www.forbes.pl/gospodarka/biometan-to-ogromna-szansa-dla-polski-nie-mozemy-jej-zmarnowac/9y1q8xe' },
-    { outlet: 'RZECZPOSPOLITA', date: '09.2023', headline: 'Biogaz: Polska może być biogazową potęgą', cat: 'Energetyka', url: 'https://www.rp.pl/energetyka/art39151591-biogaz-polska-moze-byc-biogazowa-potega' },
-    { outlet: 'FORUM ENERGII', date: '02.2024', headline: 'Biogaz w Polsce. Czas na biometan (Raport)', cat: 'Raport', url: 'https://www.forum-energii.eu/biogaz-w-polsce' },
-    { outlet: 'AGRO PROFIL', date: '01.2024', headline: 'Biogazownie rolnicze - sposób na stabilne dochody', cat: 'Edukacja', url: 'https://agroprofil.pl/aktualnosci/biogazownie-rolnicze-sposob-na-stabilne-dochody-w-gospodarstwie/' },
-    { outlet: 'RYNEK ENERGII', date: '05.2023', headline: 'Rola biogazu i biometanu w transformacji energetycznej', cat: 'Analiza', url: 'https://www.rynek-energii.pl/artykul/rola-biogazu-i-biometanu-w-transformacji-energetycznej-polski' },
+    { outlet: 'FORBES POLSKA', date: '12.2023', headline: 'Biometan to ogromna szansa dla Polski. Nie możemy jej zmarnować', cat: 'Analiza', url: 'https://www.forbes.pl/gospodarka' },
+    { outlet: 'RZECZPOSPOLITA', date: '09.2023', headline: 'Biogaz: Polska może być biogazową potęgą', cat: 'Energetyka', url: 'https://www.rp.pl/energetyka' },
+    { outlet: 'FORUM ENERGII', date: '02.2024', headline: 'Biogaz w Polsce. Czas na biometan (Raport)', cat: 'Raport', url: 'https://www.forum-energii.eu/' },
+    { outlet: 'AGRO PROFIL', date: '01.2024', headline: 'Biogazownie rolnicze - sposób na stabilne dochody', cat: 'Edukacja', url: 'https://agroprofil.pl/' },
+    { outlet: 'RYNEK ENERGII', date: '05.2023', headline: 'Rola biogazu i biometanu w transformacji energetycznej', cat: 'Analiza', url: 'https://www.rynek-energii.pl/' },
   ];
   return (
     <section className="relative py-40 bg-[#020202] overflow-hidden" data-testid="press-wall">
