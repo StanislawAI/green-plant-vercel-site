@@ -507,7 +507,7 @@ const BootSequence = () => {
     { d: 820, txt: '> REACTOR TEMPERATURE ................. 38.4 °C' },
     { d: 1000, txt: '> CHP TIER-1 ENGINE ................... READY' },
     { d: 1180, txt: '> AUTH: GP-2026-X ..................... GRANTED' },
-    { d: 1360, txt: '> BOOTING EDITORIAL LAYER ............. — — —' },
+    { d: 1360, txt: '> SUBSTRAT INJECTION QUEUE ........... 42 t' },
   ];
   return (
     <div className="boot-overlay fixed inset-0 z-[1000] bg-[#020202] flex items-center justify-center" data-testid="boot-overlay">
@@ -1606,7 +1606,7 @@ const TechStack = () => {
         
         <div className="grid md:grid-cols-4 gap-8">
            {[
-             { name: "Sielens", role: "Pumping Systems", img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000&auto=format&fit=crop" },
+             { name: "Vogelsang", role: "Pumping & Macerating", img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000&auto=format&fit=crop" },
              { name: "Jenbacher", role: "CHP Generators", img: "https://images.unsplash.com/photo-1542124382-e69a27177e96?q=80&w=1000&auto=format&fit=crop" },
              { name: "Wangen", role: "Progressing Cavity", img: "https://images.unsplash.com/photo-1535813548-6601f6d0f983?q=80&w=1000&auto=format&fit=crop" },
              { name: "ABB", role: "Automation & Control", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" }
@@ -2557,7 +2557,7 @@ const Manifesto = () => {
               <Hexagon className="w-3 h-3" strokeWidth={1} /> Manifest Inżynierski
             </div>
             <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] font-light mb-12">
-              Wierzymy, że <span className="italic">biogazownia</span> to nie infrastruktura energetyczna. To <span className="italic">akt powrotu</span> do równowagi.
+              Wierzymy, że <span className="italic">biogazownia</span> nie jest tylko źródłem prądu. To narzędzie, które rozwiązuje <span className="italic">trzy problemy naraz</span>: odpady, energię, nawożenie.
             </h2>
             <div className="space-y-6 font-serif text-xl leading-relaxed text-[#0a0c0b]/80 max-w-3xl">
               <p>
@@ -2567,7 +2567,7 @@ const Manifesto = () => {
                 <span className="font-serif italic text-[#C6A87C]">Każda</span> tona obornika to nie problem — to 60 m³ metanu, 0.13 MWh prądu, 22 kg potasu i fosforu wracającego do gleby zamiast jezior. Wystarczy mieć narzędzia.
               </p>
               <p>
-                Naszą rolą jest dostarczyć te narzędzia w jakości, którą znajdziesz w niemieckim BMW, a nie w polskim warsztacie. Stal nierdzewna. Beton P10. Silniki Tier-1. Sterowniki ABB. Bez kompromisów.
+                Naszą rolą jest dostarczyć te narzędzia w jakości, w której nic się nie psuje przez 25 lat. Stal nierdzewna 1.4571. Beton W10 XA3. Silniki Tier-1. Sterowniki ABB. Bez kompromisów na specyfikacji materiałowej.
               </p>
               <p className="italic text-[#0a0c0b]/60">
                 Bo energia rolnicza nie zasługuje na mniej.
@@ -3064,11 +3064,11 @@ const MicrobialTaxonomy = () => {
 const PressWall = () => {
   const press = [
     { outlet: 'PULS BIZNESU', date: '03.2026', headline: 'Green Plant zamyka rundę 40 mln zł na rozbudowę portfela biogazowni', cat: 'Inwestycje' },
-    { outlet: 'FORBES POLSKA', date: '01.2026', headline: '„Bioenergia będzie polskim odpowiednikiem niemieckiego Mittelstandu" — rozmowa z prezesem GP', cat: 'Wywiad' },
+    { outlet: 'FORBES POLSKA', date: '01.2026', headline: 'Polska może powtórzyć niemiecki sukces biogazu — rozmowa z prezesem GP', cat: 'Wywiad' },
     { outlet: 'RZECZPOSPOLITA', date: '11.2025', headline: 'Aukcje OZE: Green Plant z największym zwycięstwem w segmencie biogazu rolniczego', cat: 'Energetyka' },
     { outlet: 'FORUM ENERGII', date: '09.2025', headline: 'Raport branżowy: poferment jako brakujące ogniwo polskiego rolnictwa regeneratywnego', cat: 'Raport' },
     { outlet: 'AGRO PROFIL', date: '06.2025', headline: 'Z odpadów na pole — wizyta studyjna w biogazowni Stargard', cat: 'Reportaż' },
-    { outlet: 'RYNEK ELEKTRYCZNY', date: '04.2025', headline: 'Smart Grid + biogaz: studium peak shaving w warunkach polskich', cat: 'Analiza' },
+    { outlet: 'RYNEK ENERGII', date: '04.2025', headline: 'Smart Grid + biogaz: studium peak shaving w warunkach polskich', cat: 'Analiza' },
   ];
   return (
     <section className="relative py-40 bg-[#020202] overflow-hidden" data-testid="press-wall">
@@ -3461,7 +3461,7 @@ const MaterialSamples = () => {
       spec: 'Etylen-Propylen-Dien M-class',
       desc: 'Dwuwarstwowa membrana podwójna. Górna magazynuje biogaz, dolna chroni przed wnikaniem tlenu. Żywotność 25 lat w warunkach polskich.',
       thick: '1.5 mm',
-      origin: 'DE · Sattler',
+      origin: 'AT · Sattler',
       visual: 'membrane',
     },
     {
@@ -3489,7 +3489,7 @@ const MaterialSamples = () => {
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Beton z Górażdży. Stal z Tornio. Membrana z Augsburga. Miedź z Linköping. Cztery materiały, które razem ważą 320 ton i przetrwają 25 polskich zim.
+              Beton z Górażdży. Stal z Tornio. Membrana z Grazu. Miedź z Linköping. Cztery materiały, które razem ważą 320 ton i przetrwają 25 polskich zim.
             </p>
           </div>
         </FadeIn>
@@ -3584,7 +3584,7 @@ const MaterialSamples = () => {
 // Kinetic break II — diagonal overlapping massive type
 const KineticBreakII = () => {
   const layers = [
-    { txt: 'CISZA · POKORA · PROCES ·', size: '12rem', dir: 'normal', dur: '50s', color: 'transparent', stroke: true, ts: '-0.04em' },
+    { txt: 'REAKTOR · MEMBRANA · CHP · SCADA ·', size: '12rem', dir: 'normal', dur: '50s', color: 'transparent', stroke: true, ts: '-0.04em' },
     { txt: 'archeon × archeon × archeon ×', size: '8rem', dir: 'reverse', dur: '35s', color: '#C6A87C', italic: true, opacity: 0.7, ts: '-0.02em' },
     { txt: 'CH₄ + CO₂ = ENERGIA · CH₄ + CO₂ = ENERGIA ·', size: '5rem', dir: 'normal', dur: '40s', color: '#4ADE80', opacity: 0.5, ts: '0.02em' },
     { txt: 'POLE → REAKTOR → SIEĆ → DOM → POLE ·', size: '9rem', dir: 'reverse', dur: '60s', color: '#EAE6DF', italic: true, opacity: 0.15, ts: '-0.03em' },
@@ -3645,15 +3645,15 @@ const KineticBreakIII = () => {
       <div className="relative z-10 text-center max-w-5xl px-8">
         <FadeIn>
           <div className="font-mono text-[#4ADE80] text-[10px] tracking-[0.5em] uppercase mb-12 flex items-center justify-center gap-4">
-            <span className="w-12 h-px bg-[#4ADE80]" /> Cząsteczka pierwsza · pierwiastek dochodu <span className="w-12 h-px bg-[#4ADE80]" />
+            <span className="w-12 h-px bg-[#4ADE80]" /> Cząsteczka pierwsza · podstawa produkcji <span className="w-12 h-px bg-[#4ADE80]" />
           </div>
           <h2 className="font-serif text-5xl md:text-[6rem] text-[#EAE6DF] leading-[0.95] font-light mb-12 tracking-tight">
-            Metan to <br/>
-            <span className="italic text-[#C6A87C]">naturalny stan</span> <br/>
-            zamkniętego obiegu.
+            Metan jest <br/>
+            <span className="italic text-[#C6A87C]">produktem rolnym</span> <br/>
+            jak mleko, zboże, mięso.
           </h2>
           <p className="font-serif italic text-2xl text-[#EAE6DF]/55 max-w-3xl mx-auto leading-relaxed">
-            Każdy kilogram, który wytworzymy w reaktorze, to kilogram, który nie wydostał się do atmosfery. To nie jest tylko energia. To <span className="text-[#C6A87C] not-italic">geoinżynieria w skali jednego pola</span>.
+            Każdy kilogram, który wytworzymy w reaktorze, to kilogram, który nie wydostał się z gnojowicy do atmosfery. To nie tylko energia — to <span className="text-[#C6A87C] not-italic">utylizacja, która sama się amortyzuje</span>.
           </p>
         </FadeIn>
       </div>
@@ -3694,7 +3694,7 @@ const TimelineSince2008 = () => {
               </h2>
             </div>
             <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Dziewięć kamieni milowych. Jeden nieprzerwany kierunek. Polska biogazownia rolnicza dorosła razem z nami.
+              Dziewięć kamieni milowych. Jeden nieprzerwany kierunek. Branża biogazu rolniczego w Polsce dorastała razem z nami.
             </p>
           </div>
         </FadeIn>
@@ -4204,7 +4204,7 @@ const AwardsAndCertifications = () => {
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Każda pieczęć to setki godzin audytu, kilometry dokumentacji, dziesiątki bezsennych nocy zespołu QA. Nie szukamy ich dla marketingu — szukamy ich, bo definiują nasz mandat.
+              Każda pieczęć to setki godzin audytu i kilometry dokumentacji. Nie zbieramy ich dla marketingu — zbieramy, bo definiują zakres odpowiedzialności wobec inwestora.
             </p>
           </div>
         </FadeIn>
@@ -4260,7 +4260,7 @@ const AwardsAndCertifications = () => {
 const NumberedEpigraphs = () => {
   const epi = [
     { n: 'I', q: 'Inżynier nie wierzy w „prawie szczelne". Inżynier mierzy.', who: 'Pierwsza zasada konstrukcyjna' },
-    { n: 'II', q: 'Każda biogazownia jest tak dobra jak słabsza spawa. Spawamy najlepiej w Polsce.', who: 'Dział produkcji' },
+    { n: 'II', q: 'Każda biogazownia jest tak dobra jak najsłabsza spawa. Każdą sprawdzamy testem nieniszczącym.', who: 'Dział kontroli jakości' },
     { n: 'III', q: 'Bakterie metanogenne nie negocjują. Ani ceny prądu, ani warunków pogodowych. Pracują 24/7.', who: 'Dział biologii' },
   ];
   return (
