@@ -2099,8 +2099,14 @@ const Footer = () => {
           <div className="md:col-start-7 md:col-span-2">
             <h4 className="text-[#C6A87C] font-mono mb-8 uppercase text-[9px] tracking-[0.4em]">Oferta</h4>
             <ul className="space-y-5">
-              {['Projektowanie', 'Budowa pod klucz', 'Serwis CHP', 'Modernizacje', 'Audyt BMP'].map((link, i) => (
-                <li key={i}><a href="#" className="text-[#EAE6DF]/40 hover:text-[#C6A87C] transition-colors text-[10px] font-mono tracking-[0.2em] uppercase interactive-element">{link}</a></li>
+              {[
+                { label: 'Projektowanie', href: '#technologia' },
+                { label: 'Budowa pod klucz', href: '#proces' },
+                { label: 'Serwis CHP', href: '#utrzymanie' },
+                { label: 'Modernizacje', href: '#standardy' },
+                { label: 'Audyt BMP', href: '#kontakt' }
+              ].map((link, i) => (
+                <li key={i}><a href={link.href} className="text-[#EAE6DF]/40 hover:text-[#C6A87C] transition-colors text-[10px] font-mono tracking-[0.2em] uppercase interactive-element">{link.label}</a></li>
               ))}
             </ul>
           </div>
@@ -2108,8 +2114,13 @@ const Footer = () => {
           <div className="md:col-span-2">
             <h4 className="text-[#C6A87C] font-mono mb-8 uppercase text-[9px] tracking-[0.4em]">Firma</h4>
             <ul className="space-y-5">
-              {['Modele', 'Kariera', 'Kontakt', 'Prasa'].map((link, i) => (
-                <li key={i}><a href="#" className="text-[#EAE6DF]/40 hover:text-[#C6A87C] transition-colors text-[10px] font-mono tracking-[0.2em] uppercase interactive-element">{link}</a></li>
+              {[
+                { label: 'Modele', href: '#modele' },
+                { label: 'Kariera', href: '#kariera' },
+                { label: 'Kontakt', href: '#kontakt' },
+                { label: 'Prasa', href: '#prasa' }
+              ].map((link, i) => (
+                <li key={i}><a href={link.href} className="text-[#EAE6DF]/40 hover:text-[#C6A87C] transition-colors text-[10px] font-mono tracking-[0.2em] uppercase interactive-element">{link.label}</a></li>
               ))}
             </ul>
           </div>
@@ -4566,7 +4577,7 @@ export default function App() {
 
         {/* ACT IV — HOW WE DELIVER */}
         <FeedstockMatrix />
-        <ContractModels />
+        <div id="modele"><ContractModels /></div>
         <div id="proces"><BlueprintProcess /></div>
         <GanttBuild />
         <SiteAerial />
@@ -4584,12 +4595,12 @@ export default function App() {
         {/* ACT VI — MARKET CONTEXT */}
         <PolandMap />
         <TimelineSince2008 />
-        <PressWall />
+        <div id="prasa"><PressWall /></div>
 
         {/* ACT VII — TEAM & STANDARDS */}
-        <EngineeringDNA />
+        <div id="kariera"><EngineeringDNA /></div>
         <TechnologyPartners />
-        <OperationsMaintenance />
+        <div id="utrzymanie"><OperationsMaintenance /></div>
         <div id="standardy"><SafetyStandards /></div>
         <AwardsAndCertifications />
 
