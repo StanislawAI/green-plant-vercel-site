@@ -4442,46 +4442,62 @@ export default function App() {
         <AmbientOrbs />
         <FilmGrain />
         <Navbar />
+
+        {/* ACT I — HOOK & WORLDVIEW */}
         <Hero />
         <TickerTape />
+        <EditorialQuote />
         <Approach />
         <NumberedEpigraphs />
-        <FieldToElectricity />
+        <Manifesto />
         <KineticBreakII />
-        <BlueprintProcess />
+
+        {/* ACT II — WHAT WE BUILD (technology) */}
+        <FieldToElectricity />
         <ReactorAnatomy />
-        <BlueprintMargin />
-        <MicrobialTaxonomy />
-        <ContractModels />
-        <FeedstockMatrix />
-        <MaterialSamples />
         <MolecularProcess />
-        <KineticBreakIII />
+        <MicrobialTaxonomy />
         <ReactorClock />
+        <MaterialSamples />
+        <BlueprintMargin />
+
+        {/* ACT III — CH₄ INTERLUDE */}
+        <KineticBreakIII />
+
+        {/* ACT IV — HOW WE DELIVER */}
+        <FeedstockMatrix />
+        <ContractModels />
+        <BlueprintProcess />
+        <GanttBuild />
+        <SiteAerial />
         <TechnicalSpecSheet />
+        <EditorialBento />
+
+        {/* ACT V — BUSINESS CASE */}
         <EconomicsSection />
         <EnergyComparison />
         <SmartGrid />
         <KineticBreak />
-        <EditorialQuote />
         <CircularImpact />
         <EnvironmentalImpact />
+
+        {/* ACT VI — MARKET CONTEXT */}
         <PolandMap />
-        <SiteAerial />
-        <ProjectsGallery />
-        <PressWall />
         <TimelineSince2008 />
-        <EditorialBento />
+        <PressWall />
+        <ProjectsGallery />
         <TechStack />
         <ScadaSystem />
+
+        {/* ACT VII — TEAM & STANDARDS */}
         <Leadership />
         <OperationsMaintenance />
-        <GanttBuild />
         <SafetyStandards />
         <AwardsAndCertifications />
+
+        {/* ACT VIII — REFERENCE & CLOSE */}
         <TechnicalFAQ />
         <GlossaryLexicon />
-        <Manifesto />
         <CTA />
         <Footer />
       </div>
