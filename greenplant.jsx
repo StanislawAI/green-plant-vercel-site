@@ -3813,11 +3813,10 @@ const BlueprintMargin = () => {
         </FadeIn>
 
         {/* Annotated drawing area */}
-        <div className="relative border border-[#C6A87C]/20 p-16 min-h-[600px] bg-[#020202]/40">
-          {/* Drawing in middle */}
-          <FadeIn>
-            <div className="absolute inset-12 flex items-center justify-center pointer-events-none">
-              <svg viewBox="0 0 1200 600" className="w-full h-full">
+        <div className="relative border border-[#C6A87C]/20 min-h-[680px] bg-[#020202]/40 overflow-hidden">
+          {/* Drawing in middle — full bleed, no FadeIn wrapper so absolute positioning anchors correctly */}
+          <div className="absolute inset-0 p-12 pointer-events-none">
+            <svg viewBox="0 0 1200 600" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
                 <defs>
                   <pattern id="bm-hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
                     <line x1="0" y1="0" x2="0" y2="6" stroke="#C6A87C" strokeOpacity="0.3" strokeWidth="1" />
@@ -3881,8 +3880,7 @@ const BlueprintMargin = () => {
                 <text x="960" y="557" fill="#C6A87C" fillOpacity="0.6" fontSize="8" className="font-mono">DWG-014/REV.C</text>
                 <text x="960" y="572" fill="#C6A87C" fillOpacity="0.6" fontSize="8" className="font-mono">GREEN PLANT TECH. © 2026</text>
               </svg>
-            </div>
-          </FadeIn>
+          </div>
 
           {/* Corner registration marks */}
           <div className="absolute top-4 left-4 reg-mark" />
