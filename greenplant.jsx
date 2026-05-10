@@ -810,7 +810,7 @@ const HeroSCADAPanel = () => {
           <div className="absolute top-0 left-0 font-mono text-[7px] text-[#C8A97D]/60 tracking-[0.3em] uppercase">Gas Flow // m³/h</div>
         </div>
 
-        <div className="grid grid-cols-2 gap-5 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
           {[
             { l: 'CH₄ Purity', v: ch4, u: '%', g: parseFloat(ch4) > 62 },
             { l: 'Reactor T°', v: temp, u: '°C', g: true },
@@ -923,7 +923,7 @@ const Approach = () => {
               {/* Editorial drop-cap body */}
               <div className="max-w-2xl">
                 <p className="text-[#EAE6DF]/70 font-serif text-2xl leading-[1.55] mb-8 font-light">
-                  <span className="float-left font-serif text-[8rem] leading-[0.92] pb-2 text-[#C6A87C] italic mr-5 mt-2 font-normal">B</span>
+                  <span className="float-left font-serif text-7xl md:text-[8rem] leading-[0.92] pb-2 text-[#C6A87C] italic mr-5 mt-2 font-normal">B</span>
                   iogazownia to nie tylko zbiór betonowych zbiorników. To precyzyjnie dostrojony ekosystem, w którym <span className="italic text-[#C6A87C]">biologia</span> spotyka się z ciężką inżynierią mechaniczną — bakterie metanogenne, sterowniki PLC, kwasoodporna stal i podwójne membrany EPDM współpracują w jednym, zamkniętym układzie.
                 </p>
                 <p className="text-[#EAE6DF]/40 font-serif italic text-xl leading-relaxed mb-14 font-light">
@@ -931,7 +931,7 @@ const Approach = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-3 gap-10 max-w-3xl pt-12 border-t border-[#C6A87C]/15">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-3xl pt-12 border-t border-[#C6A87C]/15">
                 <div>
                   <div className="text-5xl font-serif text-[#C6A87C] mb-4 font-light"><AnimatedCounter value="25" /><span className="text-xl text-[#C6A87C]/40 italic ml-2">lat+</span></div>
                   <div className="font-mono text-[8px] text-[#EAE6DF]/40 uppercase tracking-[0.4em] leading-loose">Prognozowana <br/>żywotność konstrukcji</div>
@@ -1039,7 +1039,7 @@ const BlueprintProcess = () => {
 
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <FadeIn>
-          <div className="flex flex-col md:flex-row justify-between items-end mb-32 pb-12 border-b border-[#C6A87C]/10">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-32 pb-12 border-b border-[#C6A87C]/10">
             <div>
               <h2 className="text-[9px] font-mono tracking-[0.5em] text-[#C6A87C] uppercase mb-6">Execution Protocol</h2>
               <p className="text-5xl md:text-7xl font-serif text-[#EAE6DF] leading-tight">Sekwencja <br/><span className="italic font-light text-[#C6A87C]">Wdrożeniowa.</span></p>
@@ -1086,7 +1086,7 @@ const ContractModels = () => {
 
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <FadeIn>
-          <div className="mb-24 flex flex-col md:flex-row justify-between items-end gap-12 border-b-[0.5px] border-[#C6A87C]/20 pb-8">
+          <div className="mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-12 border-b-[0.5px] border-[#C6A87C]/20 pb-8">
             <div>
               <h2 className="text-[10px] font-mono tracking-[0.4em] text-[#C6A87C] uppercase mb-4">Współpraca Biznesowa</h2>
               <p className="text-4xl md:text-5xl font-serif text-[#EAE6DF]">Modele <span className="italic font-light text-[#C6A87C]">Kontraktowe</span></p>
@@ -1157,7 +1157,7 @@ const FeedstockMatrix = () => {
       <div className="absolute inset-0 technical-grid opacity-5"></div>
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <FadeIn>
-          <div className="flex flex-col lg:flex-row justify-between items-end gap-16 mb-32 border-b border-[#C6A87C]/10 pb-16">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-16 mb-32 border-b border-[#C6A87C]/10 pb-16">
             <div className="max-w-2xl">
               <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
                 <span className="w-1.5 h-1.5 bg-[#C6A87C] rounded-full animate-pulse"></span>
@@ -1211,7 +1211,7 @@ const FeedstockMatrix = () => {
                       <div className="font-serif text-3xl text-[#EAE6DF] italic">{substrates[hoveredRow].category}</div>
                    </div>
                    
-                   <div className="grid grid-cols-2 gap-12">
+                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
                       <div>
                          <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase mb-4">Zawartość CH4</div>
                          <div className="font-serif text-5xl text-[#C6A87C] font-light">{substrates[hoveredRow].ch4}<span className="text-xl">%</span></div>
@@ -1298,7 +1298,7 @@ const EconomicsSection = () => {
                  <div className="absolute top-0 left-0 w-full h-[1px] bg-[#C6A87C]/20 border-dashed border-b"></div>
               </div>
 
-              <div className="grid grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div className="bg-[#020202]/50 p-8 border border-[#C6A87C]/10 rounded-2xl">
                    <div className="font-mono text-[8px] text-[#EAE6DF]/30 uppercase tracking-[0.3em] mb-4">Payback Period</div>
                    <div className="font-serif text-5xl text-[#C6A87C] font-light"><AnimatedCounter value="5.2" /><span className="text-xl text-[#C6A87C]/40 italic ml-2">lat</span></div>
@@ -1452,7 +1452,7 @@ const EnvironmentalImpact = () => {
               { label: "Ekwiwalent posadzonych drzew", val: "120,000", unit: "sztuk" },
               { label: "Zasilone gospodarstwa domowe", val: "1,600", unit: "domów" }
             ].map((stat, i) => (
-              <FadeIn key={i} delay={i * 150} className="border-b-[0.5px] border-[#EAE6DF]/10 pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 group">
+              <FadeIn key={i} delay={i * 150} className="border-b-[0.5px] border-[#EAE6DF]/10 pb-6 flex flex-col sm:flex-row sm:items-start md:items-end justify-between gap-4 group">
                 <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#EAE6DF]/40 group-hover:text-[#C6A87C] transition-colors">{stat.label}</span>
                 <div className="text-right">
                   <span className="font-serif text-5xl md:text-6xl text-[#EAE6DF] italic mr-3"><AnimatedCounter value={stat.val} /></span>
@@ -1732,7 +1732,7 @@ const Leadership = () => {
 
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <FadeIn>
-          <div className="mb-40 flex flex-col lg:flex-row lg:items-end justify-between gap-16 border-b border-[#C6A87C]/10 pb-16">
+          <div className="mb-40 flex flex-col lg:flex-row lg:items-start xl:items-end justify-between gap-16 border-b border-[#C6A87C]/10 pb-16">
             <div>
               <h2 className="text-[9px] font-mono tracking-[0.5em] text-[#C6A87C] uppercase mb-8">Personnel Index</h2>
               <p className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Nadzór <br/><span className="italic font-light text-[#C6A87C]">Weryfikowany.</span></p>
@@ -1811,7 +1811,7 @@ const OperationsMaintenance = () => {
               Przekazanie kluczy to dopiero początek. Nasze centrum operacyjne monitoruje parametry biologiczne i mechaniczne 24/7, gwarantując ciągłość generacji.
             </p>
             
-            <div className="grid grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
               <div className="p-8 glass-morphism rounded-3xl">
                  <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] uppercase mb-4">Uptime SLA</div>
                  <div className="font-serif text-5xl text-[#EAE6DF] font-light"><AnimatedCounter value="98.5" suffix="%" /></div>
@@ -1964,7 +1964,7 @@ const ServiceCoverage = () => {
             Nasze zespoły inżynierskie i serwisowe operują na terenie całego kraju, zapewniając wsparcie techniczne w każdym zakątku Polski.
           </p>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#C6A87C]/10 border border-[#C6A87C]/10 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px bg-[#C6A87C]/10 border border-[#C6A87C]/10 w-full">
              {[
                { region: "Polska Północna", city: "Hub Gdańsk", status: "Operacyjny" },
                { region: "Polska Centralna", city: "Warszawa HQ", status: "Operacyjny" },
@@ -2045,7 +2045,7 @@ const CTA = () => {
         </FadeIn>
 
         {/* Decorative bottom band */}
-        <div className="mt-32 grid grid-cols-2 md:grid-cols-4 gap-12 max-w-5xl mx-auto pt-12 border-t border-[#C6A87C]/10">
+        <div className="mt-32 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 max-w-5xl mx-auto pt-12 border-t border-[#C6A87C]/10">
           {[
             { l: 'NDA', v: 'Standard' },
             { l: 'CAPEX Range', v: '€2–14M' },
@@ -2083,9 +2083,9 @@ const Footer = () => {
             <p className="text-[#EAE6DF]/40 max-w-sm font-serif italic font-light text-lg leading-relaxed mb-10">
               Generalny wykonawca biogazowni rolniczych i komunalnych. Projektowanie, budowa i serwis gwarancyjny — z kontraktową gwarancją uzysku metanowego.
             </p>
-            <div className="space-y-2 font-mono text-[10px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase">
-              <div>ul. Energetyczna 14 // 00-001 Warszawa</div>
-              <div>NIP 525-000-00-00 // KRS 0000000000</div>
+            <div className="space-y-3 font-mono text-[10px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase">
+              <div>ul. Stanisława Wyspiańskiego 8 // 05-400 Otwock</div>
+              <div>NIP 5322124348 // REGON 544014417 // KRS 0001224533</div>
               <div>+48 22 000 00 00 // kontakt@greenplant.tech</div>
             </div>
           </div>
@@ -3139,7 +3139,8 @@ const GanttBuild = () => {
         </FadeIn>
 
         <FadeIn>
-          <div className="glass-morphism rounded-[2rem] p-10 overflow-hidden">
+          <div className="glass-morphism rounded-[2rem] p-10 overflow-x-auto">
+            <div className="min-w-[1000px]">
             {/* header */}
             <div className="grid mb-8 pb-4 border-b border-[#C6A87C]/15" style={{ gridTemplateColumns: '4fr repeat(14, 1fr)', gap: '2px' }}>
               <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">Faza / Cat.</div>
@@ -3199,6 +3200,7 @@ const GanttBuild = () => {
                   </div>
                 );
               })}
+              </div>
             </div>
           </div>
         </FadeIn>
