@@ -166,146 +166,170 @@ const GlobalStyles = () => (
 
 // --- CUSTOM HOOKS & UTILS ---
 
+const useIntersectionObserver = (options = {}) => {
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setIsIntersecting(true); observer.unobserve(entry.target); }
+    }, { threshold: 0.1, ...options });
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [options]);
+  return [ref, isIntersecting];
+};
+
+const useScrollProgress = () => {
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    let ticking = false;
+    const update = () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(h > 0 ? window.scrollY / h : 0);
+      ticking = false;
+    };
+    const onScroll = () => { if (!ticking) { requestAnimationFrame(update); ticking = true; } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  return progress;
+};
+
+// --- NEW PREMIUM COMPONENTS ---
+
+const ScrollProgressBar = () => {
+  const progress = useScrollProgress();
+  return <div className="scroll-progress" style={{ width: `${progress * 100}%` }} />;
+};
+
+const AmbientOrbs = () => (
+  <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div className="orb orb-1" style={{ top: '10%', left: '-5%' }} />
+    <div className="orb orb-2" style={{ top: '60%', right: '-3%' }} />
+    <div className="orb orb-3" style={{ bottom: '5%', left: '30%' }} />
+  </div>
+);
+
+const AnimatedCounter = ({ value, suffix = '', prefix = '', duration = 2000, className = '' }) => {
+  const [count, setCount] = useState(0);
+  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.3 });
+  const numericValue = parseFloat(String(value).replace(/,/g, ''));
+  const hasComma = String(value).includes(',');
+  const isDecimal = String(value).includes('.');
+
+  useEffect(() => {
+    if (!isVisible) return;
+    const start = performance.now();
+    const animate = (now) => {
+      const elapsed = now - start;
+      const p = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 4);
+      setCount(eased * numericValue);
+      if (p < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [isVisible, numericValue, duration]);
+
+  const formatted = isDecimal
+    ? count.toFixed(1)
+    : hasComma
+      ? Math.round(count).toLocaleString()
+      : Math.round(count).toString();
+
+  return (
+    <span ref={ref} className={`counter-value ${className}`}>
+      {prefix}{formatted}{suffix}
+    </span>
+  );
+};
+
+const TextReveal = ({ children, className = '', delay = 0 }) => {
+  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
+  const words = typeof children === 'string' ? children.split(' ') : [children];
+  return (
+    <span ref={ref} className={className}>
+      {words.map((word, i) => (
+        <span key={i} className={`word-reveal ${isVisible ? 'visible' : ''}`}>
+          <span className="word-reveal-inner" style={{ transitionDelay: `${delay + i * 80}ms` }}>
+            {word}{i < words.length - 1 ? '\u00A0' : ''}
+          </span>
+        </span>
+      ))}
+    </span>
+  );
+};
+
+const GlowCard = ({ children, className = '', delay = 0 }) => {
+  const cardRef = useRef(null);
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    cardRef.current.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+    cardRef.current.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+  };
+  return (
+    <FadeIn delay={delay} className={`glow-card rounded-[2rem] ${className}`}>
+      <div ref={cardRef} onMouseMove={handleMouseMove} className="relative z-10 h-full">
+        {children}
+      </div>
+    </FadeIn>
+  );
+};
+
+// --- EXISTING COMPONENTS (refined) ---
+
 const CustomCursor = () => {
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isTouchLike, setIsTouchLike] = useState(false);
-
   useEffect(() => {
-    const coarsePointerQuery = window.matchMedia("(hover: none), (pointer: coarse)");
-    setIsTouchLike(coarsePointerQuery.matches);
-    const handlePointerChange = (event) => setIsTouchLike(event.matches);
-    coarsePointerQuery.addEventListener("change", handlePointerChange);
-
-    const updateCursor = (e) => setPos({ x: e.clientX, y: e.clientY });
-    const handleMouseOver = (e) => {
-      if (e.target.tagName.toLowerCase() === 'button' || e.target.tagName.toLowerCase() === 'a' || e.target.closest('button') || e.target.closest('a') || e.target.closest('.interactive-element')) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
-      }
+    const mq = window.matchMedia("(hover: none), (pointer: coarse)");
+    setIsTouchLike(mq.matches);
+    const onMqChange = (e) => setIsTouchLike(e.matches);
+    mq.addEventListener("change", onMqChange);
+    const onMove = (e) => setPos({ x: e.clientX, y: e.clientY });
+    const onOver = (e) => {
+      const t = e.target;
+      setIsHovering(!!(t.closest('button') || t.closest('a') || t.closest('.interactive-element')));
     };
-
-    window.addEventListener('mousemove', updateCursor);
-    window.addEventListener('mouseover', handleMouseOver);
-    return () => {
-      coarsePointerQuery.removeEventListener("change", handlePointerChange);
-      window.removeEventListener('mousemove', updateCursor);
-      window.removeEventListener('mouseover', handleMouseOver);
-    };
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseover', onOver);
+    return () => { mq.removeEventListener("change", onMqChange); window.removeEventListener('mousemove', onMove); window.removeEventListener('mouseover', onOver); };
   }, []);
-
-  if (isTouchLike) {
-    return null;
-  }
-
+  if (isTouchLike) return null;
   return (
     <>
-      <div className="fixed top-0 left-0 w-2 h-2 bg-[#C6A87C] rounded-full pointer-events-none z-[9999] mix-blend-difference transition-transform duration-75 ease-out" style={{ transform: `translate3d(${pos.x - 4}px, ${pos.y - 4}px, 0) scale(${isHovering ? 0 : 1})` }} />
-      <div className="fixed top-0 left-0 w-12 h-12 border border-[#C6A87C]/40 rounded-full pointer-events-none z-[9998] transition-all duration-300 ease-out flex items-center justify-center backdrop-blur-[2px]" style={{ transform: `translate3d(${pos.x - 24}px, ${pos.y - 24}px, 0) scale(${isHovering ? 1.2 : 1})`, backgroundColor: isHovering ? 'rgba(198, 168, 124, 0.05)' : 'transparent' }}>
-        {isHovering && <div className="w-1.5 h-1.5 bg-[#C6A87C] rounded-full animate-ping"></div>}
+      <div className="fixed top-0 left-0 w-1.5 h-1.5 bg-[#C8A97D] rounded-full pointer-events-none z-[9999] mix-blend-difference" style={{ transform: `translate3d(${pos.x - 3}px, ${pos.y - 3}px, 0) scale(${isHovering ? 0 : 1})`, transition: 'transform 0.1s ease-out' }} />
+      <div className="fixed top-0 left-0 w-10 h-10 border border-[#C8A97D]/30 rounded-full pointer-events-none z-[9998] flex items-center justify-center" style={{ transform: `translate3d(${pos.x - 20}px, ${pos.y - 20}px, 0) scale(${isHovering ? 1.5 : 1})`, transition: 'transform 0.3s cubic-bezier(0.16,1,0.3,1)', backgroundColor: isHovering ? 'rgba(200,169,125,0.06)' : 'transparent' }}>
+        {isHovering && <div className="w-1 h-1 bg-[#C8A97D] rounded-full animate-ping" />}
       </div>
     </>
   );
 };
 
-const useIntersectionObserver = (options = {}) => {
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsIntersecting(true);
-        observer.unobserve(entry.target);
-      }
-    }, { threshold: 0.1, ...options });
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [options]);
-
-  return [ref, isIntersecting];
-};
-
 const FilmGrain = () => (
-  <div className="pointer-events-none fixed inset-0 z-[100] h-full w-full opacity-[0.05] mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
+  <div className="pointer-events-none fixed inset-0 z-[100] h-full w-full opacity-[0.04] mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
 );
-
-const TechnicalCursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isPointer, setIsPointer] = useState(false);
-
-  useEffect(() => {
-    const handleMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      const target = e.target;
-      setIsPointer(window.getComputedStyle(target).cursor === 'pointer');
-    };
-    window.addEventListener('mousemove', handleMove);
-    return () => window.removeEventListener('mousemove', handleMove);
-  }, []);
-
-  return (
-    <div 
-      className="fixed top-0 left-0 w-full h-full pointer-events-none z-[9999] hidden lg:block"
-      style={{ transform: `translate3d(${position.x}px, ${position.y}px, 0)` }}
-    >
-      <div className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${isPointer ? 'scale-150' : 'scale-100'}`}>
-        <div className="w-10 h-10 border border-[#C6A87C]/20 rounded-full flex items-center justify-center">
-          <div className="w-1 h-1 bg-[#C6A87C] rounded-full"></div>
-        </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-[0.5px] bg-[#C6A87C]/10"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-16 w-[0.5px] bg-[#C6A87C]/10"></div>
-      </div>
-    </div>
-  );
-};
 
 const FadeIn = ({ children, delay = 0, direction = 'up', className = '' }) => {
   const [ref, isVisible] = useIntersectionObserver();
-  const getTransform = () => {
-    switch(direction) {
-      case 'up': return 'translate-y-16';
-      case 'down': return '-translate-y-16';
-      case 'left': return 'translate-x-16';
-      case 'right': return '-translate-x-16';
-      default: return 'translate-y-16';
-    }
-  };
-
+  const transforms = { up: 'translate-y-12', down: '-translate-y-12', left: 'translate-x-12', right: '-translate-x-12' };
   return (
-    <div ref={ref} className={`transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${isVisible ? 'opacity-100 translate-y-0 translate-x-0' : `opacity-0 ${getTransform()}`} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
+    <div ref={ref} className={`transition-all duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${isVisible ? 'opacity-100 translate-y-0 translate-x-0 blur-0' : `opacity-0 ${transforms[direction] || transforms.up} blur-[2px]`} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
       {children}
     </div>
   );
 };
 
 const MagneticButton = ({ children, className = "", onClick }) => {
-  const buttonRef = useRef(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    const { clientX, clientY } = e;
-    const { left, top, width, height } = buttonRef.current.getBoundingClientRect();
-    const x = clientX - (left + width / 2);
-    const y = clientY - (top + height / 2);
-    setPosition({ x: x * 0.3, y: y * 0.3 });
+  const ref = useRef(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const onMove = (e) => {
+    const { left, top, width, height } = ref.current.getBoundingClientRect();
+    setPos({ x: (e.clientX - (left + width / 2)) * 0.25, y: (e.clientY - (top + height / 2)) * 0.25 });
   };
-
-  const handleMouseLeave = () => {
-    setPosition({ x: 0, y: 0 });
-  };
-
   return (
-    <div
-      ref={buttonRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={`relative inline-block transition-transform duration-300 ease-out ${className}`}
-      style={{ transform: `translate3d(${position.x}px, ${position.y}px, 0)` }}
-      onClick={onClick}
-    >
+    <div ref={ref} onMouseMove={onMove} onMouseLeave={() => setPos({ x: 0, y: 0 })} className={`relative inline-block transition-transform duration-300 ease-out ${className}`} style={{ transform: `translate3d(${pos.x}px, ${pos.y}px, 0)` }} onClick={onClick}>
       {children}
     </div>
   );
@@ -338,37 +362,37 @@ const SystemStatus = () => (
   </div>
 );
 
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
-    <nav className={`fixed top-8 w-full z-50 transition-all duration-1000 ${scrolled ? 'py-4' : 'py-8'}`}>
-      <div className="max-w-[100rem] mx-auto px-8">
-        <div className={`flex justify-between items-center px-10 py-5 transition-all duration-700 ${scrolled ? 'glass-morphism rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[#C6A87C]/20' : 'bg-transparent border-transparent'}`}>
-          <a href="#" className="flex items-center gap-5 group cursor-pointer interactive-element">
-            <div className="relative w-10 h-10 border border-[#C6A87C]/30 flex items-center justify-center overflow-hidden group-hover:border-[#C6A87C] transition-colors duration-700">
-              <div className="absolute inset-0 bg-[#C6A87C] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"></div>
-              <Leaf className="w-4 h-4 text-[#C6A87C] group-hover:text-[#030404] relative z-10 transition-colors duration-500" strokeWidth={1} />
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-1000 ${scrolled ? 'py-3' : 'py-6'}`}>
+      <div className="max-w-[100rem] mx-auto px-6 md:px-8">
+        <div className={`flex justify-between items-center px-8 md:px-10 py-4 transition-all duration-700 ${scrolled ? 'glass-morphism rounded-full shadow-[0_20px_60px_rgba(0,0,0,0.6)]' : 'bg-transparent'}`}>
+          <a href="#" className="flex items-center gap-4 group cursor-pointer interactive-element">
+            <div className="relative w-9 h-9 border border-[#C8A97D]/30 rounded-lg flex items-center justify-center overflow-hidden group-hover:border-[#C8A97D] transition-colors duration-700">
+              <div className="absolute inset-0 bg-[#C8A97D] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+              <Leaf className="w-4 h-4 text-[#C8A97D] group-hover:text-[#050505] relative z-10 transition-colors duration-500" strokeWidth={1.5} />
             </div>
-            <span className="text-[#EAE6DF] font-serif tracking-widest text-xl hidden sm:block uppercase">
-              Green Plant <span className="text-[#C6A87C] font-light italic lowercase">tech.</span>
+            <span className="text-[#F2EDE4] font-serif tracking-[0.15em] text-lg hidden sm:block uppercase">
+              Green Plant <span className="text-[#C8A97D] font-light italic lowercase">tech.</span>
             </span>
           </a>
-          <div className="hidden md:flex items-center gap-12 text-[9px] font-mono tracking-[0.3em] text-[#EAE6DF]/50 uppercase">
+          <div className="hidden md:flex items-center gap-10 text-[10px] font-mono tracking-[0.25em] text-[#F2EDE4]/40 uppercase">
             {['Podejście', 'Proces', 'Ekonomia', 'Realizacje'].map(link => (
-              <a key={link} href={`#${link.toLowerCase()}`} className="hover:text-[#C6A87C] transition-colors duration-500 relative py-2 group interactive-element">
+              <a key={link} href={`#${link.toLowerCase()}`} className="hover:text-[#C8A97D] transition-colors duration-500 relative py-2 group interactive-element">
                 {link}
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#C6A87C] group-hover:w-full transition-all duration-500 ease-out"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#C8A97D] group-hover:w-full transition-all duration-500 ease-out" />
               </a>
             ))}
           </div>
-          <a href="#kontakt" className="bg-[#C6A87C] text-[#030404] px-10 py-3.5 text-[9px] font-mono tracking-[0.3em] uppercase hover:bg-transparent hover:text-[#C6A87C] border border-[#C6A87C] transition-all duration-700 flex items-center gap-3 interactive-element rounded-full">
+          <a href="#kontakt" className="bg-[#C8A97D] text-[#050505] px-8 py-3 text-[10px] font-mono tracking-[0.25em] uppercase hover:bg-[#F2EDE4] border border-[#C8A97D] hover:border-[#F2EDE4] transition-all duration-500 flex items-center gap-3 interactive-element rounded-full font-medium">
             Wyceń projekt
           </a>
         </div>
@@ -379,103 +403,114 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-[#020202]">
-      {/* Cinematic Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020202] via-[#020202]/60 to-transparent z-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-transparent to-transparent z-10"></div>
-        <img 
-          src="/Users/stan/.gemini/antigravity/brain/906f4f99-9a59-4b7a-b50b-3a2631808779/biogas_plant_cinematic_1778349683317.png" 
-          alt="Biogas Plant" 
-          className="w-full h-full object-cover ken-burns opacity-40 mix-blend-luminosity"
-        />
-      </div>
+    <section className="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden bg-[#050505]">
+      <div className="absolute inset-0 hero-mesh z-0" />
+      <div className="absolute inset-0 bg-blueprint opacity-5 pointer-events-none z-[1]" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#050505] to-transparent z-[2]" />
 
-      <div className="absolute inset-0 bg-blueprint opacity-10 pointer-events-none z-10"></div>
-
-      <div className="max-w-[100rem] mx-auto px-8 relative z-20 grid lg:grid-cols-12 gap-16 items-center w-full">
-        <div className="lg:col-span-8 relative">
-          <FadeIn>
-            <div className="inline-flex items-center gap-4 mb-12 glass-morphism px-5 py-2 rounded-full">
-              <span className="w-1.5 h-1.5 bg-[#4ADE80] animate-pulse rounded-full shadow-[0_0_8px_#4ADE80]"></span>
-              <span className="text-[#C6A87C] text-[8px] font-mono tracking-[0.5em] uppercase">Nowy Standard Energii Rolniczej</span>
+      <div className="max-w-[100rem] mx-auto px-6 md:px-8 relative z-10 grid lg:grid-cols-12 gap-16 items-center w-full">
+        <div className="lg:col-span-7 relative hero-stagger">
+          <div>
+            <div className="inline-flex items-center gap-3 mb-10 glass-morphism px-5 py-2.5 rounded-full">
+              <span className="w-1.5 h-1.5 bg-[#34D399] animate-pulse rounded-full shadow-[0_0_10px_#34D399]" />
+              <span className="text-[#C8A97D] text-[9px] font-mono tracking-[0.4em] uppercase">Nowy Standard Energii Rolniczej</span>
             </div>
-          </FadeIn>
-          
-          <FadeIn delay={100}>
-            <h1 className="text-[5.5rem] md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.8] tracking-tight mb-14 font-light">
-              Inżynieria <br />
-              <span className="italic text-[#C6A87C] font-normal pl-8 md:pl-24">zysku.</span>
+          </div>
+
+          <div>
+            <h1 className="text-[4.5rem] md:text-[8rem] lg:text-[9.5rem] font-serif text-[#F2EDE4] leading-[0.82] tracking-tight mb-12 font-light">
+              <TextReveal>Inżynieria</TextReveal>
+              <br />
+              <span className="italic text-[#C8A97D] font-normal pl-6 md:pl-20 inline-block">
+                <TextReveal delay={300}>zysku.</TextReveal>
+              </span>
             </h1>
-          </FadeIn>
+          </div>
 
-          <FadeIn delay={200}>
-            <div className="flex flex-col md:flex-row gap-12 items-start md:items-center">
-              <p className="text-xl md:text-2xl text-[#EAE6DF]/70 leading-relaxed max-w-xl font-serif font-light italic border-l border-[#C6A87C]/30 pl-8">
-                Generalny wykonawca biogazowni. Transformujemy odpady w stabilne źródło dochodu i czystą energię dla przemysłu i rolnictwa.
-              </p>
-              <div className="flex flex-col gap-4">
-                <div className="glass-morphism p-6 rounded-2xl">
-                  <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] uppercase mb-2">Średnia Sprawność CHP</div>
-                  <div className="font-serif text-4xl text-[#EAE6DF]">44.2 <span className="text-lg text-[#C6A87C] italic">%</span></div>
-                </div>
-              </div>
-            </div>
-          </FadeIn>
+          <div>
+            <div className="draw-line h-[1px] w-32 bg-gradient-to-r from-[#C8A97D] to-transparent mb-10" />
+          </div>
 
-          <FadeIn delay={300} className="mt-16">
-            <div className="flex flex-wrap items-center gap-12">
+          <div>
+            <p className="text-lg md:text-xl text-[#F2EDE4]/60 leading-relaxed max-w-lg font-serif font-light italic mb-14">
+              Generalny wykonawca biogazowni. Transformujemy odpady w stabilne źródło dochodu i czystą energię dla przemysłu i rolnictwa.
+            </p>
+          </div>
+
+          <div>
+            <div className="flex flex-wrap items-center gap-10">
               <MagneticButton>
-                <a href="#kontakt" className="group relative px-12 py-6 bg-[#C6A87C] text-[#030404] text-[10px] font-mono tracking-[0.5em] uppercase hover:bg-[#EAE6DF] transition-all duration-500 rounded-full flex items-center gap-6 interactive-element shadow-[0_0_40px_rgba(198,168,124,0.3)]">
+                <a href="#kontakt" className="group relative px-10 py-5 bg-[#C8A97D] text-[#050505] text-[10px] font-mono tracking-[0.4em] uppercase hover:bg-[#F2EDE4] transition-all duration-500 rounded-full flex items-center gap-5 interactive-element shadow-[0_0_50px_rgba(200,169,125,0.25)] font-medium">
                   Inicjuj Inwestycję
-                  <ArrowRight className="w-5 h-5" strokeWidth={2} />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2} />
                 </a>
               </MagneticButton>
-              <div className="flex items-center gap-6 opacity-40">
-                <div className="w-16 h-[1px] bg-[#C6A87C]"></div>
-                <span className="font-mono text-[8px] tracking-[0.4em] uppercase">Ekspertyza Tier-1</span>
+              <div className="flex items-center gap-5 text-[#F2EDE4]/30">
+                <div className="w-12 h-[1px] bg-[#C8A97D]/40" />
+                <span className="font-mono text-[9px] tracking-[0.3em] uppercase">Ekspertyza Tier-1</span>
               </div>
             </div>
-          </FadeIn>
+          </div>
+
+          <div>
+            <div className="flex gap-10 md:gap-16 mt-20 pt-10 border-t border-[#C8A97D]/10">
+              {[
+                { label: "Sprawność CHP", value: "44.2", suffix: "%" },
+                { label: "Moc Elektryczna", value: "999", suffix: " kW" },
+                { label: "Wsad Dobowy", value: "42", suffix: " t" }
+              ].map((stat, i) => (
+                <div key={i}>
+                  <div className="font-mono text-[9px] text-[#F2EDE4]/30 uppercase tracking-[0.2em] mb-3">{stat.label}</div>
+                  <div className="font-serif text-3xl md:text-4xl text-[#F2EDE4] font-light">
+                    <AnimatedCounter value={stat.value} suffix={stat.suffix} duration={2000 + i * 400} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <FadeIn delay={400} direction="left" className="lg:col-span-4 hidden lg:block">
-           <div className="glass-morphism p-10 rounded-[2.5rem] relative group overflow-hidden">
-             <div className="absolute inset-0 bg-gradient-to-br from-[#C6A87C]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-             <Crosshair className="top-8 left-8" />
-             <Crosshair className="bottom-8 right-8" />
-             
-             <div className="relative z-10">
-               <div className="flex justify-between items-start mb-16">
-                 <div className="w-12 h-12 border border-[#C6A87C]/20 flex items-center justify-center rounded-xl">
-                   <Factory className="text-[#C6A87C] w-6 h-6" strokeWidth={1} />
-                 </div>
-                 <div className="text-right">
-                    <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] mb-1">UNIT_ID</div>
-                    <div className="font-mono text-[10px] text-[#EAE6DF]">GP-2026-X</div>
-                 </div>
-               </div>
+        <FadeIn delay={600} direction="left" className="lg:col-span-5 hidden lg:block">
+          <div className="glass-morphism p-10 rounded-[2.5rem] relative group overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#C8A97D]/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+            <div className="relative z-10">
+              <div className="flex justify-between items-start mb-14">
+                <div className="w-12 h-12 border border-[#C8A97D]/20 flex items-center justify-center rounded-xl">
+                  <Factory className="text-[#C8A97D] w-6 h-6" strokeWidth={1} />
+                </div>
+                <div className="text-right">
+                  <div className="font-mono text-[9px] text-[#C8A97D]/60 tracking-[0.3em] mb-1">MODEL REF</div>
+                  <div className="font-mono text-[11px] text-[#F2EDE4]/80">GP-2026-X</div>
+                </div>
+              </div>
 
-               <div className="space-y-8">
-                 {[
-                   { label: "Moc Elektryczna", val: "999 kW" },
-                   { label: "Moc Cieplna", val: "1.1 MW" },
-                   { label: "Wsad dobowy", val: "42 t" }
-                 ].map((item, i) => (
-                   <div key={i} className="border-b border-[#C6A87C]/10 pb-4">
-                     <div className="font-mono text-[8px] text-[#EAE6DF]/40 uppercase tracking-[0.2em] mb-2">{item.label}</div>
-                     <div className="font-serif text-3xl text-[#EAE6DF] font-light">{item.val}</div>
-                   </div>
-                 ))}
-               </div>
+              <div className="space-y-8">
+                {[
+                  { label: "Moc Elektryczna", val: "999", unit: "kW" },
+                  { label: "Moc Cieplna", val: "1.1", unit: "MW" },
+                  { label: "Wsad Dobowy", val: "42", unit: "ton" }
+                ].map((item, i) => (
+                  <div key={i} className="border-b border-[#C8A97D]/10 pb-5 group/item">
+                    <div className="font-mono text-[9px] text-[#F2EDE4]/30 uppercase tracking-[0.2em] mb-3">{item.label}</div>
+                    <div className="font-serif text-3xl text-[#F2EDE4] font-light group-hover/item:text-[#C8A97D] transition-colors duration-500">
+                      {item.val} <span className="text-base text-[#C8A97D]/60 italic">{item.unit}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
 
-               <div className="mt-12 flex items-center gap-4 p-4 bg-[#020202]/50 border border-[#C6A87C]/20 rounded-xl">
-                 <div className="w-2 h-2 bg-[#4ADE80] rounded-full animate-pulse shadow-[0_0_8px_#4ADE80]"></div>
-                 <span className="font-mono text-[9px] text-[#4ADE80] tracking-[0.2em] uppercase">Sonda Lambda: Aktywna</span>
-               </div>
-             </div>
-           </div>
+              <div className="mt-10 flex items-center gap-3 p-4 bg-[#050505]/50 border border-[#34D399]/20 rounded-xl">
+                <div className="w-2 h-2 bg-[#34D399] rounded-full animate-pulse shadow-[0_0_8px_#34D399]" />
+                <span className="font-mono text-[9px] text-[#34D399] tracking-[0.2em] uppercase">Sonda Lambda: Aktywna</span>
+              </div>
+            </div>
+          </div>
         </FadeIn>
+      </div>
+
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 scroll-indicator">
+        <span className="font-mono text-[8px] text-[#F2EDE4]/20 tracking-[0.3em] uppercase">Scroll</span>
+        <ChevronDown className="w-4 h-4 text-[#C8A97D]/40" strokeWidth={1.5} />
       </div>
     </section>
   );
@@ -483,10 +518,10 @@ const Hero = () => {
 
 const TickerTape = () => {
   return (
-    <div className="bg-[#070808] border-y border-[#C6A87C]/10 py-4 overflow-hidden relative z-10">
-      <div className="flex animate-scroll whitespace-nowrap gap-20 items-center">
+    <div className="bg-[#050505] py-5 overflow-hidden relative z-10">
+      <div className="flex animate-marquee whitespace-nowrap gap-16 items-center">
         {[...Array(10)].map((_, i) => (
-          <div key={i} className="flex items-center gap-20">
+          <div key={i} className="flex items-center gap-16">
             <span className="font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.4em] uppercase">Methane Purity: 62.4%</span>
             <span className="font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.4em] uppercase">Grid Load: 1.25MW</span>
             <span className="font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.4em] uppercase">Engine Hours: 84,200h</span>
@@ -524,11 +559,11 @@ const Approach = () => {
               
               <div className="grid grid-cols-2 gap-12">
                 <div>
-                  <div className="text-5xl font-serif text-[#C6A87C] mb-4 font-light">25<span className="text-xl text-[#C6A87C]/40 italic ml-2">lat+</span></div>
+                  <div className="text-5xl font-serif text-[#C6A87C] mb-4 font-light"><AnimatedCounter value="25" /><span className="text-xl text-[#C6A87C]/40 italic ml-2">lat+</span></div>
                   <div className="font-mono text-[8px] text-[#EAE6DF]/40 uppercase tracking-[0.4em] leading-loose">Prognozowana <br/>żywotność konstrukcji</div>
                 </div>
                 <div>
-                  <div className="text-5xl font-serif text-[#C6A87C] mb-4 font-light">98<span className="text-xl text-[#C6A87C]/40 italic ml-2">%</span></div>
+                  <div className="text-5xl font-serif text-[#C6A87C] mb-4 font-light"><AnimatedCounter value="98" suffix="%" /></div>
                   <div className="font-mono text-[8px] text-[#EAE6DF]/40 uppercase tracking-[0.4em] leading-loose">Dyspozycyjność <br/>agregatów CHP</div>
                 </div>
               </div>
@@ -581,7 +616,7 @@ const BlueprintProcess = () => {
   ];
 
   return (
-    <section id="proces" className="relative py-48 bg-[#050606] border-t border-[#C6A87C]/10 overflow-hidden">
+    <section id="proces" className="relative py-48 bg-[#050606] overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img 
           src="/Users/stan/.gemini/antigravity/brain/906f4f99-9a59-4b7a-b50b-3a2631808779/biogas_technical_blueprint_1778350397581.png" 
@@ -634,7 +669,7 @@ const BlueprintProcess = () => {
 
 const ContractModels = () => {
   return (
-    <section className="py-40 bg-[#050606] border-t border-[#C6A87C]/10 relative overflow-hidden">
+    <section className="py-40 bg-[#050606] relative overflow-hidden">
       <div className="absolute inset-0 bg-blueprint z-0 opacity-30"></div>
       <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-l from-[#050606] via-transparent to-[#050606] pointer-events-none z-0"></div>
 
@@ -652,13 +687,14 @@ const ContractModels = () => {
         </FadeIn>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-16">
-          <FadeIn delay={100} className="group relative border-[0.5px] border-[#C6A87C]/20 bg-[#030404]/80 backdrop-blur-md p-12 md:p-16 hover:border-[#C6A87C] transition-colors duration-700 interactive-element">
-            <div className="absolute top-0 right-0 p-6 font-serif text-[8rem] leading-none text-[#C6A87C]/5 italic font-light group-hover:text-[#C6A87C]/10 transition-colors duration-700 pointer-events-none">EPC</div>
-            <h3 className="font-mono text-2xl text-[#EAE6DF] mb-2 relative z-10">Model EPC</h3>
-            <p className="font-mono text-[9px] tracking-[0.3em] text-[#C6A87C] uppercase mb-8 relative z-10">Engineering, Procurement, Construction</p>
-            <p className="font-serif text-[#EAE6DF]/60 text-xl font-light italic leading-relaxed mb-10 relative z-10 max-w-sm">
-              Klasyczne generalne wykonawstwo "pod klucz". Bierzemy pełną odpowiedzialność za projekt, dostawy materiałów oraz budowę. Inwestor odbiera gotową, działającą instalację z gwarancją uzysku.
-            </p>
+          <FadeIn delay={100} className="group relative">
+            <GlowCard className="border-[0.5px] border-[#C8A97D]/20 bg-[#030404]/80 backdrop-blur-md p-12 md:p-16 interactive-element !rounded-none">
+              <div className="absolute top-0 right-0 p-6 font-serif text-[8rem] leading-none text-[#C8A97D]/5 italic font-light group-hover:text-[#C8A97D]/10 transition-colors duration-700 pointer-events-none">EPC</div>
+              <h3 className="font-mono text-2xl text-[#F2EDE4] mb-2 relative z-10">Model EPC</h3>
+              <p className="font-mono text-[9px] tracking-[0.3em] text-[#C8A97D] uppercase mb-8 relative z-10">Engineering, Procurement, Construction</p>
+              <p className="font-serif text-[#F2EDE4]/60 text-xl font-light italic leading-relaxed mb-10 relative z-10 max-w-sm">
+                Klasyczne generalne wykonawstwo "pod klucz". Bierzemy pełną odpowiedzialność za projekt, dostawy materiałów oraz budowę. Inwestor odbiera gotową, działającą instalację z gwarancją uzysku.
+              </p>
             <ul className="space-y-4 relative z-10">
               {['Gwarancja stałej ceny kontraktowej', 'Jeden punkt odpowiedzialności', 'Minimalne obciążenie po stronie inwestora'].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-4">
@@ -667,15 +703,17 @@ const ContractModels = () => {
                 </li>
               ))}
             </ul>
+            </GlowCard>
           </FadeIn>
 
-          <FadeIn delay={200} className="group relative border-[0.5px] border-[#C6A87C]/20 bg-[#030404]/80 backdrop-blur-md p-12 md:p-16 hover:border-[#C6A87C] transition-colors duration-700 interactive-element md:mt-16">
-            <div className="absolute top-0 right-0 p-6 font-serif text-[8rem] leading-none text-[#C6A87C]/5 italic font-light group-hover:text-[#C6A87C]/10 transition-colors duration-700 pointer-events-none">EPCM</div>
-            <h3 className="font-mono text-2xl text-[#EAE6DF] mb-2 relative z-10">Model EPCM</h3>
-            <p className="font-mono text-[9px] tracking-[0.3em] text-[#C6A87C] uppercase mb-8 relative z-10">Engineering, Procurement, Construction Management</p>
-            <p className="font-serif text-[#EAE6DF]/60 text-xl font-light italic leading-relaxed mb-10 relative z-10 max-w-sm">
-              Pełnimy rolę inżyniera kontraktu i zarządzamy budową. Inwestor podpisuje umowy bezpośrednio z podwykonawcami, zyskując maksymalną transparentność kosztów i oszczędności marży.
-            </p>
+          <FadeIn delay={200} className="group relative md:mt-16">
+            <GlowCard className="border-[0.5px] border-[#C8A97D]/20 bg-[#030404]/80 backdrop-blur-md p-12 md:p-16 interactive-element !rounded-none">
+              <div className="absolute top-0 right-0 p-6 font-serif text-[8rem] leading-none text-[#C8A97D]/5 italic font-light group-hover:text-[#C8A97D]/10 transition-colors duration-700 pointer-events-none">EPCM</div>
+              <h3 className="font-mono text-2xl text-[#F2EDE4] mb-2 relative z-10">Model EPCM</h3>
+              <p className="font-mono text-[9px] tracking-[0.3em] text-[#C8A97D] uppercase mb-8 relative z-10">Engineering, Procurement, Construction Management</p>
+              <p className="font-serif text-[#F2EDE4]/60 text-xl font-light italic leading-relaxed mb-10 relative z-10 max-w-sm">
+                Pełnimy rolę inżyniera kontraktu i zarządzamy budową. Inwestor podpisuje umowy bezpośrednio z podwykonawcami, zyskując maksymalną transparentność kosztów i oszczędności marży.
+              </p>
             <ul className="space-y-4 relative z-10">
               {['Pełna transparentność przetargowa (Open Book)', 'Elastyczność zmian w trakcie budowy', 'Optymalizacja kosztów inwestycyjnych'].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-4">
@@ -684,6 +722,7 @@ const ContractModels = () => {
                 </li>
               ))}
             </ul>
+            </GlowCard>
           </FadeIn>
         </div>
       </div>
@@ -703,7 +742,7 @@ const FeedstockMatrix = () => {
   ];
 
   return (
-    <section className="py-48 bg-[#050606] border-t border-[#C6A87C]/10 relative overflow-hidden">
+    <section className="py-48 bg-[#050606] relative overflow-hidden">
       <div className="absolute inset-0 technical-grid opacity-5"></div>
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <FadeIn>
@@ -772,7 +811,7 @@ const FeedstockMatrix = () => {
                       </div>
                    </div>
 
-                   <div className="pt-8 border-t border-[#C6A87C]/10">
+                   <div className="pt-8">
                       <div className="flex justify-between items-center mb-4">
                          <span className="font-mono text-[8px] text-[#EAE6DF]/40 uppercase tracking-[0.2em]">Potencjał Energetyczny</span>
                          <span className="font-mono text-[8px] text-[#4ADE80] uppercase tracking-[0.2em]">Wysoki</span>
@@ -792,7 +831,7 @@ const FeedstockMatrix = () => {
 
 const EconomicsSection = () => {
   return (
-    <section id="ekonomia" className="relative py-48 bg-[#010101] overflow-hidden border-t border-[#C6A87C]/10">
+    <section id="ekonomia" className="relative py-48 bg-[#010101] overflow-hidden">
       <div className="absolute inset-0 technical-grid opacity-10"></div>
 
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
@@ -851,11 +890,11 @@ const EconomicsSection = () => {
               <div className="grid grid-cols-2 gap-8">
                 <div className="bg-[#020202]/50 p-8 border border-[#C6A87C]/10 rounded-2xl">
                    <div className="font-mono text-[8px] text-[#EAE6DF]/30 uppercase tracking-[0.3em] mb-4">Payback Period</div>
-                   <div className="font-serif text-5xl text-[#C6A87C] font-light">5.2 <span className="text-xl text-[#C6A87C]/40 italic">lat</span></div>
+                   <div className="font-serif text-5xl text-[#C6A87C] font-light"><AnimatedCounter value="5.2" /><span className="text-xl text-[#C6A87C]/40 italic ml-2">lat</span></div>
                 </div>
                 <div className="bg-[#020202]/50 p-8 border border-[#C6A87C]/10 rounded-2xl">
                    <div className="font-mono text-[8px] text-[#EAE6DF]/30 uppercase tracking-[0.3em] mb-4">Internal Rate (IRR)</div>
-                   <div className="font-serif text-5xl text-[#C6A87C] font-light">18.4 <span className="text-xl text-[#C6A87C]/40 italic">%</span></div>
+                   <div className="font-serif text-5xl text-[#C6A87C] font-light"><AnimatedCounter value="18.4" suffix="%" /></div>
                 </div>
               </div>
             </div>
@@ -868,7 +907,7 @@ const EconomicsSection = () => {
 
 const SmartGrid = () => {
   return (
-    <section className="py-48 bg-[#020202] border-t border-[#C6A87C]/10 relative overflow-hidden">
+    <section className="py-48 bg-[#020202] relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(198,168,124,0.03)_0%,transparent_70%)] pointer-events-none"></div>
       
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
@@ -898,7 +937,7 @@ const SmartGrid = () => {
                   </div>
                   <h4 className="font-serif text-3xl text-[#EAE6DF] mb-6 font-light">{node.title}</h4>
                   <p className="font-mono text-[9px] tracking-widest leading-loose text-[#EAE6DF]/40 uppercase mb-12">{node.desc}</p>
-                  <div className="mt-auto border-t border-[#C6A87C]/10 pt-8 w-full">
+                  <div className="mt-auto pt-8 w-full">
                     <span className="font-serif text-4xl italic text-[#C6A87C]">{node.val}</span>
                   </div>
                 </FadeIn>
@@ -912,7 +951,7 @@ const SmartGrid = () => {
 
 const KineticBreak = () => {
   return (
-    <section className="py-32 bg-[#020202] border-t border-[#C6A87C]/10 overflow-hidden flex flex-col justify-center relative">
+    <section className="py-32 bg-[#020202] overflow-hidden flex flex-col justify-center relative">
       <div className="absolute inset-0 bg-topo opacity-10 pointer-events-none"></div>
       
       <div className="w-[200%] flex animate-marquee whitespace-nowrap opacity-20">
@@ -935,7 +974,7 @@ const KineticBreak = () => {
 
 const CircularImpact = () => {
   return (
-    <section className="relative py-40 bg-[#030404] border-t border-[#C6A87C]/10 overflow-hidden">
+    <section className="relative py-40 bg-[#030404] overflow-hidden">
       <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-20 hidden lg:block">
         <svg viewBox="0 0 200 200" className="w-full h-full animate-spin-slow">
           <path id="textPath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="transparent" />
@@ -976,7 +1015,7 @@ const CircularImpact = () => {
 
 const EnvironmentalImpact = () => {
   return (
-    <section className="py-40 bg-[#030404] border-t border-[#C6A87C]/10 relative overflow-hidden">
+    <section className="py-40 bg-[#030404] relative overflow-hidden">
       <div className="absolute right-0 top-0 w-1/2 h-full bg-stripes opacity-20 pointer-events-none"></div>
       
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
@@ -1005,7 +1044,7 @@ const EnvironmentalImpact = () => {
               <FadeIn key={i} delay={i * 150} className="border-b-[0.5px] border-[#EAE6DF]/10 pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 group">
                 <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#EAE6DF]/40 group-hover:text-[#C6A87C] transition-colors">{stat.label}</span>
                 <div className="text-right">
-                  <span className="font-serif text-5xl md:text-6xl text-[#EAE6DF] italic mr-3">{stat.val}</span>
+                  <span className="font-serif text-5xl md:text-6xl text-[#EAE6DF] italic mr-3"><AnimatedCounter value={stat.val} /></span>
                   <span className="font-mono text-[9px] text-[#C6A87C] uppercase tracking-widest">{stat.unit}</span>
                 </div>
               </FadeIn>
@@ -1027,7 +1066,7 @@ const ProjectsGallery = () => {
   ];
 
   return (
-    <section id="realizacje" className="relative py-48 bg-[#030404] border-t border-[#C6A87C]/10 min-h-screen flex items-center overflow-hidden">
+    <section id="realizacje" className="relative py-48 bg-[#030404] min-h-screen flex items-center overflow-hidden">
       {projects.map((proj, i) => (
         <div 
           key={i} 
@@ -1106,7 +1145,7 @@ const EditorialBento = () => {
   };
 
   return (
-    <section className="py-40 bg-[#020202] relative overflow-hidden border-t border-[#C6A87C]/10">
+    <section className="py-40 bg-[#020202] relative overflow-hidden">
       <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-[#C6A87C]/5 rounded-full blur-[150px] animate-[pulse_10s_ease-in-out_infinite]"></div>
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#EAE6DF]/[0.02] rounded-full blur-[100px]"></div>
       
@@ -1147,7 +1186,7 @@ const EditorialBento = () => {
 
 const TechStack = () => {
   return (
-    <section className="py-48 bg-[#020202] border-t border-[#C6A87C]/10 relative overflow-hidden">
+    <section className="py-48 bg-[#020202] relative overflow-hidden">
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <div className="text-center mb-32">
            <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10">Hardware Stack // Tier-1</h2>
@@ -1161,13 +1200,13 @@ const TechStack = () => {
              { name: "Wangen", role: "Progressing Cavity", img: "https://images.unsplash.com/photo-1535813548-6601f6d0f983?q=80&w=1000&auto=format&fit=crop" },
              { name: "ABB", role: "Automation & Control", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" }
            ].map((tech, i) => (
-             <FadeIn key={i} delay={i * 100} className="group relative aspect-square glass-morphism rounded-3xl overflow-hidden interactive-element">
+             <GlowCard key={i} delay={i * 100} className="group aspect-square glass-morphism !rounded-3xl overflow-hidden interactive-element">
                 <img src={tech.img} className="absolute inset-0 w-full h-full object-cover grayscale opacity-20 group-hover:opacity-40 transition-all duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 p-10 flex flex-col justify-end">
                    <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] uppercase mb-2">{tech.role}</div>
                    <div className="font-serif text-3xl text-[#EAE6DF] font-light">{tech.name}</div>
                 </div>
-             </FadeIn>
+             </GlowCard>
            ))}
         </div>
       </div>
@@ -1177,7 +1216,7 @@ const TechStack = () => {
 
 const ScadaSystem = () => {
   return (
-    <section className="py-48 bg-[#050606] relative overflow-hidden border-t border-[#C6A87C]/10">
+    <section className="py-48 bg-[#050606] relative overflow-hidden">
       <div className="absolute inset-0 technical-grid opacity-10"></div>
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-32 items-center">
@@ -1215,7 +1254,7 @@ const ScadaSystem = () => {
                    ))}
                 </div>
                 
-                <div className="mt-12 grid grid-cols-3 gap-8 pt-8 border-t border-[#C6A87C]/10">
+                <div className="mt-12 grid grid-cols-3 gap-8 pt-8">
                    <div>
                       <div className="font-mono text-[7px] text-[#EAE6DF]/30 uppercase mb-2">Gas Pressure</div>
                       <div className="font-serif text-3xl text-[#EAE6DF]">14.2 <span className="text-xs italic text-[#C6A87C]">mbar</span></div>
@@ -1238,7 +1277,7 @@ const ScadaSystem = () => {
 };
 const ResearchAndDevelopment = () => {
   return (
-    <section className="relative py-40 bg-[#020202] border-t border-[#C6A87C]/10 overflow-hidden">
+    <section className="relative py-40 bg-[#020202] overflow-hidden">
       <div className="absolute inset-0 flex">
         <div className="w-full md:w-1/2 h-full bg-[#030404] relative">
            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(198,168,124,0.05)_0%,transparent_60%)]"></div>
@@ -1306,7 +1345,7 @@ const Leadership = () => {
   ];
 
   return (
-    <section className="py-48 bg-[#020202] border-t border-[#C6A87C]/10 relative overflow-hidden">
+    <section className="py-48 bg-[#020202] relative overflow-hidden">
       <div className="absolute inset-0 technical-grid opacity-5"></div>
 
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
@@ -1375,7 +1414,7 @@ const Leadership = () => {
 
 const OperationsMaintenance = () => {
   return (
-    <section className="py-48 bg-[#050606] border-t border-[#C6A87C]/10 relative overflow-hidden">
+    <section className="py-48 bg-[#050606] relative overflow-hidden">
       <div className="absolute inset-0 technical-grid opacity-5"></div>
       
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
@@ -1393,11 +1432,11 @@ const OperationsMaintenance = () => {
             <div className="grid grid-cols-2 gap-10">
               <div className="p-8 glass-morphism rounded-3xl">
                  <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] uppercase mb-4">Uptime SLA</div>
-                 <div className="font-serif text-5xl text-[#EAE6DF] font-light">98.5 <span className="text-xl text-[#C6A87C]/40 italic">%</span></div>
+                 <div className="font-serif text-5xl text-[#EAE6DF] font-light"><AnimatedCounter value="98.5" suffix="%" /></div>
               </div>
               <div className="p-8 glass-morphism rounded-3xl">
                  <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] uppercase mb-4">Response Time</div>
-                 <div className="font-serif text-5xl text-[#EAE6DF] font-light">24 <span className="text-xl text-[#C6A87C]/40 italic">h</span></div>
+                 <div className="font-serif text-5xl text-[#EAE6DF] font-light">&lt;<AnimatedCounter value="24" /><span className="text-xl text-[#C6A87C]/40 italic ml-2">h</span></div>
               </div>
             </div>
           </FadeIn>
@@ -1434,7 +1473,7 @@ const SafetyStandards = () => {
   ];
 
   return (
-    <section className="py-48 bg-[#020202] border-t border-[#C6A87C]/10 relative overflow-hidden">
+    <section className="py-48 bg-[#020202] relative overflow-hidden">
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <FadeIn>
           <div className="mb-32">
@@ -1472,7 +1511,7 @@ const TechnicalFAQ = () => {
   ];
 
   return (
-    <section className="py-48 bg-[#050606] border-t border-[#C6A87C]/10 relative overflow-hidden">
+    <section className="py-48 bg-[#050606] relative overflow-hidden">
       <div className="absolute inset-0 technical-grid opacity-5"></div>
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <div className="grid lg:grid-cols-12 gap-24 items-start">
@@ -1507,7 +1546,7 @@ const TechnicalFAQ = () => {
                    </div>
                    
                    {openIndex === i && (
-                     <FadeIn className="pt-10 mt-10 border-t border-[#C6A87C]/10">
+                     <FadeIn className="pt-10 mt-10">
                        <p className="font-serif italic text-xl text-[#EAE6DF]/60 leading-relaxed">
                          {faq.a}
                        </p>
@@ -1529,7 +1568,7 @@ const TechnicalFAQ = () => {
 
 const ServiceCoverage = () => {
   return (
-    <section className="relative py-48 bg-[#020202] border-t border-[#C6A87C]/10 overflow-hidden">
+    <section className="relative py-48 bg-[#020202] overflow-hidden">
       <div className="absolute inset-0 technical-grid opacity-5"></div>
       
       <div className="max-w-[100rem] mx-auto px-8 relative z-10 flex flex-col items-center text-center">
@@ -1564,30 +1603,41 @@ const ServiceCoverage = () => {
 
 const CTA = () => {
   return (
-    <section id="kontakt" className="relative py-48 bg-[#C6A87C] overflow-hidden text-[#030404]">
-      <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply"></div>
+    <section id="kontakt" className="relative py-48 bg-[#050505] overflow-hidden">
+      {/* Animated Gradient Pulse Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[#050505]"></div>
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(200,169,125,0.15)_0%,transparent_70%)] animate-[pulse_6s_ease-in-out_infinite]"></div>
+      </div>
       
-      <div className="max-w-4xl mx-auto px-8 text-center relative z-10">
-        <FadeIn>
-          <div className="font-mono text-[#030404]/60 text-[10px] tracking-[0.4em] uppercase mb-10">Zainicjuj kontakt</div>
-          <h2 className="text-[4rem] md:text-[6rem] font-serif text-[#030404] mb-10 leading-[0.9] tracking-tight font-light">
+      <div className="max-w-[80rem] mx-auto px-6 relative z-10">
+        <GlowCard className="p-16 md:p-24 text-center border border-[#C8A97D]/20 bg-[#020202]/60 backdrop-blur-md">
+          <div className="inline-flex items-center gap-3 mb-12">
+            <span className="w-2 h-2 bg-[#C8A97D] rounded-full animate-ping"></span>
+            <span className="font-mono text-[#C8A97D] text-[9px] tracking-[0.4em] uppercase">Wolne Przepustowości Systemowe</span>
+          </div>
+          
+          <h2 className="text-[4rem] md:text-[7rem] font-serif text-[#F2EDE4] mb-10 leading-[0.9] tracking-tight font-light">
             Czas na <br/>
-            <span className="italic">budowę.</span>
+            <span className="italic text-[#C8A97D]">budowę.</span>
           </h2>
-          <p className="text-xl text-[#030404]/70 mb-16 max-w-2xl mx-auto font-serif italic font-light leading-relaxed">
-            Przygotujemy rzetelną wycenę budowy biogazowni od podstaw. Solidne technologie, realne terminy.
+          
+          <p className="text-xl md:text-2xl text-[#F2EDE4]/60 mb-16 max-w-2xl mx-auto font-serif italic font-light leading-relaxed">
+            Weryfikujemy technologię, szacujemy CAPEX, budujemy. Rozpocznij proces inwestycyjny z wiodącym wykonawcą.
           </p>
+          
           <div className="flex flex-col sm:flex-row justify-center items-center gap-10">
             <MagneticButton>
-              <button className="w-full sm:w-auto bg-[#030404] text-[#C6A87C] px-16 py-6 text-[10px] font-mono tracking-[0.5em] uppercase hover:bg-[#1A1C1B] transition-all duration-500 interactive-element rounded-full">
-                Wyślij Zapytanie
+              <button className="group w-full sm:w-auto bg-[#C8A97D] text-[#050505] px-16 py-6 text-[10px] font-mono tracking-[0.5em] uppercase hover:bg-[#F2EDE4] transition-all duration-500 interactive-element rounded-full flex items-center justify-center gap-4 shadow-[0_0_40px_rgba(200,169,125,0.2)]">
+                Inicjuj Rozmowy
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2} />
               </button>
             </MagneticButton>
-            <button className="w-full sm:w-auto px-12 py-6 text-[10px] font-mono tracking-[0.4em] text-[#030404] border-b-2 border-[#030404] hover:bg-[#030404] hover:text-[#C6A87C] uppercase transition-all duration-500 interactive-element">
-              (+48) 500 000 000
-            </button>
+            <div className="font-mono text-[9px] text-[#F2EDE4]/30 uppercase tracking-[0.2em] max-w-[200px] text-left hidden sm:block">
+              Odpowiedź operacyjna <br/>w ciągu 24H
+            </div>
           </div>
-        </FadeIn>
+        </GlowCard>
       </div>
     </section>
   );
@@ -1595,7 +1645,7 @@ const CTA = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#020202] border-t border-[#C6A87C]/10 pt-32 pb-12 relative overflow-hidden">
+    <footer className="bg-[#020202] pt-32 pb-12 relative overflow-hidden">
       <div className="absolute bottom-[-20%] right-[-10%] w-[800px] h-[800px] bg-[#C6A87C]/5 blur-[150px] rounded-full pointer-events-none"></div>
       
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
@@ -1650,10 +1700,11 @@ export default function App() {
   return (
     <>
       <GlobalStyles />
-      <div className="min-h-screen relative font-serif selection:bg-[#C6A87C] selection:text-[#030404]">
-        <TechnicalCursor />
+      <div className="min-h-screen relative font-serif selection:bg-[#C8A97D] selection:text-[#050505]">
+        <ScrollProgressBar />
+        <CustomCursor />
+        <AmbientOrbs />
         <FilmGrain />
-        <SystemStatus />
         <Navbar />
         <Hero />
         <TickerTape />
@@ -1663,16 +1714,16 @@ export default function App() {
         <FeedstockMatrix />
         <EconomicsSection />
         <SmartGrid />
+        <KineticBreak />
         <ProjectsGallery />
         <EditorialBento />
+        <CircularImpact />
         <TechStack />
         <ScadaSystem />
-        <ResearchAndDevelopment />
         <Leadership />
         <OperationsMaintenance />
         <SafetyStandards />
         <TechnicalFAQ />
-        <ServiceCoverage />
         <CTA />
         <Footer />
       </div>
