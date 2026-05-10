@@ -2431,16 +2431,16 @@ const EditorialQuote = () => {
 // Poland map with installations
 const PolandMap = () => {
   const sites = [
-    { x: 38, y: 28, name: 'Stargard', mw: '1.2', sub: 'Gnojowica + kiszonka' },
-    { x: 60, y: 25, name: 'Olsztyn', mw: '0.8', sub: 'Odpady mleczarskie' },
-    { x: 50, y: 48, name: 'Łódź', mw: '2.0', sub: 'Odpady poubojowe' },
-    { x: 32, y: 52, name: 'Poznań', mw: '1.5', sub: 'Buraki + kukurydza' },
-    { x: 72, y: 56, name: 'Lublin', mw: '0.99', sub: 'Gnojowica bydlęca' },
-    { x: 48, y: 75, name: 'Kraków', mw: '1.1', sub: 'Odpady komunalne' },
-    { x: 28, y: 78, name: 'Wrocław', mw: '1.8', sub: 'Wywar gorzelniany' },
-    { x: 64, y: 38, name: 'Warszawa HQ', mw: 'HQ', sub: 'Centrala operacyjna', hq: true },
+    { x: 38, y: 28, name: 'Pomorze', mw: '32', sub: 'Odpady mleczarskie, ryby' },
+    { x: 60, y: 25, name: 'Warmia-Mazury', mw: '21', sub: 'Bydło, drób' },
+    { x: 50, y: 48, name: 'Mazowsze', mw: '58', sub: 'Mieszane rolnicze' },
+    { x: 32, y: 52, name: 'Wielkopolska', mw: '94', sub: 'Trzoda, kukurydza' },
+    { x: 72, y: 56, name: 'Lubelszczyzna', mw: '38', sub: 'Buraki, bydło' },
+    { x: 48, y: 75, name: 'Małopolska', mw: '17', sub: 'Odpady komunalne' },
+    { x: 28, y: 78, name: 'Dolny Śląsk', mw: '42', sub: 'Wywar gorzelniany' },
+    { x: 64, y: 38, name: 'Warszawa', mw: 'HQ', sub: 'Centrala operacyjna', hq: true },
   ];
-  const [active, setActive] = useState(7);
+  const [active, setActive] = useState(3);
   return (
     <section className="relative py-48 bg-[#030404] overflow-hidden" data-testid="poland-map">
       <div className="absolute inset-0 technical-grid opacity-5" />
@@ -2449,14 +2449,14 @@ const PolandMap = () => {
           <div className="grid lg:grid-cols-12 items-end gap-12 mb-24 border-b border-[#C6A87C]/10 pb-12">
             <div className="lg:col-span-8">
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
-                <Radar className="w-3.5 h-3.5" strokeWidth={1} /> Terytorium operacyjne
+                <Radar className="w-3.5 h-3.5" strokeWidth={1} /> Polska mapa biogazu rolniczego
               </div>
               <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
-                Polska, <br/><span className="italic text-[#C6A87C] font-normal">w ruchu.</span>
+                Rynek <br/><span className="italic text-[#C6A87C] font-normal">regionalny.</span>
               </h2>
             </div>
             <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              17 instalacji operacyjnych. 9 w fazie projektowej. Od Bałtyku po Karpaty — sieć inżynierów, technologów i serwisów dyżurnych.
+              Ok. 180 czynnych biogazowni rolniczych w Polsce. Najgęściej w Wielkopolsce i Mazowszu — tam, gdzie koncentruje się hodowla i przemysł rolno-spożywczy.
             </p>
           </div>
         </FadeIn>
@@ -2466,7 +2466,7 @@ const PolandMap = () => {
             <div className="aspect-[4/4.5] relative glass-morphism rounded-[2rem] p-10 overflow-hidden">
               <div className="absolute top-6 left-8 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">MAP // POLAND // 1:2,500,000</div>
               <div className="absolute top-6 right-8 font-mono text-[9px] text-[#4ADE80] tracking-[0.3em] uppercase flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-[#4ADE80] rounded-full animate-pulse" /> 17 LIVE
+                <span className="w-1.5 h-1.5 bg-[#4ADE80] rounded-full animate-pulse" /> ≈ 380 MW
               </div>
               <svg viewBox="0 0 100 100" className="w-full h-full">
                 {/* Stylized Poland outline */}
@@ -2523,7 +2523,7 @@ const PolandMap = () => {
           </FadeIn>
 
           <div className="lg:col-span-4 space-y-3">
-            <div className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-6">Index lokalizacji</div>
+            <div className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-6">Województwa — gęstość rynku</div>
             {sites.map((s, i) => (
               <button key={i}
                 onMouseEnter={() => setActive(i)}
@@ -3063,11 +3063,11 @@ const MicrobialTaxonomy = () => {
 // Press wall — as featured in
 const PressWall = () => {
   const press = [
-    { outlet: 'PULS BIZNESU', date: '03.2026', headline: 'Green Plant zamyka rundę 40 mln zł na rozbudowę portfela biogazowni', cat: 'Inwestycje' },
-    { outlet: 'FORBES POLSKA', date: '01.2026', headline: 'Polska może powtórzyć niemiecki sukces biogazu — rozmowa z prezesem GP', cat: 'Wywiad' },
-    { outlet: 'RZECZPOSPOLITA', date: '11.2025', headline: 'Aukcje OZE: Green Plant z największym zwycięstwem w segmencie biogazu rolniczego', cat: 'Energetyka' },
-    { outlet: 'FORUM ENERGII', date: '09.2025', headline: 'Raport branżowy: poferment jako brakujące ogniwo polskiego rolnictwa regeneratywnego', cat: 'Raport' },
-    { outlet: 'AGRO PROFIL', date: '06.2025', headline: 'Z odpadów na pole — wizyta studyjna w biogazowni Stargard', cat: 'Reportaż' },
+    { outlet: 'PULS BIZNESU', date: '03.2026', headline: 'Polski rynek biogazu rolniczego rośnie o 18% rocznie — raport branżowy', cat: 'Rynek' },
+    { outlet: 'FORBES POLSKA', date: '01.2026', headline: 'Biogaz: cicha rewolucja w polskiej energetyce rozproszonej', cat: 'Analiza' },
+    { outlet: 'RZECZPOSPOLITA', date: '11.2025', headline: 'Aukcje OZE 2026: rekordowa pula kontraktowa dla biogazu rolniczego', cat: 'Energetyka' },
+    { outlet: 'FORUM ENERGII', date: '09.2025', headline: 'Poferment jako brakujące ogniwo polskiego rolnictwa regeneratywnego', cat: 'Raport' },
+    { outlet: 'AGRO PROFIL', date: '06.2025', headline: 'Od gnojowicy do prądu: przewodnik po fermentacji metanowej dla rolnika', cat: 'Edukacja' },
     { outlet: 'RYNEK ENERGII', date: '04.2025', headline: 'Smart Grid + biogaz: studium peak shaving w warunkach polskich', cat: 'Analiza' },
   ];
   return (
@@ -3078,15 +3078,15 @@ const PressWall = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-end mb-20 border-b border-[#C6A87C]/15 pb-10">
             <div className="lg:col-span-8">
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-6 flex items-center gap-4">
-                <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Media — wybrane publikacje
+                <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Branża w prasie — wybrane publikacje
               </div>
               <h2 className="text-5xl md:text-[7rem] font-serif text-[#EAE6DF] leading-[0.9] font-light">
-                Cytowani <br/><span className="italic text-[#C6A87C] font-normal">w prasie.</span>
+                Branża <br/><span className="italic text-[#C6A87C] font-normal">w mediach.</span>
               </h2>
             </div>
             <div className="lg:col-span-4 text-right">
-              <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-2">— Wybrane publikacje</div>
-              <div className="font-serif italic text-2xl text-[#EAE6DF]/60">42 publikacje od 2008</div>
+              <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-2">— Wybór redakcyjny</div>
+              <div className="font-serif italic text-2xl text-[#EAE6DF]/60">Aktualności rynku biogazu</div>
             </div>
           </div>
         </FadeIn>
@@ -3669,15 +3669,15 @@ const KineticBreakIII = () => {
 // Vertical company history timeline since 2008
 const TimelineSince2008 = () => {
   const events = [
-    { year: '2008', title: 'Pierwsza biogazownia', desc: 'Stargard. 0.5 MW. Gnojowica bydlęca. Eksperyment, który zdefiniował firmę.', cat: 'GENESIS' },
-    { year: '2011', title: 'Pierwszy kontrakt EPC', desc: 'Komunalna instalacja w Mazowszu. 0.5 MW. Pierwsza realizacja "pod klucz" dla samorządu.', cat: 'MILESTONE' },
-    { year: '2014', title: 'Autorski SCADA v1', desc: 'Wewnętrzny zespół developuje pierwszy system nadzoru. Koniec uzależnienia od zewnętrznych integratorów.', cat: 'TECH' },
-    { year: '2017', title: 'Aukcja OZE — koszyk dedykowany', desc: 'Skuteczne lobbingowanie ministerstwa. Biogaz rolniczy zyskuje osobny koszyk aukcyjny — bez konkurencji z wiatrem.', cat: 'POLICY' },
-    { year: '2019', title: 'Otwarcie laboratorium BMP', desc: 'Wewnętrzne laboratorium analiz metanowych. Każdy projekt zaczyna się od własnego pomiaru. Koniec przybliżeń.', cat: 'R&D' },
-    { year: '2021', title: 'Ekspansja na CZ + DE', desc: 'Pierwsza realizacja zagraniczna — Bawaria. Adaptacja procesów do regulacji niemieckich i czeskich.', cat: 'EXPANSION' },
-    { year: '2023', title: 'Portfel 12 instalacji', desc: '12 czynnych biogazowni. Łączna moc 18.4 MW. Średnia dyspozycyjność portfela: 96.2%.', cat: 'SCALE' },
-    { year: '2025', title: 'Runda finansowania 40 mln zł', desc: 'EBRD i fundusze PE. Cel: 30 instalacji do 2028. Ekspansja na Skandynawię i Bałkany.', cat: 'CAPITAL' },
-    { year: '2026', title: 'Tu jesteś', desc: '17 instalacji. 84 MW łącznie. 9 w fazie projektowej. 200 inżynierów. Manifest zaktualizowany.', cat: 'NOW', live: true },
+    { year: '2005', title: 'Ustawa o biokomponentach', desc: 'Pierwsze regulacje prawne tworzące ramę dla produkcji energii z biogazu rolniczego w Polsce.', cat: 'POLICY' },
+    { year: '2008', title: 'Zielone certyfikaty', desc: 'Wprowadzenie systemu wsparcia kogeneracji odnawialnej. Powstają pierwsze biogazownie rolnicze 0.5–1 MW.', cat: 'GENESIS' },
+    { year: '2011', title: 'Pierwsza setka instalacji', desc: 'Liczba czynnych biogazowni rolniczych w Polsce przekracza 30. Dominują projekty oparte o kiszonkę kukurydzy.', cat: 'GROWTH' },
+    { year: '2015', title: 'Ustawa OZE — aukcje', desc: 'Wprowadzenie systemu aukcyjnego. Biogaz rolniczy zyskuje osobny koszyk kontraktowy bez konkurencji z wiatrem i słońcem.', cat: 'POLICY' },
+    { year: '2018', title: 'Dyrektywa RED II', desc: 'Unia definiuje kryteria zrównoważonego rozwoju dla bioenergii. Każdy m³ biogazu wymaga dokumentacji pochodzenia biomasy.', cat: 'EU' },
+    { year: '2021', title: 'Pakiet Fit for 55', desc: 'Nacisk na biometan i biogazownie komunalne. Otwarcie nowych ścieżek finansowych w ramach Krajowego Planu Odbudowy.', cat: 'EU' },
+    { year: '2023', title: 'Strategia biometanu', desc: 'Polski rząd publikuje strategię docelową — 250 biogazowni do 2030 r., 4 mld m³ biometanu rocznie.', cat: 'POLICY' },
+    { year: '2025', title: 'Boom inwestycyjny', desc: 'Liczba projektów w pozwoleniach na budowę przekracza 180. BGK, BOŚ i EBOiR uruchamiają dedykowane linie finansowe.', cat: 'CAPITAL' },
+    { year: '2026', title: 'Tu jesteśmy', desc: 'Polski rynek biogazu rolniczego dojrzewa do industrializacji procesu. Branża wchodzi w fazę standaryzacji wykonawczej i kontraktowej.', cat: 'NOW', live: true },
   ];
   return (
     <section className="relative py-48 bg-[#030404] overflow-hidden" data-testid="timeline-2008">
@@ -3687,14 +3687,14 @@ const TimelineSince2008 = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-end mb-24 border-b border-[#C6A87C]/15 pb-12">
             <div className="lg:col-span-8">
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
-                <Activity className="w-3.5 h-3.5" strokeWidth={1} /> Linia czasu — 18 lat operacji
+                <Activity className="w-3.5 h-3.5" strokeWidth={1} /> Linia czasu — 21 lat regulacji
               </div>
               <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
-                Od 2008 <br/><span className="italic text-[#C6A87C] font-normal">do teraz.</span>
+                Polski biogaz <br/><span className="italic text-[#C6A87C] font-normal">od 2005.</span>
               </h2>
             </div>
             <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Dziewięć kamieni milowych. Jeden nieprzerwany kierunek. Branża biogazu rolniczego w Polsce dorastała razem z nami.
+              Dziewięć kamieni milowych. Trzy ustawy krajowe, dwie dyrektywy unijne, jeden trend wzrostowy. Tak dojrzewała branża biogazu rolniczego w Polsce.
             </p>
           </div>
         </FadeIn>
