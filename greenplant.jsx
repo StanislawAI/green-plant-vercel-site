@@ -4562,6 +4562,7 @@ export default function App() {
         <MolecularProcess />
         <MicrobialTaxonomy />
         <ReactorClock />
+        <ScadaSystem />
         <MaterialSamples />
         <BlueprintMargin />
 
@@ -4589,7 +4590,6 @@ export default function App() {
         <PolandMap />
         <TimelineSince2008 />
         <PressWall />
-        <ScadaSystem />
 
         {/* ACT VII — TEAM & STANDARDS */}
         <EngineeringDNA />
