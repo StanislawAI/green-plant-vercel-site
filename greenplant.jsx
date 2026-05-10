@@ -1608,7 +1608,7 @@ const ScadaSystem = () => {
               Cyfrowy <br/><span className="text-[#C6A87C] not-italic">bliźniak.</span>
             </h2>
             <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
-              Nasz system SCADA to mózg instalacji. Przetwarza tysiące zmiennych na sekundę, optymalizując proces fermentacji w czasie rzeczywistym.
+              System SCADA to kręgosłup operacyjny instalacji. Agreguje dane z setek czujników i precyzyjnie zarządza pracą mieszadeł, pomp oraz systemów CHP, zapewniając stabilność biologiczną reaktora i maksymalizację uzysku metanu.
             </p>
           </FadeIn>
 
