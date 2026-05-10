@@ -1395,12 +1395,9 @@ const CircularImpact = () => {
       <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-20 hidden lg:block">
         <svg viewBox="0 0 200 200" className="w-full h-full animate-spin-slow">
           <path id="textPath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="transparent" />
-          <text fill="#C6A87C" className="font-mono text-[8px] tracking-[0.2em] uppercase">
-            <textPath href="#textPath" startOffset="0%">
-              • OBIEG ZAMKNIĘTY • ZERO ODPADÓW • ROLNICTWO CYRKULARNE •
-            </textPath>
-            <textPath href="#textPath" startOffset="50%">
-              • OBIEG ZAMKNIĘTY • ZERO ODPADÓW • ROLNICTWO CYRKULARNE •
+          <text fill="#C6A87C" className="font-mono text-[8.5px] tracking-[0.25em] uppercase">
+            <textPath href="#textPath" startOffset="0%" textLength="471">
+              • OBIEG ZAMKNIĘTY • ZERO ODPADÓW • ROLNICTWO CYRKULARNE • OBIEG ZAMKNIĘTY • ZERO ODPADÓW • ROLNICTWO CYRKULARNE 
             </textPath>
           </text>
         </svg>
