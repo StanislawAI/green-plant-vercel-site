@@ -2097,14 +2097,14 @@ const Footer = () => {
           </div>
 
           <div className="md:col-start-7 md:col-span-2">
-            <h4 className="text-[#C6A87C] font-mono mb-8 uppercase text-[9px] tracking-[0.4em]">Oferta</h4>
+            <h4 className="text-[#C6A87C] font-mono mb-8 uppercase text-[9px] tracking-[0.4em]">Platforma</h4>
             <ul className="space-y-5">
               {[
-                { label: 'Projektowanie', href: '#technologia' },
-                { label: 'Budowa pod klucz', href: '#proces' },
-                { label: 'Serwis CHP', href: '#utrzymanie' },
-                { label: 'Modernizacje', href: '#standardy' },
-                { label: 'Audyt BMP', href: '#kontakt' }
+                { label: 'Podejście', href: '#podejscie' },
+                { label: 'Technologia', href: '#technologia' },
+                { label: 'Proces', href: '#proces' },
+                { label: 'Ekonomia', href: '#ekonomia' },
+                { label: 'Standardy', href: '#standardy' }
               ].map((link, i) => (
                 <li key={i}><a href={link.href} className="text-[#EAE6DF]/40 hover:text-[#C6A87C] transition-colors text-[10px] font-mono tracking-[0.2em] uppercase interactive-element">{link.label}</a></li>
               ))}
@@ -2116,9 +2116,10 @@ const Footer = () => {
             <ul className="space-y-5">
               {[
                 { label: 'Modele', href: '#modele' },
-                { label: 'Kariera', href: '#kariera' },
-                { label: 'Kontakt', href: '#kontakt' },
-                { label: 'Prasa', href: '#prasa' }
+                { label: 'Utrzymanie', href: '#utrzymanie' },
+                { label: 'Zespół', href: '#kariera' },
+                { label: 'Prasa', href: '#prasa' },
+                { label: 'Kontakt', href: '#kontakt' }
               ].map((link, i) => (
                 <li key={i}><a href={link.href} className="text-[#EAE6DF]/40 hover:text-[#C6A87C] transition-colors text-[10px] font-mono tracking-[0.2em] uppercase interactive-element">{link.label}</a></li>
               ))}
