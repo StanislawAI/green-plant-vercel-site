@@ -3046,11 +3046,11 @@ const MicrobialTaxonomy = () => {
 const PressWall = () => {
   const press = [
     { outlet: 'PULS BIZNESU', date: '08.2024', headline: 'Biogazownie rolnicze mają w Polsce wielki potencjał', cat: 'Rynek', url: 'https://www.pb.pl/biogazownie-rolnicze-maja-w-polsce-wielki-potencjal-1193306' },
-    { outlet: 'FORBES POLSKA', date: '12.2023', headline: 'Biometan to ogromna szansa dla Polski. Nie możemy jej zmarnować', cat: 'Analiza', url: 'https://www.forbes.pl/gospodarka' },
-    { outlet: 'RZECZPOSPOLITA', date: '09.2023', headline: 'Biogaz: Polska może być biogazową potęgą', cat: 'Energetyka', url: 'https://www.rp.pl/energetyka' },
-    { outlet: 'FORUM ENERGII', date: '02.2024', headline: 'Biogaz w Polsce. Czas na biometan (Raport)', cat: 'Raport', url: 'https://www.forum-energii.eu/' },
-    { outlet: 'AGRO PROFIL', date: '01.2024', headline: 'Biogazownie rolnicze - sposób na stabilne dochody', cat: 'Edukacja', url: 'https://agroprofil.pl/' },
-    { outlet: 'RYNEK ENERGII', date: '05.2023', headline: 'Rola biogazu i biometanu w transformacji energetycznej', cat: 'Analiza', url: 'https://www.rynek-energii.pl/' },
+    { outlet: 'FORBES POLSKA', date: '12.2023', headline: 'Od 2026 r. polskie firmy i domy może zasilać błękitne paliwo', cat: 'Analiza', url: 'https://news.google.com/rss/articles/CBMilgFBVV95cUxOUWV4ZmpIZ0ZVS3lSMDB2UE9tS1BwU01tNVhtamw0WlUweHpxNzlqOVRmUllEajItM281RzQ4S281REszeDBJNEJ4Z3c3ZDBIek82Xy02T2lRdlF3bm16YW84RE9tV3YteWVvNGQ5MkpJd0J0S3psclRRMmJqWjBxbVBNUW1qZnl4aTR4TzF3eWRsSWxQcVE?oc=5' },
+    { outlet: 'RZECZPOSPOLITA', date: '09.2023', headline: 'Polska jest u progu nowej, zielonej rewolucji. Motorem biogaz.', cat: 'Energetyka', url: 'https://news.google.com/rss/articles/CBMisgFBVV95cUxNb1htZWRwSElPZHJ4dER1TmhfT2pLdmZxbUhjckc2Rnlhbjd5Uk1wTHpIT21XSVcxQ1hOZUw4TjBtb0YxUkV1aTh4aU04dFh2YWVIVV9rY1g4TkxXQ2h6WjQxdmF0RGJNS0hHWHB2Y0lXNWZqTEp3akM3NEpIRnlqTW5fOGQ3aWw2YmVfTVQxUWxGNDJqZmxNUXF2aVdNRDBzWUNNbVl2N2FkNVVndGZpSFFn?oc=5' },
+    { outlet: 'FORUM ENERGII', date: '02.2024', headline: 'Biometan w Polsce. Ocena potencjału (Raport)', cat: 'Raport', url: 'https://news.google.com/rss/articles/CBMiY0FVX3lxTE9GWHg1SVRLd2R6RFRZSHp0cmhYcmVEd3dtWXZ0V3lIWGpMV0k5NW1jajFvLXZtWnFYX0wwRUZzUUtjZkoyUjVlOFJFRWdmbG1pTmh2ektyXzN2Z3E0OU1ZckQ0VQ?oc=5' },
+    { outlet: 'AGRO PROFIL', date: '01.2024', headline: 'Nowe odmiany kukurydzy na ziarno, kiszonkę i biogaz', cat: 'Edukacja', url: 'https://news.google.com/rss/articles/CBMilgFBVV95cUxQbnNfMXlrWGtjSV9Vd2dQcEl3UE1HVmM4ZXNUcUJPSExmempLTzhOQ2I2Zk5NRkd4cG1lYm1zSWNEaVk2MC0tSm9aQ2p2dnMtVk5NZGZUZS1pektLY1pVTlpwYkRXMlgyeklGWTk1SEJPY0t5a0tjUXVab0l5ZUlhem9wcW80eG1keVNsSmE0LTdqLXdlNWc?oc=5' },
+    { outlet: 'RYNEK ENERGII', date: '05.2023', headline: 'Agricultural biogas as an element of the circular economy', cat: 'Analiza', url: 'https://news.google.com/rss/articles/CBMiTkFVX3lxTFBhMWw4Vy1vTE9qVWpuNjhPenlRNm9aeUVTVmlpcGFNQ0R5d2VMMEN5bkhqZWpiTVJpWjJzU2hMVDdoYzNMbzFRSGpLU3BIdw?oc=5' },
   ];
   return (
     <section className="relative py-40 bg-[#020202] overflow-hidden" data-testid="press-wall">
