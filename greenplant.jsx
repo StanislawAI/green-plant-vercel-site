@@ -2598,9 +2598,9 @@ const FieldToElectricity = () => {
     {
       no: 'IV',
       title: 'Dom',
-      lead: '3 200 polskich gospodarstw domowych zasilanych z jednej biogazowni. 24/7.',
+      lead: '1 600 polskich gospodarstw domowych zasilanych z jednej biogazowni. 24/7.',
       body: 'W odróżnieniu od wiatru i słońca — biogaz pracuje w nocy. Pracuje w grudniu. Pracuje, gdy giełda energii skoczy do 1500 zł/MWh w mroźny wieczór. Tu nie ma kryzysu energetycznego — bo źródło rośnie na sąsiednim polu.',
-      stat: '3 200',
+      stat: '1 600',
       ref: 'CH-04 / HOUSEHOLD',
       hue: '#EAE6DF',
     },
