@@ -1595,38 +1595,6 @@ const EditorialBento = () => {
   );
 };
 
-const TechStack = () => {
-  return (
-    <section className="py-48 bg-[#020202] relative overflow-hidden">
-      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
-        <div className="text-center mb-32">
-           <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10">Specyfikacja referencyjna — komponenty, które instalujemy</h2>
-           <h3 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light italic">Technologie <span className="text-[#C6A87C] not-italic">pancerne.</span></h3>
-           <p className="font-serif italic text-xl text-[#EAE6DF]/50 max-w-2xl mx-auto mt-10 leading-relaxed">
-             Cztery marki, które definiują standard. Nie podpisujemy z nikim ekskluzywności — wybieramy najlepsze dostępne komponenty dla każdego projektu.
-           </p>
-        </div>
-        
-        <div className="grid md:grid-cols-4 gap-8">
-           {[
-             { name: "Vogelsang", role: "Pumping & Macerating", img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000&auto=format&fit=crop" },
-             { name: "Jenbacher", role: "CHP Generators", img: "https://images.unsplash.com/photo-1542124382-e69a27177e96?q=80&w=1000&auto=format&fit=crop" },
-             { name: "Wangen", role: "Progressing Cavity", img: "https://images.unsplash.com/photo-1535813548-6601f6d0f983?q=80&w=1000&auto=format&fit=crop" },
-             { name: "ABB", role: "Automation & Control", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" }
-           ].map((tech, i) => (
-             <GlowCard key={i} delay={i * 100} className="group aspect-square glass-morphism !rounded-3xl overflow-hidden interactive-element">
-                <img src={tech.img} className="absolute inset-0 w-full h-full object-cover grayscale opacity-20 group-hover:opacity-40 transition-all duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                   <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] uppercase mb-2">{tech.role}</div>
-                   <div className="font-serif text-3xl text-[#EAE6DF] font-light">{tech.name}</div>
-                </div>
-             </GlowCard>
-           ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
 const ScadaSystem = () => {
   return (
@@ -4612,7 +4580,6 @@ export default function App() {
         <PolandMap />
         <TimelineSince2008 />
         <PressWall />
-        <TechStack />
         <ScadaSystem />
 
         {/* ACT VII — TEAM & STANDARDS */}
