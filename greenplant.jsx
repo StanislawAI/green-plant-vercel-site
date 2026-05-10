@@ -592,10 +592,16 @@ const Navbar = () => {
               Green Plant <span className="text-[#C8A97D] font-light italic lowercase">tech.</span>
             </span>
           </a>
-          <div className="hidden md:flex items-center gap-10 text-[10px] font-mono tracking-[0.25em] text-[#F2EDE4]/40 uppercase">
-            {['Podejście', 'Proces', 'Ekonomia', 'Modele'].map(link => (
-              <a key={link} href={`#${link.toLowerCase()}`} className="hover:text-[#C8A97D] transition-colors duration-500 relative py-2 group interactive-element">
-                {link}
+          <div className="hidden lg:flex items-center gap-8 text-[9px] font-mono tracking-[0.25em] text-[#F2EDE4]/40 uppercase">
+            {[
+              { label: 'Podejście', id: 'podejscie' },
+              { label: 'Technologia', id: 'technologia' },
+              { label: 'Proces', id: 'proces' },
+              { label: 'Ekonomia', id: 'ekonomia' },
+              { label: 'Standardy', id: 'standardy' }
+            ].map(link => (
+              <a key={link.label} href={`#${link.id}`} className="hover:text-[#C8A97D] transition-colors duration-500 relative py-2 group interactive-element whitespace-nowrap">
+                {link.label}
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#C8A97D] group-hover:w-full transition-all duration-500 ease-out" />
               </a>
             ))}
@@ -4540,14 +4546,14 @@ export default function App() {
         <Hero />
         <TickerTape />
         <EditorialQuote />
-        <Approach />
+        <div id="podejscie"><Approach /></div>
         <NumberedEpigraphs />
         <Manifesto />
         <KineticBreakII />
 
         {/* ACT II — WHAT WE BUILD (technology) */}
         <FieldToElectricity />
-        <ReactorAnatomy />
+        <div id="technologia"><ReactorAnatomy /></div>
         <MolecularProcess />
         <MicrobialTaxonomy />
         <ReactorClock />
@@ -4561,14 +4567,14 @@ export default function App() {
         {/* ACT IV — HOW WE DELIVER */}
         <FeedstockMatrix />
         <ContractModels />
-        <BlueprintProcess />
+        <div id="proces"><BlueprintProcess /></div>
         <GanttBuild />
         <SiteAerial />
         <TechnicalSpecSheet />
         <EditorialBento />
 
         {/* ACT V — BUSINESS CASE */}
-        <EconomicsSection />
+        <div id="ekonomia"><EconomicsSection /></div>
         <EnergyComparison />
         <SmartGrid />
         <KineticBreak />
@@ -4584,13 +4590,13 @@ export default function App() {
         <EngineeringDNA />
         <TechnologyPartners />
         <OperationsMaintenance />
-        <SafetyStandards />
+        <div id="standardy"><SafetyStandards /></div>
         <AwardsAndCertifications />
 
         {/* ACT VIII — REFERENCE & CLOSE */}
         <TechnicalFAQ />
         <GlossaryLexicon />
-        <ProcessInitiation />
+        <div id="kontakt"><ProcessInitiation /></div>
         <Footer />
       </div>
     </>
