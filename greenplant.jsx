@@ -2102,7 +2102,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <h4 className="text-[#C6A87C] font-mono mb-8 uppercase text-[9px] tracking-[0.4em]">Firma</h4>
             <ul className="space-y-5">
-              {['O nas', 'Modele', 'Kariera', 'Kontakt', 'Prasa'].map((link, i) => (
+              {['Modele', 'Kariera', 'Kontakt', 'Prasa'].map((link, i) => (
                 <li key={i}><a href="#" className="text-[#EAE6DF]/40 hover:text-[#C6A87C] transition-colors text-[10px] font-mono tracking-[0.2em] uppercase interactive-element">{link}</a></li>
               ))}
             </ul>
