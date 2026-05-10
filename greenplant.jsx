@@ -2086,7 +2086,7 @@ const Footer = () => {
             <div className="space-y-3 font-mono text-[10px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase">
               <div>ul. Stanisława Wyspiańskiego 8 // 05-400 Otwock</div>
               <div>NIP 5322124348 // REGON 544014417 // KRS 0001224533</div>
-              <div>+48 22 000 00 00 // kontakt@greenplant.tech</div>
+              <div>+48 601 944 451 // kontakt@greenplant.tech</div>
             </div>
           </div>
 
