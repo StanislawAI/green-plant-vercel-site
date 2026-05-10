@@ -593,7 +593,7 @@ const Navbar = () => {
             </span>
           </a>
           <div className="hidden md:flex items-center gap-10 text-[10px] font-mono tracking-[0.25em] text-[#F2EDE4]/40 uppercase">
-            {['Podejście', 'Proces', 'Ekonomia', 'Realizacje'].map(link => (
+            {['Podejście', 'Proces', 'Ekonomia', 'Modele'].map(link => (
               <a key={link} href={`#${link.toLowerCase()}`} className="hover:text-[#C8A97D] transition-colors duration-500 relative py-2 group interactive-element">
                 {link}
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#C8A97D] group-hover:w-full transition-all duration-500 ease-out" />
@@ -1600,8 +1600,11 @@ const TechStack = () => {
     <section className="py-48 bg-[#020202] relative overflow-hidden">
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
         <div className="text-center mb-32">
-           <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10">Hardware Stack // Tier-1</h2>
+           <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10">Specyfikacja referencyjna — komponenty, które instalujemy</h2>
            <h3 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.9] font-light italic">Technologie <span className="text-[#C6A87C] not-italic">pancerne.</span></h3>
+           <p className="font-serif italic text-xl text-[#EAE6DF]/50 max-w-2xl mx-auto mt-10 leading-relaxed">
+             Cztery marki, które definiują standard. Nie podpisujemy z nikim ekskluzywności — wybieramy najlepsze dostępne komponenty dla każdego projektu.
+           </p>
         </div>
         
         <div className="grid md:grid-cols-4 gap-8">
@@ -2118,7 +2121,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-[#EAE6DF]/40 max-w-sm font-serif italic font-light text-lg leading-relaxed mb-10">
-              Generalny wykonawca biogazowni rolniczych i komunalnych. Projektowanie, budowa i serwis gwarancyjny — z gwarancją uzysku metanowego.
+              Generalny wykonawca biogazowni rolniczych i komunalnych. Projektowanie, budowa i serwis gwarancyjny — z kontraktową gwarancją uzysku metanowego.
             </p>
             <div className="space-y-2 font-mono text-[10px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase">
               <div>ul. Energetyczna 14 // 00-001 Warszawa</div>
@@ -2139,7 +2142,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <h4 className="text-[#C6A87C] font-mono mb-8 uppercase text-[9px] tracking-[0.4em]">Firma</h4>
             <ul className="space-y-5">
-              {['O nas', 'Realizacje', 'Kariera', 'Kontakt', 'Prasa'].map((link, i) => (
+              {['O nas', 'Modele', 'Kariera', 'Kontakt', 'Prasa'].map((link, i) => (
                 <li key={i}><a href="#" className="text-[#EAE6DF]/40 hover:text-[#C6A87C] transition-colors text-[10px] font-mono tracking-[0.2em] uppercase interactive-element">{link}</a></li>
               ))}
             </ul>
@@ -2151,7 +2154,7 @@ const Footer = () => {
               <div>Set in <span className="text-[#C6A87C]/80 font-serif italic normal-case tracking-normal text-sm">Cormorant Garamond</span></div>
               <div>& <span className="text-[#C6A87C]/80 font-mono normal-case tracking-normal text-sm">Space Mono</span></div>
               <div className="pt-3 border-t border-[#C6A87C]/10">Engineered in Warsaw</div>
-              <div>Bred in the soil of Wielkopolska</div>
+              <div>Substrat — z polskich pól</div>
               <div className="pt-3 border-t border-[#C6A87C]/10">Issue N° 04 // 2026</div>
               <div>Vol. I, Ed. III</div>
             </div>
@@ -2578,7 +2581,7 @@ const Manifesto = () => {
                 <svg viewBox="0 0 200 60" className="w-48 h-14 mb-2">
                   <path d="M 10 40 Q 30 10, 50 30 Q 70 50, 90 25 Q 110 5, 130 35 Q 150 50, 175 20" fill="none" stroke="#0a0c0b" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
-                <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#0a0c0b]/60">Zarząd Green Plant Tech.</div>
+                <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#0a0c0b]/60">Założyciele, Green Plant Tech.</div>
               </div>
               <div className="text-right">
                 <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#0a0c0b]/40 mb-2">Warszawa</div>
@@ -3078,15 +3081,15 @@ const PressWall = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-end mb-20 border-b border-[#C6A87C]/15 pb-10">
             <div className="lg:col-span-8">
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-6 flex items-center gap-4">
-                <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Branża w prasie — wybrane publikacje
+                <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Polecane lektury — branżowy briefing
               </div>
               <h2 className="text-5xl md:text-[7rem] font-serif text-[#EAE6DF] leading-[0.9] font-light">
-                Branża <br/><span className="italic text-[#C6A87C] font-normal">w mediach.</span>
+                Polecane <br/><span className="italic text-[#C6A87C] font-normal">lektury.</span>
               </h2>
             </div>
             <div className="lg:col-span-4 text-right">
-              <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-2">— Wybór redakcyjny</div>
-              <div className="font-serif italic text-2xl text-[#EAE6DF]/60">Aktualności rynku biogazu</div>
+              <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-2">— Selekcja redakcyjna</div>
+              <div className="font-serif italic text-2xl text-[#EAE6DF]/60">Co warto śledzić w sektorze</div>
             </div>
           </div>
         </FadeIn>
@@ -3677,7 +3680,7 @@ const TimelineSince2008 = () => {
     { year: '2021', title: 'Pakiet Fit for 55', desc: 'Nacisk na biometan i biogazownie komunalne. Otwarcie nowych ścieżek finansowych w ramach Krajowego Planu Odbudowy.', cat: 'EU' },
     { year: '2023', title: 'Strategia biometanu', desc: 'Polski rząd publikuje strategię docelową — 250 biogazowni do 2030 r., 4 mld m³ biometanu rocznie.', cat: 'POLICY' },
     { year: '2025', title: 'Boom inwestycyjny', desc: 'Liczba projektów w pozwoleniach na budowę przekracza 180. BGK, BOŚ i EBOiR uruchamiają dedykowane linie finansowe.', cat: 'CAPITAL' },
-    { year: '2026', title: 'Tu jesteśmy', desc: 'Polski rynek biogazu rolniczego dojrzewa do industrializacji procesu. Branża wchodzi w fazę standaryzacji wykonawczej i kontraktowej.', cat: 'NOW', live: true },
+    { year: '2026', title: 'Tu jesteśmy', desc: 'Wchodzimy na rynek z jednym mandatem: industrializacja procesu. Biogazownia jako produkt powtarzalny, projektowany do tych samych norm co rafineria — nie eksperyment.', cat: 'NOW', live: true },
   ];
   return (
     <section className="relative py-48 bg-[#030404] overflow-hidden" data-testid="timeline-2008">
