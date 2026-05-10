@@ -2069,15 +2069,6 @@ const Footer = () => {
       <div className="absolute inset-0 paper-grain opacity-20 pointer-events-none" />
 
       <div className="max-w-[100rem] mx-auto px-8 relative z-10">
-        {/* Massive wordmark */}
-        <FadeIn>
-          <div className="border-y border-[#C6A87C]/15 py-16 mb-24">
-            <h2 className="font-serif text-[#EAE6DF]/[0.04] leading-none tracking-tighter text-[16vw] uppercase select-none">
-              GREEN<span className="italic text-[#C6A87C]/30 lowercase"> plant </span>TECH.
-            </h2>
-          </div>
-        </FadeIn>
-
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-32">
           <div className="md:col-span-5">
             <div className="flex items-center gap-5 mb-10">
