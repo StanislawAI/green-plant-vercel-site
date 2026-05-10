@@ -2533,6 +2533,987 @@ const Manifesto = () => {
   );
 };
 
+// ===== ROUND 2 ELEVATIONS =====
+
+// 5-chapter cinematic narrative: field → electricity → home → field again
+const FieldToElectricity = () => {
+  const chapters = [
+    {
+      no: 'I',
+      title: 'Kukurydza',
+      lead: 'Wiosna. 12 tysięcy nasion na hektar. Każda łodyga to przyszłe 0.4 m³ metanu.',
+      body: 'W pierwszym roku współpracy mierzymy nie tylko areał — mierzymy słońce, deszcz i pH gleby. Polska kukurydza energetyczna ma jedne z najwyższych w Europie potencjałów metanowych: 210 m³ biogazu z tony świeżej masy.',
+      stat: '210 m³/t',
+      ref: 'CH-01 / FIELD',
+      hue: '#4ADE80',
+    },
+    {
+      no: 'II',
+      title: 'Reaktor',
+      lead: '38.4 °C. pH 7.6. 28 dni. Cisza w której archeony pracują bez przerwy.',
+      body: 'Kiszonka wjeżdża do dozownika o 6:00 rano. Mieszadła obracają się wolno, 8 obrotów na minutę. Bakterie metanogenne nie znoszą tlenu, hałasu, gwałtownych zmian. To jest fabryka, w której najgłośniejszym dźwiękiem jest szum wentylatora chłodnicy.',
+      stat: '38.4 °C',
+      ref: 'CH-02 / REACTOR',
+      hue: '#C6A87C',
+    },
+    {
+      no: 'III',
+      title: 'Sieć',
+      lead: 'Po 28 dniach metan przepływa przez ssawę silnika Tier-1. 999 kW elektrycznych. Smart Grid Sync.',
+      body: 'Silnik MWM TCG 2016 V12 spala biogaz z dokładnością miliampera. Energia trafia do krajowej sieci, sprzedawana w aukcjach OZE po cenie zakontraktowanej na 15 lat. Każda godzina pracy to 999 zł brutto — niezależnie od pogody, pory roku, geopolityki.',
+      stat: '999 kW',
+      ref: 'CH-03 / GRID',
+      hue: '#D97847',
+    },
+    {
+      no: 'IV',
+      title: 'Dom',
+      lead: '3 200 polskich gospodarstw domowych zasilanych z jednej biogazowni. 24/7.',
+      body: 'W odróżnieniu od wiatru i słońca — biogaz pracuje w nocy. Pracuje w grudniu. Pracuje, gdy giełda energii skoczy do 1500 zł/MWh w mroźny wieczór. Tu nie ma kryzysu energetycznego — bo źródło rośnie na sąsiednim polu.',
+      stat: '3 200',
+      ref: 'CH-04 / HOUSEHOLD',
+      hue: '#EAE6DF',
+    },
+    {
+      no: 'V',
+      title: 'Powrót',
+      lead: 'Poferment wraca na pole. 22 ton dziennie azotu, fosforu, potasu — zamknięcie obiegu.',
+      body: 'To, co wyszło z gleby jako kukurydza, wraca jako nawóz. Bez nasion chwastów, bez patogenów, bez smrodu. Polski rolnik przestaje kupować mocznik i fosforany — bo wytwarza je sam, w swojej fabryce metanu.',
+      stat: '22 t/d',
+      ref: 'CH-05 / RETURN',
+      hue: '#4ADE80',
+    },
+  ];
+  return (
+    <section className="relative py-32 bg-[#020202] overflow-hidden" data-testid="field-to-electricity">
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <FadeIn>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-32 border-b border-[#C6A87C]/15 pb-12">
+            <div>
+              <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
+                <Workflow className="w-3.5 h-3.5" strokeWidth={1} /> Sekwencja narracyjna — 5 rozdziałów
+              </div>
+              <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
+                Z pola <br/><span className="italic text-[#C6A87C] font-normal">do prądu.</span>
+              </h2>
+            </div>
+            <p className="font-serif italic text-2xl text-[#EAE6DF]/50 max-w-md leading-relaxed text-right">
+              Pięć rozdziałów. Jeden obieg. Setki kilometrów kabli, tysiące archeonów, dwa pokolenia rolników.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="space-y-32">
+          {chapters.map((c, i) => (
+            <FadeIn key={i} delay={i * 80}>
+              <div className={`grid lg:grid-cols-12 gap-12 items-start ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                {/* Big roman numeral */}
+                <div className={`lg:col-span-2 ${i % 2 === 1 ? 'lg:order-3 lg:text-right' : ''}`}>
+                  <div className="font-serif font-light text-[#C6A87C]/15 leading-none" style={{ fontSize: '14rem', color: 'transparent', WebkitTextStroke: `1px ${c.hue}40` }}>
+                    {c.no}
+                  </div>
+                </div>
+
+                {/* Title + body */}
+                <div className={`lg:col-span-6 ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
+                  <div className="font-mono text-[9px] tracking-[0.4em] uppercase mb-6 flex items-center gap-4" style={{ color: c.hue }}>
+                    <span className="w-8 h-px" style={{ backgroundColor: c.hue }} />
+                    {c.ref}
+                  </div>
+                  <h3 className="font-serif text-6xl md:text-[7rem] text-[#EAE6DF] leading-[0.9] font-light mb-8">
+                    {c.title}<span style={{ color: c.hue }}>.</span>
+                  </h3>
+                  <p className="font-serif italic text-2xl md:text-3xl text-[#EAE6DF]/70 leading-[1.4] mb-8 max-w-2xl">
+                    {c.lead}
+                  </p>
+                  <p className="font-serif text-lg text-[#EAE6DF]/40 leading-relaxed max-w-2xl">
+                    {c.body}
+                  </p>
+                </div>
+
+                {/* Stat panel */}
+                <div className={`lg:col-span-4 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  <div className="glass-morphism p-10 rounded-[2rem] relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundColor: c.hue }} />
+                    <div className="font-mono text-[9px] tracking-[0.4em] uppercase mb-8" style={{ color: c.hue }}>
+                      Liczba rozdziału
+                    </div>
+                    <div className="font-serif font-light text-[#EAE6DF] leading-none mb-8" style={{ fontSize: '6rem' }}>
+                      {c.stat}
+                    </div>
+                    {/* Mini chapter icon */}
+                    <svg viewBox="0 0 100 100" className="w-24 h-24 opacity-50">
+                      {i === 0 && (
+                        <>
+                          <line x1="50" y1="80" x2="50" y2="40" stroke={c.hue} strokeWidth="1" />
+                          <path d="M 50 40 Q 40 30, 30 35 Q 40 25, 50 30 Q 60 25, 70 35 Q 60 30, 50 40" fill={c.hue} fillOpacity="0.5" />
+                          <line x1="50" y1="60" x2="40" y2="50" stroke={c.hue} strokeWidth="0.8" />
+                          <line x1="50" y1="60" x2="60" y2="50" stroke={c.hue} strokeWidth="0.8" />
+                          <line x1="30" y1="80" x2="70" y2="80" stroke={c.hue} strokeOpacity="0.4" strokeDasharray="2 3" />
+                        </>
+                      )}
+                      {i === 1 && (
+                        <>
+                          <rect x="30" y="35" width="40" height="45" fill="none" stroke={c.hue} />
+                          <ellipse cx="50" cy="35" rx="20" ry="6" fill="none" stroke={c.hue} />
+                          <ellipse cx="50" cy="80" rx="20" ry="6" fill={c.hue} fillOpacity="0.2" stroke={c.hue} />
+                          <path d="M 30 35 Q 50 15, 70 35" fill="none" stroke={c.hue} strokeOpacity="0.6" />
+                          <circle cx="50" cy="55" r="2" fill={c.hue}>
+                            <animate attributeName="cy" values="60;40;60" dur="3s" repeatCount="indefinite" />
+                          </circle>
+                        </>
+                      )}
+                      {i === 2 && (
+                        <>
+                          <circle cx="50" cy="50" r="20" fill="none" stroke={c.hue} />
+                          <path d="M 30 50 L 70 50 M 50 30 L 50 70" stroke={c.hue} />
+                          <circle cx="20" cy="20" r="3" fill={c.hue} />
+                          <circle cx="80" cy="20" r="3" fill={c.hue} />
+                          <circle cx="20" cy="80" r="3" fill={c.hue} />
+                          <circle cx="80" cy="80" r="3" fill={c.hue} />
+                          <line x1="20" y1="20" x2="50" y2="50" stroke={c.hue} strokeOpacity="0.4" />
+                          <line x1="80" y1="20" x2="50" y2="50" stroke={c.hue} strokeOpacity="0.4" />
+                          <line x1="20" y1="80" x2="50" y2="50" stroke={c.hue} strokeOpacity="0.4" />
+                          <line x1="80" y1="80" x2="50" y2="50" stroke={c.hue} strokeOpacity="0.4" />
+                        </>
+                      )}
+                      {i === 3 && (
+                        <>
+                          <path d="M 25 75 L 25 50 L 50 30 L 75 50 L 75 75 Z" fill="none" stroke={c.hue} />
+                          <rect x="45" y="60" width="10" height="15" fill={c.hue} fillOpacity="0.4" stroke={c.hue} />
+                          <rect x="32" y="55" width="6" height="8" fill="none" stroke={c.hue} />
+                          <rect x="62" y="55" width="6" height="8" fill="none" stroke={c.hue} />
+                          <circle cx="50" cy="20" r="2" fill={c.hue}>
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
+                          </circle>
+                        </>
+                      )}
+                      {i === 4 && (
+                        <>
+                          <circle cx="50" cy="50" r="30" fill="none" stroke={c.hue} strokeDasharray="2 3" />
+                          <path d="M 50 20 A 30 30 0 0 1 80 50" fill="none" stroke={c.hue} strokeWidth="1.5" />
+                          <polygon points="78,46 84,50 78,54" fill={c.hue} />
+                          <text x="50" y="55" textAnchor="middle" fontSize="14" fill={c.hue} fontFamily="serif" fontStyle="italic">∞</text>
+                        </>
+                      )}
+                    </svg>
+                    <div className="absolute bottom-6 right-6 font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: `${c.hue}80` }}>{c.ref}</div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// 24-hour fermentation cycle clock
+const ReactorClock = () => {
+  const [hour, setHour] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setHour(h => (h + 1) % 24), 2200);
+    return () => clearInterval(id);
+  }, []);
+  const events = {
+    0: { l: 'Cisza nocna', d: 'Reaktor pracuje w trybie podtrzymania. Mieszadła wolne — 4 obr/min. Temperatura stała 38.4 °C.' },
+    6: { l: 'Dozowanie poranne', d: 'Pierwsza porcja kiszonki: 18 t. Sucha masa 32%. pH wlotu 6.8.' },
+    9: { l: 'Pik gazowy', d: 'Maksymalna produkcja CH₄. Sprawność CHP osiąga 44.2%. Tłoczenie do sieci na pełnej mocy.' },
+    12: { l: 'Kontrola operatora', d: 'Wizyta technika. Pobór próbki do laboratorium. Sprawdzenie szczelności gazu.' },
+    15: { l: 'Dozowanie popołudniowe', d: 'Druga porcja substratu: 16 t. Stabilizacja procesu. Sonda lambda potwierdza skład.' },
+    18: { l: 'Sprzedaż peak shaving', d: 'Najwyższe ceny energii w godzinach 18-21. Algorytm SCADA maksymalizuje wyjście.' },
+    21: { l: 'Cool down', d: 'Powolne wytracanie mocy. Mieszadła zwalniają. Sieć przechodzi w noc.' },
+  };
+  const labelEvents = [0, 6, 9, 12, 15, 18, 21];
+  return (
+    <section className="relative py-48 bg-[#050505] overflow-hidden" data-testid="reactor-clock">
+      <div className="absolute inset-0 paper-grain opacity-20" />
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <FadeIn>
+          <div className="text-center mb-24">
+            <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center justify-center gap-4">
+              <Cog className="w-3.5 h-3.5" strokeWidth={1} /> Cykl dobowy biogazowni
+            </div>
+            <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.88] font-light">
+              Dwadzieścia cztery <br/><span className="italic text-[#C6A87C] font-normal">godziny.</span>
+            </h2>
+            <p className="font-serif italic text-2xl text-[#EAE6DF]/50 max-w-2xl mx-auto mt-12 leading-relaxed">
+              Jeden cykl. 7 punktów krytycznych. Algorytm, który pracuje, gdy ty śpisz.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid lg:grid-cols-12 gap-16 items-center">
+          <FadeIn className="lg:col-span-7 flex justify-center">
+            <div className="relative aspect-square w-full max-w-[640px]">
+              <svg viewBox="0 0 600 600" className="w-full h-full">
+                <defs>
+                  <radialGradient id="clockGrad" cx="0.5" cy="0.5" r="0.5">
+                    <stop offset="0.7" stopColor="#020202" stopOpacity="0" />
+                    <stop offset="1" stopColor="#C6A87C" stopOpacity="0.1" />
+                  </radialGradient>
+                </defs>
+                {/* outer halo */}
+                <circle cx="300" cy="300" r="290" fill="url(#clockGrad)" />
+                {/* outer ring */}
+                <circle cx="300" cy="300" r="270" fill="none" stroke="#C6A87C" strokeOpacity="0.25" />
+                <circle cx="300" cy="300" r="250" fill="none" stroke="#C6A87C" strokeOpacity="0.15" strokeDasharray="1 4" />
+                {/* inner ring */}
+                <circle cx="300" cy="300" r="120" fill="none" stroke="#C6A87C" strokeOpacity="0.2" />
+                {/* 24 ticks */}
+                {[...Array(24)].map((_, h) => {
+                  const angle = (h / 24) * Math.PI * 2 - Math.PI / 2;
+                  const x1 = 300 + Math.cos(angle) * 245;
+                  const y1 = 300 + Math.sin(angle) * 245;
+                  const x2 = 300 + Math.cos(angle) * (labelEvents.includes(h) ? 255 : 252);
+                  const y2 = 300 + Math.sin(angle) * (labelEvents.includes(h) ? 255 : 252);
+                  return <line key={h} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#C6A87C" strokeOpacity={labelEvents.includes(h) ? 0.7 : 0.2} strokeWidth={labelEvents.includes(h) ? 1.5 : 0.6} />;
+                })}
+                {/* hour labels */}
+                {[0, 6, 12, 18].map((h) => {
+                  const angle = (h / 24) * Math.PI * 2 - Math.PI / 2;
+                  const x = 300 + Math.cos(angle) * 280;
+                  const y = 300 + Math.sin(angle) * 280;
+                  return (
+                    <text key={h} x={x} y={y + 5} textAnchor="middle" className="font-mono" fontSize="14" fill="#C6A87C" fillOpacity="0.6">
+                      {String(h).padStart(2, '0')}:00
+                    </text>
+                  );
+                })}
+                {/* event arcs (sectors) */}
+                {labelEvents.map((h, i) => {
+                  const isActive = hour >= h && hour < (labelEvents[i + 1] || 24);
+                  const startAngle = (h / 24) * Math.PI * 2 - Math.PI / 2;
+                  const endAngle = ((labelEvents[i + 1] || 24) / 24) * Math.PI * 2 - Math.PI / 2;
+                  const x1 = 300 + Math.cos(startAngle) * 200;
+                  const y1 = 300 + Math.sin(startAngle) * 200;
+                  const x2 = 300 + Math.cos(endAngle) * 200;
+                  const y2 = 300 + Math.sin(endAngle) * 200;
+                  const x3 = 300 + Math.cos(endAngle) * 240;
+                  const y3 = 300 + Math.sin(endAngle) * 240;
+                  const x4 = 300 + Math.cos(startAngle) * 240;
+                  const y4 = 300 + Math.sin(startAngle) * 240;
+                  const largeArc = endAngle - startAngle > Math.PI ? 1 : 0;
+                  return (
+                    <path key={i}
+                      d={`M ${x1} ${y1} A 200 200 0 ${largeArc} 1 ${x2} ${y2} L ${x3} ${y3} A 240 240 0 ${largeArc} 0 ${x4} ${y4} Z`}
+                      fill="#C6A87C" fillOpacity={isActive ? 0.25 : 0.05} stroke="#C6A87C" strokeOpacity="0.2" />
+                  );
+                })}
+                {/* hour hand */}
+                {(() => {
+                  const angle = (hour / 24) * Math.PI * 2 - Math.PI / 2;
+                  const tipX = 300 + Math.cos(angle) * 240;
+                  const tipY = 300 + Math.sin(angle) * 240;
+                  return (
+                    <>
+                      <line x1="300" y1="300" x2={tipX} y2={tipY} stroke="#4ADE80" strokeWidth="2" strokeLinecap="round" />
+                      <circle cx={tipX} cy={tipY} r="6" fill="#4ADE80" />
+                      <circle cx={tipX} cy={tipY} r="14" fill="none" stroke="#4ADE80" strokeOpacity="0.4">
+                        <animate attributeName="r" values="6;20;6" dur="2s" repeatCount="indefinite" />
+                        <animate attributeName="opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite" />
+                      </circle>
+                    </>
+                  );
+                })()}
+                {/* center hub */}
+                <circle cx="300" cy="300" r="40" fill="#020202" stroke="#C6A87C" strokeOpacity="0.4" />
+                <circle cx="300" cy="300" r="4" fill="#C6A87C" />
+                <text x="300" y="280" textAnchor="middle" className="font-mono" fontSize="9" fill="#C6A87C" fillOpacity="0.5">T-NOW</text>
+                <text x="300" y="325" textAnchor="middle" className="font-serif" fontSize="32" fill="#EAE6DF" fontStyle="italic">{String(hour).padStart(2, '0')}:00</text>
+              </svg>
+            </div>
+          </FadeIn>
+
+          <div className="lg:col-span-5 space-y-3">
+            <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.4em] uppercase mb-6 flex items-center gap-4">
+              <span className="w-1.5 h-1.5 bg-[#4ADE80] rounded-full animate-pulse" /> Aktualna faza cyklu
+            </div>
+            {labelEvents.map((h, i) => {
+              const next = labelEvents[i + 1] || 24;
+              const isActive = hour >= h && hour < next;
+              const e = events[h];
+              return (
+                <div key={i} data-testid={`clock-event-${h}`} className={`p-6 rounded-2xl border transition-all duration-700 ${isActive ? 'bg-[#C6A87C]/10 border-[#C6A87C]/40 translate-x-2' : 'border-[#C6A87C]/5 opacity-40'}`}>
+                  <div className="flex items-baseline justify-between mb-2">
+                    <span className={`font-mono text-[10px] tracking-[0.3em] ${isActive ? 'text-[#4ADE80]' : 'text-[#C6A87C]/40'}`}>
+                      {String(h).padStart(2, '0')}:00 — {String(next).padStart(2, '0')}:00
+                    </span>
+                    <span className={`font-serif italic text-2xl ${isActive ? 'text-[#EAE6DF]' : 'text-[#EAE6DF]/40'}`}>{e.l}</span>
+                  </div>
+                  {isActive && (
+                    <p className="font-serif italic text-sm text-[#EAE6DF]/50 leading-relaxed mt-3">{e.d}</p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Microbial taxonomy — bacteria specimen page
+const MicrobialTaxonomy = () => {
+  const microbes = [
+    {
+      genus: 'Methanosarcina',
+      species: 'M. barkeri',
+      role: 'Metanogen acetoklastyczny',
+      desc: 'Archeon o nieregularnym kształcie wielokątnym. Produkuje 70% metanu w reaktorze, rozkładając octan na CH₄ i CO₂. Optimum pH 6.8–7.4.',
+      phylum: 'Euryarchaeota',
+      yield: '0.42',
+      svg: 'sarcina',
+      kingdom: 'Archaea',
+    },
+    {
+      genus: 'Methanobacterium',
+      species: 'M. formicicum',
+      role: 'Metanogen hydrogenotroficzny',
+      desc: 'Pałeczka długości 2–8 µm. Wykorzystuje wodór i CO₂ do produkcji metanu. Niezbędny w fazie wstępnej, gdy dominują wolne kwasy tłuszczowe.',
+      phylum: 'Euryarchaeota',
+      yield: '0.28',
+      svg: 'rod',
+      kingdom: 'Archaea',
+    },
+    {
+      genus: 'Clostridium',
+      species: 'C. thermocellum',
+      role: 'Bakteria hydrolityczna',
+      desc: 'Beztlenowiec rozkładający celulozę. Pierwszy szczebel łańcucha pokarmowego w reaktorze. Pracuje w 60 °C — bardziej agresywnie niż mezofile.',
+      phylum: 'Firmicutes',
+      yield: '—',
+      svg: 'rod',
+      kingdom: 'Bacteria',
+    },
+    {
+      genus: 'Bacteroides',
+      species: 'B. cellulosolvens',
+      role: 'Bakteria fermentacyjna',
+      desc: 'Beztlenowa pałeczka G(-). Przekształca cukry proste w lotne kwasy tłuszczowe (LKT) — paliwo dla metanogenów.',
+      phylum: 'Bacteroidetes',
+      yield: '—',
+      svg: 'curve',
+      kingdom: 'Bacteria',
+    },
+  ];
+  return (
+    <section className="relative py-48 bg-[#030404] overflow-hidden" data-testid="microbial-taxonomy">
+      <div className="absolute inset-0 bg-pinstripes opacity-30" />
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <FadeIn>
+          <div className="grid lg:grid-cols-12 gap-12 items-end mb-24 border-b border-[#C6A87C]/15 pb-12">
+            <div className="lg:col-span-7">
+              <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
+                <Beaker className="w-3.5 h-3.5" strokeWidth={1} /> Taxonomia mikrobiologiczna — żywa kadra reaktora
+              </div>
+              <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
+                Niewidzialni <br/><span className="italic text-[#C6A87C] font-normal">pracownicy.</span>
+              </h2>
+            </div>
+            <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
+              W jednej kropli substratu pracuje 10⁹ komórek. Bakterie i archeony to nasi prawdziwi inżynierowie — wybieramy najefektywniejsze szczepy, dostosowane do polskiej diety reaktora.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#C6A87C]/10 border border-[#C6A87C]/10">
+          {microbes.map((m, i) => (
+            <FadeIn key={i} delay={i * 120} className="bg-[#030404] p-10 relative group">
+              {/* specimen label */}
+              <div className="flex justify-between items-start mb-8">
+                <div>
+                  <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-1">Specimen N° {String(i + 1).padStart(3, '0')}</div>
+                  <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase">{m.kingdom} / {m.phylum}</div>
+                </div>
+                <div className="w-10 h-10 rounded-full border border-[#C6A87C]/30 flex items-center justify-center wax-seal">
+                  <Atom className="w-4 h-4 text-[#C6A87C]/60" strokeWidth={1} />
+                </div>
+              </div>
+
+              {/* illustration */}
+              <div className="aspect-square mb-8 flex items-center justify-center bg-[#020202]/40 rounded-2xl relative overflow-hidden">
+                <svg viewBox="0 0 200 200" className="w-32 h-32">
+                  {m.svg === 'sarcina' && (
+                    <>
+                      {[[80, 80], [120, 80], [80, 120], [120, 120], [100, 100]].map(([x, y], k) => (
+                        <polygon key={k} points={`${x-12},${y} ${x},${y-14} ${x+12},${y} ${x+10},${y+12} ${x-10},${y+12}`} fill="#C6A87C" fillOpacity="0.3" stroke="#C6A87C" strokeOpacity="0.7" />
+                      ))}
+                      <circle cx="100" cy="100" r="60" fill="none" stroke="#C6A87C" strokeOpacity="0.15" strokeDasharray="2 3" />
+                    </>
+                  )}
+                  {m.svg === 'rod' && (
+                    <>
+                      <rect x="50" y="90" width="100" height="20" rx="10" fill="#C6A87C" fillOpacity="0.3" stroke="#C6A87C" strokeOpacity="0.7" />
+                      <rect x="60" y="95" width="20" height="10" rx="5" fill="#4ADE80" fillOpacity="0.6" />
+                      <rect x="120" y="95" width="20" height="10" rx="5" fill="#4ADE80" fillOpacity="0.6" />
+                      <path d="M 30 100 Q 40 90, 50 100" fill="none" stroke="#C6A87C" strokeOpacity="0.4" />
+                      <path d="M 30 100 Q 40 110, 50 100" fill="none" stroke="#C6A87C" strokeOpacity="0.4" />
+                      <path d="M 150 100 Q 160 90, 170 100" fill="none" stroke="#C6A87C" strokeOpacity="0.4" />
+                      <circle cx="100" cy="100" r="80" fill="none" stroke="#C6A87C" strokeOpacity="0.15" strokeDasharray="2 3" />
+                    </>
+                  )}
+                  {m.svg === 'curve' && (
+                    <>
+                      <path d="M 40 100 Q 60 60, 100 100 T 160 100" fill="none" stroke="#C6A87C" strokeOpacity="0.7" strokeWidth="14" strokeLinecap="round" />
+                      <path d="M 40 100 Q 60 60, 100 100 T 160 100" fill="none" stroke="#4ADE80" strokeOpacity="0.5" strokeWidth="6" strokeLinecap="round" />
+                      <circle cx="100" cy="100" r="80" fill="none" stroke="#C6A87C" strokeOpacity="0.15" strokeDasharray="2 3" />
+                    </>
+                  )}
+                </svg>
+                {/* scale bar */}
+                <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2">
+                  <div className="h-px w-8 bg-[#C6A87C]/40" />
+                  <span className="font-mono text-[8px] text-[#C6A87C]/40 tracking-[0.2em]">5 µm</span>
+                </div>
+                <div className="absolute top-3 right-3 reg-mark" style={{width:'14px',height:'14px'}} />
+              </div>
+
+              {/* names */}
+              <div className="mb-6">
+                <h3 className="font-serif italic text-3xl text-[#EAE6DF] font-light leading-tight">{m.genus}</h3>
+                <div className="font-serif italic text-base text-[#C6A87C]/80 mt-1">{m.species}</div>
+              </div>
+              <div className="font-mono text-[9px] text-[#4ADE80] tracking-[0.3em] uppercase mb-4 pb-4 border-b border-[#C6A87C]/15">{m.role}</div>
+              <p className="font-serif italic text-sm text-[#EAE6DF]/50 leading-relaxed mb-6">{m.desc}</p>
+              {m.yield !== '—' && (
+                <div className="flex items-baseline gap-2">
+                  <span className="font-serif text-3xl text-[#C6A87C] font-light">{m.yield}</span>
+                  <span className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.2em] uppercase">m³ CH₄ / mol C</span>
+                </div>
+              )}
+              <div className="absolute bottom-4 right-4 font-mono text-[7px] text-[#C6A87C]/20 tracking-[0.4em] uppercase rotate-90 origin-bottom-right">— GP COLLECTION</div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Press wall — as featured in
+const PressWall = () => {
+  const press = [
+    { outlet: 'PULS BIZNESU', date: '03.2026', headline: 'Green Plant zamyka rundę 40 mln zł na rozbudowę portfela biogazowni', cat: 'Inwestycje' },
+    { outlet: 'FORBES POLSKA', date: '01.2026', headline: '„Bioenergia będzie polskim odpowiednikiem niemieckiego Mittelstandu" — rozmowa z prezesem GP', cat: 'Wywiad' },
+    { outlet: 'RZECZPOSPOLITA', date: '11.2025', headline: 'Aukcje OZE: Green Plant z największym zwycięstwem w segmencie biogazu rolniczego', cat: 'Energetyka' },
+    { outlet: 'FORUM ENERGII', date: '09.2025', headline: 'Raport branżowy: poferment jako brakujące ogniwo polskiego rolnictwa regeneratywnego', cat: 'Raport' },
+    { outlet: 'AGRO PROFIL', date: '06.2025', headline: 'Z odpadów na pole — wizyta studyjna w biogazowni Stargard', cat: 'Reportaż' },
+    { outlet: 'RYNEK ELEKTRYCZNY', date: '04.2025', headline: 'Smart Grid + biogaz: studium peak shaving w warunkach polskich', cat: 'Analiza' },
+  ];
+  return (
+    <section className="relative py-40 bg-[#020202] overflow-hidden" data-testid="press-wall">
+      <div className="absolute inset-0 technical-grid opacity-5" />
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <FadeIn>
+          <div className="grid lg:grid-cols-12 gap-12 items-end mb-20 border-b border-[#C6A87C]/15 pb-10">
+            <div className="lg:col-span-8">
+              <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-6 flex items-center gap-4">
+                <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Media — wybrane publikacje
+              </div>
+              <h2 className="text-5xl md:text-[7rem] font-serif text-[#EAE6DF] leading-[0.9] font-light">
+                Cytowani <br/><span className="italic text-[#C6A87C] font-normal">w prasie.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-4 text-right">
+              <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-2">— Wybrane publikacje</div>
+              <div className="font-serif italic text-2xl text-[#EAE6DF]/60">42 publikacje od 2008</div>
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* logo / wordmark wall */}
+        <FadeIn>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-[#C6A87C]/10 border border-[#C6A87C]/10 mb-20">
+            {press.map((p, i) => (
+              <div key={i} className="bg-[#020202] py-12 flex items-center justify-center group cursor-pointer hover:bg-[#050606] transition-all duration-700 interactive-element">
+                <span className="font-serif italic text-2xl md:text-3xl text-[#EAE6DF]/40 group-hover:text-[#C6A87C] transition-colors duration-700 tracking-tight">
+                  {p.outlet.split(' ').map((w, j) => (
+                    <React.Fragment key={j}>
+                      {j === 0 ? w : <em className="not-italic font-light"> {w}</em>}
+                    </React.Fragment>
+                  ))}
+                </span>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+
+        {/* headline list */}
+        <div className="space-y-px bg-[#C6A87C]/10">
+          {press.map((p, i) => (
+            <FadeIn key={i} delay={i * 60}>
+              <div className="bg-[#020202] py-10 grid md:grid-cols-12 gap-8 items-baseline group hover:bg-[#050606] transition-all duration-500 interactive-element px-8 -mx-8">
+                <div className="md:col-span-2 font-mono text-[10px] text-[#C6A87C] tracking-[0.3em] uppercase">{p.date}</div>
+                <div className="md:col-span-2 font-serif italic text-[#C6A87C]/70 text-lg">{p.outlet}</div>
+                <div className="md:col-span-7 font-serif text-2xl md:text-3xl text-[#EAE6DF] leading-tight font-light group-hover:text-[#C6A87C] transition-colors duration-500">
+                  „{p.headline}"
+                </div>
+                <div className="md:col-span-1 text-right font-mono text-[8px] text-[#EAE6DF]/40 tracking-[0.3em] uppercase">{p.cat}</div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// 14-month Gantt construction timeline
+const GanttBuild = () => {
+  const months = ['M01', 'M02', 'M03', 'M04', 'M05', 'M06', 'M07', 'M08', 'M09', 'M10', 'M11', 'M12', 'M13', 'M14'];
+  const phases = [
+    { name: 'Analiza BMP + studium wykonalności', start: 0, end: 2, color: '#C6A87C', cat: 'PRE' },
+    { name: 'Pozwolenia + KIP + decyzja środowiskowa', start: 1, end: 4, color: '#C6A87C', cat: 'ADM' },
+    { name: 'Projekt budowlany + PNB', start: 3, end: 6, color: '#C6A87C', cat: 'ENG' },
+    { name: 'Roboty ziemne + fundamenty', start: 5, end: 7, color: '#D97847', cat: 'CIV' },
+    { name: 'Wylewki żelbetowe komór', start: 6, end: 9, color: '#D97847', cat: 'CIV' },
+    { name: 'Instalacja membran EPDM + zbiorników', start: 8, end: 10, color: '#D97847', cat: 'MECH' },
+    { name: 'Montaż CHP + układów pomp', start: 9, end: 11, color: '#D97847', cat: 'MECH' },
+    { name: 'Instalacja SCADA + sieć energetyczna', start: 10, end: 12, color: '#4ADE80', cat: 'I&C' },
+    { name: 'Inokulacja + napełnianie startowe', start: 11, end: 12, color: '#4ADE80', cat: 'BIO' },
+    { name: 'Rozruch technologiczny + odbiory UDT', start: 12, end: 13, color: '#4ADE80', cat: 'CMS' },
+    { name: 'Komercyjna eksploatacja (COD)', start: 13, end: 14, color: '#4ADE80', cat: 'COD' },
+  ];
+  return (
+    <section className="relative py-48 bg-[#030404] overflow-hidden" data-testid="gantt-build">
+      <div className="absolute inset-0 bg-blueprint opacity-10" />
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <FadeIn>
+          <div className="grid lg:grid-cols-12 gap-12 items-end mb-20 border-b border-[#C6A87C]/15 pb-10">
+            <div className="lg:col-span-7">
+              <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-6 flex items-center gap-4">
+                <GitBranch className="w-3.5 h-3.5" strokeWidth={1} /> Harmonogram — 14 miesięcy
+              </div>
+              <h2 className="text-5xl md:text-[7.5rem] font-serif text-[#EAE6DF] leading-[0.9] font-light">
+                Od podpisu <br/>do pierwszego <br/><span className="italic text-[#C6A87C] font-normal">m³ metanu.</span>
+              </h2>
+            </div>
+            <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
+              Standardowy projekt biogazowni 1 MW. 11 faz, 14 miesięcy, 3 kategorie wykonawcze. Bez poślizgów — gwarantowane karami kontraktowymi.
+            </p>
+          </div>
+        </FadeIn>
+
+        <FadeIn>
+          <div className="glass-morphism rounded-[2rem] p-10 overflow-hidden">
+            {/* header */}
+            <div className="grid mb-8 pb-4 border-b border-[#C6A87C]/15" style={{ gridTemplateColumns: '4fr repeat(14, 1fr)', gap: '2px' }}>
+              <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">Faza / Cat.</div>
+              {months.map((m, i) => (
+                <div key={i} className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.2em] uppercase text-center">{m}</div>
+              ))}
+            </div>
+            {/* rows */}
+            <div className="space-y-1">
+              {phases.map((p, i) => (
+                <FadeIn key={i} delay={i * 60}>
+                  <div className="grid items-center py-2 group" style={{ gridTemplateColumns: '4fr repeat(14, 1fr)', gap: '2px' }}>
+                    <div className="pr-6 flex items-center gap-4">
+                      <span className="font-mono text-[8px] tracking-[0.3em] uppercase px-2 py-1 rounded" style={{ color: p.color, backgroundColor: `${p.color}15` }}>{p.cat}</span>
+                      <span className="font-serif italic text-base text-[#EAE6DF]/80 group-hover:text-[#EAE6DF] transition-colors">{p.name}</span>
+                    </div>
+                    {months.map((_, m) => {
+                      const isInRange = m >= p.start && m < p.end;
+                      const isStart = m === p.start;
+                      const isEnd = m === p.end - 1;
+                      return (
+                        <div key={m} className="relative h-6 flex items-center">
+                          {isInRange && (
+                            <div className="absolute inset-y-1 left-0 right-0 transition-all duration-700"
+                              style={{
+                                backgroundColor: p.color,
+                                opacity: 0.7,
+                                borderTopLeftRadius: isStart ? 4 : 0,
+                                borderBottomLeftRadius: isStart ? 4 : 0,
+                                borderTopRightRadius: isEnd ? 4 : 0,
+                                borderBottomRightRadius: isEnd ? 4 : 0,
+                                boxShadow: `0 0 8px ${p.color}40`,
+                              }}
+                            />
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+            {/* milestones */}
+            <div className="grid mt-10 pt-8 border-t border-[#C6A87C]/15" style={{ gridTemplateColumns: '4fr repeat(14, 1fr)', gap: '2px' }}>
+              <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.3em] uppercase flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-[#4ADE80] rounded-full" /> Kamienie milowe
+              </div>
+              {months.map((_, m) => {
+                const ms = { 1: 'KIP', 3: 'PNB', 6: 'GW', 11: 'M&E', 13: 'COD' }[m];
+                return (
+                  <div key={m} className="text-center">
+                    {ms && (
+                      <div className="font-mono text-[8px] text-[#4ADE80] tracking-[0.1em] flex items-center justify-center gap-1">
+                        <span className="w-1 h-1 bg-[#4ADE80] rounded-full" /> {ms}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* legend */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
+          {[
+            { c: '#C6A87C', l: 'Faza przygotowawcza', d: 'Analizy, pozwolenia, projekt' },
+            { c: '#D97847', l: 'Wykonawstwo', d: 'Cywilne + mechaniczne' },
+            { c: '#4ADE80', l: 'Rozruch', d: 'I&C, BIO, odbiory' },
+            { c: '#EAE6DF', l: 'Eksploatacja', d: 'COD — pełna moc' },
+          ].map((l, i) => (
+            <div key={i} className="flex items-start gap-4">
+              <div className="w-6 h-6 mt-1 rounded" style={{ backgroundColor: l.c, opacity: 0.7, boxShadow: `0 0 12px ${l.c}40` }} />
+              <div>
+                <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#EAE6DF]/70 mb-1">{l.l}</div>
+                <div className="font-serif italic text-sm text-[#EAE6DF]/40">{l.d}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Energy comparison — editorial horizontal bars
+const EnergyComparison = () => {
+  const dims = [
+    { key: 'Stabilność dostaw (8000h/rok)', max: 100, sources: [
+      { n: 'Biogaz', v: 95, hi: true },
+      { n: 'Węgiel', v: 90 },
+      { n: 'Wiatr', v: 26 },
+      { n: 'Słońce', v: 12 },
+    ]},
+    { key: 'Emisja CO₂ ekw. (g/kWh)', max: 1100, inverted: true, sources: [
+      { n: 'Biogaz', v: -25, hi: true },
+      { n: 'Węgiel', v: 1040 },
+      { n: 'Wiatr', v: 11 },
+      { n: 'Słońce', v: 45 },
+    ]},
+    { key: 'Powierzchnia (m²/MWh)', max: 60, inverted: true, sources: [
+      { n: 'Biogaz', v: 8, hi: true },
+      { n: 'Węgiel', v: 4 },
+      { n: 'Wiatr', v: 55 },
+      { n: 'Słońce', v: 18 },
+    ]},
+    { key: 'CAPEX (M€/MW)', max: 8, inverted: true, sources: [
+      { n: 'Biogaz', v: 3.5, hi: true },
+      { n: 'Węgiel', v: 2.2 },
+      { n: 'Wiatr', v: 1.6 },
+      { n: 'Słońce', v: 0.9 },
+    ]},
+  ];
+  return (
+    <section className="relative py-48 bg-[#050505] overflow-hidden" data-testid="energy-comparison">
+      <div className="absolute inset-0 paper-grain opacity-15" />
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <FadeIn>
+          <div className="grid lg:grid-cols-12 gap-12 items-end mb-24 border-b border-[#C6A87C]/15 pb-12">
+            <div className="lg:col-span-8">
+              <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
+                <Gauge className="w-3.5 h-3.5" strokeWidth={1} /> Analiza porównawcza źródeł energii
+              </div>
+              <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.88] font-light">
+                Cztery źródła, <br/><span className="italic text-[#C6A87C] font-normal">jedno równanie.</span>
+              </h2>
+            </div>
+            <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
+              Biogaz nie jest najtańszy. Nie jest najmniej powierzchniochłonny. Jest jedyny, który łączy stabilność z ujemnym śladem węglowym.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="space-y-20">
+          {dims.map((d, i) => {
+            const maxVal = Math.max(...d.sources.map(s => Math.abs(s.v)));
+            return (
+              <FadeIn key={i} delay={i * 80}>
+                <div className="grid lg:grid-cols-12 gap-12 items-center">
+                  <div className="lg:col-span-3">
+                    <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-3">Wymiar {String(i + 1).padStart(2, '0')}</div>
+                    <h3 className="font-serif text-3xl text-[#EAE6DF] font-light leading-tight">{d.key}</h3>
+                    {d.inverted && <div className="font-mono text-[8px] text-[#D97847] tracking-[0.3em] uppercase mt-3">↓ mniej = lepiej</div>}
+                  </div>
+                  <div className="lg:col-span-9 space-y-3">
+                    {d.sources.map((s, j) => {
+                      const isNeg = s.v < 0;
+                      const w = (Math.abs(s.v) / maxVal) * 100;
+                      const color = s.hi ? '#C6A87C' : isNeg ? '#4ADE80' : (j === 1 ? '#D97847' : '#EAE6DF');
+                      return (
+                        <div key={j} className="flex items-center gap-6 group">
+                          <div className="w-24 font-mono text-[10px] text-[#EAE6DF]/60 tracking-[0.2em] uppercase">{s.n}</div>
+                          <div className="flex-1 h-12 relative bg-[#C6A87C]/[0.04] overflow-hidden">
+                            <div
+                              className="absolute inset-y-0 left-0 transition-all duration-1500 ease-out"
+                              style={{ width: `${w}%`, backgroundColor: color, opacity: s.hi ? 0.9 : 0.4, boxShadow: s.hi ? `0 0 30px ${color}40` : 'none' }}
+                            />
+                            {s.hi && (
+                              <div className="absolute inset-0 flex items-center pl-4">
+                                <span className="font-mono text-[8px] tracking-[0.3em] uppercase text-[#050505] font-bold">GREEN PLANT</span>
+                              </div>
+                            )}
+                            {isNeg && (
+                              <div className="absolute inset-0 flex items-center pl-4">
+                                <span className="font-mono text-[8px] tracking-[0.3em] uppercase text-[#050505] font-bold">UJEMNA</span>
+                              </div>
+                            )}
+                          </div>
+                          <div className="w-32 text-right">
+                            <span className="font-serif text-3xl font-light" style={{ color }}>{s.v > 0 ? s.v : s.v}</span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </FadeIn>
+            );
+          })}
+        </div>
+
+        <FadeIn delay={400}>
+          <div className="mt-32 pt-12 border-t border-[#C6A87C]/15 grid md:grid-cols-3 gap-12">
+            <div>
+              <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-3">Źródło danych</div>
+              <p className="font-serif italic text-sm text-[#EAE6DF]/50 leading-relaxed">
+                Forum Energii 2025, IEA World Energy Outlook 2024, własne pomiary z 17 instalacji GP. Wartości uśrednione dla projektu 1 MW.
+              </p>
+            </div>
+            <div>
+              <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-3">Dlaczego ujemny CO₂</div>
+              <p className="font-serif italic text-sm text-[#EAE6DF]/50 leading-relaxed">
+                Biogazownia nie tylko nie emituje — utylizuje metan, który i tak wydostałby się z gnojowicy do atmosfery. Stąd −25 g/kWh.
+              </p>
+            </div>
+            <div>
+              <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-3">Czego nie pokazuje wykres</div>
+              <p className="font-serif italic text-sm text-[#EAE6DF]/50 leading-relaxed">
+                Przychodu z pofermentu, kosztu utylizacji gnojowicy, niezależności energetycznej, wpływu na lokalne rolnictwo. To zmieniłoby równanie.
+              </p>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+};
+
+// Glossary lexicon — encyclopedia-style technical terms
+const GlossaryLexicon = () => {
+  const terms = [
+    { letter: 'A', name: 'ATEX', latin: 'Directive 2014/34/EU', def: 'Europejska dyrektywa regulująca urządzenia w strefach zagrożonych wybuchem. Wszystkie elementy reaktora pracujące z metanem klasyfikowane są jako EX zone 1 lub 2.', ref: 'STD' },
+    { letter: 'B', name: 'BMP', latin: 'Biochemical Methane Potential', def: 'Test laboratoryjny mierzący maksymalny uzysk metanu z danej biomasy. Trwa 30–60 dni. Podstawa do każdej decyzji projektowej.', ref: 'TEST' },
+    { letter: 'C', name: 'CHP', latin: 'Combined Heat and Power', def: 'Skojarzona produkcja energii elektrycznej i cieplnej. Sprawność całkowita do 90% — w przeciwieństwie do 35% przy samym prądzie.', ref: 'TECH' },
+    { letter: 'D', name: 'Dyspozycyjność', latin: 'Availability factor', def: 'Procent czasu, w którym instalacja jest gotowa do pracy. GP gwarantuje 98% — ok. 8 600 godzin rocznie.', ref: 'METRIC' },
+    { letter: 'E', name: 'EPC', latin: 'Engineering, Procurement, Construction', def: 'Model kontraktowy "pod klucz". Wykonawca odpowiada za projekt, dostawy i budowę, dostarczając gotową instalację z gwarancją uzysku.', ref: 'LEGAL' },
+    { letter: 'F', name: 'Fermentacja mezofilowa', latin: 'Mesophilic digestion', def: 'Proces fermentacji w temperaturze 35–40 °C. Najczęściej stosowany — kompromis między tempem rozkładu a stabilnością mikrobiomu.', ref: 'PROC' },
+    { letter: 'H', name: 'H₂S', latin: 'Siarkowodór', def: 'Toksyczny gaz tworzący się w reaktorze przy nadmiarze siarki. Limit: <50 ppm w biogazie wsadowym do silnika. Usuwany biologicznie (sonda tlenowa) lub chemicznie.', ref: 'CHEM' },
+    { letter: 'K', name: 'KIP', latin: 'Karta Informacyjna Przedsięwzięcia', def: 'Pierwszy dokument urzędowy w procesie pozyskiwania pozwolenia środowiskowego. Zawiera lokalizację, technologię, planowane emisje.', ref: 'ADM' },
+    { letter: 'L', name: 'LKT', latin: 'Lotne Kwasy Tłuszczowe (VFA)', def: 'Octan, propionian, maślan. Półprodukty fermentacji. Nadmiar (>3 g/L) sygnalizuje zaburzenie procesu — kwasica reaktora.', ref: 'BIO' },
+    { letter: 'M', name: 'Metanogenza', latin: 'Methanogenesis', def: 'Ostatnia faza fermentacji beztlenowej. Archeony przekształcają octan i wodór w metan i dwutlenek węgla. Sercem biznesu jest właśnie ta faza.', ref: 'BIO' },
+    { letter: 'O', name: 'OZE', latin: 'Odnawialne Źródła Energii', def: 'Polski system wsparcia obejmujący aukcje i taryfy gwarantowane. Biogaz rolniczy ma własny koszyk — bez konkurencji z wiatrem i słońcem.', ref: 'LEGAL' },
+    { letter: 'P', name: 'Poferment', latin: 'Digestate', def: 'Produkt uboczny fermentacji. Bezzapachowy, bogaty w azot, fosfor, potas. Zastępuje syntetyczne nawozy. 22 ton dziennie z 1 MW.', ref: 'PROD' },
+    { letter: 'S', name: 'SCADA', latin: 'Supervisory Control and Data Acquisition', def: 'System nadzoru, kontroli i akwizycji danych. Tysiące zmiennych na sekundę. Algorytm sterujący każdym zaworem, każdą pompą.', ref: 'I&C' },
+    { letter: 'U', name: 'UDT', latin: 'Urząd Dozoru Technicznego', def: 'Polski organ regulacyjny nadzorujący zbiorniki ciśnieniowe, rurociągi i urządzenia poddozorowe. Każda biogazownia podlega corocznym kontrolom.', ref: 'ADM' },
+  ];
+  return (
+    <section className="relative py-48 bg-[#020202] overflow-hidden" data-testid="glossary-lexicon">
+      <div className="absolute inset-0 bg-pinstripes opacity-30" />
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <FadeIn>
+          <div className="grid lg:grid-cols-12 gap-12 items-end mb-24 border-b border-[#C6A87C]/15 pb-12">
+            <div className="lg:col-span-8">
+              <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
+                <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Leksykon biogazowni — A do U
+              </div>
+              <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.88] font-light">
+                Słownik <br/><span className="italic text-[#C6A87C] font-normal">branżowy.</span>
+              </h2>
+            </div>
+            <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
+              Każda branża ma swój język. Tutaj 14 terminów, które oddzielają inżyniera od dyletanta. Czyta się jak Encyklopedię Britannica.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-px">
+          {terms.map((t, i) => (
+            <FadeIn key={i} delay={i * 30} className="group py-8 border-b border-[#C6A87C]/10 flex gap-8 items-baseline hover:border-[#C6A87C]/30 transition-colors duration-700">
+              <div className="font-serif italic text-7xl text-[#C6A87C]/30 group-hover:text-[#C6A87C]/70 transition-colors duration-700 leading-none w-20 shrink-0">
+                {t.letter}
+              </div>
+              <div className="flex-1">
+                <div className="flex items-baseline gap-4 mb-2">
+                  <h3 className="font-serif text-3xl text-[#EAE6DF] font-light">{t.name}</h3>
+                  <span className="font-serif italic text-base text-[#C6A87C]/60">— {t.latin}</span>
+                </div>
+                <p className="font-serif italic text-base text-[#EAE6DF]/55 leading-relaxed">{t.def}</p>
+                <div className="mt-3 font-mono text-[8px] text-[#C6A87C]/40 tracking-[0.4em] uppercase">CAT: {t.ref} / N° {String(i + 1).padStart(3, '0')}</div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Material samples — architect's mood board
+const MaterialSamples = () => {
+  const materials = [
+    {
+      name: 'Beton C35/45',
+      cat: 'Konstrukcja nośna',
+      spec: 'Klasa ekspozycji XA3 / XF2 / W10',
+      desc: 'Beton hydrotechniczny o szczelności gazowej P10. 28-dniowa wytrzymałość na ściskanie 45 MPa. Zbrojony stalą rebariową BSt 500 S.',
+      thick: '40 cm',
+      origin: 'PL · Górażdże',
+      visual: 'concrete',
+    },
+    {
+      name: 'Stal 1.4571',
+      cat: 'Komponenty kontaktowe',
+      spec: 'AISI 316Ti / X6CrNiMoTi17-12-2',
+      desc: 'Austenityczna stal kwasoodporna z dodatkiem tytanu. Odporność na H₂S, NH₃ i lotne kwasy tłuszczowe. Spawana metodą TIG w atmosferze argonu.',
+      thick: '4 mm',
+      origin: 'DE · Outokumpu',
+      visual: 'steel',
+    },
+    {
+      name: 'EPDM Vario-D',
+      cat: 'Membrana gazoszczelna',
+      spec: 'Etylen-Propylen-Dien M-class',
+      desc: 'Dwuwarstwowa membrana podwójna. Górna magazynuje biogaz, dolna chroni przed wnikaniem tlenu. Żywotność 25 lat w warunkach polskich.',
+      thick: '1.5 mm',
+      origin: 'DE · Sattler',
+      visual: 'membrane',
+    },
+    {
+      name: 'Miedź Cu-DHP',
+      cat: 'Wymienniki ciepła',
+      spec: 'Cu-DHP (CW024A) / 99.90% Cu',
+      desc: 'Miedź beztlenowa wysokoprzewodząca. Przewodność cieplna 380 W/m·K. Wymienniki płytowe Alfa Laval do odzysku ciepła ze spalin CHP.',
+      thick: '2 mm',
+      origin: 'SE · Alfa Laval',
+      visual: 'copper',
+    },
+  ];
+  return (
+    <section className="relative py-48 bg-[#030404] overflow-hidden" data-testid="material-samples">
+      <div className="absolute inset-0 technical-grid opacity-5" />
+      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+        <FadeIn>
+          <div className="grid lg:grid-cols-12 gap-12 items-end mb-20 border-b border-[#C6A87C]/15 pb-10">
+            <div className="lg:col-span-7">
+              <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
+                <Wrench className="w-3.5 h-3.5" strokeWidth={1} /> Próbnik materiałów — moodboard architekta
+              </div>
+              <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.85] font-light">
+                Z czego <br/><span className="italic text-[#C6A87C] font-normal">to się składa.</span>
+              </h2>
+            </div>
+            <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
+              Beton z Górażdży. Stal z Tornio. Membrana z Augsburga. Miedź z Linköping. Cztery materiały, które razem ważą 320 ton i przetrwają 25 polskich zim.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#C6A87C]/10 border border-[#C6A87C]/10">
+          {materials.map((m, i) => (
+            <FadeIn key={i} delay={i * 100} className="bg-[#030404] group">
+              {/* Material swatch */}
+              <div className="aspect-square relative overflow-hidden">
+                {m.visual === 'concrete' && (
+                  <div className="absolute inset-0" style={{
+                    background: `
+                      radial-gradient(circle at 30% 20%, rgba(155,150,140,0.4), transparent 8%),
+                      radial-gradient(circle at 70% 60%, rgba(140,135,125,0.5), transparent 6%),
+                      radial-gradient(circle at 50% 80%, rgba(170,165,155,0.3), transparent 7%),
+                      radial-gradient(circle at 20% 70%, rgba(125,120,110,0.4), transparent 5%),
+                      linear-gradient(135deg, #6b665e 0%, #8a8479 50%, #5e5950 100%)
+                    `,
+                    filter: 'contrast(0.85)',
+                  }} />
+                )}
+                {m.visual === 'steel' && (
+                  <>
+                    <div className="absolute inset-0" style={{
+                      background: `linear-gradient(135deg, #2a2d30 0%, #5a6066 50%, #2a2d30 100%)`,
+                    }} />
+                    <div className="absolute inset-0" style={{
+                      backgroundImage: 'repeating-linear-gradient(45deg, transparent 0, transparent 3px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.04) 4px)',
+                    }} />
+                  </>
+                )}
+                {m.visual === 'membrane' && (
+                  <>
+                    <div className="absolute inset-0" style={{
+                      background: `radial-gradient(circle at 50% 50%, #1f2620 0%, #0d1410 100%)`,
+                    }} />
+                    <div className="absolute inset-0" style={{
+                      backgroundImage: 'radial-gradient(circle at 30% 30%, rgba(74,222,128,0.08), transparent 40%), radial-gradient(circle at 70% 70%, rgba(198,168,124,0.06), transparent 40%)',
+                    }} />
+                  </>
+                )}
+                {m.visual === 'copper' && (
+                  <>
+                    <div className="absolute inset-0" style={{
+                      background: `linear-gradient(135deg, #8a4a2a 0%, #c47245 30%, #b5613a 60%, #8a4a2a 100%)`,
+                    }} />
+                    <div className="absolute inset-0" style={{
+                      backgroundImage: 'repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 3px)',
+                    }} />
+                  </>
+                )}
+                {/* Overlay grain */}
+                <div className="absolute inset-0 paper-grain opacity-30 mix-blend-overlay" />
+                {/* Reg marks */}
+                <div className="absolute top-3 left-3 reg-mark" style={{ width: '14px', height: '14px' }} />
+                <div className="absolute top-3 right-3 reg-mark" style={{ width: '14px', height: '14px' }} />
+                <div className="absolute bottom-3 left-3 reg-mark" style={{ width: '14px', height: '14px' }} />
+                <div className="absolute bottom-3 right-3 reg-mark" style={{ width: '14px', height: '14px' }} />
+                {/* Sample number */}
+                <div className="absolute top-6 left-6">
+                  <div className="font-mono text-[8px] text-[#EAE6DF]/70 tracking-[0.3em] uppercase backdrop-blur-sm bg-black/30 px-2 py-1 rounded">
+                    SAMPLE N° {String(i + 1).padStart(3, '0')}
+                  </div>
+                </div>
+                {/* Thickness label */}
+                <div className="absolute bottom-6 left-6">
+                  <div className="font-mono text-[9px] text-[#EAE6DF] tracking-[0.3em] uppercase backdrop-blur-sm bg-black/40 px-3 py-1.5 rounded">
+                    {m.thick}
+                  </div>
+                </div>
+              </div>
+
+              {/* Spec sheet */}
+              <div className="p-8">
+                <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-3">{m.cat}</div>
+                <h3 className="font-serif text-3xl text-[#EAE6DF] font-light mb-2">{m.name}</h3>
+                <div className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.2em] uppercase mb-6 pb-4 border-b border-[#C6A87C]/15">{m.spec}</div>
+                <p className="font-serif italic text-sm text-[#EAE6DF]/50 leading-relaxed mb-6">{m.desc}</p>
+                <div className="flex justify-between items-center pt-4 border-t border-[#C6A87C]/10">
+                  <span className="font-mono text-[8px] text-[#C6A87C]/50 tracking-[0.3em] uppercase">{m.origin}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#C6A87C]/40 group-hover:text-[#C6A87C] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500" strokeWidth={1} />
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default function App() {
   return (
     <>
@@ -2547,12 +3528,17 @@ export default function App() {
         <Hero />
         <TickerTape />
         <Approach />
+        <FieldToElectricity />
         <BlueprintProcess />
         <ReactorAnatomy />
+        <MicrobialTaxonomy />
         <ContractModels />
         <FeedstockMatrix />
+        <MaterialSamples />
         <MolecularProcess />
+        <ReactorClock />
         <EconomicsSection />
+        <EnergyComparison />
         <SmartGrid />
         <KineticBreak />
         <EditorialQuote />
@@ -2560,13 +3546,16 @@ export default function App() {
         <EnvironmentalImpact />
         <PolandMap />
         <ProjectsGallery />
+        <PressWall />
         <EditorialBento />
         <TechStack />
         <ScadaSystem />
         <Leadership />
         <OperationsMaintenance />
+        <GanttBuild />
         <SafetyStandards />
         <TechnicalFAQ />
+        <GlossaryLexicon />
         <Manifesto />
         <CTA />
         <Footer />
