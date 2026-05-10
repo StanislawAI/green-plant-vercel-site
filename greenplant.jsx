@@ -1448,9 +1448,9 @@ const EnvironmentalImpact = () => {
           
           <div className="space-y-6">
             {[
-              { label: "Redukcja emisji CO2", val: "14,500", unit: "ton / rocznie" },
+              { label: "Redukcja emisji CO2", val: "7,250", unit: "ton / rocznie" },
               { label: "Ekwiwalent posadzonych drzew", val: "120,000", unit: "sztuk" },
-              { label: "Zasilone gospodarstwa domowe", val: "3,200", unit: "domów" }
+              { label: "Zasilone gospodarstwa domowe", val: "1,600", unit: "domów" }
             ].map((stat, i) => (
               <FadeIn key={i} delay={i * 150} className="border-b-[0.5px] border-[#EAE6DF]/10 pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 group">
                 <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#EAE6DF]/40 group-hover:text-[#C6A87C] transition-colors">{stat.label}</span>
@@ -1473,7 +1473,7 @@ const ProjectsGallery = () => {
   const projects = [
     { title: "Typ A — Rolniczy", spec: "0.5 MW · gnojowica + kiszonka", location: "Wsad: 21 t / dobę", img: "/Users/stan/.gemini/antigravity/brain/906f4f99-9a59-4b7a-b50b-3a2631808779/biogas_plant_cinematic_1778349683317.png" },
     { title: "Typ B — Komunalny", spec: "0.5 MW · odpady miejskie", location: "Wsad: 18 t / dobę", img: "https://images.unsplash.com/photo-1506501139174-099022df5260?q=80&w=2000&auto=format&fit=crop" },
-    { title: "Typ C — Przemysłowy", spec: "2.0 MW · odpady poubojowe", location: "Wsad: 82 t / dobę", img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2000&auto=format&fit=crop" }
+    { title: "Typ C — Przemysłowy", spec: "0.5 MW · odpady poubojowe", location: "Wsad: 21 t / dobę", img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2000&auto=format&fit=crop" }
   ];
 
   return (
@@ -4315,9 +4315,9 @@ const TechnicalSpecSheet = () => {
         ['Hałas (granica działki) max', '45 dB(A) noc'],
         ['Emisja NOx', '< 500 mg/Nm³'],
         ['Emisja CO', '< 650 mg/Nm³'],
-        ['Wykorzystanie odpadów', '15 300 t / rok'],
-        ['Redukcja CO₂', '14 500 t / rok'],
-        ['Produkcja pofermentu', '8 030 t / rok'],
+        ['Wykorzystanie odpadów', '7 650 t / rok'],
+        ['Redukcja CO₂', '7 250 t / rok'],
+        ['Produkcja pofermentu', '4 015 t / rok'],
       ],
     },
   ];
