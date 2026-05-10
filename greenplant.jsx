@@ -507,7 +507,7 @@ const BootSequence = () => {
     { d: 820, txt: '> REACTOR TEMPERATURE ................. 38.4 °C' },
     { d: 1000, txt: '> CHP TIER-1 ENGINE ................... READY' },
     { d: 1180, txt: '> AUTH: GP-2026-X ..................... GRANTED' },
-    { d: 1360, txt: '> SUBSTRAT INJECTION QUEUE ........... 42 t' },
+    { d: 1360, txt: '> SUBSTRAT INJECTION QUEUE ........... 21 t' },
   ];
   return (
     <div className="boot-overlay fixed inset-0 z-[1000] bg-[#020202] flex items-center justify-center" data-testid="boot-overlay">
@@ -561,7 +561,7 @@ const SystemStatus = () => (
       </div>
       <div className="hidden sm:flex items-center gap-4 border-l border-[#C6A87C]/10 pl-6">
         <span className="font-mono text-[7px] text-[#EAE6DF]/30 tracking-[0.2em] uppercase">Synch. Sieci: 50.02 Hz</span>
-        <span className="font-mono text-[7px] text-[#EAE6DF]/30 tracking-[0.2em] uppercase">Obciążenie: 1.18 MW</span>
+        <span className="font-mono text-[7px] text-[#EAE6DF]/30 tracking-[0.2em] uppercase">Obciążenie: 0.48 MW</span>
       </div>
     </div>
     <div className="font-mono text-[7px] text-[#C6A87C]/40 tracking-[0.3em] uppercase hidden md:block">
@@ -731,7 +731,7 @@ const Hero = () => {
             <div className="flex gap-10 md:gap-16 mt-20 pt-10 border-t border-[#C8A97D]/10">
               {[
                 { label: "Sprawność CHP", value: "44.2", suffix: "%" },
-                { label: "Moc Elektryczna", value: "999", suffix: " kW" },
+                { label: "Moc Elektryczna", value: "499", suffix: " kW" },
                 { label: "Wsad Dobowy", value: "42", suffix: " t" }
               ].map((stat, i) => (
                 <div key={i}>
@@ -841,7 +841,7 @@ const HeroSCADAPanel = () => {
 };
 
 const TickerTape = () => {
-  const dataItems = ['Methane Purity: 62.4%', 'Grid Load: 1.25MW', 'Service Interval: 8 000h', 'CO₂ Savings: 4.2t/d', 'Reactor T: 38.4°C', 'pH: 7.62', 'H₂S: <50ppm', 'VFA: 1.8g/L'];
+  const dataItems = ['Methane Purity: 62.4%', 'Grid Load: 0.49MW', 'Service Interval: 8 000h', 'CO₂ Savings: 2.1t/d', 'Reactor T: 38.4°C', 'pH: 7.62', 'H₂S: <50ppm', 'VFA: 1.8g/L'];
   const editorialItems = ['Inżynieria zysku', 'Materia w energię', 'Obieg zamknięty', 'Zero odpadów'];
   const refItems = ['DWG-014/REV.C', 'PROC-ADM-01', 'CYB-SEC-PRO', 'TECH-HYD-V4', 'LOG-BIO-S7', 'DIRECTIVE 2014/34/EU'];
   return (
@@ -1338,9 +1338,9 @@ const SmartGrid = () => {
            
            <div className="grid md:grid-cols-3 gap-12 relative z-10">
              {[
-               { icon: <Zap className="w-8 h-8" />, title: "Smart Grid", desc: "Zautomatyzowana sprzedaż nadwyżek energii w oparciu o algorytmy Peak Shaving i spotowe ceny energii.", val: "1.2 MW" },
-               { icon: <Factory className="w-8 h-8" />, title: "Ciepło Systemowe", desc: "Redukcja kosztów operacyjnych poprzez zasilanie lokalnej infrastruktury darmową energią cieplną.", val: "1.3 MWt" },
-               { icon: <Leaf className="w-8 h-8" />, title: "Cyrkulacja Nawozów", desc: "Zamknięcie obiegu pierwiastków poprzez dystrybucję stabilizowanego, bezzapachowego pofermentu.", val: "22 t/d" }
+               { icon: <Zap className="w-8 h-8" />, title: "Smart Grid", desc: "Zautomatyzowana sprzedaż nadwyżek energii w oparciu o algorytmy Peak Shaving i spotowe ceny energii.", val: "499 kW" },
+               { icon: <Factory className="w-8 h-8" />, title: "Ciepło Systemowe", desc: "Redukcja kosztów operacyjnych poprzez zasilanie lokalnej infrastruktury darmową energią cieplną.", val: "510 kWt" },
+               { icon: <Leaf className="w-8 h-8" />, title: "Cyrkulacja Nawozów", desc: "Zamknięcie obiegu pierwiastków poprzez dystrybucję stabilizowanego, bezzapachowego pofermentu.", val: "11 t/d" }
              ].map((node, i) => (
                 <FadeIn key={i} delay={i * 200} className={`glass-morphism p-12 flex flex-col items-center text-center group hover:border-[#C6A87C]/60 transition-all duration-700 interactive-element rounded-[3rem] ${i === 1 ? 'md:-translate-y-20' : 'md:translate-y-20'}`}>
                   <div className="w-24 h-24 rounded-full border border-[#C6A87C]/20 flex items-center justify-center mb-10 bg-[#020202] text-[#C6A87C] group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(198,168,124,0.2)] transition-all duration-700">
@@ -1449,7 +1449,7 @@ const EnvironmentalImpact = () => {
           <div className="space-y-6">
             {[
               { label: "Redukcja emisji CO2", val: "14,500", unit: "ton / rocznie" },
-              { label: "Ekwiwalent posadzonych drzew", val: "240,000", unit: "sztuk" },
+              { label: "Ekwiwalent posadzonych drzew", val: "120,000", unit: "sztuk" },
               { label: "Zasilone gospodarstwa domowe", val: "3,200", unit: "domów" }
             ].map((stat, i) => (
               <FadeIn key={i} delay={i * 150} className="border-b-[0.5px] border-[#EAE6DF]/10 pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 group">
@@ -1471,7 +1471,7 @@ const ProjectsGallery = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const projects = [
-    { title: "Typ A — Rolniczy", spec: "1.0 MW · gnojowica + kiszonka", location: "Wsad: 42 t / dobę", img: "/Users/stan/.gemini/antigravity/brain/906f4f99-9a59-4b7a-b50b-3a2631808779/biogas_plant_cinematic_1778349683317.png" },
+    { title: "Typ A — Rolniczy", spec: "0.5 MW · gnojowica + kiszonka", location: "Wsad: 21 t / dobę", img: "/Users/stan/.gemini/antigravity/brain/906f4f99-9a59-4b7a-b50b-3a2631808779/biogas_plant_cinematic_1778349683317.png" },
     { title: "Typ B — Komunalny", spec: "0.5 MW · odpady miejskie", location: "Wsad: 18 t / dobę", img: "https://images.unsplash.com/photo-1506501139174-099022df5260?q=80&w=2000&auto=format&fit=crop" },
     { title: "Typ C — Przemysłowy", spec: "2.0 MW · odpady poubojowe", location: "Wsad: 82 t / dobę", img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2000&auto=format&fit=crop" }
   ];
@@ -2161,10 +2161,10 @@ const ReactorAnatomy = () => {
   const [active, setActive] = useState(0);
   const parts = [
     { id: '01', name: 'Mieszadło zanurzeniowe', desc: 'Stal nierdzewna 1.4571. Trzy łopaty hydrodynamiczne 18.5 kW.', x: 30, y: 35 },
-    { id: '02', name: 'Membrana podwójna EPDM', desc: 'Magazyn biogazu 1200 m³. Odporność termiczna -40 do +80°C.', x: 50, y: 12 },
+    { id: '02', name: 'Membrana podwójna EPDM', desc: 'Magazyn biogazu 600 m³. Odporność termiczna -40 do +80°C.', x: 50, y: 12 },
     { id: '03', name: 'Wężownica grzejna', desc: 'Stabilizacja procesu mezofilowego. 38.4 °C ±0.3.', x: 22, y: 60 },
     { id: '04', name: 'Komora żelbetowa', desc: 'Beton klasy C35/45. Szczelność gazowa P10. Izolacja 20cm wełna mineralna.', x: 50, y: 60 },
-    { id: '05', name: 'Wlot substratu', desc: 'Dozownik z homogenizatorem. 42 t/dobę. Czujnik suchej masy.', x: 8, y: 50 },
+    { id: '05', name: 'Wlot substratu', desc: 'Dozownik z homogenizatorem. 21 t/dobę. Czujnik suchej masy.', x: 8, y: 50 },
     { id: '06', name: 'Wylot pofermentu', desc: 'Separator faz. Suchy nawóz organiczny + ciecz pofermentacyjna.', x: 88, y: 50 },
     { id: '07', name: 'Sonda pomiarowa', desc: 'pH, ORP, temperatura, lotne kwasy tłuszczowe (VFA). Próbkowanie ciągłe.', x: 70, y: 40 },
     { id: '08', name: 'Pochodnia awaryjna', desc: 'Spalanie biogazu w razie nadciśnienia. Norma ATEX zone 1.', x: 78, y: 8 },
@@ -2589,9 +2589,9 @@ const FieldToElectricity = () => {
     {
       no: 'III',
       title: 'Sieć',
-      lead: 'Po 28 dniach metan przepływa przez ssawę silnika Tier-1. 999 kW elektrycznych. Smart Grid Sync.',
-      body: 'Silnik MWM TCG 2016 V12 spala biogaz z dokładnością miliampera. Energia trafia do krajowej sieci, sprzedawana w aukcjach OZE po cenie zakontraktowanej na 15 lat. Każda godzina pracy to 999 zł brutto — niezależnie od pogody, pory roku, geopolityki.',
-      stat: '999 kW',
+      lead: 'Po 28 dniach metan przepływa przez ssawę silnika Tier-1. 499 kW elektrycznych. Smart Grid Sync.',
+      body: 'Silnik Jenbacher J312 spala biogaz z dokładnością miliampera. Energia trafia do krajowej sieci, sprzedawana w aukcjach OZE po cenie zakontraktowanej na 15 lat. Każda godzina pracy to ok. 550 zł brutto — niezależnie od pogody, pory roku, geopolityki.',
+      stat: '499 kW',
       ref: 'CH-03 / GRID',
       hue: '#D97847',
     },
@@ -2607,9 +2607,9 @@ const FieldToElectricity = () => {
     {
       no: 'V',
       title: 'Powrót',
-      lead: 'Poferment wraca na pole. 22 ton dziennie azotu, fosforu, potasu — zamknięcie obiegu.',
+      lead: 'Poferment wraca na pole. 11 ton dziennie azotu, fosforu, potasu — zamknięcie obiegu.',
       body: 'To, co wyszło z gleby jako kukurydza, wraca jako nawóz. Bez nasion chwastów, bez patogenów, bez smrodu. Polski rolnik przestaje kupować mocznik i fosforany — bo wytwarza je sam, w swojej fabryce metanu.',
-      stat: '22 t/d',
+      stat: '11 t/d',
       ref: 'CH-05 / RETURN',
       hue: '#4ADE80',
     },
@@ -3133,7 +3133,7 @@ const GanttBuild = () => {
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Standardowy projekt biogazowni 1 MW. 11 faz, 14 miesięcy, 3 kategorie wykonawcze. Bez poślizgów — gwarantowane karami kontraktowymi.
+              Standardowy projekt biogazowni 0.5 MW. 11 faz, 14 miesięcy, 3 kategorie wykonawcze. Bez poślizgów — gwarantowane karami kontraktowymi.
             </p>
           </div>
         </FadeIn>
@@ -3326,7 +3326,7 @@ const EnergyComparison = () => {
             <div>
               <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-3">Źródło danych</div>
               <p className="font-serif italic text-sm text-[#EAE6DF]/50 leading-relaxed">
-                Forum Energii 2025, IEA World Energy Outlook 2024, dane branżowe sektora biogazu rolniczego w UE. Wartości uśrednione dla projektu 1 MW.
+                Forum Energii 2025, IEA World Energy Outlook 2024, dane branżowe sektora biogazu rolniczego w UE. Wartości uśrednione dla projektu 0.5 MW.
               </p>
             </div>
             <div>
@@ -3362,7 +3362,7 @@ const GlossaryLexicon = () => {
     { letter: 'L', name: 'LKT', latin: 'Lotne Kwasy Tłuszczowe (VFA)', def: 'Octan, propionian, maślan. Półprodukty fermentacji. Nadmiar (>3 g/L) sygnalizuje zaburzenie procesu — kwasica reaktora.', ref: 'BIO' },
     { letter: 'M', name: 'Metanogenza', latin: 'Methanogenesis', def: 'Ostatnia faza fermentacji beztlenowej. Archeony przekształcają octan i wodór w metan i dwutlenek węgla. Sercem biznesu jest właśnie ta faza.', ref: 'BIO' },
     { letter: 'O', name: 'OZE', latin: 'Odnawialne Źródła Energii', def: 'Polski system wsparcia obejmujący aukcje i taryfy gwarantowane. Biogaz rolniczy ma własny koszyk — bez konkurencji z wiatrem i słońcem.', ref: 'LEGAL' },
-    { letter: 'P', name: 'Poferment', latin: 'Digestate', def: 'Produkt uboczny fermentacji. Bezzapachowy, bogaty w azot, fosfor, potas. Zastępuje syntetyczne nawozy. 22 ton dziennie z 1 MW.', ref: 'PROD' },
+    { letter: 'P', name: 'Poferment', latin: 'Digestate', def: 'Produkt uboczny fermentacji. Bezzapachowy, bogaty w azot, fosfor, potas. Zastępuje syntetyczne nawozy. 11 ton dziennie z 0.5 MW.', ref: 'PROD' },
     { letter: 'S', name: 'SCADA', latin: 'Supervisory Control and Data Acquisition', def: 'System nadzoru, kontroli i akwizycji danych. Tysiące zmiennych na sekundę. Algorytm sterujący każdym zaworem, każdą pompą.', ref: 'I&C' },
     { letter: 'U', name: 'UDT', latin: 'Urząd Dozoru Technicznego', def: 'Polski organ regulacyjny nadzorujący zbiorniki ciśnieniowe, rurociągi i urządzenia poddozorowe. Każda biogazownia podlega corocznym kontrolom.', ref: 'ADM' },
   ];
@@ -3752,7 +3752,7 @@ const BlueprintMargin = () => {
             <div className="col-span-6 p-8 border-r border-[#C6A87C]/30">
               <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-3">Tytuł rysunku</div>
               <h2 className="font-serif text-5xl text-[#EAE6DF] font-light leading-tight">
-                Biogazownia rolnicza 1 MW <br/><span className="italic text-[#C6A87C]">— przekrój podłużny.</span>
+                Biogazownia rolnicza 0.5 MW <br/><span className="italic text-[#C6A87C]">— przekrój podłużny.</span>
               </h2>
             </div>
             <div className="col-span-3 grid grid-rows-3">
@@ -3817,7 +3817,7 @@ const BlueprintMargin = () => {
                 {/* CHP building */}
                 <rect x="1020" y="420" width="120" height="80" fill="none" stroke="#C6A87C" strokeOpacity="0.55" />
                 <text x="1080" y="465" textAnchor="middle" fill="#C6A87C" fillOpacity="0.6" fontSize="11" className="font-mono">CHP</text>
-                <text x="1080" y="480" textAnchor="middle" fill="#C6A87C" fillOpacity="0.4" fontSize="8" className="font-mono">999 kW</text>
+                <text x="1080" y="480" textAnchor="middle" fill="#C6A87C" fillOpacity="0.4" fontSize="8" className="font-mono">499 kW</text>
 
                 {/* Gas pipes between */}
                 <line x1="570" y1="200" x2="630" y2="200" stroke="#4ADE80" strokeOpacity="0.6" strokeDasharray="4 3" />
@@ -3878,11 +3878,11 @@ const BlueprintMargin = () => {
         <FadeIn>
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mt-8">
             {[
-              { n: '01', l: 'Silos kiszonki', d: 'Pojemność 1800 t. Geomembrana EPDM.' },
+              { n: '01', l: 'Silos kiszonki', d: 'Pojemność 900 t. Geomembrana EPDM.' },
               { n: '02', l: 'Reaktor I — hydroliza', d: 'Faza wstępna. Mezofile 38 °C.' },
               { n: '03', l: 'Reaktor II — metanogeneza', d: 'Faza właściwa. Czas retencji 28 dni.' },
-              { n: '04', l: 'Maszynownia CHP', d: 'Silnik MWM TCG 2016 V12. 999 kWe.' },
-              { n: '05', l: 'Magazyn biogazu', d: 'Membrana podwójna 1200 m³.' },
+              { n: '04', l: 'Maszynownia CHP', d: 'Silnik Jenbacher J312. 499 kWe.' },
+              { n: '05', l: 'Magazyn biogazu', d: 'Membrana podwójna 600 m³.' },
             ].map((a, i) => (
               <div key={i} className="border border-[#C6A87C]/15 p-5 bg-[#020202]/40">
                 <div className="flex items-center gap-3 mb-3">
@@ -4003,7 +4003,7 @@ const SiteAerial = () => {
     { id: '02', name: 'Reaktor I — hydroliza', area: '450 m²', vol: '2 400 m³', x: 38, y: 30, w: 12, h: 12, shape: 'circle' },
     { id: '03', name: 'Reaktor II — metanogeneza', area: '450 m²', vol: '2 400 m³', x: 52, y: 30, w: 12, h: 12, shape: 'circle' },
     { id: '04', name: 'Zbiornik pofermentu', area: '380 m²', vol: '1 800 m³', x: 66, y: 30, w: 11, h: 11, shape: 'circle' },
-    { id: '05', name: 'Maszynownia CHP', area: '210 m²', vol: '999 kWe', x: 38, y: 55, w: 16, h: 10, shape: 'rect' },
+    { id: '05', name: 'Maszynownia CHP', area: '210 m²', vol: '499 kWe', x: 38, y: 55, w: 16, h: 10, shape: 'rect' },
     { id: '06', name: 'Magazyn biogazu', area: '320 m²', vol: '1 200 m³', x: 56, y: 55, w: 14, h: 10, shape: 'rect' },
     { id: '07', name: 'Sterownia + SCADA', area: '95 m²', vol: '8 stanowisk', x: 74, y: 55, w: 9, h: 8, shape: 'rect' },
     { id: '08', name: 'Pochodnia awaryjna', area: '12 m²', vol: 'ATEX zone 1', x: 80, y: 22, w: 4, h: 4, shape: 'circle' },
@@ -4025,7 +4025,7 @@ const SiteAerial = () => {
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Standardowa biogazownia 1 MW na 1.2 hektarze. 10 obiektów, 320 metrów rurociągów, 3 kilometry kabli sterowniczych. Każdy element ma swoje miejsce — i swój dokument.
+              Standardowa biogazownia 0.5 MW na 1.2 hektarze. 10 obiektów, 320 metrów rurociągów, 3 kilometry kabli sterowniczych. Każdy element ma swoje miejsce — i swój dokument.
             </p>
           </div>
         </FadeIn>
@@ -4292,7 +4292,7 @@ const TechnicalSpecSheet = () => {
         ['pH operacyjne', '7.4 — 7.8'],
         ['Czas retencji hydraulicznej', '28 dni'],
         ['Sucha masa wsadu', '8 — 12% TS'],
-        ['Wsad dobowy', '42 t / dobę'],
+        ['Wsad dobowy', '21 t / dobę'],
         ['Uzysk biogazu', '210 m³ / t TS'],
       ],
     },
@@ -4300,12 +4300,12 @@ const TechnicalSpecSheet = () => {
       cat: 'Parametry energetyczne',
       ref: 'ENG',
       items: [
-        ['Moc elektryczna nominalna', '999 kWe'],
-        ['Moc cieplna', '1.1 MWt'],
+        ['Moc elektryczna nominalna', '499 kWe'],
+        ['Moc cieplna', '510 kWt'],
         ['Sprawność elektryczna CHP', '44.2 %'],
         ['Sprawność termiczna', '46.0 %'],
         ['Sprawność całkowita', '90.2 %'],
-        ['Roczna produkcja energii', '8 100 MWh'],
+        ['Roczna produkcja energii', '4 050 MWh'],
       ],
     },
     {
