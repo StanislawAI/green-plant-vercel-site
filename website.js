@@ -434,64 +434,6 @@ const BlueprintProcess = () => {
   );
 };
 
-const ContractModels = () => {
-  return (
-    <section className="py-40 bg-[#050606] border-t border-[#C6A87C]/10 relative overflow-hidden">
-      <div className="absolute inset-0 bg-blueprint z-0 opacity-30"></div>
-      <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-l from-[#050606] via-transparent to-[#050606] pointer-events-none z-0"></div>
-
-      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
-        <FadeIn>
-          <div className="mb-24 flex flex-col md:flex-row justify-between items-end gap-12 border-b-[0.5px] border-[#C6A87C]/20 pb-8">
-            <div>
-              <h2 className="text-[10px] font-mono tracking-[0.4em] text-[#C6A87C] uppercase mb-4">Współpraca Biznesowa</h2>
-              <p className="text-4xl md:text-5xl font-serif text-[#EAE6DF]">Modele <span className="italic font-light text-[#C6A87C]">Kontraktowe</span></p>
-            </div>
-            <p className="text-[#EAE6DF]/50 text-lg font-serif italic max-w-md leading-relaxed text-right md:text-left">
-              Dostosowujemy ramy prawne i zakres odpowiedzialności do struktury kapitałowej Twojej organizacji.
-            </p>
-          </div>
-        </FadeIn>
-
-        <div className="grid md:grid-cols-2 gap-8 md:gap-16">
-          <FadeIn delay={100} className="group relative border-[0.5px] border-[#C6A87C]/20 bg-[#030404]/80 backdrop-blur-md p-12 md:p-16 hover:border-[#C6A87C] transition-colors duration-700 interactive-element">
-            <div className="absolute top-0 right-0 p-6 font-serif text-[8rem] leading-none text-[#C6A87C]/5 italic font-light group-hover:text-[#C6A87C]/10 transition-colors duration-700 pointer-events-none">EPC</div>
-            <h3 className="font-mono text-2xl text-[#EAE6DF] mb-2 relative z-10">Model EPC</h3>
-            <p className="font-mono text-[9px] tracking-[0.3em] text-[#C6A87C] uppercase mb-8 relative z-10">Engineering, Procurement, Construction</p>
-            <p className="font-serif text-[#EAE6DF]/60 text-xl font-light italic leading-relaxed mb-10 relative z-10 max-w-sm">
-              Klasyczne generalne wykonawstwo "pod klucz". Bierzemy pełną odpowiedzialność za projekt, dostawy materiałów oraz budowę. Inwestor odbiera gotową, działającą instalację z gwarancją uzysku.
-            </p>
-            <ul className="space-y-4 relative z-10">
-              {['Gwarancja stałej ceny kontraktowej', 'Jeden punkt odpowiedzialności', 'Minimalne obciążenie po stronie inwestora'].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-4">
-                  <CheckCircle2 className="w-4 h-4 text-[#C6A87C] mt-1 shrink-0" strokeWidth={1} />
-                  <span className="font-mono text-[10px] tracking-widest uppercase text-[#EAE6DF]/50">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </FadeIn>
-
-          <FadeIn delay={200} className="group relative border-[0.5px] border-[#C6A87C]/20 bg-[#030404]/80 backdrop-blur-md p-12 md:p-16 hover:border-[#C6A87C] transition-colors duration-700 interactive-element md:mt-16">
-            <div className="absolute top-0 right-0 p-6 font-serif text-[8rem] leading-none text-[#C6A87C]/5 italic font-light group-hover:text-[#C6A87C]/10 transition-colors duration-700 pointer-events-none">EPCM</div>
-            <h3 className="font-mono text-2xl text-[#EAE6DF] mb-2 relative z-10">Model EPCM</h3>
-            <p className="font-mono text-[9px] tracking-[0.3em] text-[#C6A87C] uppercase mb-8 relative z-10">Engineering, Procurement, Construction Management</p>
-            <p className="font-serif text-[#EAE6DF]/60 text-xl font-light italic leading-relaxed mb-10 relative z-10 max-w-sm">
-              Pełnimy rolę inżyniera kontraktu i zarządzamy budową. Inwestor podpisuje umowy bezpośrednio z podwykonawcami, zyskując maksymalną transparentność kosztów i oszczędności marży.
-            </p>
-            <ul className="space-y-4 relative z-10">
-              {['Pełna transparentność przetargowa (Open Book)', 'Elastyczność zmian w trakcie budowy', 'Optymalizacja kosztów inwestycyjnych'].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-4">
-                  <CheckCircle2 className="w-4 h-4 text-[#C6A87C] mt-1 shrink-0" strokeWidth={1} />
-                  <span className="font-mono text-[10px] tracking-widest uppercase text-[#EAE6DF]/50">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </FadeIn>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const FeedstockMatrix = () => {
   const [hoveredRow, setHoveredRow] = useState(null);
@@ -1430,7 +1372,7 @@ const Footer = () => {
         
         <div className="border-t-[0.5px] border-[#C6A87C]/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[#EAE6DF]/30 text-[9px] font-mono uppercase tracking-[0.3em]">
-            &copy; 2026 Green Plant Technologies Sp. z o.o.
+            &copy; 2026 Green Plant Technology Sp. z o.o.
           </p>
           <div className="flex gap-10 text-[9px] text-[#EAE6DF]/30 font-mono uppercase tracking-[0.3em]">
             <a href="#" className="hover:text-[#C6A87C] transition-colors interactive-element">Polityka Prywatności</a>
@@ -1453,7 +1395,7 @@ export default function App() {
         <TickerTape />
         <Approach />
         <BlueprintProcess />
-        <ContractModels />
+
         <FeedstockMatrix />
         <EconomicsSection />
         <SmartGrid />

@@ -516,7 +516,7 @@ const BootSequence = () => {
       <div className="relative w-full max-w-3xl px-10">
         <div className="flex items-center gap-4 mb-12">
           <div className="w-2 h-2 bg-[#4ADE80] rounded-full animate-pulse shadow-[0_0_12px_#4ADE80]" />
-          <span className="font-mono text-[10px] text-[#4ADE80] tracking-[0.4em] uppercase">Green Plant // Centrum Nadzoru</span>
+          <span className="font-mono text-[10px] text-[#4ADE80] tracking-[0.4em] uppercase">Green Plant Technology // Centrum Nadzoru</span>
           <div className="flex-1 h-px bg-[#C6A87C]/20" />
           <span className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em]">WER 4.0.26</span>
         </div>
@@ -1090,68 +1090,6 @@ const BlueprintProcess = () => {
   );
 };
 
-const ContractModels = () => {
-  return (
-    <section className="py-40 bg-[#050606] relative overflow-hidden">
-      <div className="absolute inset-0 bg-blueprint z-0 opacity-30"></div>
-      <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-l from-[#050606] via-transparent to-[#050606] pointer-events-none z-0"></div>
-
-      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
-        <FadeIn>
-          <div className="mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-12 border-b-[0.5px] border-[#C6A87C]/20 pb-8">
-            <div>
-              <h2 className="text-[10px] font-mono tracking-[0.4em] text-[#C6A87C] uppercase mb-4">Współpraca Biznesowa</h2>
-              <p className="text-4xl md:text-5xl font-serif text-[#EAE6DF]">Modele <span className="italic font-light text-[#C6A87C]">Kontraktowe</span></p>
-            </div>
-            <p className="text-[#EAE6DF]/50 text-lg font-serif italic max-w-md leading-relaxed text-right md:text-left">
-              Dostosowujemy ramy prawne i zakres odpowiedzialności do struktury kapitałowej Twojej organizacji.
-            </p>
-          </div>
-        </FadeIn>
-
-        <div className="grid md:grid-cols-2 gap-8 md:gap-16">
-          <FadeIn delay={100} className="group relative">
-            <GlowCard className="border-[0.5px] border-[#C8A97D]/20 bg-[#030404]/80 backdrop-blur-md p-12 md:p-16 interactive-element !rounded-none">
-              <div className="absolute top-0 right-0 p-6 font-serif text-[8rem] leading-none text-[#C8A97D]/5 italic font-light group-hover:text-[#C8A97D]/10 transition-colors duration-700 pointer-events-none">EPC</div>
-              <h3 className="font-mono text-2xl text-[#F2EDE4] mb-2 relative z-10">Model EPC</h3>
-              <p className="font-mono text-[9px] tracking-[0.3em] text-[#C8A97D] uppercase mb-8 relative z-10">Projektowanie, Dostawy, Budowa</p>
-              <p className="font-serif text-[#F2EDE4]/60 text-xl font-light italic leading-relaxed mb-10 relative z-10 max-w-sm">
-                Klasyczne generalne wykonawstwo "pod klucz". Bierzemy pełną odpowiedzialność za projekt, dostawy materiałów oraz budowę. Inwestor odbiera gotową, działającą instalację z gwarancją uzysku.
-              </p>
-            <ul className="space-y-4 relative z-10">
-              {['Gwarancja stałej ceny kontraktowej', 'Jeden punkt odpowiedzialności', 'Minimalne obciążenie po stronie inwestora'].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-4">
-                  <CheckCircle2 className="w-4 h-4 text-[#C6A87C] mt-1 shrink-0" strokeWidth={1} />
-                  <span className="font-mono text-[10px] tracking-widest uppercase text-[#EAE6DF]/50">{item}</span>
-                </li>
-              ))}
-            </ul>
-            </GlowCard>
-          </FadeIn>
-
-          <FadeIn delay={200} className="group relative md:mt-16">
-            <GlowCard className="border-[0.5px] border-[#C8A97D]/20 bg-[#030404]/80 backdrop-blur-md p-12 md:p-16 interactive-element !rounded-none">
-              <div className="absolute top-0 right-0 p-6 font-serif text-[8rem] leading-none text-[#C8A97D]/5 italic font-light group-hover:text-[#C8A97D]/10 transition-colors duration-700 pointer-events-none">EPCM</div>
-              <h3 className="font-mono text-2xl text-[#F2EDE4] mb-2 relative z-10">Model EPCM</h3>
-              <p className="font-mono text-[9px] tracking-[0.3em] text-[#C8A97D] uppercase mb-8 relative z-10">Projektowanie, Dostawy, Zarządzanie Budową</p>
-              <p className="font-serif text-[#F2EDE4]/60 text-xl font-light italic leading-relaxed mb-10 relative z-10 max-w-sm">
-                Pełnimy rolę inżyniera kontraktu i zarządzamy budową. Inwestor podpisuje umowy bezpośrednio z podwykonawcami, zyskując maksymalną transparentność kosztów i oszczędności marży.
-              </p>
-            <ul className="space-y-4 relative z-10">
-              {['Pełna transparentność przetargowa (Open Book)', 'Elastyczność zmian w trakcie budowy', 'Optymalizacja kosztów inwestycyjnych'].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-4">
-                  <CheckCircle2 className="w-4 h-4 text-[#C6A87C] mt-1 shrink-0" strokeWidth={1} />
-                  <span className="font-mono text-[10px] tracking-widest uppercase text-[#EAE6DF]/50">{item}</span>
-                </li>
-              ))}
-            </ul>
-            </GlowCard>
-          </FadeIn>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const FeedstockMatrix = () => {
   const [hoveredRow, setHoveredRow] = useState(0);
@@ -2129,7 +2067,7 @@ const Footer = () => {
             <h4 className="text-[#C6A87C] font-mono mb-8 uppercase text-[9px] tracking-[0.4em]">Firma</h4>
             <ul className="space-y-5">
               {[
-                { label: 'Modele', href: '#modele' },
+
                 { label: 'Utrzymanie', href: '#utrzymanie' },
                 { label: 'Zespół', href: '#kariera' },
                 { label: 'Prasa', href: '#prasa' },
@@ -2158,7 +2096,7 @@ const Footer = () => {
 
         <div className="border-t border-[#C6A87C]/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[#EAE6DF]/30 text-[9px] font-mono uppercase tracking-[0.3em]">
-            &copy; 2026 Green Plant Technologies Sp. z o.o. // Wszelkie prawa zastrzeżone
+            &copy; 2026 Green Plant Technology Sp. z o.o. // Wszelkie prawa zastrzeżone
           </p>
           <div className="font-mono text-[9px] text-[#EAE6DF]/30 uppercase tracking-[0.3em]">
             LAT 52.2297 // LON 21.0122
@@ -3320,7 +3258,7 @@ const EnergyComparison = () => {
                             />
                             {s.hi && (
                               <div className="absolute inset-0 flex items-center pl-4">
-                                <span className="font-mono text-[8px] tracking-[0.3em] uppercase text-[#050505] font-bold">GREEN PLANT</span>
+                                <span className="font-mono text-[8px] tracking-[0.3em] uppercase text-[#050505] font-bold">GREEN PLANT TECHNOLOGY</span>
                               </div>
                             )}
                             {isNeg && (
@@ -4601,7 +4539,7 @@ export default function App() {
 
         {/* ACT IV — HOW WE DELIVER */}
         <FeedstockMatrix />
-        <div id="modele"><ContractModels /></div>
+
         <div id="proces"><BlueprintProcess /></div>
         <GanttBuild />
         <SiteAerial />
