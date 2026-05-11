@@ -863,7 +863,7 @@ const EditorialBento = () => {
                 <Database className="text-[#C6A87C] w-6 h-6 mb-10" strokeWidth={1} />
                 <h3 className="text-3xl md:text-4xl font-serif text-[#EAE6DF] mb-6 font-light">Żelbetowe Komory</h3>
                 <p className="text-[#EAE6DF]/50 max-w-md font-serif italic font-light text-xl leading-relaxed">
-                  Serce układu. Monolityczne zbiorniki z potężną warstwą ocieplenia, zapewniające idealną stabilność temperatury dla bakterii metanogennych niezależnie od zimy.
+                  Serce układu. Monolityczne zbiorniki z potężną warstwą ocieplenia, zapewniające optymalną stabilność temperatury dla bakterii metanogennych niezależnie od zimy.
                 </p>
              </div>
           </Card>
