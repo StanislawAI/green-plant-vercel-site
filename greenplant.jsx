@@ -516,7 +516,7 @@ const BootSequence = () => {
       <div className="relative w-full max-w-3xl px-10">
         <div className="flex items-center gap-4 mb-12">
           <div className="w-2 h-2 bg-[#4ADE80] rounded-full animate-pulse shadow-[0_0_12px_#4ADE80]" />
-          <span className="font-mono text-[10px] text-[#4ADE80] tracking-[0.4em] uppercase">Green Plant Technology // Centrum Nadzoru</span>
+          <span className="font-mono text-[10px] text-[#4ADE80] tracking-[0.4em] uppercase">Green Plant Technologies // Centrum Nadzoru</span>
           <div className="flex-1 h-px bg-[#C6A87C]/20" />
           <span className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em]">WER 4.0.26</span>
         </div>
@@ -2037,7 +2037,7 @@ const Footer = () => {
 
         <div className="border-t border-[#C6A87C]/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[#EAE6DF]/30 text-[9px] font-mono uppercase tracking-[0.3em]">
-            &copy; 2026 Green Plant Technology Sp. z o.o. // Wszelkie prawa zastrzeżone
+            &copy; 2026 Green Plant Technologies Sp. z o.o. // Wszelkie prawa zastrzeżone
           </p>
           <div className="font-mono text-[9px] text-[#EAE6DF]/30 uppercase tracking-[0.3em]">
             LAT 52.2297 // LON 21.0122
@@ -3199,7 +3199,7 @@ const EnergyComparison = () => {
                             />
                             {s.hi && (
                               <div className="absolute inset-0 flex items-center pl-4">
-                                <span className="font-mono text-[8px] tracking-[0.3em] uppercase text-[#050505] font-bold">GREEN PLANT TECHNOLOGY</span>
+                                <span className="font-mono text-[8px] tracking-[0.3em] uppercase text-[#050505] font-bold">GREEN PLANT TECHNOLOGIES</span>
                               </div>
                             )}
                             {isNeg && (
