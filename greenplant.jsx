@@ -4485,7 +4485,6 @@ export default function App() {
         <GanttBuild />
         <SiteAerial />
         <TechnicalSpecSheet />
-        <EditorialBento />
 
         {/* ACT V — BUSINESS CASE */}
         <div id="ekonomia"><EconomicsSection /></div>
