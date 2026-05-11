@@ -1410,7 +1410,7 @@ const Footer = () => {
         
         <div className="border-t-[0.5px] border-[#C6A87C]/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[#EAE6DF]/30 text-[9px] font-mono uppercase tracking-[0.3em]">
-            &copy; 2026 Green Plant Technology Sp. z o.o.
+            &copy; 2026 Green Plant Technologies Sp. z o.o.
           </p>
           <div className="flex gap-10 text-[9px] text-[#EAE6DF]/30 font-mono uppercase tracking-[0.3em]">
             <a href="#" className="hover:text-[#C6A87C] transition-colors interactive-element">Polityka Prywatności</a>
