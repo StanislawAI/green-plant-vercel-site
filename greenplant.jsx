@@ -1658,7 +1658,7 @@ const Leadership = () => {
     { 
       role: "Główny Inżynier Projektu", 
       name: "Dział Konstrukcyjny", 
-      exp: "Nadzór nad precyzją montażu izolacji termicznej i wylewek żelbetowych. Gwarancja sterylności środowiska.",
+      exp: "Nadzór nad precyzją montażu izolacji termicznej i wylewek żelbetowych. Pełna sterylność środowiska.",
       img: "https://images.unsplash.com/photo-1541888087425-ce81df8219b7?q=80&w=1000&auto=format&fit=crop",
       id: "AUTORYZACJA_LVL_4",
       clearance: "ŚCIŚLE TAJNE // PRZEMYSŁOWE"
@@ -1755,7 +1755,7 @@ const OperationsMaintenance = () => {
               <span className="italic text-[#C6A87C] font-normal">ruchu.</span>
             </h2>
             <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
-              Przekazanie kluczy to dopiero początek. Nasze centrum operacyjne monitoruje parametry biologiczne i mechaniczne 24/7, gwarantując ciągłość generacji.
+              Przekazanie kluczy to dopiero początek. Nasze centrum operacyjne monitoruje parametry biologiczne i mechaniczne 24/7, zapewniając ciągłość generacji.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
@@ -2039,7 +2039,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-[#EAE6DF]/40 max-w-sm font-serif italic font-light text-lg leading-relaxed mb-10">
-              Generalny wykonawca biogazowni rolniczych i komunalnych. Projektowanie, budowa i serwis gwarancyjny — z kontraktową gwarancją uzysku metanowego.
+              Generalny wykonawca biogazowni rolniczych i komunalnych. Projektowanie, budowa i wsparcie techniczne — z kontraktowym zabezpieczeniem uzysku metanowego.
             </p>
             <div className="flex flex-wrap gap-x-12 gap-y-4 font-mono text-[10px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase">
               <div>ul. Stanisława Wyspiańskiego 8 // 05-400 Otwock</div>
@@ -3090,7 +3090,7 @@ const GanttBuild = () => {
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Standardowy projekt biogazowni 0.5 MW. 11 faz, 14 miesięcy, 3 kategorie wykonawcze. Bez poślizgów — gwarantowane karami kontraktowymi.
+              Standardowy projekt biogazowni 0.5 MW. 11 faz, 14 miesięcy, 3 kategorie wykonawcze. Bez poślizgów — zabezpieczone karami kontraktowymi.
             </p>
           </div>
         </FadeIn>
@@ -3313,14 +3313,14 @@ const GlossaryLexicon = () => {
     { letter: 'A', name: 'ATEX', latin: 'Directive 2014/34/EU', def: 'Europejska dyrektywa regulująca urządzenia w strefach zagrożonych wybuchem. Wszystkie elementy reaktora pracujące z metanem klasyfikowane są jako EX zone 1 lub 2.', ref: 'STD' },
     { letter: 'B', name: 'BMP', latin: 'Biochemical Methane Potential', def: 'Test laboratoryjny mierzący maksymalny uzysk metanu z danej biomasy. Trwa 30–60 dni. Podstawa do każdej decyzji projektowej.', ref: 'TEST' },
     { letter: 'C', name: 'CHP', latin: 'Combined Heat and Power', def: 'Skojarzona produkcja energii elektrycznej i cieplnej. Sprawność całkowita do 90% — w przeciwieństwie do 35% przy samym prądzie.', ref: 'TECH' },
-    { letter: 'D', name: 'Dyspozycyjność', latin: 'Availability factor', def: 'Procent czasu, w którym instalacja jest gotowa do pracy. GP gwarantuje 98% — ok. 8 600 godzin rocznie.', ref: 'METRIC' },
-    { letter: 'E', name: 'EPC', latin: 'Engineering, Procurement, Construction', def: 'Model kontraktowy "pod klucz". Wykonawca odpowiada za projekt, dostawy i budowę, dostarczając gotową instalację z gwarancją uzysku.', ref: 'LEGAL' },
+    { letter: 'D', name: 'Dyspozycyjność', latin: 'Availability factor', def: 'Procent czasu, w którym instalacja jest gotowa do pracy. GP zapewnia 98% — ok. 8 600 godzin rocznie.', ref: 'METRIC' },
+    { letter: 'E', name: 'EPC', latin: 'Engineering, Procurement, Construction', def: 'Model kontraktowy "pod klucz". Wykonawca odpowiada za projekt, dostawy i budowę, dostarczając gotową instalację z celem uzysku.', ref: 'LEGAL' },
     { letter: 'F', name: 'Fermentacja mezofilowa', latin: 'Mesophilic digestion', def: 'Proces fermentacji w temperaturze 35–40 °C. Najczęściej stosowany — kompromis między tempem rozkładu a stabilnością mikrobiomu.', ref: 'PROC' },
     { letter: 'H', name: 'H₂S', latin: 'Siarkowodór', def: 'Toksyczny gaz tworzący się w reaktorze przy nadmiarze siarki. Limit: <50 ppm w biogazie wsadowym do silnika. Usuwany biologicznie (sonda tlenowa) lub chemicznie.', ref: 'CHEM' },
     { letter: 'K', name: 'KIP', latin: 'Karta Informacyjna Przedsięwzięcia', def: 'Pierwszy dokument urzędowy w procesie pozyskiwania pozwolenia środowiskowego. Zawiera lokalizację, technologię, planowane emisje.', ref: 'ADM' },
     { letter: 'L', name: 'LKT', latin: 'Lotne Kwasy Tłuszczowe (VFA)', def: 'Octan, propionian, maślan. Półprodukty fermentacji. Nadmiar (>3 g/L) sygnalizuje zaburzenie procesu — kwasica reaktora.', ref: 'BIO' },
     { letter: 'M', name: 'Metanogenza', latin: 'Methanogenesis', def: 'Ostatnia faza fermentacji beztlenowej. Archeony przekształcają octan i wodór w metan i dwutlenek węgla. Sercem biznesu jest właśnie ta faza.', ref: 'BIO' },
-    { letter: 'O', name: 'OZE', latin: 'Odnawialne Źródła Energii', def: 'Polski system wsparcia obejmujący aukcje i taryfy gwarantowane. Biogaz rolniczy ma własny koszyk — bez konkurencji z wiatrem i słońcem.', ref: 'LEGAL' },
+    { letter: 'O', name: 'OZE', latin: 'Odnawialne Źródła Energii', def: 'Polski system wsparcia obejmujący aukcje i taryfy wsparcia (FIT). Biogaz rolniczy ma własny koszyk — bez konkurencji z wiatrem i słońcem.', ref: 'LEGAL' },
     { letter: 'P', name: 'Poferment', latin: 'Digestate', def: 'Produkt uboczny fermentacji. Bezzapachowy, bogaty w azot, fosfor, potas. Zastępuje syntetyczne nawozy. 11 ton dziennie z 0.5 MW.', ref: 'PROD' },
     { letter: 'S', name: 'SCADA', latin: 'Supervisory Control and Data Acquisition', def: 'System nadzoru, kontroli i akwizycji danych. Tysiące zmiennych na sekundę. Algorytm sterujący każdym zaworem, każdą pompą.', ref: 'I&C' },
     { letter: 'U', name: 'UDT', latin: 'Urząd Dozoru Technicznego', def: 'Polski organ regulacyjny nadzorujący zbiorniki ciśnieniowe, rurociągi i urządzenia poddozorowe. Każda biogazownia podlega corocznym kontrolom.', ref: 'ADM' },
@@ -4481,7 +4481,7 @@ const ProcessInitiation = () => {
           <div className="lg:col-span-4 lg:col-start-9 hidden lg:block">
             <FadeIn delay={300} direction="left">
               <div className="glass-morphism p-12 rounded-[2rem] border border-[#4ADE80]/20 bg-[#050505]/80">
-                <div className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-8 border-b border-[#C6A87C]/10 pb-4">Gwarancja SLA</div>
+                <div className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-8 border-b border-[#C6A87C]/10 pb-4">Standard SLA</div>
                 <div className="space-y-8">
                   <div>
                     <div className="font-serif text-5xl text-[#EAE6DF] mb-2 font-light">&lt; 48<span className="text-2xl text-[#C6A87C] italic">h</span></div>

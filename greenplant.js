@@ -565,7 +565,7 @@ const EconomicsSection = () => {
             
             <div className="space-y-8 border-t-[0.5px] border-[#C6A87C]/20 pt-12">
               {[
-                { title: "Energia Elektryczna", desc: "Sprzedaż do sieci z gwarantowaną ceną (aukcje OZE) lub zasilanie własnego zakładu.", val: "65%" },
+                { title: "Energia Elektryczna", desc: "Sprzedaż do sieci ze stałą ceną (aukcje OZE) lub zasilanie własnego zakładu.", val: "65%" },
                 { title: "Energia Cieplna", desc: "Darmowe ciepło do ogrzewania budynków, suszarni lub sprzedaży do lokalnej sieci ciepłowniczej.", val: "25%" },
                 { title: "Wysokiej Klasy Nawóz", desc: "Poferment to znakomity, bezwonny nawóz zastępujący drogie nawozy sztuczne.", val: "10%" }
               ].map((item, i) => (
@@ -1054,7 +1054,7 @@ const Leadership = () => {
     { 
       role: "Główny Inżynier Projektu", 
       name: "Dział Konstrukcyjny", 
-      exp: "Nadzór nad precyzją montażu izolacji termicznej i wylewek żelbetowych. Gwarancja sterylności środowiska.",
+      exp: "Nadzór nad precyzją montażu izolacji termicznej i wylewek żelbetowych. Pełna sterylność środowiska.",
       img: "https://images.unsplash.com/photo-1541888087425-ce81df8219b7?q=80&w=1000&auto=format&fit=crop",
       id: "ENG-01"
     },
@@ -1182,7 +1182,7 @@ const OperationsMaintenance = () => {
           <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
             {[
               { num: "24/7", title: "Monitoring SCADA", desc: "Zdalny nadzór nad parametrami pracy agregatów i komór przez nasze centrum dyspozytorskie." },
-              { num: "48h", title: "Gwarancja Reakcji", desc: "Mobilne ekipy serwisowe gotowe do usunięcia usterki mechanicznej lub elektronicznej na terenie całego kraju." },
+              { num: "48h", title: "Standard Reakcji", desc: "Mobilne ekipy serwisowe gotowe do usunięcia usterki mechanicznej lub elektronicznej na terenie całego kraju." },
               { num: "Magazyn", title: "Części Zamienne", desc: "Kluczowe podzespoły (pompy, uszczelnienia, części silnikowe) trzymamy w naszym krajowym buforze magazynowym." },
               { num: "Biolog", title: "Opieka Technologiczna", desc: "Cykliczne badanie pofermentu i optymalizacja dawkowania substratu w celu utrzymania stabilności flory bakteryjnej." }
             ].map((feature, i) => (
@@ -1254,8 +1254,8 @@ const TechnicalFAQ = () => {
   const faqs = [
     { q: "Jakie pozyskujemy pozwolenia na budowę?", a: "Prowadzimy inwestora przez cały proces formalny. Uzyskujemy decyzję środowiskową, warunki zabudowy (lub wpis do MPZP), pozwolenie na budowę oraz warunki przyłączeniowe do sieci energetycznej." },
     { q: "Jaki jest czas realizacji inwestycji?", a: "Dla typowej biogazowni rolniczej o mocy 500 kW - 1 MW, proces budowlany i rozruch technologiczny zajmuje zazwyczaj od 8 do 12 miesięcy po uzyskaniu wszystkich prawomocnych pozwoleń." },
-    { q: "Czy pomagacie w doborze substratu?", a: "Tak. Nasi technolodzy badają dostępną biomasę w laboratorium. Tworzymy tzw. 'recepturę wsadu', która determinuje dobór technologii i wielkość komór, gwarantując stałą produkcję metanu." },
-    { q: "Jak wygląda serwis po oddaniu instalacji?", a: "Zapewniamy pełen serwis gwarancyjny i pogwarancyjny, w tym zdalny monitoring SCADA. Posiadamy mobilne ekipy serwisowe, które dbają o przeglądy agregatów CHP i układów pompowych." }
+    { q: "Czy pomagacie w doborze substratu?", a: "Tak. Nasi technolodzy badają dostępną biomasę w laboratorium. Tworzymy tzw. 'recepturę wsadu', która determinuje dobór technologii i wielkość komór, zapewniając stałą produkcję metanu." },
+    { q: "Jak wygląda serwis po oddaniu instalacji?", a: "Zapewniamy pełne wsparcie serwisowe i eksploatacyjne, w tym zdalny monitoring SCADA. Posiadamy mobilne ekipy serwisowe, które dbają o przeglądy agregatów CHP i układów pompowych." }
   ];
 
   return (
@@ -1385,7 +1385,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-[#EAE6DF]/40 max-w-sm font-serif italic font-light text-lg leading-relaxed">
-              Generalny wykonawca biogazowni rolniczych i komunalnych. Projektowanie, budowa i serwis gwarancyjny.
+              Generalny wykonawca biogazowni rolniczych i komunalnych. Projektowanie, budowa i wsparcie techniczne.
             </p>
           </div>
           
