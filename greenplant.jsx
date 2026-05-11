@@ -1204,7 +1204,7 @@ const EconomicsSection = () => {
               <span className="italic text-[#C6A87C] font-normal">rentowności.</span>
             </h2>
             <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
-              Modelujemy zwrot z kapitału w oparciu o realne aukcje OZE i optymalizację zużycia własnego. Biogazownia to fabryka zysku działająca 8000h rocznie.
+              Modelujemy zwrot z kapitału w oparciu o realne aukcje OZE i optymalizację zużycia własnego. Biogazownia to stabilne aktywo energetyczne działające 8000h rocznie.
             </p>
             
             <div className="space-y-10">
@@ -2039,7 +2039,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-[#EAE6DF]/40 max-w-sm font-serif italic font-light text-lg leading-relaxed mb-10">
-              Generalny wykonawca biogazowni rolniczych i komunalnych. Projektowanie, budowa i wsparcie techniczne — z kontraktowym zabezpieczeniem uzysku metanowego.
+              Generalny wykonawca biogazowni rolniczych i komunalnych. Projektowanie, budowa i wsparcie techniczne — zoptymalizowane pod kątem uzysku metanowego.
             </p>
             <div className="flex flex-wrap gap-x-12 gap-y-4 font-mono text-[10px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase">
               <div>ul. Stanisława Wyspiańskiego 8 // 05-400 Otwock</div>
