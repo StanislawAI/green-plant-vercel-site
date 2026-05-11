@@ -1,19 +1,19 @@
 {
     "rewrites": [
         {
-            "source": "/presentation",
+            "source": "/prezentacja",
             "destination": "/presentation.html"
         },
         {
-            "source": "/presentation/",
+            "source": "/prezentacja/",
             "destination": "/presentation.html"
         },
         {
-            "source": "/presentations",
+            "source": "/prezentacje",
             "destination": "/presentation.html"
         },
         {
-            "source": "/presentations/",
+            "source": "/prezentacje/",
             "destination": "/presentation.html"
         },
         {
