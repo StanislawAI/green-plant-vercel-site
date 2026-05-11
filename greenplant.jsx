@@ -1033,9 +1033,9 @@ const Approach = () => {
 
 const BlueprintProcess = () => {
   const steps = [
-    { num: "01", title: "Analiza Substratu", desc: "Badamy potencjał metanowy Twojej biomasy w laboratorium. Na tej podstawie kalibrujemy pojemność reaktorów." },
-    { num: "02", title: "Inżynieria Procesu", desc: "Projektujemy układ hydrauliczny, systemy mieszania oraz wymiany ciepła. Optymalizujemy przepływ wsadu." },
-    { num: "03", title: "Realizacja Budowy", desc: "Wylewamy szczelne komory żelbetowe i instalujemy agregaty CHP klasy Tier-1." }
+    { num: "01", title: "Analiza Substratu", desc: "Badamy potencjał metanowy Twojej biomasy w laboratorium. Na tej podstawie kalibrujemy pojemność reaktorów.", color: "#34D399" },
+    { num: "02", title: "Inżynieria Procesu", desc: "Projektujemy układ hydrauliczny, systemy mieszania oraz wymiany ciepła. Optymalizujemy przepływ wsadu.", color: "#60A5FA" },
+    { num: "03", title: "Realizacja Budowy", desc: "Wylewamy szczelne komory żelbetowe i instalujemy agregaty CHP klasy Tier-1.", color: "#FBBF24" }
   ];
 
   return (
@@ -1065,22 +1065,22 @@ const BlueprintProcess = () => {
         <div className="grid md:grid-cols-3 gap-1px bg-[#C6A87C]/10">
           {steps.map((step, i) => (
             <FadeIn key={i} delay={i * 200} className="relative bg-[#050606] p-16 group hover:bg-[#090b0a] transition-all duration-700 interactive-element">
-              <div className="absolute top-0 left-0 w-full h-[2px] bg-[#C6A87C] scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
+              <div className="absolute top-0 left-0 w-full h-[2px] transition-transform duration-700 origin-left scale-x-0 group-hover:scale-x-100" style={{ backgroundColor: step.color }}></div>
               
-              <div className="font-serif text-8xl text-[#C6A87C]/5 absolute right-12 top-12 italic group-hover:text-[#C6A87C]/10 transition-all duration-700">
+              <div className="font-serif text-8xl absolute right-12 top-12 italic opacity-5 transition-all duration-700 group-hover:opacity-10" style={{ color: step.color }}>
                 {step.num}
               </div>
               
-              <div className="w-14 h-14 border border-[#C6A87C]/20 rounded-xl flex items-center justify-center mb-12 bg-[#020202] group-hover:border-[#C6A87C]/50 transition-colors">
-                <ChevronRight className="w-6 h-6 text-[#C6A87C]" strokeWidth={1} />
+              <div className="w-14 h-14 border border-[#C6A87C]/20 rounded-xl flex items-center justify-center mb-12 bg-[#020202] group-hover:border-opacity-50 transition-colors" style={{ borderColor: i === 0 ? '#34D39933' : i === 1 ? '#60A5FA33' : '#FBBF2433' }}>
+                <ChevronRight className="w-6 h-6" strokeWidth={1} style={{ color: step.color }} />
               </div>
               
-              <h3 className="font-mono text-xs tracking-[0.4em] text-[#C6A87C] uppercase mb-8">{step.title}</h3>
+              <h3 className="font-mono text-xs tracking-[0.4em] uppercase mb-8" style={{ color: step.color }}>{step.title}</h3>
               <p className="font-serif font-light text-[#EAE6DF]/50 leading-relaxed text-xl italic">{step.desc}</p>
               
               <div className="mt-12 flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <span className="w-1.5 h-1.5 bg-[#4ADE80] rounded-full"></span>
-                <span className="font-mono text-[7px] text-[#4ADE80] tracking-[0.2em] uppercase">Faza Zweryfikowana</span>
+                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: step.color }}></span>
+                <span className="font-mono text-[7px] tracking-[0.2em] uppercase" style={{ color: step.color }}>Faza Aktywna</span>
               </div>
             </FadeIn>
           ))}
@@ -1481,66 +1481,7 @@ const ProjectsGallery = () => {
   );
 };
 
-const EditorialBento = () => {
-  const Card = ({ children, className = "", delay = 0 }) => {
-    const cardRef = useRef(null);
-    const handleMouseMove = (e) => {
-      const rect = cardRef.current.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      cardRef.current.style.setProperty('--mouse-x', `${x}px`);
-      cardRef.current.style.setProperty('--mouse-y', `${y}px`);
-    };
 
-    return (
-      <FadeIn delay={delay} className={`glow-effect relative overflow-hidden border-[0.5px] border-[#C6A87C]/10 bg-[#070908]/80 backdrop-blur-xl transition-all duration-700 hover:border-[#C6A87C]/30 ${className}`}>
-        <div ref={cardRef} onMouseMove={handleMouseMove} className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500 z-0 pointer-events-none"></div>
-        <div className="relative z-10 h-full p-12 flex flex-col justify-between">
-          {children}
-        </div>
-      </FadeIn>
-    );
-  };
-
-  return (
-    <section className="py-40 bg-[#020202] relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-[#C6A87C]/5 rounded-full blur-[150px] animate-[pulse_10s_ease-in-out_infinite]"></div>
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#EAE6DF]/[0.02] rounded-full blur-[100px]"></div>
-      
-      <div className="max-w-[100rem] mx-auto px-8 relative z-10">
-        <FadeIn>
-          <div className="text-center mb-24 max-w-3xl mx-auto">
-            <h2 className="text-5xl md:text-7xl font-serif text-[#EAE6DF] leading-[1.05] mb-8">
-              Rdzeń <span className="italic text-[#C6A87C] font-light">technologiczny.</span>
-            </h2>
-            <p className="text-[#EAE6DF]/50 text-xl font-serif font-light italic leading-relaxed">
-              Nie oszczędzamy na komponentach. Używamy kwasoodpornej stali, podwójnych membran gazowych i najwydajniejszych silników na rynku.
-            </p>
-          </div>
-        </FadeIn>
-
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          <Card className="md:col-span-7 min-h-[450px]" delay={100}>
-             <div>
-                <Database className="text-[#C6A87C] w-6 h-6 mb-10" strokeWidth={1} />
-                <h3 className="text-3xl md:text-4xl font-serif text-[#EAE6DF] mb-6 font-light">Żelbetowe Komory</h3>
-                <p className="text-[#EAE6DF]/50 max-w-md font-serif italic font-light text-xl leading-relaxed">
-                  Serce układu. Monolityczne zbiorniki z potężną warstwą ocieplenia, zapewniające optymalną stabilność temperatury dla bakterii metanogennych niezależnie od zimy.
-                </p>
-             </div>
-          </Card>
-          <Card className="md:col-span-5" delay={200}>
-            <Zap className="text-[#C6A87C] w-6 h-6 mb-10" strokeWidth={1} />
-            <h3 className="text-2xl font-serif text-[#EAE6DF] mb-4 font-light">Agregaty CHP</h3>
-            <p className="text-[#EAE6DF]/50 font-serif italic text-lg font-light leading-relaxed">
-              Wysokosprawne silniki przystosowane do trudnego biogazu, działające ciągle przez 8000 godzin rocznie.
-            </p>
-          </Card>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 
 const ScadaSystem = () => {
