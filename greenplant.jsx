@@ -1035,7 +1035,7 @@ const BlueprintProcess = () => {
   const steps = [
     { num: "01", title: "Analiza Substratu", desc: "Badamy potencjał metanowy Twojej biomasy w laboratorium. Na tej podstawie kalibrujemy pojemność reaktorów.", color: "#34D399" },
     { num: "02", title: "Inżynieria Procesu", desc: "Projektujemy układ hydrauliczny, systemy mieszania oraz wymiany ciepła. Optymalizujemy przepływ wsadu.", color: "#60A5FA" },
-    { num: "03", title: "Realizacja Budowy", desc: "Wylewamy szczelne komory żelbetowe i instalujemy agregaty CHP klasy Tier-1.", color: "#FBBF24" }
+    { num: "03", title: "Nadzór Inwestorski", desc: "Nadzorujemy wylewanie szczelnych komór żelbetowych i instalację agregatów CHP klasy Tier-1.", color: "#FBBF24" }
   ];
 
   return (
@@ -1903,7 +1903,7 @@ const CTA = () => {
               <KineticHeading delay={100} stagger={40}>Czas na</KineticHeading>
             </span>
             <span className="block italic text-[#C8A97D] text-[6rem] md:text-[12rem] lg:text-[16rem]">
-              <KineticHeading delay={600} stagger={50}>budowę.</KineticHeading>
+              <KineticHeading delay={600} stagger={50}>projekt.</KineticHeading>
             </span>
           </h2>
         </div>
@@ -1980,7 +1980,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-[#EAE6DF]/40 max-w-sm font-serif italic font-light text-lg leading-relaxed mb-10">
-              Przygotowanie projektów biogazowni rolniczych i komunalnych. Projektowanie, budowa i wsparcie techniczne — zoptymalizowane pod kątem uzysku metanowego.
+              Przygotowanie projektów biogazowni rolniczych i komunalnych. Projektowanie, nadzór inwestorski i wsparcie techniczne — zoptymalizowane pod kątem uzysku metanowego.
             </p>
             <div className="flex flex-wrap gap-x-12 gap-y-4 font-mono text-[10px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase">
               <div>ul. Stanisława Wyspiańskiego 8 // 05-400 Otwock</div>
@@ -3255,7 +3255,7 @@ const GlossaryLexicon = () => {
     { letter: 'B', name: 'BMP', latin: 'Biochemical Methane Potential', def: 'Test laboratoryjny mierzący maksymalny uzysk metanu z danej biomasy. Trwa 30–60 dni. Podstawa do każdej decyzji projektowej.', ref: 'TEST' },
     { letter: 'C', name: 'CHP', latin: 'Combined Heat and Power', def: 'Skojarzona produkcja energii elektrycznej i cieplnej. Sprawność całkowita do 90% — w przeciwieństwie do 35% przy samym prądzie.', ref: 'TECH' },
     { letter: 'D', name: 'Dyspozycyjność', latin: 'Availability factor', def: 'Procent czasu, w którym instalacja jest gotowa do pracy. GP zapewnia 98% — ok. 8 600 godzin rocznie.', ref: 'METRIC' },
-    { letter: 'E', name: 'EPC', latin: 'Engineering, Procurement, Construction', def: 'Model kontraktowy "pod klucz". Wykonawca odpowiada za projekt, dostawy i budowę, dostarczając gotową instalację z celem uzysku.', ref: 'LEGAL' },
+    { letter: 'E', name: 'EPC', latin: 'Engineering, Procurement, Construction', def: 'Model kontraktowy "pod klucz". Wykonawca odpowiada za projekt, dostawy i realizację inwestycji, dostarczając gotową instalację z celem uzysku.', ref: 'LEGAL' },
     { letter: 'F', name: 'Fermentacja mezofilowa', latin: 'Mesophilic digestion', def: 'Proces fermentacji w temperaturze 35–40 °C. Najczęściej stosowany — kompromis między tempem rozkładu a stabilnością mikrobiomu.', ref: 'PROC' },
     { letter: 'H', name: 'H₂S', latin: 'Siarkowodór', def: 'Toksyczny gaz tworzący się w reaktorze przy nadmiarze siarki. Limit: <50 ppm w biogazie wsadowym do silnika. Usuwany biologicznie (sonda tlenowa) lub chemicznie.', ref: 'CHEM' },
     { letter: 'K', name: 'KIP', latin: 'Karta Informacyjna Przedsięwzięcia', def: 'Pierwszy dokument urzędowy w procesie pozyskiwania pozwolenia środowiskowego. Zawiera lokalizację, technologię, planowane emisje.', ref: 'ADM' },
@@ -3458,7 +3458,7 @@ const MaterialSamples = () => {
 // Kinetic break II — diagonal overlapping massive type
 const KineticBreakII = () => {
   const layers = [
-    { txt: 'PROJEKT · BUDOWA · OPTYMALIZACJA · SERWIS ·', size: '12rem', dir: 'normal', dur: '50s', color: 'transparent', stroke: true, ts: '-0.04em' },
+    { txt: 'PROJEKT · NADZÓR · OPTYMALIZACJA · SERWIS ·', size: '12rem', dir: 'normal', dur: '50s', color: 'transparent', stroke: true, ts: '-0.04em' },
     { txt: 'biologia × technologia × ekonomia ×', size: '8rem', dir: 'reverse', dur: '35s', color: '#C6A87C', italic: true, opacity: 0.7, ts: '-0.02em' },
     { txt: 'CH₄ + CO₂ → CZYSTY KAPITAŁ · CH₄ + CO₂ → CZYSTY KAPITAŁ ·', size: '5rem', dir: 'normal', dur: '40s', color: '#4ADE80', opacity: 0.5, ts: '0.02em' },
     { txt: 'SUBSTRAT → REAKTOR → ENERGIA → POFERMENT ·', size: '9rem', dir: 'reverse', dur: '60s', color: '#EAE6DF', italic: true, opacity: 0.15, ts: '-0.03em' },
