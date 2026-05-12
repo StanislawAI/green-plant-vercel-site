@@ -720,7 +720,7 @@ const Hero = () => {
 
           <div>
             <p className="text-xl md:text-2xl text-[#F2EDE4]/70 leading-relaxed max-w-xl font-serif font-light italic mb-16">
-              Generalne wykonawstwo biogazowni 0.5 MW. Budujemy aktywa energetyczne, które transformują odpady w przewidywalny kapitał i niezależność operacyjną.
+              Przygotowanie projektów biogazowni 0.5 MW. Budujemy aktywa energetyczne, które transformują odpady w przewidywalny kapitał i niezależność operacyjną.
             </p>
           </div>
 
