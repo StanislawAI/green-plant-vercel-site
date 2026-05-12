@@ -1418,9 +1418,9 @@ const ProjectsGallery = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const projects = [
-    { title: "Typ A — Rolniczy", spec: "0.5 MW · gnojowica + kiszonka", location: "Wsad: 21 t / dobę", img: "/Users/stan/.gemini/antigravity/brain/906f4f99-9a59-4b7a-b50b-3a2631808779/biogas_plant_cinematic_1778349683317.png" },
-    { title: "Typ B — Komunalny", spec: "0.5 MW · odpady miejskie", location: "Wsad: 18 t / dobę", img: "https://images.unsplash.com/photo-1506501139174-099022df5260?q=80&w=2000&auto=format&fit=crop" },
-    { title: "Typ C — Przemysłowy", spec: "0.5 MW · odpady poubojowe", location: "Wsad: 21 t / dobę", img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2000&auto=format&fit=crop" }
+    { title: "Typ A — Rolniczy", spec: "0.5 MW · gnojowica + kiszonka", location: "Wsad: 21 t / dobę", img: "/assets/img/rolnicza.png" },
+    { title: "Typ B — Komunalny", spec: "0.5 MW · odpady miejskie", location: "Wsad: 18 t / dobę", img: "/assets/img/komunalny.webp" },
+    { title: "Typ C — Przemysłowy", spec: "0.5 MW · odpady poubojowe", location: "Wsad: 21 t / dobę", img: "/assets/img/przemyslowy.webp" }
   ];
 
   return (
@@ -1555,7 +1555,7 @@ const ResearchAndDevelopment = () => {
         <div className="w-1/2 h-full relative hidden md:block">
           <div className="absolute inset-0 bg-[#030404]/60 z-10 mix-blend-multiply"></div>
           {/* Robust Lab Image */}
-          <div className="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1582719471384-894fbb16e074?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center grayscale mix-blend-luminosity"></div>
+          <div className="absolute inset-0 opacity-40 bg-[url('/assets/img/lab.webp')] bg-cover bg-center grayscale mix-blend-luminosity"></div>
           <div className="absolute left-0 top-0 w-[1px] h-full bg-gradient-to-b from-transparent via-[#C6A87C]/30 to-transparent z-20"></div>
         </div>
       </div>
@@ -1600,7 +1600,7 @@ const Leadership = () => {
       role: "Główny Inżynier Projektu", 
       name: "Dział Konstrukcyjny", 
       exp: "Nadzór nad precyzją montażu izolacji termicznej i wylewek żelbetowych. Pełna sterylność środowiska.",
-      img: "https://images.unsplash.com/photo-1541888087425-ce81df8219b7?q=80&w=1000&auto=format&fit=crop",
+      img: "/assets/img/konstrukcyjny.webp",
       id: "AUTORYZACJA_LVL_4",
       clearance: "ŚCIŚLE TAJNE // PRZEMYSŁOWE"
     },
@@ -1608,7 +1608,7 @@ const Leadership = () => {
       role: "Główny Technolog OZE", 
       name: "Dział Biologiczny", 
       exp: "Eksperci od fermentacji metanowej. Parametryzacja środowiska pod kątem maksymalizacji uzysku z powierzonej biomasy.",
-      img: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1000&auto=format&fit=crop",
+      img: "/assets/img/biologiczny.webp",
       id: "AUTORYZACJA_LVL_4",
       clearance: "ŚCIŚLE TAJNE // BIOLOGICZNE"
     }
