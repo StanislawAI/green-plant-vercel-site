@@ -1980,7 +1980,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-[#EAE6DF]/40 max-w-sm font-serif italic font-light text-lg leading-relaxed mb-10">
-              Generalny wykonawca biogazowni rolniczych i komunalnych. Projektowanie, budowa i wsparcie techniczne — zoptymalizowane pod kątem uzysku metanowego.
+              Przygotowanie projektów biogazowni rolniczych i komunalnych. Projektowanie, budowa i wsparcie techniczne — zoptymalizowane pod kątem uzysku metanowego.
             </p>
             <div className="flex flex-wrap gap-x-12 gap-y-4 font-mono text-[10px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase">
               <div>ul. Stanisława Wyspiańskiego 8 // 05-400 Otwock</div>
