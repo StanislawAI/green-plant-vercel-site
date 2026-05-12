@@ -939,7 +939,7 @@ const Approach = () => {
                   iogazownia to nie tylko zbiór betonowych zbiorników. To precyzyjnie dostrojony ekosystem, w którym <span className="italic text-[#C6A87C]">biologia</span> spotyka się z ciężką inżynierią mechaniczną — bakterie metanogenne, sterowniki PLC, kwasoodporna stal i podwójne membrany EPDM współpracują w jednym, zamkniętym układzie.
                 </p>
                 <p className="text-[#EAE6DF]/40 font-serif italic text-xl leading-relaxed mb-14 font-light">
-                  Naszą rolą jako generalnego wykonawcy jest projektowanie tej harmonii — z dokładnością do milimetra w geometrii zbiornika i z dokładnością do 0.3 °C w stabilności procesu fermentacji.
+                  Naszą rolą jest projektowanie tej harmonii — z dokładnością do milimetra w geometrii zbiornika i z dokładnością do 0.3 °C w stabilności procesu fermentacji.
                 </p>
               </div>
 
