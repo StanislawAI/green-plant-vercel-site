@@ -1059,7 +1059,7 @@ const BlueprintProcesss = () => {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-32 pb-12 border-b border-[#C6A87C]/10">
             <div>
               <h2 className="text-[9px] font-mono tracking-[0.5em] text-[#C6A87C] uppercase mb-6">Implementation Protocol</h2>
-              <p className="text-5xl md:text-7xl font-serif text-[#EAE6DF] leading-tight">Sekwencja <br/><span className="italic font-light text-[#C6A87C]">Wdrożeniowa.</span></p>
+              <p className="text-5xl md:text-7xl font-serif text-[#EAE6DF] leading-tight">Implementation <br/><span className="italic font-light text-[#C6A87C]">Sequence.</span></p>
             </div>
             <div className="text-[10px] font-mono text-[#EAE6DF]/20 tracking-[0.4em] uppercase mt-8 md:mt-0">
               Standards Techniczne v2.0
@@ -1119,7 +1119,7 @@ const FeedstockMatrix = () => {
                 Laboratorium Surowcowe
               </h2>
               <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
-                Macierz <br/><span className="italic text-[#C6A87C] font-Standardl">Substratów.</span>
+                Substrate <br/><span className="italic text-[#C6A87C] font-Standardl">Matrix.</span>
               </h3>
             </div>
             <p className="text-[#EAE6DF]/40 font-serif italic text-2xl font-light max-w-sm leading-relaxed text-right">
@@ -1162,13 +1162,13 @@ const FeedstockMatrix = () => {
                 
                 <div className="space-y-12">
                    <div>
-                      <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase mb-4">Kategoria Materiału</div>
+                      <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase mb-4">Material Category</div>
                       <div className="font-serif text-3xl text-[#EAE6DF] italic">{substrates[hoveredRow].category}</div>
                    </div>
                    
                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
                       <div>
-                         <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase mb-4">Zawartość CH4</div>
+                         <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase mb-4">CH4 Content</div>
                          <div className="font-serif text-5xl text-[#C6A87C] font-light">{substrates[hoveredRow].ch4}<span className="text-xl">%</span></div>
                       </div>
                       <div>
@@ -1179,7 +1179,7 @@ const FeedstockMatrix = () => {
 
                    <div className="pt-8">
                       <div className="flex justify-between items-center mb-4">
-                         <span className="font-mono text-[8px] text-[#EAE6DF]/40 uppercase tracking-[0.2em]">Potencjał Energetyczny</span>
+                         <span className="font-mono text-[8px] text-[#EAE6DF]/40 uppercase tracking-[0.2em]">Energy Potential</span>
                          <span className="font-mono text-[8px] text-[#4ADE80] uppercase tracking-[0.2em]">Wysoki</span>
                       </div>
                       <div className="h-1 w-full bg-[#020202] rounded-full overflow-hidden">
@@ -1283,7 +1283,7 @@ const SmartGrid = () => {
               <Zap className="w-4 h-4" /> Dystrybucja i Integracja
             </h2>
             <h3 className="text-6xl md:text-9xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
-              Węzeł <br/><span className="italic text-[#C6A87C] font-Standardl">Systemowy.</span>
+              System <br/><span className="italic text-[#C6A87C] font-Standardl">Node.</span>
             </h3>
           </div>
         </FadeIn>
@@ -1293,9 +1293,9 @@ const SmartGrid = () => {
            
            <div className="grid md:grid-cols-3 gap-12 relative z-10">
              {[
-               { icon: <Zap className="w-8 h-8" />, title: "Smart Grid", desc: "Zautomatyzowana sprzedaż nadwyżek energii w oparciu o algorytmy Peak Shaving i spotowe ceny energii.", val: "499 kW" },
-               { icon: <Factory className="w-8 h-8" />, title: "District Heating", desc: "Redukcja kosztów operacyjnych poprzez zasilanie lokalnej infrastruktury darmową energią cieplną.", val: "510 kWt" },
-               { icon: <Leaf className="w-8 h-8" />, title: "Fertilizer Circulation", desc: "Zamknięcie obiegu pierwiastków poprzez dystrybucję stabilizowanego, bezzapachowego pofermentu.", val: "30 t/d" }
+               { icon: <Zap className="w-8 h-8" />, title: "Smart Grid", desc: "Automated sale of surplus energy based on Peak Shaving algorithms and spot energy prices.", val: "499 kW" },
+               { icon: <Factory className="w-8 h-8" />, title: "District Heating", desc: "Operational cost reduction by powering local infrastructure with free thermal energy.", val: "510 kWt" },
+               { icon: <Leaf className="w-8 h-8" />, title: "Fertilizer Circulation", desc: "Closing the elemental loop through the distribution of stabilized, odorless digestate.", val: "30 t/d" }
              ].map((node, i) => (
                 <FadeIn key={i} delay={i * 200} className={`glass-morphism p-12 flex flex-col items-center text-center group hover:border-[#C6A87C]/60 transition-all duration-700 interactive-element rounded-[3rem] ${i === 1 ? 'md:-translate-y-20' : 'md:translate-y-20'}`}>
                   <div className="w-24 h-24 rounded-full border border-[#C6A87C]/20 flex items-center justify-center mb-10 bg-[#020202] text-[#C6A87C] group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(198,168,124,0.2)] transition-all duration-700">
@@ -1498,7 +1498,7 @@ const ScadaSystem = () => {
           <FadeIn direction="right">
             <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Infrastruktura Software</div>
             <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 mb-12 font-light italic">
-              Cyfrowy <br/><span className="text-[#C6A87C] not-italic">bliźniak.</span>
+              Digital <br/><span className="text-[#C6A87C] not-italic">twin.</span>
             </h2>
             <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
               The SCADA system is the operational backbone of the plant. It aggregates data from hundreds of sensors and precisely controls mixers, pumps, and CHP systems to ensure biological stability and maximize methane yield.
@@ -1628,7 +1628,7 @@ const Leadership = () => {
           <div className="mb-40 flex flex-col lg:flex-row lg:items-start xl:items-end justify-between gap-16 border-b border-[#C6A87C]/10 pb-16">
             <div>
               <h2 className="text-[9px] font-mono tracking-[0.5em] text-[#C6A87C] uppercase mb-8">Indeks Personelu</h2>
-              <p className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Nadzór <br/><span className="italic font-light text-[#C6A87C]">Weryfikowany.</span></p>
+              <p className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Verified <br/><span className="italic font-light text-[#C6A87C]">Supervision.</span></p>
             </div>
             <p className="text-[#EAE6DF]/40 text-2xl font-serif italic max-w-md leading-relaxed text-right">
               Engineering staff certified to design high-risk gas installations.
@@ -1718,9 +1718,9 @@ const OperationsMaintenance = () => {
 
           <div className="lg:col-span-6 grid grid-cols-1 gap-6">
             {[
-              { title: "Remote SCADA Diagnostics", desc: "Podgląd na żywo każdego zaworu i mieszadła. Wykrywanie anomalii zanim staną się awarią.", icon: <Zap className="w-6 h-6" /> },
-              { title: "Technologist Supervision", desc: "Cotygodniowa Analysis parametrów fermentacji. Optymalizacja diety Reactora.", icon: <Leaf className="w-6 h-6" /> },
-              { title: "Tier-1 Mechanical Service", desc: "Autoryzowany serwis agregatów CHP i systemów pompujących. Oryginalne części.", icon: <Factory className="w-6 h-6" /> }
+              { title: "Remote SCADA Diagnostics", desc: "Live view of every valve and mixer. Anomaly detection before they become failures.", icon: <Zap className="w-6 h-6" /> },
+              { title: "Technologist Supervision", desc: "Weekly analysis of fermentation parameters. Reactor diet optimization.", icon: <Leaf className="w-6 h-6" /> },
+              { title: "Tier-1 Mechanical Service", desc: "Authorized service for CHP units and pumping systems. Original parts.", icon: <Factory className="w-6 h-6" /> }
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 150} className="group glass-morphism p-10 flex gap-8 items-center rounded-[2.5rem] hover:border-[#C6A87C]/40 transition-all duration-700">
                 <div className="w-16 h-16 rounded-2xl border border-[#C6A87C]/10 flex items-center justify-center bg-[#020202] text-[#C6A87C] group-hover:scale-110 transition-all duration-700">
@@ -1742,7 +1742,7 @@ const OperationsMaintenance = () => {
 const SafetyStandards = () => {
   const standards = [
     { title: "ATEX Directive", desc: "EX explosion protection for methane hazard zones.", code: "Directive 2014/34/UE", hue: "#FBBF24" },
-    { title: "Standards UDT", desc: "Technical supervision over pressure vessels and pipelines.", code: "ROZPORZĄDZENIE UDT", hue: "#60A5FA" },
+    { title: "Standards UDT", desc: "Technical supervision over pressure vessels and pipelines.", code: "UDT REGULATION", hue: "#60A5FA" },
     { title: "Fire Protection", desc: "Integrated smoke exhaust systems and active safety flares.", code: "NORMY NFPA-EN", hue: "#F87171" },
     { title: "CE Certification", desc: "Compliance with European machinery and occupational safety standards.", code: "MD 2006/42/WE", hue: "#34D399" }
   ];
@@ -1755,7 +1755,7 @@ const SafetyStandards = () => {
              <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 flex items-center gap-4">
                <ShieldCheck className="w-5 h-5" /> Technical Compliance Framework
              </h2>
-             <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Bezpieczeństwo <br/><span className="italic text-[#C6A87C] font-Standardl">Standardtywne.</span></h3>
+             <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Standard <br/><span className="italic text-[#C6A87C] font-Standardl">Safety.</span></h3>
           </div>
         </FadeIn>
 
@@ -1861,7 +1861,7 @@ const ServiceCoverage = () => {
         <FadeIn>
           <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] px-6 py-1 mx-auto w-fit">Logistyka Regionalna</div>
           <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 mb-12 font-light">
-            Zasięg <br/><span className="italic text-[#C6A87C] font-Standardl">operacyjny.</span>
+            Operational <br/><span className="italic text-[#C6A87C] font-Standardl">reach.</span>
           </h2>
           <p className="text-[#EAE6DF]/50 font-serif italic text-2xl max-w-3xl mx-auto leading-relaxed mb-20">
             Our engineering and service teams operate nationwide, providing technical support in every corner of the country.
@@ -2027,7 +2027,7 @@ const Footer = () => {
           <div className="md:col-span-12">
             <h4 className="text-[#C6A87C] font-mono mb-6 uppercase text-[9px] tracking-[0.4em]">Kolofon</h4>
             <div className="flex flex-wrap gap-x-12 gap-y-6 font-mono text-[9px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase leading-relaxed">
-              <div>Złożono krojem <span className="text-[#C6A87C]/80 font-serif italic Standardl-case tracking-Standardl text-sm">Cormorant Garamond</span> oraz <span className="text-[#C6A87C]/80 font-mono Standardl-case tracking-Standardl text-sm">Space Mono</span></div>
+              <div>Typeset in <span className="text-[#C6A87C]/80 font-serif italic Standardl-case tracking-Standardl text-sm">Cormorant Garamond</span> and <span className="text-[#C6A87C]/80 font-mono Standardl-case tracking-Standardl text-sm">Space Mono</span></div>
               <div className="flex gap-12">
                 <div>Zaprojektowano w Warszawie</div>
                 <div>Feedstock — from local fields</div>
@@ -2102,7 +2102,7 @@ const ReactorAnatomy = () => {
           {/* SVG anatomy */}
           <FadeIn className="lg:col-span-8 relative">
             <div className="relative aspect-[4/3] glass-morphism rounded-[2rem] overflow-hidden p-6">
-              <div className="absolute top-4 left-6 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">DWG-014 / PRZEKRÓJ A-A</div>
+              <div className="absolute top-4 left-6 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">DWG-014 / CROSS SECTION A-A</div>
               <div className="absolute top-4 right-6 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">SKALA 1:200</div>
               <div className="absolute bottom-4 left-6 font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.3em] uppercase">OPRACOWANIE: GREEN PLANT TECH.</div>
               <div className="absolute bottom-4 right-6 font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.3em] uppercase">⌀ 24.0 M / H 8.0 M</div>
@@ -2273,11 +2273,11 @@ const EditorialQuote = () => {
         <blockquote className="font-serif text-5xl md:text-[6.5rem] text-[#EAE6DF] leading-[1.05] font-light tracking-tight">
           <span className="text-[#C6A87C] italic">„</span>
           The time when energy <br/>
-          była przywilejem <span className="italic text-[#C6A87C]">miast</span>,<br/>
+          was a privilege of <span className="italic text-[#C6A87C]">cities</span>,<br/>
           comes to an end. The era <br/>
           is arriving where every <br/>
           farm becomes <br/>
-          <span className="italic text-[#C6A87C]">elektrownią.</span>
+          <span className="italic text-[#C6A87C]">power plant.</span>
           <span className="text-[#C6A87C] italic">"</span>
         </blockquote>
         <div className="mt-20 flex items-end justify-between border-t border-[#C6A87C]/20 pt-8">
@@ -2389,7 +2389,7 @@ const PolandMap = () => {
           </FadeIn>
 
           <div className="lg:col-span-4 space-y-3">
-            <div className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-6">Województwa — gęstość rynku</div>
+            <div className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-6">Provinces — market density</div>
             {sites.map((s, i) => (
               <button key={i}
                 onMouseEnter={() => setActive(i)}
@@ -2475,7 +2475,7 @@ const FieldToElectricity = () => {
       no: 'I',
       title: 'Corn',
       lead: 'Spring. 12,000 seeds per hectare. Every stalk represents a future 0.4 m³ of biogas.',
-      body: 'W pierwszym roku współpracy mierzymy nie tylko areał — mierzymy Solar, deszcz i pH gleby. Polska Corn energetyczna ma jedne z najwyższych w Europie potencjałów metanowych: 210 m³ biogazu z tony świeżej masy.',
+      body: 'In the first year of cooperation, we measure not only the acreage — we measure sun, rain, and soil pH. Polish energy corn has some of the highest methane potentials in Europe: 210 m³ of biogas from a ton of fresh mass.',
       stat: '210 m³/t',
       ref: 'CH-01 / FIELD',
       hue: '#4ADE80',
@@ -2511,7 +2511,7 @@ const FieldToElectricity = () => {
       no: 'V',
       title: 'Return',
       lead: 'The digestate returns to the field. 30 tons of premium NPK fertilizer daily—closing the loop.',
-      body: 'To, co wyszło z gleby jako Corn, wraca jako nawóz. Bez nasion chwastów, bez patogenów, bez smrodu. Polski rolnik przestaje kupować mocznik i fosforany — bo wytwarza je sam, w swojej fabryce metanu.',
+      body: 'What sprang from the soil as corn returns as fertilizer. Free from weed seeds, pathogens, and odors. The farmer stops buying urea and phosphates—because he produces them himself in his own methane factory.',
       stat: '30 t/d',
       ref: 'CH-05 / RETURN',
       hue: '#4ADE80',
@@ -2650,13 +2650,13 @@ const ReactorClock = () => {
     return () => clearInterval(id);
   }, []);
   const events = {
-    0: { l: 'Night silence', d: 'Reactor pracuje w trybie podtrzymania. Mieszadła wolne — 4 obr/min. Temperatura stała 38.4 °C.' },
+    0: { l: 'Night silence', d: 'The reactor operates in maintenance mode. Mixers run slowly at 4 rpm. Constant temperature of 38.4 °C.' },
     6: { l: 'Dozowanie poranne', d: 'Pierwsza porcja kiszonki: 18 t. Sucha masa 32%. pH wlotu 6.8.' },
     9: { l: 'Gas peak', d: 'Peak CH₄ production. CHP efficiency reaches 44.2%. Exporting to the grid at maximum capacity.' },
     12: { l: 'Operator control', d: 'Technician visit. Taking a sample to the lab. Gas tightness check.' },
     15: { l: 'Afternoon dosing', d: 'Second portion of substrate: 16 t. Process stabilization. Lambda probe confirms composition.' },
-    18: { l: 'Sprzedaż peak shaving', d: 'Highest energy prices between 6:00 PM and 9:00 PM. The SCADA algorithm maximizes output.' },
-    21: { l: 'Cool down', d: 'Powolne wytracanie mocy. Mieszadła zwalniają. Grid przechodzi w noc.' },
+    18: { l: 'Peak shaving sales', d: 'Highest energy prices between 6:00 PM and 9:00 PM. The SCADA algorithm maximizes output.' },
+    21: { l: 'Cool down', d: 'Slow power dissipation. Mixers slow down. The grid transitions into the night.' },
   };
   const labelEvents = [0, 6, 9, 12, 15, 18, 21];
   return (
@@ -2669,7 +2669,7 @@ const ReactorClock = () => {
               <Cog className="w-3.5 h-3.5" strokeWidth={1} /> Cykl dobowy biogazowni
             </div>
             <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-              Dwadzieścia cztery <br/><span className="italic text-[#C6A87C] font-Standardl">godziny.</span>
+              Twenty-four <br/><span className="italic text-[#C6A87C] font-Standardl">hours.</span>
             </h2>
             <p className="font-serif italic text-2xl text-[#EAE6DF]/50 max-w-2xl mx-auto mt-12 leading-relaxed">
               One cycle. 7 critical points. An algorithm that works while you sleep.
@@ -2795,7 +2795,7 @@ const MicrobialTaxonomy = () => {
       genus: 'Methanosarcina',
       species: 'M. barkeri',
       role: 'Metanogen acetoklastyczny',
-      desc: 'Archeon o nieregularnym kształcie wielokątnym. Produkuje 70% metanu w Reactorze, rozkładając octan na CH₄ i CO₂. Optimum pH 6.8–7.4.',
+      desc: "An irregularly shaped polygonal archaeon. It produces 70% of the reactor's methane by decomposing acetate into CH₄ and CO₂. Optimal pH is 6.8–7.4.",
       phylum: 'Euryarchaeota',
       yield: '0.42',
       svg: 'sarcina',
@@ -2805,7 +2805,7 @@ const MicrobialTaxonomy = () => {
       genus: 'Methanobacterium',
       species: 'M. formicicum',
       role: 'Metanogen hydrogenotroficzny',
-      desc: 'Pałeczka długości 2–8 µm. Wykorzystuje wodór i CO₂ do produkcji metanu. Niezbędny w fazie wstępnej, gdy Homeinują wolne kwasy tłuszczowe.',
+      desc: 'A rod-shaped bacterium 2–8 µm in length. It uses hydrogen and CO₂ to produce methane. Essential during the initial phase when free fatty acids dominate.',
       phylum: 'Euryarchaeota',
       yield: '0.28',
       svg: 'rod',
@@ -2815,7 +2815,7 @@ const MicrobialTaxonomy = () => {
       genus: 'Ruminococcus',
       species: 'R. albus',
       role: 'Bakteria hydrolityczna',
-      desc: 'Beztlenowiec rozkładający celulozę i hemicelulozę. Pierwszy szczebel łańcucha pokarmowego w Reactorze. Pracuje wydajnie w procesie mezofilowym (38 °C).',
+      desc: "An anaerobe that breaks down cellulose and hemicellulose. It forms the first rung of the reactor's food chain and operates highly efficiently in mesophilic conditions (38 °C).",
       phylum: 'Bacillota',
       yield: '—',
       svg: 'rod',
@@ -2840,14 +2840,14 @@ const MicrobialTaxonomy = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-end mb-24 border-b border-[#C6A87C]/15 pb-12">
             <div className="lg:col-span-7">
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
-                <Beaker className="w-3.5 h-3.5" strokeWidth={1} /> Taxonomia mikrobiologiczna — żywa kadra Reactora
+                <Beaker className="w-3.5 h-3.5" strokeWidth={1} /> Microbiological taxonomy — the living staff of the reactor
               </div>
               <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
                 Niewidzialni <br/><span className="italic text-[#C6A87C] font-Standardl">pracownicy.</span>
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              W jednej kropli substratu pracuje 10⁹ komórek. Bakterie i archeony to nasi prawdziwi inżynierowie — wybieramy najefektywniejsze szczepy, dostosowane do polskiej diety Reactora.
+              A billion cells operate in a single drop of substrate. Bacteria and archaea are our true engineers—we select the most efficient strains tailored specifically to the local reactor diet.
             </p>
           </div>
         </FadeIn>
@@ -2930,7 +2930,7 @@ const MicrobialTaxonomy = () => {
 const PressWall = () => {
   const press = [
     { outlet: 'PULS BIZNESU', date: '08.2024', headline: 'Agricultural biogas plants have great potential in Poland', cat: 'Market', url: 'https://www.pb.pl/biogazownie-rolnicze-maja-w-polsce-wielki-potencjal-1193306' },
-    { outlet: 'FORBES POLSKA', date: '12.2023', headline: 'Od 2026 r. polskie firmy i Homey może zasilać błękitne paliwo', cat: 'Analysis', url: 'https://news.google.com/rss/articles/CBMilgFBVV95cUxOUWV4ZmpIZ0ZVS3lSMDB2UE9tS1BwU01tNVhtamw0WlUweHpxNzlqOVRmUllEajItM281RzQ4S281REszeDBJNEJ4Z3c3ZDBIek82Xy02T2lRdlF3bm16YW84RE9tV3YteWVvNGQ5MkpJd0J0S3psclRRMmJqWjBxbVBNUW1qZnl4aTR4TzF3eWRsSWxQcVE?oc=5' },
+    { outlet: 'FORBES POLSKA', date: '12.2023', headline: 'From 2026, Polish companies and homes may be powered by blue fuel', cat: 'Analysis', url: 'https://news.google.com/rss/articles/CBMilgFBVV95cUxOUWV4ZmpIZ0ZVS3lSMDB2UE9tS1BwU01tNVhtamw0WlUweHpxNzlqOVRmUllEajItM281RzQ4S281REszeDBJNEJ4Z3c3ZDBIek82Xy02T2lRdlF3bm16YW84RE9tV3YteWVvNGQ5MkpJd0J0S3psclRRMmJqWjBxbVBNUW1qZnl4aTR4TzF3eWRsSWxQcVE?oc=5' },
     { outlet: 'RZECZPOSPOLITA', date: '09.2023', headline: 'Polska jest u progu nowej, zielonej rewolucji. Motorem biogaz.', cat: 'Energetyka', url: 'https://news.google.com/rss/articles/CBMisgFBVV95cUxNb1htZWRwSElPZHJ4dER1TmhfT2pLdmZxbUhjckc2Rnlhbjd5Uk1wTHpIT21XSVcxQ1hOZUw4TjBtb0YxUkV1aTh4aU04dFh2YWVIVV9rY1g4TkxXQ2h6WjQxdmF0RGJNS0hHWHB2Y0lXNWZqTEp3akM3NEpIRnlqTW5fOGQ3aWw2YmVfTVQxUWxGNDJqZmxNUXF2aVdNRDBzWUNNbVl2N2FkNVVndGZpSFFn?oc=5' },
     { outlet: 'FORUM ENERGII', date: '02.2024', headline: 'Biomethane in Poland. Potential Assessment (Report)', cat: 'Report', url: 'https://news.google.com/rss/articles/CBMiY0FVX3lxTE9GWHg1SVRLd2R6RFRZSHp0cmhYcmVEd3dtWXZ0V3lIWGpMV0k5NW1jajFvLXZtWnFYX0wwRUZzUUtjZkoyUjVlOFJFRWdmbG1pTmh2ektyXzN2Z3E0OU1ZckQ0VQ?oc=5' },
     { outlet: 'AGRO PROFIL', date: '01.2024', headline: 'New varieties of corn for grain, silage, and biogas', cat: 'Education', url: 'https://news.google.com/rss/articles/CBMilgFBVV95cUxQbnNfMXlrWGtjSV9Vd2dQcEl3UE1HVmM4ZXNUcUJPSExmempLTzhOQ2I2Zk5NRkd4cG1lYm1zSWNEaVk2MC0tSm9aQ2p2dnMtVk5NZGZUZS1pektLY1pVTlpwYkRXMlgyeklGWTk1SEJPY0t5a0tjUXVab0l5ZUlhem9wcW80eG1keVNsSmE0LTdqLXdlNWc?oc=5' },
@@ -2952,7 +2952,7 @@ const PressWall = () => {
             </div>
             <div className="lg:col-span-4 text-right">
               <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-2">— Selekcja redakcyjna</div>
-              <div className="font-serif italic text-2xl text-[#EAE6DF]/60">Co warto śledzić w sektorze</div>
+              <div className="font-serif italic text-2xl text-[#EAE6DF]/60">What to track in the sector</div>
             </div>
           </div>
         </FadeIn>
@@ -3009,7 +3009,7 @@ const PressWall = () => {
 const GanttBuild = () => {
   const months = ['M01', 'M02', 'M03', 'M04', 'M05', 'M06', 'M07', 'M08', 'M09', 'M10', 'M11', 'M12', 'M13', 'M14'];
   const phases = [
-    { name: 'Analysis BMP + studium wykonalności', start: 0, end: 2, color: '#C6A87C', cat: 'PRE' },
+    { name: 'BMP Analysis + feasibility study', start: 0, end: 2, color: '#C6A87C', cat: 'PRE' },
     { name: 'Permits + PIS + environmental decision', start: 1, end: 4, color: '#C6A87C', cat: 'ADM' },
     { name: 'Projekt budowlany + PNB', start: 3, end: 6, color: '#C6A87C', cat: 'ENG' },
     { name: 'Roboty ziemne + fundamenty', start: 5, end: 7, color: '#D97847', cat: 'CIV' },
@@ -3029,7 +3029,7 @@ const GanttBuild = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-end mb-20 border-b border-[#C6A87C]/15 pb-10">
             <div className="lg:col-span-7">
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-6 flex items-center gap-4">
-                <GitBranch className="w-3.5 h-3.5" strokeWidth={1} /> Harmonogram — 14 miesięcy
+                <GitBranch className="w-3.5 h-3.5" strokeWidth={1} /> Schedule — 14 months
               </div>
               <h2 className="text-5xl md:text-[7.5rem] font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
                 Od podpisu <br/>do pierwszego <br/><span className="italic text-[#C6A87C] font-Standardl">m³ biogazu.</span>
@@ -3166,10 +3166,10 @@ const EnergyComparison = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-end mb-24 border-b border-[#C6A87C]/15 pb-12">
             <div className="lg:col-span-8">
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
-                <Gauge className="w-3.5 h-3.5" strokeWidth={1} /> Analysis porównawcza źródeł energii
+                <Gauge className="w-3.5 h-3.5" strokeWidth={1} /> Comparative energy source analysis
               </div>
               <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Cztery źródła, <br/><span className="italic text-[#C6A87C] font-Standardl">jedno równanie.</span>
+                Four sources, <br/><span className="italic text-[#C6A87C] font-Standardl">one equation.</span>
               </h2>
             </div>
             <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
@@ -3229,7 +3229,7 @@ const EnergyComparison = () => {
         <FadeIn delay={400}>
           <div className="mt-32 pt-12 border-t border-[#C6A87C]/15 grid md:grid-cols-3 gap-12">
             <div>
-              <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-3">Źródło danych</div>
+              <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-3">Data source</div>
               <p className="font-serif italic text-sm text-[#EAE6DF]/50 leading-relaxed">
                 Energy Forum 2025, IEA World Energy Outlook 2024, industry data of the agricultural biogas sector in the EU. Averaged values for a 0.5 MW project.
               </p>
@@ -3256,7 +3256,7 @@ const EnergyComparison = () => {
 // Glossary lexicon — encyclopedia-style technical terms
 const GlossaryLexicon = () => {
   const terms = [
-    { letter: 'A', name: 'ATEX', latin: 'Directive 2014/34/EU', def: 'Europejska Directive regulująca urządzenia w strefach zagrożonych wybuchem. Wszystkie elementy Reactora pracujące z metanem klasyfikowane są jako EX zone 1 lub 2.', ref: 'STD' },
+    { letter: 'A', name: 'ATEX', latin: 'Directive 2014/34/EU', def: 'European Directive regulating equipment in potentially explosive atmospheres. All Reactor elements working with methane are classified as EX zone 1 or 2.', ref: 'STD' },
     { letter: 'B', name: 'BMP', latin: 'Biochemical Methane Potential', def: 'Laboratory test measuring maximum methane yield from a given biomass. Lasts 30–60 days. The basis for every design decision.', ref: 'TEST' },
     { letter: 'C', name: 'CHP', latin: 'Combined Heat and Power', def: 'Combined Heat and Power. Reaches total efficiency of up to 90%—compared to just 35% for standalone electricity generation.', ref: 'TECH' },
     { letter: 'D', name: 'Availability factor', latin: 'Availability factor', def: 'The percentage of time the plant is fully operational. GP guarantees 98% availability—approx. 8,600 hours per year.', ref: 'METRIC' },
@@ -3264,9 +3264,9 @@ const GlossaryLexicon = () => {
     { letter: 'F', name: 'Mesophilic digestion', latin: 'Mesophilic digestion', def: 'Fermentation process at 35–40 °C. Most commonly used — a compromise between decomposition rate and microbiome stability.', ref: 'PROC' },
     { letter: 'H', name: 'H₂S', latin: 'Hydrogen sulfide', def: 'A toxic, highly corrosive gas. Exceeding limits (e.g., above 200 ppm) risks severe damage to the CHP engine.', ref: 'BIO' },
     { letter: 'K', name: 'KIP', latin: 'Project Information Sheet', def: 'The first official document in the environmental permit acquisition process. Contains location, technology, planned emissions.', ref: 'ADM' },
-    { letter: 'L', name: 'LKT', latin: 'Volatile Fatty Acids', def: 'Produkty pośrednie fermentacji. Ich nadmiar (limit ok. 3-4 g/L) sygnalizuje zaburzenie procesu — tzw. kwasicę Reactora.', ref: 'BIO' },
+    { letter: 'L', name: 'LKT', latin: 'Volatile Fatty Acids', def: 'Intermediate fermentation products. Their excess (limit approx. 3-4 g/L) signals a process disturbance — so-called Reactor acidosis.', ref: 'BIO' },
     { letter: 'M', name: 'Methanogenesis', latin: 'Methanogenesis', def: 'The final phase of anaerobic fermentation. Archaea transform acetate and hydrogen into methane and carbon dioxide. This phase is the true economic heart of the business.', ref: 'BIO' },
-    { letter: 'O', name: 'OZE', latin: 'Renewable Energy Sources', def: 'Polski system wsparcia obejmujący aukcje i taryfy wsparcia (FIT). Biogaz rolniczy ma własny koszyk — bez konkurencji z wiatrem i Solarm.', ref: 'LEGAL' },
+    { letter: 'O', name: 'OZE', latin: 'Renewable Energy Sources', def: 'Polish support system including auctions and support tariffs (FIT). Agricultural biogas has its own basket — without competition from wind and solar.', ref: 'LEGAL' },
     { letter: 'P', name: 'Poferment', latin: 'Digestate', def: 'A fermentation byproduct. Odorless and rich in nitrogen, phosphorus, and potassium. Fully replaces synthetic fertilizers. A 0.5 MW plant yields 30 tons daily.', ref: 'PROD' },
     { letter: 'S', name: 'SCADA', latin: 'Supervisory Control and Data Acquisition', def: 'The Supervisory Control and Data Acquisition system. It processes thousands of variables per second, with an algorithm precisely controlling every valve and pump.', ref: 'I&C' },
     { letter: 'U', name: 'UDT', latin: 'Office of Technical Inspection', def: 'The regulatory body supervising pressure vessels, pipelines, and critical equipment. Every biogas plant is subject to strict annual inspections.', ref: 'ADM' },
@@ -3282,7 +3282,7 @@ const GlossaryLexicon = () => {
                 <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Leksykon biogazowni — A do U
               </div>
               <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Słownik <br/><span className="italic text-[#C6A87C] font-Standardl">branżowy.</span>
+                Industry <br/><span className="italic text-[#C6A87C] font-Standardl">glossary.</span>
               </h2>
             </div>
             <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
@@ -3329,7 +3329,7 @@ const MaterialSamples = () => {
       name: 'Stal 1.4571',
       cat: 'Komponenty kontaktowe',
       spec: 'AISI 316Ti / X6CrNiMoTi17-12-2',
-      desc: 'Austenityczna stal kwasoodporna z dodatkiem tytanu. Odporność na H₂S, NH₃ i Volatile Fatty Acids. Spawana metodą TIG w atmosferze argonu.',
+      desc: 'Austenitic acid-resistant steel with titanium. Resistant to H₂S, NH₃ and Volatile Fatty Acids. TIG welded in an argon atmosphere.',
       thick: '4 mm',
       origin: 'DE · Outokumpu',
       visual: 'steel',
@@ -3364,7 +3364,7 @@ const MaterialSamples = () => {
                 <Wrench className="w-3.5 h-3.5" strokeWidth={1} /> Material sample — architect's moodboard
               </div>
               <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Z czego <br/><span className="italic text-[#C6A87C] font-Standardl">to się składa.</span>
+                What <br/><span className="italic text-[#C6A87C] font-Standardl">it consists of.</span>
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
@@ -3532,7 +3532,7 @@ const KineticBreakIII = () => {
             like milk, grain, meat.
           </h2>
           <p className="font-serif italic text-2xl text-[#EAE6DF]/55 max-w-3xl mx-auto leading-relaxed">
-            Każdy kilogram, który wytworzymy w Reactorze, to kilogram, który nie wydostał się z gnojowicy do atmosfery. To nie tylko energia — to <span className="text-[#C6A87C] not-italic">utylizacja, która sama się amortyzuje</span>.
+            Every kilogram we produce in the reactor is a kilogram that didn't escape from slurry into the atmosphere. It's not just energy — it's <span className="text-[#C6A87C] not-italic">utilization that pays for itself</span>.
           </p>
         </FadeIn>
       </div>
@@ -3550,7 +3550,7 @@ const TimelineSince2008 = () => {
   const events = [
     { year: '2005', title: 'Biocomponents Act', desc: 'The first legal regulations creating a framework for energy production from agricultural biogas.', cat: 'POLICY' },
     { year: '2008', title: 'Green certificates', desc: 'Introduction of a support system for renewable cogeneration. The first 0.5–1 MW agricultural biogas plants are built.', cat: 'GENESIS' },
-    { year: '2011', title: 'The first hundred installations', desc: 'Liczba czynnych biogazowni rolniczych w Polsce przekracza 30. Homeinują projekty oparte o kiszonkę kukurydzy.', cat: 'GROWTH' },
+    { year: '2011', title: 'The first hundred installations', desc: 'The number of active agricultural biogas plants in Poland exceeds 30. Projects based on corn silage dominate.', cat: 'GROWTH' },
     { year: '2015', title: 'RES Act — auctions', desc: 'Wprowadzenie systemu aukcyjnego. Biogaz rolniczy zyskuje osobny koszyk kontraktowy bez konkurencji z wiatrem i Solarm.', cat: 'POLICY' },
     { year: '2018', title: 'RED II Directive', desc: 'The Union defines sustainability criteria for bioenergy. Every m³ of biogas requires documentation of biomass origin.', cat: 'EU' },
     { year: '2021', title: 'Fit for 55 Package', desc: 'Emphasis on biomethane and municipal biogas plants. Opening of new financial paths under the National Recovery Plan.', cat: 'EU' },
@@ -3657,7 +3657,7 @@ const BlueprintMargin = () => {
             <div className="col-span-6 p-8 border-r border-[#C6A87C]/30">
               <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-3">Drawing title</div>
               <h2 className="font-serif text-5xl text-[#EAE6DF] font-light leading-tight">
-                Biogazownia rolnicza 0.5 MW <br/><span className="italic text-[#C6A87C]">— przekrój podłużny.</span>
+                Agricultural biogas plant 0.5 MW <br/><span className="italic text-[#C6A87C]">— longitudinal section.</span>
               </h2>
             </div>
             <div className="col-span-3 grid grid-rows-3">
@@ -4014,11 +4014,11 @@ const SiteAerial = () => {
                 })}
 
                 {/* Property edge label */}
-                <text x="50" y="78.5" textAnchor="middle" fontSize="0.9" fill="#C6A87C" fillOpacity="0.35" className="font-mono">— GRANICA DZIAŁKI — 12 800 m² —</text>
+                <text x="50" y="78.5" textAnchor="middle" fontSize="0.9" fill="#C6A87C" fillOpacity="0.35" className="font-mono">— PLOT BOUNDARY — 12 800 m² —</text>
               </svg>
               <div className="absolute top-4 left-4 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">PLAN SYTUACYJNY — REF: GP-A1-01</div>
-              <div className="absolute top-4 right-4 font-mono text-[9px] text-[#4ADE80] tracking-[0.3em] uppercase">DZIAŁKA: 1.28 ha</div>
-              <div className="absolute bottom-4 right-4 font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.3em] uppercase">⌗ Widok z góry 0° · Skala 1:1000</div>
+              <div className="absolute top-4 right-4 font-mono text-[9px] text-[#4ADE80] tracking-[0.3em] uppercase">PLOT: 1.28 ha</div>
+              <div className="absolute bottom-4 right-4 font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.3em] uppercase">⌗ Top view 0° · Scale 1:1000</div>
               <div className="absolute -top-3 -left-3 reg-mark" />
               <div className="absolute -top-3 -right-3 reg-mark" />
               <div className="absolute -bottom-3 -left-3 reg-mark" />
@@ -4074,7 +4074,7 @@ const AwardsAndCertifications = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-end mb-20 border-b border-[#C6A87C]/15 pb-10">
             <div className="lg:col-span-7">
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
-                <ShieldCheck className="w-3.5 h-3.5" strokeWidth={1} /> Standards referencyjne — według czego projektujemy
+                <ShieldCheck className="w-3.5 h-3.5" strokeWidth={1} /> Reference standards — what we design against
               </div>
               <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
                 Osiem norm, <br/><span className="italic text-[#C6A87C] font-Standardl">jedna Quality.</span>
@@ -4146,7 +4146,7 @@ const NumberedEpigraphs = () => {
       <div className="max-w-[80rem] mx-auto px-8 relative z-10">
         <FadeIn>
           <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-20 flex items-center gap-4 justify-center">
-            <span className="w-12 h-px bg-[#C6A87C]/40" /> Trzy zasady · zapisane na ścianach <span className="w-12 h-px bg-[#C6A87C]/40" />
+            <span className="w-12 h-px bg-[#C6A87C]/40" /> Three principles · written on the walls <span className="w-12 h-px bg-[#C6A87C]/40" />
           </div>
         </FadeIn>
         <div className="space-y-20">
@@ -4162,7 +4162,7 @@ const NumberedEpigraphs = () => {
                   <span className="text-[#C6A87C] not-italic">„</span>{e.q}<span className="text-[#C6A87C] not-italic">"</span>
                 </blockquote>
                 <div className="md:col-span-2 pt-4 border-t border-[#C6A87C]/15">
-                  <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-1">— Źródło</div>
+                  <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-1">— Source</div>
                   <div className="font-serif italic text-sm text-[#EAE6DF]/50 leading-tight">{e.who}</div>
                 </div>
               </div>
@@ -4181,7 +4181,7 @@ const TechnicalSpecSheet = () => {
       cat: 'Wymiary konstrukcyjne',
       ref: 'CON',
       items: [
-        ['Pojemność Reactora I + II', '7 200 m³'],
+        ['Reactor Capacity I + II', '7 200 m³'],
         ['Diameter of each chamber', '24.0 m'],
         ['Construction height', '8.0 m'],
         ['Reinforced concrete wall thickness', '0.40 m'],
@@ -4197,7 +4197,7 @@ const TechnicalSpecSheet = () => {
         ['pH operacyjne', '7.4 — 7.8'],
         ['Czas retencji hydraulicznej', '28 dni'],
         ['Sucha masa wsadu', '8 — 12% TS'],
-        ['Daily feedstock', '21 t / dobę'],
+        ['Daily feedstock', '21 t / day'],
         ['Uzysk biogazu', '210 m³ / t TS'],
       ],
     },
@@ -4237,7 +4237,7 @@ const TechnicalSpecSheet = () => {
                 <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Karta techniczna — REF: GP-2026-X
               </div>
               <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Pełna <br/><span className="italic text-[#C6A87C] font-Standardl">specyfikacja.</span>
+                Full <br/><span className="italic text-[#C6A87C] font-Standardl">specification.</span>
               </h2>
             </div>
             <div className="lg:col-span-5 space-y-4">
@@ -4287,7 +4287,7 @@ const TechnicalSpecSheet = () => {
           <div className="mt-12 grid md:grid-cols-4 gap-8 pt-10 border-t border-[#C6A87C]/15">
             <div>
               <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-2">Prepared by</div>
-              <div className="font-serif italic text-lg text-[#EAE6DF]/70">Dział technologiczny GP</div>
+              <div className="font-serif italic text-lg text-[#EAE6DF]/70">GP Technology Department</div>
             </div>
             <div>
               <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-2">Checked by</div>
@@ -4364,7 +4364,7 @@ const EngineeringDNA = () => {
           <FadeIn className="lg:col-span-5">
             <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">About Us // Company Profile</div>
             <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 mb-12 font-light">
-              Inżynieria <br/><span className="italic text-[#C6A87C] font-Standardl">procesowa.</span>
+              Process <br/><span className="italic text-[#C6A87C] font-Standardl">engineering.</span>
             </h2>
           </FadeIn>
           <FadeIn className="lg:col-span-7" delay={200}>

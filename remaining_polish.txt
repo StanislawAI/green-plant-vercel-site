@@ -1,0 +1,469 @@
+greenplant_en.jsx:1062:              <p className="text-5xl md:text-7xl font-serif text-[#EAE6DF] leading-tight">Sekwencja <br/><span className="italic font-light text-[#C6A87C]">Wdrożeniowa.</span></p>
+greenplant_en.jsx:1122:                Macierz <br/><span className="italic text-[#C6A87C] font-Standardl">Substratów.</span>
+greenplant_en.jsx:1165:                      <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase mb-4">Kategoria Materiału</div>
+greenplant_en.jsx:1171:                         <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase mb-4">Zawartość CH4</div>
+greenplant_en.jsx:1182:                         <span className="font-mono text-[8px] text-[#EAE6DF]/40 uppercase tracking-[0.2em]">Potencjał Energetyczny</span>
+greenplant_en.jsx:1286:              Węzeł <br/><span className="italic text-[#C6A87C] font-Standardl">Systemowy.</span>
+greenplant_en.jsx:1296:               { icon: <Zap className="w-8 h-8" />, title: "Smart Grid", desc: "Zautomatyzowana sprzedaż nadwyżek energii w oparciu o algorytmy Peak Shaving i spotowe ceny energii.", val: "499 kW" },
+greenplant_en.jsx:1297:               { icon: <Factory className="w-8 h-8" />, title: "District Heating", desc: "Redukcja kosztów operacyjnych poprzez zasilanie lokalnej infrastruktury darmową energią cieplną.", val: "510 kWt" },
+greenplant_en.jsx:1298:               { icon: <Leaf className="w-8 h-8" />, title: "Fertilizer Circulation", desc: "Zamknięcie obiegu pierwiastków poprzez dystrybucję stabilizowanego, bezzapachowego pofermentu.", val: "30 t/d" }
+greenplant_en.jsx:1501:              Cyfrowy <br/><span className="text-[#C6A87C] not-italic">bliźniak.</span>
+greenplant_en.jsx:1631:              <p className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Nadzór <br/><span className="italic font-light text-[#C6A87C]">Weryfikowany.</span></p>
+greenplant_en.jsx:1721:              { title: "Remote SCADA Diagnostics", desc: "Podgląd na żywo każdego zaworu i mieszadła. Wykrywanie anomalii zanim staną się awarią.", icon: <Zap className="w-6 h-6" /> },
+greenplant_en.jsx:1722:              { title: "Technologist Supervision", desc: "Cotygodniowa Analysis parametrów fermentacji. Optymalizacja diety Reactora.", icon: <Leaf className="w-6 h-6" /> },
+greenplant_en.jsx:1723:              { title: "Tier-1 Mechanical Service", desc: "Autoryzowany serwis agregatów CHP i systemów pompujących. Oryginalne części.", icon: <Factory className="w-6 h-6" /> }
+greenplant_en.jsx:1745:    { title: "Standards UDT", desc: "Technical supervision over pressure vessels and pipelines.", code: "ROZPORZĄDZENIE UDT", hue: "#60A5FA" },
+greenplant_en.jsx:1758:             <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Bezpieczeństwo <br/><span className="italic text-[#C6A87C] font-Standardl">Standardtywne.</span></h3>
+greenplant_en.jsx:1864:            Zasięg <br/><span className="italic text-[#C6A87C] font-Standardl">operacyjny.</span>
+greenplant_en.jsx:1872:               { region: "Northern Poland", city: "Hub Gdańsk", status: "Operational" },
+greenplant_en.jsx:1874:               { region: "Western Poland", city: "Hub Poznań", status: "Active" },
+greenplant_en.jsx:1875:               { region: "Southern Poland", city: "Hub Kraków", status: "Operational" }
+greenplant_en.jsx:1991:              <div>ul. Stanisława Wyspiańskiego 8 // 05-400 Otwock</div>
+greenplant_en.jsx:2030:              <div>Złożono krojem <span className="text-[#C6A87C]/80 font-serif italic Standardl-case tracking-Standardl text-sm">Cormorant Garamond</span> oraz <span className="text-[#C6A87C]/80 font-mono Standardl-case tracking-Standardl text-sm">Space Mono</span></div>
+greenplant_en.jsx:2105:              <div className="absolute top-4 left-6 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">DWG-014 / PRZEKRÓJ A-A</div>
+greenplant_en.jsx:2276:          była przywilejem <span className="italic text-[#C6A87C]">miast</span>,<br/>
+greenplant_en.jsx:2280:          <span className="italic text-[#C6A87C]">elektrownią.</span>
+greenplant_en.jsx:2305:    { x: 48, y: 75, name: 'Małopolska', mw: '17', sub: 'Municipal waste' },
+greenplant_en.jsx:2306:    { x: 28, y: 78, name: 'Dolny Śląsk', mw: '42', sub: 'Distillery stillage' },
+greenplant_en.jsx:2392:            <div className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-6">Województwa — gęstość rynku</div>
+greenplant_en.jsx:2478:      body: 'W pierwszym roku współpracy mierzymy nie tylko areał — mierzymy Solar, deszcz i pH gleby. Polska Corn energetyczna ma jedne z najwyższych w Europie potencjałów metanowych: 210 m³ biogazu z tony świeżej masy.',
+greenplant_en.jsx:2514:      body: 'To, co wyszło z gleby jako Corn, wraca jako nawóz. Bez nasion chwastów, bez patogenów, bez smrodu. Polski rolnik przestaje kupować mocznik i fosforany — bo wytwarza je sam, w swojej fabryce metanu.',
+greenplant_en.jsx:2653:    0: { l: 'Night silence', d: 'Reactor pracuje w trybie podtrzymania. Mieszadła wolne — 4 obr/min. Temperatura stała 38.4 °C.' },
+greenplant_en.jsx:2658:    18: { l: 'Sprzedaż peak shaving', d: 'Highest energy prices between 6:00 PM and 9:00 PM. The SCADA algorithm maximizes output.' },
+greenplant_en.jsx:2659:    21: { l: 'Cool down', d: 'Powolne wytracanie mocy. Mieszadła zwalniają. Grid przechodzi w noc.' },
+greenplant_en.jsx:2672:              Dwadzieścia cztery <br/><span className="italic text-[#C6A87C] font-Standardl">godziny.</span>
+greenplant_en.jsx:2798:      desc: 'Archeon o nieregularnym kształcie wielokątnym. Produkuje 70% metanu w Reactorze, rozkładając octan na CH₄ i CO₂. Optimum pH 6.8–7.4.',
+greenplant_en.jsx:2808:      desc: 'Pałeczka długości 2–8 µm. Wykorzystuje wodór i CO₂ do produkcji metanu. Niezbędny w fazie wstępnej, gdy Homeinują wolne kwasy tłuszczowe.',
+greenplant_en.jsx:2818:      desc: 'Beztlenowiec rozkładający celulozę i hemicelulozę. Pierwszy szczebel łańcucha pokarmowego w Reactorze. Pracuje wydajnie w procesie mezofilowym (38 °C).',
+greenplant_en.jsx:2843:                <Beaker className="w-3.5 h-3.5" strokeWidth={1} /> Taxonomia mikrobiologiczna — żywa kadra Reactora
+greenplant_en.jsx:2850:              W jednej kropli substratu pracuje 10⁹ komórek. Bakterie i archeony to nasi prawdziwi inżynierowie — wybieramy najefektywniejsze szczepy, dostosowane do polskiej diety Reactora.
+greenplant_en.jsx:2933:    { outlet: 'FORBES POLSKA', date: '12.2023', headline: 'Od 2026 r. polskie firmy i Homey może zasilać błękitne paliwo', cat: 'Analysis', url: 'https://news.google.com/rss/articles/CBMilgFBVV95cUxOUWV4ZmpIZ0ZVS3lSMDB2UE9tS1BwU01tNVhtamw0WlUweHpxNzlqOVRmUllEajItM281RzQ4S281REszeDBJNEJ4Z3c3ZDBIek82Xy02T2lRdlF3bm16YW84RE9tV3YteWVvNGQ5MkpJd0J0S3psclRRMmJqWjBxbVBNUW1qZnl4aTR4TzF3eWRsSWxQcVE?oc=5' },
+greenplant_en.jsx:2955:              <div className="font-serif italic text-2xl text-[#EAE6DF]/60">Co warto śledzić w sektorze</div>
+greenplant_en.jsx:3012:    { name: 'Analysis BMP + studium wykonalności', start: 0, end: 2, color: '#C6A87C', cat: 'PRE' },
+greenplant_en.jsx:3032:                <GitBranch className="w-3.5 h-3.5" strokeWidth={1} /> Harmonogram — 14 miesięcy
+greenplant_en.jsx:3169:                <Gauge className="w-3.5 h-3.5" strokeWidth={1} /> Analysis porównawcza źródeł energii
+greenplant_en.jsx:3172:                Cztery źródła, <br/><span className="italic text-[#C6A87C] font-Standardl">jedno równanie.</span>
+greenplant_en.jsx:3232:              <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-3">Źródło danych</div>
+greenplant_en.jsx:3259:    { letter: 'A', name: 'ATEX', latin: 'Directive 2014/34/EU', def: 'Europejska Directive regulująca urządzenia w strefach zagrożonych wybuchem. Wszystkie elementy Reactora pracujące z metanem klasyfikowane są jako EX zone 1 lub 2.', ref: 'STD' },
+greenplant_en.jsx:3267:    { letter: 'L', name: 'LKT', latin: 'Volatile Fatty Acids', def: 'Produkty pośrednie fermentacji. Ich nadmiar (limit ok. 3-4 g/L) sygnalizuje zaburzenie procesu — tzw. kwasicę Reactora.', ref: 'BIO' },
+greenplant_en.jsx:3269:    { letter: 'O', name: 'OZE', latin: 'Renewable Energy Sources', def: 'Polski system wsparcia obejmujący aukcje i taryfy wsparcia (FIT). Biogaz rolniczy ma własny koszyk — bez konkurencji z wiatrem i Solarm.', ref: 'LEGAL' },
+greenplant_en.jsx:3285:                Słownik <br/><span className="italic text-[#C6A87C] font-Standardl">branżowy.</span>
+greenplant_en.jsx:3325:      origin: 'EU · Górażdże',
+greenplant_en.jsx:3332:      desc: 'Austenityczna stal kwasoodporna z dodatkiem tytanu. Odporność na H₂S, NH₃ i Volatile Fatty Acids. Spawana metodą TIG w atmosferze argonu.',
+greenplant_en.jsx:3367:                Z czego <br/><span className="italic text-[#C6A87C] font-Standardl">to się składa.</span>
+greenplant_en.jsx:3371:              Concrete from Górażdże. Steel from Tornio. Membrane from Graz. Copper from Linköping. Four materials that together weigh 320 tons and will survive 25 winters.
+greenplant_en.jsx:3535:            Każdy kilogram, który wytworzymy w Reactorze, to kilogram, który nie wydostał się z gnojowicy do atmosfery. To nie tylko energia — to <span className="text-[#C6A87C] not-italic">utylizacja, która sama się amortyzuje</span>.
+greenplant_en.jsx:3553:    { year: '2011', title: 'The first hundred installations', desc: 'Liczba czynnych biogazowni rolniczych w Polsce przekracza 30. Homeinują projekty oparte o kiszonkę kukurydzy.', cat: 'GROWTH' },
+greenplant_en.jsx:3558:    { year: '2025', title: 'Investment boom', desc: 'The number of projects in building permits exceeds 180. BGK, BOŚ and EBRD launch dedicated financial lines.', cat: 'CAPITAL' },
+greenplant_en.jsx:3660:                Biogazownia rolnicza 0.5 MW <br/><span className="italic text-[#C6A87C]">— przekrój podłużny.</span>
+greenplant_en.jsx:4017:                <text x="50" y="78.5" textAnchor="middle" fontSize="0.9" fill="#C6A87C" fillOpacity="0.35" className="font-mono">— GRANICA DZIAŁKI — 12 800 m² —</text>
+greenplant_en.jsx:4020:              <div className="absolute top-4 right-4 font-mono text-[9px] text-[#4ADE80] tracking-[0.3em] uppercase">DZIAŁKA: 1.28 ha</div>
+greenplant_en.jsx:4021:              <div className="absolute bottom-4 right-4 font-mono text-[9px] text-[#C6A87C]/40 tracking-[0.3em] uppercase">⌗ Widok z góry 0° · Skala 1:1000</div>
+greenplant_en.jsx:4077:                <ShieldCheck className="w-3.5 h-3.5" strokeWidth={1} /> Standards referencyjne — według czego projektujemy
+greenplant_en.jsx:4149:            <span className="w-12 h-px bg-[#C6A87C]/40" /> Trzy zasady · zapisane na ścianach <span className="w-12 h-px bg-[#C6A87C]/40" />
+greenplant_en.jsx:4165:                  <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-1">— Źródło</div>
+greenplant_en.jsx:4184:        ['Pojemność Reactora I + II', '7 200 m³'],
+greenplant_en.jsx:4200:        ['Daily feedstock', '21 t / dobę'],
+greenplant_en.jsx:4240:                Pełna <br/><span className="italic text-[#C6A87C] font-Standardl">specyfikacja.</span>
+greenplant_en.jsx:4290:              <div className="font-serif italic text-lg text-[#EAE6DF]/70">Dział technologiczny GP</div>
+greenplant_en.jsx:4367:              Inżynieria <br/><span className="italic text-[#C6A87C] font-Standardl">procesowa.</span>
+public/presentation_en.html:1532:    <nav id="deck-rail" class="deck-rail no-print" aria-label="navigation slajdów"></nav>
+public/presentation_en.html:1655:                        <li class="flex items-start gap-3"><span class="text-emerald-400 font-bold">✓</span> Dywidendę z
+public/presentation_en.html:1661:                        <li class="flex items-start gap-3"><span class="text-emerald-400 font-bold">✓</span> Obsługę
+public/presentation_en.html:1668:                        <li class="flex items-start gap-3"><span class="text-gold-accent font-bold">→</span> Masz stały
+public/presentation_en.html:1670:                                class="text-white font-bold">7–12 tys. t/rok</span>, zależnie od miksu.</li>
+public/presentation_en.html:1672:                            na ~0,7 ha przy źródle wsadu + dojazd dla serwisu i dostaw.</li>
+public/presentation_en.html:1673:                        <li class="flex items-start gap-3"><span class="text-gold-accent font-bold">→</span> Przyłącze i
+public/presentation_en.html:1674:                            formalności weryfikuje Green Plant (GPZ/OSD, WZ/pozwolenia, URE).</li>
+public/presentation_en.html:1675:                        <li class="flex items-start gap-3"><span class="text-gold-accent font-bold">→</span> Jeśli brakuje
+public/presentation_en.html:1676:                            wsadu w danym roku, SPV może dokupić go z rynku (mniejszy zysk, ciągłość pracy instalacji).
+public/presentation_en.html:1682:            <p class="mt-6 text-[10px] text-gray-500 leading-relaxed">Materiał informacyjny. Parametry i podział
+public/presentation_en.html:1683:                ekonomiczny zależą od lokalizacji, wsadu, warunków przyłączenia i ustaleń umowy SPV. Dane liczbowe mają
+public/presentation_en.html:1684:                charakter poglądowy i nie stanowią oferty handlowej (art. 66 KC).</p>
+public/presentation_en.html:1698:                kukurydziana). Konserwatywny scenariusz oparty na parametrach możliwych do utrzymania operacyjnie.</p>
+public/presentation_en.html:1702:                            <p class="text-xs text-gray-500 uppercase tracking-widest mb-3">Przychód z energii</p>
+public/presentation_en.html:1704:                            <p class="text-sm text-gray-500">PLN / rok (sprzedaż energii)</p>
+public/presentation_en.html:1717:                            <p class="text-xs text-gray-500 uppercase tracking-widest mb-3">Wkład CAPEX rolnika</p>
+public/presentation_en.html:1725:                            <h4 class="font-bold text-lg mb-4">Struktura inwestycji (przykład)</h4>
+public/presentation_en.html:1729:                                        <span class="text-gray-400">Dotacja UE (KPO / NFOŚiGW)</span>
+public/presentation_en.html:1746:                            <p class="text-xs text-gray-600 mt-4">CAPEX: ~10 mln PLN | Kredyt obsługiwany przez Green Plant
+public/presentation_en.html:1753:                                    <p class="text-sm text-gray-500">Dziś: koszt zagospodarowania i transportu</p>
+public/presentation_en.html:1760:                                    <p class="text-sm text-gray-500">Po uruchomieniu: wsad pracuje na przychód energii</p>
+public/presentation_en.html:1777:            <p class="text-gray-500 text-base mb-8">Od LOI do pierwszej sprzedaży energii: ok. 14 miesięcy w jednym,
+public/presentation_en.html:1778:                spójnym cyklu inwestycyjnym.
+public/presentation_en.html:1791:                            <h4 class="font-bold text-lg uppercase tracking-wide">Miesiąc 0 — Start Projektu</h4>
+public/presentation_en.html:1802:                            <h4 class="font-bold text-lg uppercase tracking-wide">Miesiące 1-4 — Pozwolenia</h4>
+public/presentation_en.html:1803:                            <p class="text-sm text-gray-600 mt-2">Green Plant prowadzi formalności: WZ, warunki przyłączenia i
+public/presentation_en.html:1804:                                wymagane uzgodnienia. Ty skupiasz się na gospodarstwie.</p>
+public/presentation_en.html:1812:                            <h4 class="font-bold text-lg uppercase tracking-wide">Miesiące 5-13 — Realizacja</h4>
+public/presentation_en.html:1813:                            <p class="text-sm text-gray-600 mt-2">Fundamenty, zbiorniki, CHP, przyłącze i odbiory.
+public/presentation_en.html:1822:                            <h4 class="font-bold text-lg uppercase tracking-wide text-gold-accent">Miesiąc 14 — Pierwszy
+public/presentation_en.html:1824:                            <p class="text-sm text-gray-300 mt-2">Rozruch i synchronizacja z siecią. Pierwsze wpływy
+public/presentation_en.html:1825:                                trafiają na konto SPV. <strong class="text-gold-accent">Projekt przechodzi w fazę
+public/presentation_en.html:1843:            <p class="text-gray-600 text-base mb-10">SPV porządkuje odpowiedzialność i przepływy. Land pozostaje po
+public/presentation_en.html:1844:                Twojej stronie, a projekt działa w osobnym podmiocie.</p>
+public/presentation_en.html:1857:                                    <p class="font-bold">Spółka z o.o. (SPV)</p>
+public/presentation_en.html:1858:                                    <p class="text-sm text-gray-500">Nowy podmiot — oddzielony od Twojego majątku
+public/presentation_en.html:1867:                                    <p class="font-bold">Wkład Niepieniężny (Aport)</p>
+public/presentation_en.html:1868:                                    <p class="text-sm text-gray-500">Land (0,7 ha) wnoszony jako aport — nie sprzedaż,
+public/presentation_en.html:1869:                                        nie dzierżawa</p>
+public/presentation_en.html:1877:                                    <p class="font-bold">Podział Profitów</p>
+public/presentation_en.html:1878:                                    <p class="text-sm text-gray-500">Dividend zgodna z udziałami i umową SPV, bez
+public/presentation_en.html:1899:                            <li>• Nie ponosisz odpowiedzialności za awarie</li>
+public/presentation_en.html:1904:                        <p class="text-xl font-black">Instalacja może przejść na <span
+public/presentation_en.html:1905:                                class="text-gold-accent">Ciebie</span>, jeśli tak stanowi umowa.</p>
+public/presentation_en.html:1907:                            praca zależy od serwisu i modernizacji.</p>
+public/presentation_en.html:1920:                finansowanie, eksploatację i serwis 24/7 w modelu operatorskim.</p>
+public/presentation_en.html:1934:                            dywidendę oraz ciepło użytkowe</li>
+public/presentation_en.html:1944:                        <li class="flex items-start gap-3"><span class="text-gold-accent font-bold">→</span> Obsługa
+public/presentation_en.html:1953:                    <p class="mt-8 text-sm text-gray-500 italic">Pełna odpowiedzialność po stronie operatora</p>
+public/presentation_en.html:1958:                <p class="text-2xl font-black">"Twoja codzienna praca się nie zmienia. <span
+public/presentation_en.html:1959:                        class="text-emerald-400">Struktura dochodu już tak.</span>"</p>
+public/presentation_en.html:1964:    <!-- PORÓWNANIE OZE -->
+public/presentation_en.html:1969:            <p class="text-gray-500 text-lg mb-16">PV jest dobrym uzupełnieniem, ale nie homeyka bilansu przez całą dobę.
+public/presentation_en.html:1970:                Poniżej porównanie źródeł z perspektywy gospodarstwa.</p>
+public/presentation_en.html:1997:                            <td class="py-4 px-4 text-gray-400">Produkcja w nocy / zimą</td>
+public/presentation_en.html:2000:                            <td class="py-4 px-4 text-center text-yellow-400">Częściowo</td>
+public/presentation_en.html:2003:                            <td class="py-4 px-4 text-gray-400">Produkcja ciepła</td>
+public/presentation_en.html:2009:                            <td class="py-4 px-4 text-gray-400">Nawóz z procesu</td>
+public/presentation_en.html:2015:                            <td class="py-4 px-4 text-gray-400">Utylizacja odpadów</td>
+public/presentation_en.html:2021:                            <td class="py-4 px-4 text-gray-400">Stability przychodów</td>
+public/presentation_en.html:2027:                            <td class="py-4 px-4 text-gray-400">Zajętość Landu</td>
+public/presentation_en.html:2037:                <p class="text-lg font-bold">"PV jest świetnym uzupełnieniem. Biogas daje <span
+public/presentation_en.html:2038:                        class="text-emerald-400">stabilną podstawę 24/7</span>."
+public/presentation_en.html:2049:                        class="serif-italic text-gold-accent">Łukasiewicza</span></h2>
+public/presentation_en.html:2061:                        W Bóbrce Ignacy Łukasiewicz uruchamia pionierski szyb naftowy. Polska buduje przewagę dzięki
+public/presentation_en.html:2071:                    <h4 class="text-xl font-bold mb-4 uppercase tracking-wider">1937 Potęga Gazowa II RP</h4>
+public/presentation_en.html:2073:                        COP i rozwój przemysłu gazowego pokazały, że energia buduje siłę gospodarki. Dziś ta sama
+public/presentation_en.html:2074:                        logika wraca na wieś w zdecentralizowanej formie.
+public/presentation_en.html:2083:                    <h4 class="text-xl font-bold mb-4 uppercase tracking-wider">Suwerenność 2.0</h4>
+public/presentation_en.html:2085:                        Dziś źródłem energii staje się wsad rolniczy. Biogas łączy Safety energetyczne z
+public/presentation_en.html:2100:                    Gnojowica, resztki z pola i odpady rolno-spożywcze stają się paliwem dla instalacji. Instead of cost
+public/presentation_en.html:2104:                    <p class="text-xs font-bold uppercase tracking-widest text-emerald-800 mb-2">Kluczowy Wskaźnik</p>
+public/presentation_en.html:2105:                    <p class="text-2xl font-serif italic text-emerald-900">1 tona tłuszczu ≈ 900 m3 biogazu</p>
+public/presentation_en.html:2114:                        <p class="text-xs text-gray-500 uppercase tracking-widest">Wysłodki Buraczane • Wywar •
+public/presentation_en.html:2119:                        <p class="text-[10px] uppercase">Prędkość Trawienia</p>
+public/presentation_en.html:2127:                        <p class="text-xs text-emerald-700 uppercase tracking-widest">Gnojowica • Obornik • Słoma •
+public/presentation_en.html:2138:                        <h4 class="text-2xl font-serif font-bold mb-1">Białka i Tłuszcze</h4>
+public/presentation_en.html:2139:                        <p class="text-xs text-gray-500 uppercase tracking-widest">Waste z ubojni • Resztki Spożywcze •
+public/presentation_en.html:2151:    <!-- TABELA SUBSTRATÓW -->
+public/presentation_en.html:2154:            <h2 class="text-4xl font-black mb-1">Ile Czego Na <span class="serif-italic text-emerald-700">Pół
+public/presentation_en.html:2156:            <p class="text-gray-600 text-base mb-4">Każdy wsad ma inny potencjał metanowy. Tabela pokazuje orientacyjne
+public/presentation_en.html:2181:                                <td class="py-1">🌾 Żyto — kiszonka z całych roślin</td>
+public/presentation_en.html:2186:                                <td class="py-1">🌻 Kiszonka słonecznikowa</td>
+public/presentation_en.html:2201:                                <td class="py-1">🌿 Trawa sudańska, kiszonka</td>
+public/presentation_en.html:2206:                                <td class="py-1">🍃 Kiszonka z liści buraków</td>
+public/presentation_en.html:2252:                                <td class="py-1">🐖 Obornik świński</td>
+public/presentation_en.html:2257:                                <td class="py-1">🐄 Obornik bydlęcy</td>
+public/presentation_en.html:2262:                                <td class="py-1">🐴 Obornik koński</td>
+public/presentation_en.html:2267:                                <td class="py-1">🐄 Gnojowica bydlęca</td>
+public/presentation_en.html:2272:                                <td class="py-1">🐖 Gnojowica świńska</td>
+public/presentation_en.html:2301:                                <td class="py-1">🥩 Waste mięsne</td>
+public/presentation_en.html:2306:                                <td class="py-1">🧈 Waste żywnościowe (tłuszcze)</td>
+public/presentation_en.html:2316:                                <td class="py-1">🥔 Wysłodki buraczane (kiszone)</td>
+public/presentation_en.html:2321:                                <td class="py-1">🥛 Pełne mleko krowie</td>
+public/presentation_en.html:2326:                                <td class="py-1">🍎 Wytłoki jabłkowe</td>
+public/presentation_en.html:2352:                                <td class="py-2">🌾 Śruta poekstrakcyjna rzepakowa</td>
+public/presentation_en.html:2406:                        <td class="py-3">🌐 Zdalny monitoring i obsługa techniczna</td>
+public/presentation_en.html:2410:                        <td class="py-3">🔩 Naprawy i części zamienne</td>
+public/presentation_en.html:2422:                        <td class="py-3">📋 Administracja i zgodność</td>
+public/presentation_en.html:2435:            <p class="text-xs text-gray-600 leading-relaxed">Wartości poglądowe dla instalacji ~500 kW. OPEX jest
+public/presentation_en.html:2436:                rozliczany w SPV, a realne koszty zależą od technologii, wsadu i ustaleń serwisowych.</p>
+public/presentation_en.html:2454:                        Rozpad złożonych związków na prostsze frakcje.
+public/presentation_en.html:2465:                        Bakterie przekształcają biomasę w kwasy organiczne.
+public/presentation_en.html:2476:                        Powstaje octan i wodór, czyli paliwo dla metanogenezy.
+public/presentation_en.html:2489:                        <span class="block mt-2 font-bold text-white">To etap, w którym wsad realnie zamienia się w
+public/presentation_en.html:2490:                            strumień przychodów.</span>
+public/presentation_en.html:2502:                <p class="text-xl text-gray-500 serif-italic">Mniej emisji, mniejsza ekspozycja na przyszłe koszty.</p>
+public/presentation_en.html:2511:                        <p class="text-gray-400 text-sm">Metan jest ~28x silniejszym gazem cieplarnianym niż CO₂.
+public/presentation_en.html:2512:                            Regulacje i koszty emisji będą się zaostrzać. Przetwarzając go w energię, ograniczasz
+public/presentation_en.html:2513:                            emisję i budujesz zysk.</p>
+public/presentation_en.html:2540:                <h2 class="text-5xl font-black mb-2 text-[#1a1a1a]">Solidność Przemysłowa</h2>
+public/presentation_en.html:2541:                <p class="text-gray-600">Schemat procesu: od wsadu do energii, ciepła i pofermentu.</p>
+public/presentation_en.html:2692:                            font-size="12">CIEPŁO</text>
+public/presentation_en.html:2726:                    <span>Heat użytkowe</span>
+public/presentation_en.html:2747:                    Dla instalacji mikro (&lt; 0,5 MW) ścieżka administracyjna bywa prostsza niż dla dużych projektów.
+public/presentation_en.html:2748:                    Green Plant prowadzi proces od lokalnych uzgodnień po wymagania środowiskowe.
+public/presentation_en.html:2752:                    <p class="text-sm opacity-60">Model dobrany do średnich i dużych gospodarstw rolnych.</p>
+public/presentation_en.html:2760:                        <span class="font-mono text-gold-accent">PONIŻEJ 0,5 MW</span>
+public/presentation_en.html:2771:                <p class="text-xs opacity-60 mt-8 leading-relaxed">*Zależnie od lokalizacji, wsadu i decyzji organów.
+public/presentation_en.html:2777:    <!-- CIEPŁO -->
+public/presentation_en.html:2780:            <h2 class="text-5xl font-black mb-4">Heat: Twoje <span class="serif-italic text-emerald-700">Drugie Źródło
+public/presentation_en.html:2782:            <p class="text-gray-600 text-lg mb-16">W kogeneracji ciepło jest drugim strumieniem wartości obok energii
+public/presentation_en.html:2783:                elektrycznej. To realna oszczędność kosztów operacyjnych gospodarstwa.</p>
+public/presentation_en.html:2788:                    <h4 class="font-bold text-lg mb-2">Suszarnia Zbóż</h4>
+public/presentation_en.html:2789:                    <p class="text-sm text-gray-500">Suszysz kukurydzę, zboże i siano bez dodatkowego paliwa. Typowa
+public/presentation_en.html:2790:                        oszczędność sezonowa: ~40 000 PLN.</p>
+public/presentation_en.html:2795:                    <p class="text-sm text-gray-500">Ciepła woda i stabilne warunki zimą wspierają dobrostan stada i
+public/presentation_en.html:2796:                        ograniczają ryzyko kosztownych spadków wydajności.</p>
+public/presentation_en.html:2802:                        węgiel mogą spaść wyraźnie, zależnie od odbioru ciepła.</p>
+public/presentation_en.html:2809:                    <p class="text-xs text-gray-500 mt-1">ciepła rocznie (instalacja 0,5 MW)</p>
+public/presentation_en.html:2813:                    <p class="text-xs text-gray-500 mt-1">koszt paliwa zewnętrznego w modelu bazowym</p>
+public/presentation_en.html:2817:                    <p class="text-xs text-gray-500 mt-1">dostępność — zima i lato</p>
+public/presentation_en.html:2834:                            <p class="text-sm text-gray-500 mt-2">Gnojowica trafia rurami bezpośrednio do zamkniętych
+public/presentation_en.html:2835:                                zbiorników. Brak otwartego składowania mocno ogranicza źródło zapachu.</p>
+public/presentation_en.html:2838:                            <h4 class="font-bold text-xl">2. Hala Podciśnieniowa</h4>
+public/presentation_en.html:2839:                            <p class="text-sm text-gray-500 mt-2">Przyjęcie substratów stałych odbywa się w hali z
+public/presentation_en.html:2840:                                wymuszonym podciśnieniem. Przy otwarciu bramy powietrze jest <strong>zasysane do
+public/presentation_en.html:2841:                                    środka</strong>, a nie wypychane na zewnątrz.</p>
+public/presentation_en.html:2845:                            <p class="text-sm text-gray-500 mt-2">Powietrze wylotowe przechodzi przez płuczki wodne i
+public/presentation_en.html:2846:                                złoża organiczne, gdzie naturalne mikroorganizmy neutralizują nawet do ~99% związków
+public/presentation_en.html:2854:                        class="text-emerald-600 serif-italic">Społeczna.</span></h2>
+public/presentation_en.html:2856:                    Dobrze zaprojektowana instalacja ogranicza uciążliwości dla otoczenia i zwiększa Safety
+public/presentation_en.html:2857:                    społeczne projektu.
+public/presentation_en.html:2863:    <!-- 09A. SĄSIEDZI -->
+public/presentation_en.html:2866:            <h2 class="text-5xl font-black mb-4 text-emerald-900">Sąsiedzi i <span
+public/presentation_en.html:2868:            <p class="text-gray-600 text-lg mb-16">Dobrze poprowadzony projekt daje gminie energię, ciepło i podatki
+public/presentation_en.html:2869:                lokalne zamiast napięć społecznych.</p>
+public/presentation_en.html:2876:                        <li>• Tanie ciepło dla obiektów użyteczności publicznej</li>
+public/presentation_en.html:2880:                    <h4 class="font-bold text-lg mb-3 uppercase tracking-wide">Dla Sąsiadów</h4>
+public/presentation_en.html:2882:                        <li>• Niższa uciążliwość zapachowa niż przy otwartym magazynowaniu</li>
+public/presentation_en.html:2883:                        <li>• Możliwość przyjmowania ciepła po niższej cenie</li>
+public/presentation_en.html:2884:                        <li>• Wspólne korzyści z Klastra Energii</li>
+public/presentation_en.html:2888:                    <h4 class="font-bold text-lg mb-3 uppercase tracking-wide">Gotowe Narzędzia</h4>
+public/presentation_en.html:2890:                        <li>• Wzór pisma do Sołtysa</li>
+public/presentation_en.html:2892:                        <li>• Konsultacje społeczne (Green Plant prowadzi)</li>
+public/presentation_en.html:2898:                <p class="serif-italic text-2xl text-emerald-800">"Nie budujemy obok społeczności. Budujemy wartość
+public/presentation_en.html:2899:                    <strong>razem</strong> z nią."
+public/presentation_en.html:2917:                    <h4 class="font-bold mb-2 text-white">Lat Doświadczenia</h4>
+public/presentation_en.html:2918:                    <p class="text-xs text-gray-500">Zespół kierowniczy z doświadczeniem w sektorze OZE, energetyce i
+public/presentation_en.html:2923:                    <h4 class="font-bold mb-2 text-white">Finansowanie Własne</h4>
+public/presentation_en.html:2924:                    <p class="text-xs text-gray-500">Green Plant wnosi kapitał i finansowanie projektu. Nie oczekujemy od
+public/presentation_en.html:2925:                        rolnika wkładu inwestycyjnego.</p>
+public/presentation_en.html:2929:                    <h4 class="font-bold mb-2 text-white">Pełna Obsługa</h4>
+public/presentation_en.html:2930:                    <p class="text-xs text-gray-500">Pozwolenia, realizacja, przyłącze OSD, serwis, rozliczenia,
+public/presentation_en.html:2931:                        ubezpieczenie — jeden partner na całość.</p>
+public/presentation_en.html:2956:    <!-- 11. POLSKI POTENCJAŁ -->
+public/presentation_en.html:2961:            <p class="text-gray-500 text-sm mb-12">Potencjał biometanu pozostaje wielokrotnie większy niż obecna skala
+public/presentation_en.html:2970:                    <span class="text-xs uppercase tracking-widest text-gray-500">Istniejących Jednostek</span>
+public/presentation_en.html:2974:                    <span class="text-xs uppercase tracking-widest text-gray-500">Potencjał Gmin</span>
+public/presentation_en.html:2978:                    <span class="text-xs uppercase tracking-widest text-gray-500">Wykorzystany Potencjał</span>
+public/presentation_en.html:2982:                <p class="serif-italic text-2xl text-gray-400">"Polska może stać się biometanowym spichlerzem Europy
+public/presentation_en.html:2984:                <p class="text-[10px] uppercase tracking-[0.3em] text-white/25 mt-6">Wartości orientacyjne, oparte na
+public/presentation_en.html:2985:                    szacunkach branżowych.</p>
+public/presentation_en.html:2997:                    Przyłączeniowa</span>
+public/presentation_en.html:2999:                        class="serif-italic text-emerald-700">Przyłączeniowa.</span></h2>
+public/presentation_en.html:3001:                    Connection capacity jest kluczowym ograniczeniem projektu. Green Plant prowadzi analizę i proces przyłączeniowy
+public/presentation_en.html:3020:            <h2 class="text-6xl font-black mb-4">Mniej Zakupów Nawozów <span class="serif-italic text-emerald-700">Mineralnych.</span></h2>
+public/presentation_en.html:3021:            <p class="text-xl text-emerald-800 serif-italic mb-16">"Poferment stabilizuje koszty nawożenia i poprawia
+public/presentation_en.html:3027:                    <h4 class="text-2xl font-bold mb-4">Oszczędność NPK</h4>
+public/presentation_en.html:3030:                        przyswajalny przez rośliny.
+public/presentation_en.html:3031:                        <strong>Możesz istotnie ograniczyć zakup nawozów mineralnych.</strong>
+public/presentation_en.html:3035:                    <h4 class="text-2xl font-bold mb-4">Budowa Próchnicy</h4>
+public/presentation_en.html:3036:                    <p class="text-gray-600 leading-relaxed">Trudno rozkładalny węgiel (lignina) przetrwa proces. Przy
+public/presentation_en.html:3037:                        rozsiewaniu wspiera budowę materii organicznej i poprawę struktury gleby.
+public/presentation_en.html:3044:    <!-- POFERMENT SZCZEGÓŁOWY -->
+public/presentation_en.html:3049:                jako wartość gospodarstwa</span>
+public/presentation_en.html:3050:            <h2 class="text-5xl font-black mb-4">Poferment: Twój <span class="serif-italic text-emerald-700">Nawóz
+public/presentation_en.html:3052:            <p class="text-gray-600 text-lg mb-16">Fermentacja zmienia formę składników odżywczych tak, by szybciej
+public/presentation_en.html:3053:                pracowały w polu i były prostsze w aplikacji.</p>
+public/presentation_en.html:3059:                    <p class="text-sm text-gray-500 mt-1">Forma amonowa — szybciej dostępna dla roślin</p>
+public/presentation_en.html:3060:                    <p class="text-xs text-emerald-600 mt-2 font-bold">Oszczędność: ~800 PLN/ha/rok</p>
+public/presentation_en.html:3065:                    <p class="text-sm text-gray-500 mt-1">Mineralizowany — wysoka biodostępność</p>
+public/presentation_en.html:3066:                    <p class="text-xs text-emerald-600 mt-2 font-bold">Oszczędność: ~400 PLN/ha/rok</p>
+public/presentation_en.html:3071:                    <p class="text-sm text-gray-500 mt-1">W dużej mierze zachowany — niskie straty</p>
+public/presentation_en.html:3072:                    <p class="text-xs text-emerald-600 mt-2 font-bold">Oszczędność: ~300 PLN/ha/rok</p>
+public/presentation_en.html:3080:                        <li>• <strong>Mniejszy odór</strong> — fermentacja rozbija lotne kwasy</li>
+public/presentation_en.html:3081:                        <li>• <strong>Redukcja patogenów</strong> — higienizacja (zależnie od wsadu)</li>
+public/presentation_en.html:3082:                        <li>• <strong>Lepsza penetracja</strong> — niższa lepkość, równomierny rozsiew</li>
+public/presentation_en.html:3083:                        <li>• <strong>Mniej chwastów</strong> — nasiona niszczone w procesie</li>
+public/presentation_en.html:3087:                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-3">Łączna oszczędność na nawozach</p>
+public/presentation_en.html:3104:                    <div class="absolute -bottom-8 font-mono text-[10px] tracking-widest text-emerald-900/40">PROMIEŃ:
+public/presentation_en.html:3113:                        Instalacja stoi przy źródle wsadu. Minimalizujesz logistykę i koszty transportu.
+public/presentation_en.html:3116:                        "Najtańszy kilometr transportu to ten, którego nie musisz wykonać."
+public/presentation_en.html:3126:            <h2 class="text-5xl font-black mb-4">Jak <span class="serif-italic text-emerald-700">Wygląda Współpraca.</span></h2>
+public/presentation_en.html:3127:            <p class="text-gray-500 text-lg mb-16">Pełna ścieżka: od pierwszej rozmowy do pierwszego miesiąca
+public/presentation_en.html:3141:                        <p class="text-sm text-gray-500">Krótka rozmowa i wstępny screening lokalizacji pod wsad,
+public/presentation_en.html:3142:                            działkę i przyłącze.</p>
+public/presentation_en.html:3154:                        <p class="text-sm text-gray-500">Wizyta inżynierów. Sprawdzenie Landu, przyłącza GPZ,
+public/presentation_en.html:3180:                        <p class="text-sm text-gray-500">Prowadzimy decyzje środowiskowe, budowlane i przyłączeniowe.
+public/presentation_en.html:3181:                            Ty akceptujesz dokumenty i podpisujesz umowę SPV.</p>
+public/presentation_en.html:3204:                        <p class="text-sm text-gray-500">Od tego momentu projekt pracuje na miesięczny przychód SPV.
+public/presentation_en.html:3205:                            Horyzont wsparcia: zwykle do 15 years (zależnie od systemu).
+public/presentation_en.html:3213:    <!-- CZĘŚĆ II DIVIDER -->
+public/presentation_en.html:3222:                <span class="text-gold-accent tracking-[0.5em] uppercase text-sm font-bold mb-8 block">CZĘŚĆ II</span>
+public/presentation_en.html:3226:                <p class="text-xl text-emerald-200/70 tracking-widest uppercase">Od lokalnej suwerenności do bezpiecznej
+public/presentation_en.html:3227:                    przyszłości.</p>
+public/presentation_en.html:3240:                    <h2 class="text-7xl font-black mb-8 text-emerald-900 leading-[0.9]">Suwerenność <br /><span
+public/presentation_en.html:3243:                        "Najbardziej odporna energia to ta, którą produkujesz lokalnie."
+public/presentation_en.html:3251:                        <p class="text-lg text-gray-700 leading-relaxed font-light">Polska wieś przestaje być biorcą
+public/presentation_en.html:3252:                            energii, a staje się jej <strong>dostawcą</strong>. Biogas plant stabilizuje lokalny bilans
+public/presentation_en.html:3253:                            prądu i ciepła.</p>
+public/presentation_en.html:3256:                        <h4 class="font-black text-2xl mb-4 uppercase tracking-tighter text-emerald-950">Pieniądz w
+public/presentation_en.html:3258:                        <p class="text-lg text-gray-700 leading-relaxed font-light">Większa część wartości zostaje w
+public/presentation_en.html:3259:                            regionie: u rolników, wykonawców i lokalnych usługodawców.</p>
+public/presentation_en.html:3274:                    <p class="text-xs text-gray-500">Mechanizm FIT/FIP stabilizuje cenę energii nawet do 15 years, a OSD
+public/presentation_en.html:3275:                        realizuje obowiązek zakupu zgodnie z warunkami wsparcia.</p>
+public/presentation_en.html:3280:                    <p class="text-xs text-gray-500">Rosnące cele NCW zwiększają zapotrzebowanie sektora paliwowego na
+public/presentation_en.html:3286:                    <p class="text-xs text-gray-500">Programy KOWR i ARiMR wspierają inwestycje rolnicze w biogaz oraz
+public/presentation_en.html:3287:                        infrastrukturę towarzyszącą.</p>
+public/presentation_en.html:3293:    <!-- 17A. DOPŁATY I SUBSYDIA -->
+public/presentation_en.html:3296:            <h2 class="text-5xl font-black mb-4">Dopłaty <span class="serif-italic text-emerald-700">Bezpieczne.</span>
+public/presentation_en.html:3298:            <p class="text-gray-600 text-lg mb-16">Projekt jest prowadzony tak, by chronić bieżące dopłaty i jednocześnie
+public/presentation_en.html:3299:                otwierać dodatkowe źródła finansowania.</p>
+public/presentation_en.html:3303:                    <h4 class="font-bold text-lg mb-4 uppercase tracking-wide text-emerald-900">Dopłaty Zachowane</h4>
+public/presentation_en.html:3305:                        <li class="flex items-start gap-3"><span class="text-emerald-600 font-bold">✓</span> Płatności
+public/presentation_en.html:3306:                            bezpośrednie (WPR/CAP) — bez zmian</li>
+public/presentation_en.html:3310:                            Klasyfikacja Landów — zmiana tylko 0,7 ha</li>
+public/presentation_en.html:3312:                            rolnika — niezagrożony</li>
+public/presentation_en.html:3316:                    <h4 class="font-bold text-lg mb-4 uppercase tracking-wide">Nowe Źródła Finansowania</h4>
+public/presentation_en.html:3318:                        <li class="flex items-start gap-3"><span class="text-gold-accent font-bold">+</span> NFOŚiGW —
+public/presentation_en.html:3325:                            Certyfikaty / Świadectwa Pochodzenia</li>
+public/presentation_en.html:3331:                <p class="text-xl font-bold">"Green Plant zajmuje się wszystkimi wnioskami o dofinansowanie. <span
+public/presentation_en.html:3350:                        Odpadów</span>
+public/presentation_en.html:3353:                        class="serif-italic text-emerald-700 font-normal">Strumień Wartości.</span></h2>
+public/presentation_en.html:3355:                    Podczas uszlachetniania biogazu wychwytujemy <strong>biogeniczne CO₂</strong>. To strumień, który
+public/presentation_en.html:3356:                    można dodatkowo monetyzować w wybranych zastosowaniach przemysłowych.
+public/presentation_en.html:3385:                    <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Bąbelki Klasy Spożywczej
+public/presentation_en.html:3397:                    <h4 class="font-bold text-lg mb-1 text-[#1a1a1a]">Suchy Lód</h4>
+public/presentation_en.html:3398:                    <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Łańcuch Chłodniczy</p>
+public/presentation_en.html:3417:    <!-- STRUMIENIE PRZYCHODÓW -->
+public/presentation_en.html:3420:            <h2 class="text-5xl font-black mb-4">Skąd Płyną <span
+public/presentation_en.html:3421:                    class="serif-italic text-gold-accent">Pieniądze.</span></h2>
+public/presentation_en.html:3422:            <p class="text-gray-500 text-lg mb-16">Rozkład ekonomiki SPV w scenariuszu bazowym (energia: 800 PLN/MWh).</p>
+public/presentation_en.html:3469:                    <p class="text-xs text-gray-500">PLN / rok (marża 56%)</p>
+public/presentation_en.html:3490:            <p class="text-gray-500 text-lg mb-16">Instalacja pracuje równolegle do gospodarstwa i stabilizuje rytm
+public/presentation_en.html:3491:                pracy przez cały rok.
+public/presentation_en.html:3498:                        oborę i home<br>• drying drewna opałowego<br>• Poferment magazynowany</p>
+public/presentation_en.html:3503:                        nawozów mineralnych<br>• Kiszonka z poplonów → fermentor<br>• Electricity sprzedawany do sieci</p>
+public/presentation_en.html:3507:                    <p class="text-xs text-gray-600 leading-relaxed">• Suszarnia zbóż na ciepło własne<br>• Trawy pokosne →
+public/presentation_en.html:3508:                        substrat<br>• Szczytowa produkcja prądu<br>• Heat → drying siana</p>
+public/presentation_en.html:3511:                    <h4 class="font-bold text-orange-900 mb-3">🍂 Jesień</h4>
+public/presentation_en.html:3512:                    <p class="text-xs text-gray-600 leading-relaxed">• Kiszonka z kukurydzy → zbiornik<br>• Wysłodki
+public/presentation_en.html:3513:                        buraczane → fermentor<br>• Przygotowanie na zimę<br>• Roczne rozliczenie FIT</p>
+public/presentation_en.html:3518:                <p class="text-sm font-bold text-emerald-800">"Biogas plant nie zakłóca kalendarza rolnika — <span
+public/presentation_en.html:3524:    <!-- CO JEŚLI NIE? -->
+public/presentation_en.html:3527:            <h2 class="text-6xl font-black mb-4 leading-tight">A Co Jeśli <span
+public/presentation_en.html:3529:            <p class="text-gray-500 text-lg mb-16">Brak decyzji także kosztuje. Poniżej porównanie ciężaru pozostania
+public/presentation_en.html:3530:                przy obecnym modelu vs. wejście w biogaz.</p>
+public/presentation_en.html:3534:                    <h4 class="text-red-400 font-bold text-lg mb-6 uppercase tracking-wide">Rosnące Koszty</h4>
+public/presentation_en.html:3539:                                <p class="text-gray-300 font-bold">Nawozy mineralne: duża zmienność cen</p>
+public/presentation_en.html:3540:                                <p class="text-gray-600 text-xs">Koszty produkcji rolnej rosną i potrafią zmieniać się
+public/presentation_en.html:3547:                                <p class="text-gray-300 font-bold">Energia elektryczna: rosnące koszty</p>
+public/presentation_en.html:3548:                                <p class="text-gray-600 text-xs">Ceny energii i opłat sieciowych pozostają istotnym
+public/presentation_en.html:3555:                                <p class="text-gray-300 font-bold">Utylizacja odpadów — nowe obowiązki</p>
+public/presentation_en.html:3556:                                <p class="text-gray-600 text-xs">Wymogi, kontrole i koszty wokół odpadów będą rosnąć</p>
+public/presentation_en.html:3562:                    <h4 class="text-emerald-400 font-bold text-lg mb-6 uppercase tracking-wide">Z Biogasownią</h4>
+public/presentation_en.html:3567:                                <p class="text-gray-300 font-bold">Własny nawóz organiczny (poferment)</p>
+public/presentation_en.html:3568:                                <p class="text-gray-600 text-xs">Ograniczasz ekspozycję na zmienność cen nawozów</p>
+public/presentation_en.html:3574:                                <p class="text-gray-300 font-bold">Własna energia 24/7</p>
+public/presentation_en.html:3575:                                <p class="text-gray-600 text-xs">Produkcja prądu i ciepła na miejscu — rachunki mogą
+public/presentation_en.html:3576:                                    spaść znacząco</p>
+public/presentation_en.html:3582:                                <p class="text-gray-300 font-bold">Waste stają się wsadem</p>
+public/presentation_en.html:3583:                                <p class="text-gray-600 text-xs">Gnojowica przestaje być kosztem i pracuje jako wsad
+public/presentation_en.html:3592:                <p class="text-lg font-bold">"Każdy rok <span class="text-red-400">bez</span> biogazowni to <span
+public/presentation_en.html:3600:    <!-- SĄSIAD -->
+public/presentation_en.html:3604:            <p class="text-gray-500 text-lg mb-16">Największą przewagę budują gospodarstwa, które wchodzą wcześniej,
+public/presentation_en.html:3605:                homeykają przyłącza i zabezpieczają optymalne lokalizacje.</p>
+public/presentation_en.html:3612:                        pojawia się skala ~1 500 instalacji do 2030 roku.</p>
+public/presentation_en.html:3616:                    <h4 class="font-bold mb-2">Dochód Miesięczny</h4>
+public/presentation_en.html:3618:                        stabilny filar energetyczny przez cały rok.</p>
+public/presentation_en.html:3622:                    <h4 class="font-bold mb-2">Ryzyko Konfliktów</h4>
+public/presentation_en.html:3623:                    <p class="text-sm text-gray-500">Hermetyczny proces i biofiltry ograniczają uciążliwości zapachowe.
+public/presentation_en.html:3624:                        Reduced Social Tensions, większa przewidywalność projektu.</p>
+public/presentation_en.html:3630:                    gospodarstwa niezależnie od koniunktury rynkowej czy pogody."</p>
+public/presentation_en.html:3631:                <p class="text-sm text-gray-500 text-center mt-4">— opracowania branżowe, 2025</p>
+public/presentation_en.html:3642:            <h2 class="text-5xl font-black mb-4">Jesteś <span
+public/presentation_en.html:3643:                    class="serif-italic text-gold-accent">Współwłaścicielem.</span> Na lata.</h2>
+public/presentation_en.html:3644:            <p class="text-gray-500 text-lg mb-16">Nie jesteś dzierżawcą ani klientem. Jesteś udziałowcem SPV, a
+public/presentation_en.html:3645:                wypracowana wartość zostaje w gospodarstwie.</p>
+public/presentation_en.html:3651:                    <p class="text-sm text-gray-400">SPV produkuje prąd, ciepło i poferment. Projekt pracuje od rozruchu,
+public/presentation_en.html:3652:                        a udziały pozostają po Twojej stronie.</p>
+public/presentation_en.html:3655:                    <p class="text-xs text-gold-accent uppercase tracking-widest mb-4">Faza 2: Portfolio Projektów</p>
+public/presentation_en.html:3657:                    <p class="text-sm text-gray-400">Green Plant buduje sieć 200 biogazowni z rolnikami w całej Polsce.
+public/presentation_en.html:3658:                        Rozwój skali może wzmacniać pozycję rynkową projektu, a Twoje udziały w SPV
+public/presentation_en.html:3659:                        <strong class="text-white">mogą rosnąć na wartości.</strong></p>
+public/presentation_en.html:3665:                    <p class="text-2xl font-black text-emerald-400">Współwłaściciel</p>
+public/presentation_en.html:3666:                    <p class="text-[10px] text-gray-500 mt-1">nie dzierżawca, nie klient</p>
+public/presentation_en.html:3669:                    <p class="text-2xl font-black text-gold-accent">Wzrost wartości</p>
+public/presentation_en.html:3674:                    <p class="text-[10px] text-gray-500 mt-1">Udziały nie mają z góry narzuconej daty wygaśnięcia</p>
+public/presentation_en.html:3683:            <h2 class="text-5xl font-black mb-4">Pytania <span class="serif-italic text-emerald-700">Rolników</span>
+public/presentation_en.html:3685:            <p class="text-gray-500 text-lg mb-16">Najczęstsze pytania, które słyszymy podczas wizyt w gospodarstwach i
+public/presentation_en.html:3686:                spotkań lokalnych.</p>
+public/presentation_en.html:3690:                    <h4 class="font-bold text-base mb-1">"Ile ziemi stracę?"</h4>
+public/presentation_en.html:3691:                    <p class="text-xs text-gray-600">Instalacja zajmuje ~0,7 ha (ok. 0,4% przy 180 ha). Reszta pól
+public/presentation_en.html:3692:                        pracuje normalnie — a nawet lepiej dzięki pofermentowi.</p>
+public/presentation_en.html:3695:                    <h4 class="font-bold text-base mb-1">"Czy muszę mieć 200 krów?"</h4>
+public/presentation_en.html:3696:                    <p class="text-xs text-gray-600">Nie. Liczy się bilans wsadu i logistyka. Można pracować na miksie z kilku
+public/presentation_en.html:3700:                    <h4 class="font-bold text-base mb-1">"Co jeśli Green Plant zbankrutuje?"</h4>
+public/presentation_en.html:3702:                        zostają u Ciebie. Udziały są zbywalne.</p>
+public/presentation_en.html:3705:                    <h4 class="font-bold text-base mb-1">"A moje dopłaty bezpośrednie?"</h4>
+public/presentation_en.html:3706:                    <p class="text-xs text-gray-600">Bez zmian. Płatności WPR naliczane są na uprawy. Biogas plant
+public/presentation_en.html:3711:                    <p class="text-xs text-gray-600">Zwykle około 1 godziny na logistykę wsadu. Monitoring, serwis i
+public/presentation_en.html:3715:                    <h4 class="font-bold text-base mb-1">"Czy mogę wyjść z umowy?"</h4>
+public/presentation_en.html:3716:                    <p class="text-xs text-gray-600">Tak. Umowa SPV przewiduje klauzule zbycia udziałów — możesz je
+public/presentation_en.html:3717:                        sprzedać or przekazać dzieciom jako gotowy majątek.</p>
+public/presentation_en.html:3729:            <p class="text-gray-500 text-base mb-8 max-w-3xl mx-auto">Ten sam wsad może pracować w dwóch modelach:
+public/presentation_en.html:3730:                sprzedaż surowca albo udział w marży energetycznej. Porównanie dla 9 000 ton rocznie.</p>
+public/presentation_en.html:3733:                <!-- SCENARIUSZ A: SPRZEDAŻ -->
+public/presentation_en.html:3738:                    <h4 class="text-xl font-black mb-4">Tradycyjna Sprzedaż</h4>
+public/presentation_en.html:3742:                            <span class="text-gray-500">Przychód ze sprzedaży (180 zł/t)</span>
+public/presentation_en.html:3746:                            <span class="text-gray-500">Koszt produkcji (140 zł/t)</span>
+public/presentation_en.html:3756:                        Risk: zmienność cen skupu, koszt nawożenia i brak wpływu na marżę końcową.
+public/presentation_en.html:3769:                            <span class="text-gray-600 font-bold italic">Prognozowany udział (60%)</span>
+public/presentation_en.html:3773:                            <span class="text-gray-600">Oszczędność na nawozach (NPK)</span>
+public/presentation_en.html:3777:                            <span class="text-emerald-900 font-black uppercase text-[10px]">Realna korzyść roczna</span>
+public/presentation_en.html:3784:                                większy zysk</strong> z hektara niż przy sprzedaży.</p>
+public/presentation_en.html:3786:                            💡 <strong>Dodatkowo:</strong> miks z własną gnojowicą może ograniczać koszt dokupowanego wsadu.
+public/presentation_en.html:3796:                    <h4 class="text-lg font-black mb-1 leading-tight">Dlaczego koszt uprawy spada o 30 zł/t?</h4>
+public/presentation_en.html:3798:                        Digestate is a full-value organic fertilizer. Zastępując nim nawozy
+public/presentation_en.html:3799:                        sztuczne, obniżasz bezpośrednie nakłady na hektar o ok. 1 300 - 1 500 PLN.
+public/presentation_en.html:3810:    <!-- PRZYKŁAD KOWALSKI -->
+public/presentation_en.html:3819:                120 krów •
+public/presentation_en.html:3830:                    <p class="text-xs text-emerald-300 uppercase tracking-widest mb-3">Przychód SPV</p>
+public/presentation_en.html:3832:                    <p class="text-sm text-emerald-200">PLN / rok (sprzedaż energii, 4 100 MWh)</p>
+public/presentation_en.html:3843:                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">Nawóz (Poferment)</p>
+public/presentation_en.html:3845:                    <p class="text-xs text-gray-500">kosztów nawożenia</p>
+public/presentation_en.html:3848:                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">Energia Własna</p>
+public/presentation_en.html:3850:                    <p class="text-xs text-gray-500">prąd i ciepło</p>
+public/presentation_en.html:3853:                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">Odór</p>
+public/presentation_en.html:3855:                    <p class="text-xs text-gray-500">redukcja zapachów</p>
+public/presentation_en.html:3858:                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">Zajętość Ziemi</p>
+public/presentation_en.html:3860:                    <p class="text-xs text-gray-500">wysoka efektywność na małej powierzchni</p>
+public/presentation_en.html:3863:                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">Skalowalność</p>
+public/presentation_en.html:3865:                    <p class="text-xs text-gray-500">możliwość rozbudowy</p>
+public/presentation_en.html:3868:            <p class="text-[10px] text-gray-500 mt-4">*Przy pełnym wykorzystaniu pofermentu i odpowiednim bilansie
+public/presentation_en.html:3869:                składników dla gleby; poziom redukcji zapachów zależy od technologii i reżimu eksploatacji.</p>
+public/presentation_en.html:3889:                            <p class="text-sm text-gray-500">Green Plant pokrywa koszty napraw i serwisu zgodnie z umową
+public/presentation_en.html:3890:                                operacyjną. Certyfikat ATEX, podwójna membrana, pochodnia awaryjna. Ubezpieczenie
+public/presentation_en.html:3900:                            <p class="text-sm text-gray-500">System FIT/FIP (Ustawa OZE) zapewnia stałą cenę przez 15
+public/presentation_en.html:3901:                                lat. <strong class="text-emerald-600">Coroczna waloryzacja o inflację (CPI).</strong>
+public/presentation_en.html:3910:                            <h4 class="font-bold mb-1">Odpowiedzialność Prawna</h4>
+public/presentation_en.html:3911:                            <p class="text-sm text-gray-500">SPV to odrębny podmiot. Twój majątek osobisty jest
+public/presentation_en.html:3923:                                roczny może być niższy, ale instalacja utrzymuje ciągłość pracy.</p>
+public/presentation_en.html:3928:                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-4">Bilans Odpowiedzialności</p>
+public/presentation_en.html:3939:                            <span class="text-gray-300">Formalności</span>
+public/presentation_en.html:3971:                        <p class="text-[11px] text-gray-500 leading-relaxed mb-4 min-h-[48px]">Bezpłatna wizyta na
+public/presentation_en.html:3973:                            substratów i przyłącza.</p>
+public/presentation_en.html:3981:                        <h4 class="font-bold mb-2">Formalności</h4>
+public/presentation_en.html:3983:                            środowiskowy, warunki zabudowy i uzgodnienia przyłączeniowe.</p>
+public/presentation_en.html:3984:                        <p class="text-[10px] font-bold text-emerald-700 mt-auto">CZAS: DO 4 MIESIĘCY</p>
+public/presentation_en.html:3992:                        <p class="text-[11px] text-gray-500 leading-relaxed mb-4 min-h-[48px]">homeknięcie finansowania
+public/presentation_en.html:3993:                            i instrumentów wsparcia (częściowo równolegle z formalnościami).</p>
+public/presentation_en.html:3994:                        <p class="text-[10px] font-bold text-emerald-700 mt-auto">CZAS: 1-2 MIESIĄCE</p>
+public/presentation_en.html:4004:                        <p class="text-[10px] font-bold text-emerald-700 mt-auto">CZAS: OK. 12 MIESIĘCY</p>
+public/presentation_en.html:4013:                            Instalacja przechodzi w tryb stałej monetyzacji.</p>
+public/presentation_en.html:4024:            <h2 class="text-6xl font-black mb-8 leading-tight">Majątek na <span
+public/presentation_en.html:4037:                    <p class="text-xs uppercase tracking-widest text-gray-500">Udziały Dziedziczone</p>
+public/presentation_en.html:4041:                    <p class="text-xs uppercase tracking-widest text-gray-500">Wartość Ziemi Rośnie</p>
+public/presentation_en.html:4045:                regulacyjnego to zwykle około 15 years.</p>
+public/presentation_en.html:4054:            <p class="text-gray-600 text-lg mb-16">To, co dziś bywa kosztem i uciążliwością, wraca na pole jako
+public/presentation_en.html:4055:                stabilny nawóz organiczny.</p>
+public/presentation_en.html:4061:                    <p class="text-sm text-gray-500">Gnojowica, obornik, odpady kuchenne. To, co dziś bywa kosztem
+public/presentation_en.html:4068:                    <p class="text-sm text-gray-500">Fermentor pracuje ok. 39°C. Higienizacja (zależnie od wsadu)
+public/presentation_en.html:4069:                        redukuje patogeny i nasiona chwastów.</p>
+public/presentation_en.html:4074:                    <p class="text-sm text-gray-500">Poferment wraca na pole jako nawóz organiczny o niższej
+public/presentation_en.html:4075:                        uciążliwości zapachowej i łatwiejszej aplikacji.</p>
+public/presentation_en.html:4080:                <p class="text-sm font-bold">"Zamiast płacić za utylizację gnojowicy — <span
+public/presentation_en.html:4090:                    class="serif-italic text-emerald-400">Pilnować.</span></h2>
+public/presentation_en.html:4091:            <p class="text-gray-500 text-lg mb-16">Instalacja pracuje automatycznie, a monitoring i reakcję serwisową
+public/presentation_en.html:4092:                24/7 prowadzi zespół Green Plant.</p>
+public/presentation_en.html:4101:                    <p class="text-xs text-gray-500 uppercase mb-2">Jakość gazu</p>
+public/presentation_en.html:4120:                    <p class="text-xs text-gray-500">Masz bieżący podgląd produkcji, alarmów i wyniku finansowego.
+public/presentation_en.html:4125:                    <p class="text-xs text-gray-500">System wysyła alert do serwisu Green Plant. Interwencję organizujemy po
+public/presentation_en.html:4130:                    <p class="text-xs text-gray-500">Co miesiąc otrzymujesz raport: energia, ciepło, serwis i wynik
+public/presentation_en.html:4138:    <!-- NASTĘPNE KROKI -->
+public/presentation_en.html:4143:            <h2 class="text-5xl md:text-6xl font-black mb-8 leading-none">Następne <br /><span
+public/presentation_en.html:4150:                    <p class="text-xs text-white/60">Szybka ocena wsadu, działki i logistyki projektu.</p>
+public/presentation_en.html:4155:                    <p class="text-xs text-white/60">Wizyta inżynierska i mapa ryzyk: wsad, przyłącze, formalności.</p>
+public/presentation_en.html:4160:                    <p class="text-xs text-white/60">Podpisujesz LOI, a Green Plant uruchamia formalności i finansowanie.</p>
