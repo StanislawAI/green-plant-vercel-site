@@ -1,0 +1,200 @@
+728: Preparation of biogas plant projects 0.5 MW. Budujemy aktywa energetyczne, które transformują odpady w przewidywalny kapitał i niezależność operacyjną.
+923: § I — Filozofia inżynierska // GP / 26
+1041: { num: "01", title: "Substrate Analysis", desc: "Badamy potencjał metanowy Twojej biomasy w laboratorium. Na tej podstawie kalibrujemy pojemność reaktorów.", color: "#34D399" },
+1042: { num: "02", title: "Inżynieria Processu", desc: "Projektujemy układ hydrauliczny, systemy mieszania oraz wymiany ciepła. Optymalizujemy przepływ wsadu.", color: "#60A5FA" },
+1043: { num: "03", title: "Investor Supervision", desc: "Nadzorujemy wylewanie szczelnych komór żelbetowych i instalację agregatów CHP klasy Tier-1.", color: "#FBBF24" }
+1103: { id: "MTRL-01", name: "Gnojowica Bydlęca", category: "Agricultural Waste", yield: "25", ch4: "58", temp: "38°C" },
+1104: { id: "MTRL-02", name: "Obornik Świński", category: "Agricultural Waste", yield: "60", ch4: "62", temp: "42°C" },
+1106: { id: "MTRL-04", name: "Wysłodki Buraczane", category: "Industrial Waste", yield: "125", ch4: "52", temp: "39°C" },
+1126: Precyzyjna kalibracja reaktora pod kątem charakterystyki fizykochemicznej wsadu.
+1212: We model the return on capital based on real RES auctions and self-consumption optimization. Biogazownia to stabilne aktywo energetyczne działające 8000h rocznie.
+1218: { title: "Thermal Energy", desc: "Odzysk ciepła z chłodzenia silników i spalin. Zero kosztów ogrzewania.", val: "20%" },
+1219: { title: "Fertilizer Substitution", desc: "Poferment jako darmowa alternatywa dla mocznika i fosforanów.", val: "10%" }
+1349: • OBIEG ZAMKNIĘTY • ZERO ODPADÓW • ROLNICTWO CYRKULARNE • OBIEG ZAMKNIĘTY • ZERO ODPADÓW • ROLNICTWO CYRKULARNE
+1363: Process fermentacji metanowej nie tylko produkuje biogaz. Przekształca on uciążliwe odpady rolnicze w doskonały, bezwonny nawóz organiczny.
+1366: {['Zastępuje drogie nawozy syntetyczne (N-P-K).', 'Poprawia strukturę gleby i retencję wody.', 'Pozbawiony nasion chwastów i patogenów.', 'Brak uciążliwych odorów podczas rozlewania.'].map((item, i) => (
+1393: Biogazownia nie tylko produkuje zieloną energy. Utylizując gnojowicę i obornik, zapobiega samoistnej emisji metanu do atmosfery, czyniąc proces ekstremalnie przyjaznym dla klimatu.
+1426: { title: "Typ A — Agricultural", spec: "0.5 MW · gnojowica + kiszonka", location: "Wsad: 21 t / dobę", img: "/assets/img/rolnicza.png" },
+1427: { title: "Typ B — Municipal", spec: "0.5 MW · odpady miejskie", location: "Wsad: 18 t / dobę", img: "/assets/img/komunalny.webp" },
+1428: { title: "Typ C — Industrial", spec: "0.5 MW · odpady poubojowe", location: "Wsad: 21 t / dobę", img: "/assets/img/przemyslowy.webp" }
+1504: System SCADA to kręgosłup operacyjny instalacji. Agreguje dane z setek czujników i precyzyjnie zarządza pracą mieszadeł, pomp oraz systemów CHP, zapewniając stabilność biologiczną reaktora i maksymalizację uzysku metanu.
+1577: Nie opieramy się na przypuszczeniach. Zanim zaprojektujemy reaktory, próbki Twojej biomasy przechodzą rygorystyczne testy wydajności metanowej (BMP).
+1582: { title: "BMP Tests (Biochemical Methane Potential)", desc: "Dokładne określenie ile metanu wyprodukuje tona Twojego surowca." },
+1583: { title: "Physicochemical Analysis", desc: "Badanie suchej masy, zawartości popiołu oraz stosunku węgla do azotu (C:N)." },
+1607: exp: "Nadzór nad precyzją montażu izolacji termicznej i wylewek żelbetowych. Pełna sterylność środowiska.",
+1615: exp: "Eksperci od fermentacji metanowej. Parametryzacja środowiska pod kątem maksymalizacji uzysku z powierzonej biomasy.",
+1634: Kadra inżynierska z uprawnieniami do projektowania instalacji o wysokim ryzyku gazowym.
+1704: Przekazanie kluczy to dopiero początek. Nasze centrum operacyjne monitoruje parametry biologiczne i mechaniczne 24/7, zapewniając ciągłość generacji.
+1744: { title: "ATEX Directive", desc: "Zabezpieczenie przeciwwybuchowe EX dla stref zagrożonych metanem.", code: "DYREKTYWA 2014/34/UE", hue: "#FBBF24" },
+1745: { title: "Standards UDT", desc: "Dozór techniczny nad zbiornikami ciśnieniowymi i rurociągami.", code: "ROZPORZĄDZENIE UDT", hue: "#60A5FA" },
+1746: { title: "Fire Protection", desc: "Zintegrowane systemy oddymiania i aktywne pochodnie bezpieczeństwa.", code: "NORMY NFPA-EN", hue: "#F87171" },
+1747: { title: "CE Certification", desc: "Zgodność z europejskimi normami maszynowymi i bezpieczeństwa pracy.", code: "MD 2006/42/WE", hue: "#34D399" }
+1793: { q: "Metodologia Pozyskiwania Decyzji", a: "Board of Directorszamy pełnym procesem administracyjnym: od Karty Informacyjnej Przedsięwzięcia (KIP), przez raport środowiskowy, aż po ostateczne PNB i koncesję energetyczną.", doc: "PROC-ADM-01" },
+1794: { q: "Parametryzacja Hydrauliki Processowej", a: "Stosujemy autorskie algorytmy doboru mocy mieszadeł i wydajności pomp w zależności od reologii substratu, co redukuje zużycie energii o 15%.", doc: "TECH-HYD-V4" },
+1795: { q: "Architektura Cyberbezpieczeństwa", a: "Systemy SCADA pracują w odizolowanych sieciach VLAN z szyfrowanym dostępem VPN, zapewniając ochronę przed nieautoryzowanym dostępem do sterowników PLC.", doc: "CYB-SEC-PRO" },
+1796: { q: "Logistyka Pofermentu i Odwadniania", a: "Projektujemy zintegrowane systemy separacji faz i magazynowania pofermentu, optymalizując koszty transportu i nawożenia na polach.", doc: "LOG-BIO-S7" }
+1813: Zbiór procedur i standardów technicznych definiujących każdą fazę życia instalacji.
+1867: Nasze zespoły inżynierskie i serwisowe operują na terenie całego kraju, zapewniając wsparcie techniczne w każdym zakątku Polski.
+1872: { region: "Northern Poland", city: "Hub Gdańsk", status: "Operational" },
+1874: { region: "Western Poland", city: "Hub Poznań", status: "Active" },
+1875: { region: "Southern Poland", city: "Hub Kraków", status: "Operational" }
+1922: Weryfikujemy technologię, szacujemy CAPEX, projektujemy, budujemy. Pierwszy m³ biogazu — w 14 miesięcy.
+1945: Dział handlowy + inżynier
+1988: Preparation of biogas plant projects rolniczych i komunalnych. Design, investor supervision, and technical support — zoptymalizowane pod kątem uzysku metanowego.
+1991: <div>ul. Stanisława Wyspiańskiego 8 // 05-400 Otwock</div>
+2033: <div>Substrat — z polskich pól</div>
+2045: &copy; 2026 Green Plant Technologies Sp. z o.o. // Wszelkie prawa zastrzeżone
+2066: { id: '01', name: 'Submersible mixer', desc: 'Stal nierdzewna 1.4571. Trzy łopaty hydrodynamiczne 18.5 kW.', x: 30, y: 35 },
+2067: { id: '02', name: 'Double EPDM membrane', desc: 'Biogas storage 600 m³. Odporność termiczna -40 do +80°C.', x: 50, y: 12 },
+2069: { id: '04', name: 'Reinforced concrete tank', desc: 'Beton klasy C35/45. Szczelność gazowa P10. Izolacja 20cm wełna mineralna.', x: 50, y: 60 },
+2070: { id: '05', name: 'Substrate inlet', desc: 'Dozownik z homogenizatorem. 21 t/dobę. Czujnik suchej masy.', x: 8, y: 50 },
+2071: { id: '06', name: 'Digestate outlet', desc: 'Separator faz. Suchy nawóz organiczny + ciecz pofermentacyjna.', x: 88, y: 50 },
+2072: { id: '07', name: 'Measuring probe', desc: 'pH, ORP, temperatura, lotne kwasy tłuszczowe (VFA). Próbkowanie ciągłe.', x: 70, y: 40 },
+2073: { id: '08', name: 'Emergency flare', desc: 'Spalanie biogazu w razie nadciśnienia. Norma ATEX zone 1.', x: 78, y: 8 },
+2092: Każdy komponent reaktora pracuje w warunkach skrajnych — od korozyjnego H₂S po nadciśnienie gazowe. Zero compromises.
+2211: { phase: 'I', name: 'Hydroliza', formula: 'C₆H₁₀O₅ → C₆H₁₂O₆', time: '0–24h', desc: 'Enzymy zewnątrzkomórkowe rozkładają wielocukry, białka i tłuszcze do prostych monomerów rozpuszczalnych w wodzie.' },
+2212: { phase: 'II', name: 'Acydogeneza', formula: 'C₆H₁₂O₆ → CH₃COOH + H₂', time: '24–72h', desc: 'Bakterie fermentacyjne przekształcają monomery w krótkołańcuchowe kwasy tłuszczowe, wodór i dwutlenek węgla.' },
+2213: { phase: 'III', name: 'Acetogeneza', formula: 'CH₃CH₂COOH → CH₃COOH + H₂', time: '3–7 dni', desc: 'Bakterie acetogenne utleniają wyższe kwasy tłuszczowe do octanu — substratu właściwego dla metanogenów.' },
+2214: { phase: 'IV', name: 'Metanogeneza', formula: 'CH₃COOH → CH₄ + CO₂', time: '14–28 dni', desc: 'Archeony metanogenne syntezują metan z octanu i wodoru. Sercem ekonomii biogazowni jest właśnie ta faza.' },
+2227: jednej cząsteczki.
+2230: Od kiszonki do metanu w 28 dni. Każda faza fermentacji ma własną mikroflorę, własne pH, własne tempo. Sztuka inżynierii biologicznej polega na tym, by te cztery światy współistniały w jednej komorze.
+2275: Czas, w którym energia <br/>
+2277: dobiega końca. Nadchodzi <br/>
+2278: epoka, w której każde <br/>
+2279: gospodarstwo staje się <br/>
+2289: Złożono krojem Cormorant Garamond
+2301: { x: 60, y: 25, name: 'Warmia-Mazury', mw: '21', sub: 'Bydło, drób' },
+2304: { x: 72, y: 56, name: 'Lubelszczyzna', mw: '38', sub: 'Buraki, bydło' },
+2305: { x: 48, y: 75, name: 'Małopolska', mw: '17', sub: 'Odpady komunalne' },
+2306: { x: 28, y: 78, name: 'Dolny Śląsk', mw: '42', sub: 'Wywar gorzelniany' },
+2325: Ok. 180 czynnych biogazowni rolniczych w Polsce. Najgęściej w Wielkopolsce i Mazowszu — tam, gdzie koncentruje się hodowla i przemysł rolno-spożywczy.
+2430: Rolnictwo, które kiedyś żywiło naród, dziś jest oskarżane o emisję metanu, smród gnojowicy, wyjałowienie gleby. Niesłusznie. Wystarczy zamknąć obieg.
+2436: Naszą rolą jest dostarczyć te narzędzia w jakości, w której nic się nie psuje przez 25 lat. Stal nierdzewna 1.4571. Beton W10 XA3. Silniki Tier-1. Sterowniki ABB. Bez compromises na specyfikacji materiałowej.
+2439: Bo energia rolnicza nie zasługuje na mniej.
+2477: lead: 'Wiosna. 12 tysięcy nasion na hektar. Każda łodyga to przyszłe 0.4 m³ biogazu.',
+2478: body: 'W pierwszym roku współpracy mierzymy nie tylko areał — mierzymy słońce, deszcz i pH gleby. Polska kukurydza energetyczna ma jedne z najwyższych w Europie potencjałów metanowych: 210 m³ biogazu z tony świeżej masy.',
+2486: lead: '38.4 °C. pH 7.6. 28 dni. Cisza w której archeony pracują bez przerwy.',
+2487: body: 'Kiszonka wjeżdża do dozownika o 6:00 rano. Mieszadła obracają się wolno, 8 obrotów na minutę. Bakterie metanogenne nie znoszą tlenu, hałasu, gwałtownych zmian. To jest fabryka, w której najgłośniejszym dźwiękiem jest szum wentylatora chłodnicy.',
+2494: title: 'Sieć',
+2495: lead: 'Po 28 dniach biogaz przepływa przez ssawę silnika Tier-1. 499 kW elektrycznych. Smart Grid Sync.',
+2496: body: 'Silnik Jenbacher J312 spala biogaz z dokładnością miliampera. Energia trafia do krajowej sieci, sprzedawana w aukcjach OZE po cenie zakontraktowanej na 15 lat. Każda godzina pracy to ok. 550 zł brutto — niezależnie od pogody, pory roku, geopolityki.',
+2505: body: 'W odróżnieniu od wiatru i słońca — biogaz pracuje w nocy. Pracuje w grudniu. Pracuje, gdy giełda energii skoczy do 1500 zł/MWh w mroźny wieczór. Tu nie ma kryzysu energetycznego — bo źródło rośnie na sąsiednim polu.',
+2512: title: 'Powrót',
+2513: lead: 'Poferment wraca na pole. 30 ton dziennie pełnowartościowego nawozu NPK — zamknięcie obiegu.',
+2514: body: 'To, co wyszło z gleby jako kukurydza, wraca jako nawóz. Bez nasion chwastów, bez patogenów, bez smrodu. Polski rolnik przestaje kupować mocznik i fosforany — bo wytwarza je sam, w swojej fabryce metanu.',
+2534: Pięć rozdziałów. Jeden obieg. Setki kilometrów kabli, tysiące archeonów, dwa pokolenia rolników.
+2572: Liczba rozdziału
+2653: 0: { l: 'Cisza nocna', d: 'Reaktor pracuje w trybie podtrzymania. Mieszadła wolne — 4 obr/min. Temperatura stała 38.4 °C.' },
+2655: 9: { l: 'Pik gazowy', d: 'Maksymalna produkcja CH₄. CHP Efficiency osiąga 44.2%. Tłoczenie do sieci na pełnej mocy.' },
+2656: 12: { l: 'Kontrola operatora', d: 'Wizyta technika. Pobór próbki do laboratorium. Sprawdzenie szczelności gazu.' },
+2657: 15: { l: 'Dozowanie popołudniowe', d: 'Druga porcja substratu: 16 t. Stabilizacja procesu. Sonda lambda potwierdza skład.' },
+2658: 18: { l: 'Sprzedaż peak shaving', d: 'Najwyższe ceny energii w godzinach 18-21. Algorytm SCADA maksymalizuje wyjście.' },
+2659: 21: { l: 'Cool down', d: 'Powolne wytracanie mocy. Mieszadła zwalniają. Sieć przechodzi w noc.' },
+2675: Jeden cykl. 7 punktów krytycznych. Algorytm, który pracuje, gdy ty śpisz.
+2798: desc: 'Archeon o nieregularnym kształcie wielokątnym. Produkuje 70% metanu w reaktorze, rozkładając octan na CH₄ i CO₂. Optimum pH 6.8–7.4.',
+2808: desc: 'Pałeczka długości 2–8 µm. Wykorzystuje wodór i CO₂ do produkcji metanu. Niezbędny w fazie wstępnej, gdy dominują wolne kwasy tłuszczowe.',
+2818: desc: 'Beztlenowiec rozkładający celulozę i hemicelulozę. Pierwszy szczebel łańcucha pokarmowego w reaktorze. Pracuje wydajnie w procesie mezofilowym (38 °C).',
+2828: desc: 'Beztlenowa pałeczka G(-). Przekształca cukry proste w lotne kwasy tłuszczowe (LKT) — paliwo dla metanogenów.',
+2850: W jednej kropli substratu pracuje 10⁹ komórek. Bakterie i archeony to nasi prawdziwi inżynierowie — wybieramy najefektywniejsze szczepy, dostosowane do polskiej diety reaktora.
+2932: { outlet: 'PULS BIZNESU', date: '08.2024', headline: 'Biogazownie rolnicze mają w Polsce wielki potencjał', cat: 'Rynek', url: 'https://www.pb.pl/biogazownie-rolnicze-maja-w-polsce-wielki-potencjal-1193306' },
+2933: { outlet: 'FORBES POLSKA', date: '12.2023', headline: 'Od 2026 r. polskie firmy i domy może zasilać błękitne paliwo', cat: 'Analiza', url: 'https://news.google.com/rss/articles/CBMilgFBVV95cUxOUWV4ZmpIZ0ZVS3lSMDB2UE9tS1BwU01tNVhtamw0WlUweHpxNzlqOVRmUllEajItM281RzQ4S281REszeDBJNEJ4Z3c3ZDBIek82Xy02T2lRdlF3bm16YW84RE9tV3YteWVvNGQ5MkpJd0J0S3psclRRMmJqWjBxbVBNUW1qZnl4aTR4TzF3eWRsSWxQcVE?oc=5' },
+2935: { outlet: 'FORUM ENERGII', date: '02.2024', headline: 'Biometan w Polsce. Ocena potencjału (Raport)', cat: 'Raport', url: 'https://news.google.com/rss/articles/CBMiY0FVX3lxTE9GWHg1SVRLd2R6RFRZSHp0cmhYcmVEd3dtWXZ0V3lIWGpMV0k5NW1jajFvLXZtWnFYX0wwRUZzUUtjZkoyUjVlOFJFRWdmbG1pTmh2ektyXzN2Z3E0OU1ZckQ0VQ?oc=5' },
+2936: { outlet: 'AGRO PROFIL', date: '01.2024', headline: 'Nowe odmiany kukurydzy na ziarno, kiszonkę i biogaz', cat: 'Edukacja', url: 'https://news.google.com/rss/articles/CBMilgFBVV95cUxQbnNfMXlrWGtjSV9Vd2dQcEl3UE1HVmM4ZXNUcUJPSExmempLTzhOQ2I2Zk5NRkd4cG1lYm1zSWNEaVk2MC0tSm9aQ2p2dnMtVk5NZGZUZS1pektLY1pVTlpwYkRXMlgyeklGWTk1SEJPY0t5a0tjUXVab0l5ZUlhem9wcW80eG1keVNsSmE0LTdqLXdlNWc?oc=5' },
+3012: { name: 'Analiza BMP + studium wykonalności', start: 0, end: 2, color: '#C6A87C', cat: 'PRE' },
+3013: { name: 'Pozwolenia + KIP + decyzja środowiskowa', start: 1, end: 4, color: '#C6A87C', cat: 'ADM' },
+3016: { name: 'Wylewki żelbetowe komór', start: 6, end: 9, color: '#D97847', cat: 'CIV' },
+3017: { name: 'Instalacja membran EPDM + zbiorników', start: 8, end: 10, color: '#D97847', cat: 'MECH' },
+3018: { name: 'Montaż CHP + układów pomp', start: 9, end: 11, color: '#D97847', cat: 'MECH' },
+3019: { name: 'Instalacja SCADA + sieć energetyczna', start: 10, end: 12, color: '#4ADE80', cat: 'I&C' },
+3020: { name: 'Inokulacja + napełnianie startowe', start: 11, end: 12, color: '#4ADE80', cat: 'BIO' },
+3039: Standardowy projekt biogazowni 0.5 MW. 11 faz, 14 miesięcy, 3 kategorie wykonawcze. Bez poślizgów — zabezpieczone karami kontraktowymi.
+3117: { c: '#EAE6DF', l: 'Eksploatacja', d: 'COD — pełna moc operacyjna' },
+3138: { n: 'Węgiel', v: 90 },
+3140: { n: 'Słońce', v: 12 },
+3144: { n: 'Węgiel', v: 1040 },
+3146: { n: 'Słońce', v: 45 },
+3150: { n: 'Węgiel', v: 4 },
+3152: { n: 'Słońce', v: 18 },
+3156: { n: 'Węgiel', v: 2.2 },
+3158: { n: 'Słońce', v: 0.9 },
+3176: Biogaz nie jest najtańszy. Nie jest najmniej powierzchniochłonny. Jest jedyny, który łączy stabilność z ujemnym śladem węglowym.
+3234: Forum Energii 2025, IEA World Energy Outlook 2024, dane branżowe sektora biogazu rolniczego w UE. Wartości uśrednione dla projektu 0.5 MW.
+3240: Biogazownia nie tylko nie emituje — utylizuje metan, który i tak wydostałby się z gnojowicy do atmosfery. Stąd −25 g/kWh.
+3246: Przychodu z pofermentu, kosztu utylizacji gnojowicy, niezależności energetycznej, wpływu na lokalne rolnictwo. To zmieniłoby równanie.
+3259: { letter: 'A', name: 'ATEX', latin: 'Directive 2014/34/EU', def: 'Europejska dyrektywa regulująca urządzenia w strefach zagrożonych wybuchem. Wszystkie elementy reaktora pracujące z metanem klasyfikowane są jako EX zone 1 lub 2.', ref: 'STD' },
+3260: { letter: 'B', name: 'BMP', latin: 'Biochemical Methane Potential', def: 'Test laboratoryjny mierzący maksymalny uzysk metanu z danej biomasy. Trwa 30–60 dni. Podstawa do każdej decyzji projektowej.', ref: 'TEST' },
+3261: { letter: 'C', name: 'CHP', latin: 'Combined Heat and Power', def: 'Skojarzona produkcja energii elektrycznej i cieplnej. Sprawność całkowita do 90% — w przeciwieństwie do 35% przy samym prądzie.', ref: 'TECH' },
+3262: { letter: 'D', name: 'Dyspozycyjność', latin: 'Availability factor', def: 'Procent czasu, w którym instalacja jest gotowa do pracy. GP zapewnia 98% — ok. 8 600 godzin rocznie.', ref: 'METRIC' },
+3263: { letter: 'E', name: 'EPC', latin: 'Engineering, Procurement, Construction', def: 'Model kontraktowy "pod klucz". Wykonawca odpowiada za projekt, dostawy i realizację inwestycji, dostarczając gotową instalację z celem uzysku.', ref: 'LEGAL' },
+3264: { letter: 'F', name: 'Fermentacja mezofilowa', latin: 'Mesophilic digestion', def: 'Process fermentacji w temperaturze 35–40 °C. Najczęściej stosowany — kompromis między tempem rozkładu a stabilnością mikrobiomu.', ref: 'PROC' },
+3265: { letter: 'H', name: 'H₂S', latin: 'Siarkowodór', def: 'Toksyczny gaz korozyjny. Przekroczenie limitów (np. powyżej 200 ppm) grozi uszkodzeniem silnika CHP.', ref: 'BIO' },
+3266: { letter: 'K', name: 'KIP', latin: 'Karta Informacyjna Przedsięwzięcia', def: 'Pierwszy dokument urzędowy w procesie pozyskiwania pozwolenia środowiskowego. Zawiera lokalizację, technologię, planowane emisje.', ref: 'ADM' },
+3267: { letter: 'L', name: 'LKT', latin: 'Lotne Kwasy Tłuszczowe', def: 'Produkty pośrednie fermentacji. Ich nadmiar (limit ok. 3-4 g/L) sygnalizuje zaburzenie procesu — tzw. kwasicę reaktora.', ref: 'BIO' },
+3268: { letter: 'M', name: 'Metanogeneza', latin: 'Methanogenesis', def: 'Ostatnia faza fermentacji beztlenowej. Archeony przekształcają octan i wodór w metan i dwutlenek węgla. Sercem biznesu jest właśnie ta faza.', ref: 'BIO' },
+3269: { letter: 'O', name: 'OZE', latin: 'Odnawialne Źródła Energii', def: 'Polski system wsparcia obejmujący aukcje i taryfy wsparcia (FIT). Biogaz rolniczy ma własny koszyk — bez konkurencji z wiatrem i słońcem.', ref: 'LEGAL' },
+3270: { letter: 'P', name: 'Poferment', latin: 'Digestate', def: 'Produkt uboczny fermentacji. Bezzapachowy, bogaty w azot, fosfor, potas. Zastępuje syntetyczne nawozy. 30 ton dziennie z 0.5 MW.', ref: 'PROD' },
+3271: { letter: 'S', name: 'SCADA', latin: 'Supervisory Control and Data Acquisition', def: 'System nadzoru, kontroli i akwizycji danych. Tysiące zmiennych na sekundę. Algorytm sterujący każdym zaworem, każdą pompą.', ref: 'I&C' },
+3272: { letter: 'U', name: 'UDT', latin: 'Urząd Dozoru Technicznego', def: 'Polski organ regulacyjny nadzorujący zbiorniki ciśnieniowe, rurociągi i urządzenia poddozorowe. Każda biogazownia podlega corocznym kontrolom.', ref: 'ADM' },
+3289: Każda branża ma swój język. Tutaj 14 terminów, które oddzielają inżyniera od dyletanta. Czyta się jak Encyklopedię Britannica.
+3321: cat: 'Konstrukcja nośna',
+3323: desc: 'Beton hydrotechniczny o szczelności gazowej P10. 28-dniowa wytrzymałość na ściskanie 45 MPa. Zbrojony stalą rebariową BSt 500 S.',
+3325: origin: 'PL · Górażdże',
+3332: desc: 'Austenityczna stal kwasoodporna z dodatkiem tytanu. Odporność na H₂S, NH₃ i lotne kwasy tłuszczowe. Spawana metodą TIG w atmosferze argonu.',
+3341: desc: 'Dwuwarstwowa membrana podwójna. Górna magazynuje biogaz, dolna chroni przed wnikaniem tlenu. Żywotność 25 lat w warunkach polskich.',
+3347: name: 'Miedź Cu-DHP',
+3348: cat: 'Wymienniki ciepła',
+3350: desc: 'Miedź beztlenowa wysokoprzewodząca. Przewodność cieplna 380 W/m·K. Wymienniki płytowe Alfa Laval do odzysku ciepła ze spalin CHP.',
+3371: Beton z Górażdży. Stal z Tornio. Membrana z Grazu. Miedź z Linköping. Cztery materiały, które razem ważą 320 ton i przetrwają 25 polskich zim.
+3433: PRÓBKA NR {String(i + 1).padStart(3, '0')}
+3466: { txt: 'PROJEKT · NADZÓR · OPTYMALIZACJA · SERWIS ·', size: '12rem', dir: 'normal', dur: '50s', color: 'transparent', stroke: true, ts: '-0.04em' },
+3468: { txt: 'CH₄ + CO₂ → CZYSTY KAPITAŁ · CH₄ + CO₂ → CZYSTY KAPITAŁ ·', size: '5rem', dir: 'normal', dur: '40s', color: '#4ADE80', opacity: 0.5, ts: '0.02em' },
+3532: jak mleko, zboże, mięso.
+3551: { year: '2005', title: 'Ustawa o biokomponentach', desc: 'Pierwsze regulacje prawne tworzące ramę dla produkcji energii z biogazu rolniczego w Polsce.', cat: 'POLICY' },
+3552: { year: '2008', title: 'Zielone certyfikaty', desc: 'Wprowadzenie systemu wsparcia kogeneracji odnawialnej. Powstają pierwsze biogazownie rolnicze 0.5–1 MW.', cat: 'GENESIS' },
+3553: { year: '2011', title: 'Pierwsza setka instalacji', desc: 'Liczba czynnych biogazowni rolniczych w Polsce przekracza 30. Dominują projekty oparte o kiszonkę kukurydzy.', cat: 'GROWTH' },
+3554: { year: '2015', title: 'Ustawa OZE — aukcje', desc: 'Wprowadzenie systemu aukcyjnego. Biogaz rolniczy zyskuje osobny koszyk kontraktowy bez konkurencji z wiatrem i słońcem.', cat: 'POLICY' },
+3555: { year: '2018', title: 'Dyrektywa RED II', desc: 'Unia definiuje kryteria zrównoważonego rozwoju dla bioenergii. Każdy m³ biogazu wymaga dokumentacji pochodzenia biomasy.', cat: 'EU' },
+3556: { year: '2021', title: 'Pakiet Fit for 55', desc: 'Nacisk na biometan i biogazownie komunalne. Otwarcie nowych ścieżek finansowych w ramach Krajowego Planu Odbudowy.', cat: 'EU' },
+3557: { year: '2023', title: 'Strategia biometanu', desc: 'Polski rząd publikuje strategię docelową — 250 biogazowni do 2030 r., 4 mld m³ biometanu rocznie.', cat: 'POLICY' },
+3558: { year: '2025', title: 'Boom inwestycyjny', desc: 'Liczba projektów w pozwoleniach na budowę przekracza 180. BGK, BOŚ i EBOiR uruchamiają dedykowane linie finansowe.', cat: 'CAPITAL' },
+3559: { year: '2026', title: 'Tu jesteśmy', desc: 'Wchodzimy na rynek z jednym mandatem: industrializacja procesu. Biogazownia jako produkt powtarzalny, projektowany do tych samych norm co rafineria — nie eksperyment.', cat: 'NOW', live: true },
+3576: Dziewięć kamieni milowych. Trzy ustawy krajowe, dwie dyrektywy unijne, jeden trend wzrostowy. Tak dojrzewała branża biogazu rolniczego w Polsce.
+3639: { code: 'N.001', txt: 'Wszystkie wymiary w mm chyba że zaznaczono inaczej.' },
+3640: { code: 'N.002', txt: 'Tolerancja wymiarowa wg ISO 2768-mK dla wymiarów liniowych.' },
+3642: { code: 'N.004', txt: 'Powłoki antykorozyjne — system C5 wg ISO 12944.' },
+3645: { code: 'N.007', txt: 'Próba szczelności gazowej przed odbiorem UDT — nadciśnienie 50 mbar / 24h.' },
+3646: { code: 'N.008', txt: 'Strefy zagrożone wybuchem — klasyfikacja wg PN-EN 60079-10-1.' },
+3647: { code: 'N.009', txt: 'Uziemienie ekwipotencjalne wszystkich elementów metalowych — rezystancja < 10 Ω.' },
+3648: { code: 'N.010', txt: 'Sprawdzenie szczelności silnika lambdą — interwał 200 mth.' },
+3786: { n: '01', l: 'Silage silo', d: 'Pojemność 900 t. Geomembrana EPDM.' },
+3787: { n: '02', l: 'Reactor I — hydrolysis', d: 'Faza wstępna. Mezofile 38 °C.' },
+3788: { n: '03', l: 'Reactor II — methanogenesis', d: 'Faza właściwa. Czas retencji 28 dni.' },
+3790: { n: '05', l: 'Biogas storage', d: 'Membrana podwójna 600 m³.' },
+3933: Standardowa biogazownia 0.5 MW na 1.2 hektarze. 10 obiektów, 320 metrów rurociągów, 3 kilometry kabli sterowniczych. Każdy element ma swoje miejsce — i swój dokument.
+4060: { y: 'Standard', name: 'ISO 14001', sub: 'Środowisko', body: 'Board of Directorszanie środowiskowe', color: '#C6A87C' },
+4061: { y: 'Standard', name: 'ISO 9001', sub: 'Jakość', body: 'System zarządzania jakością', color: '#C6A87C' },
+4062: { y: 'Zgodność', name: 'ISO 45001', sub: 'BHP', body: 'Bezpieczeństwo pracy', color: '#C6A87C' },
+4063: { y: 'Dyrektywa', name: 'ATEX', sub: 'Wybuchowość', body: 'Strefy zagrożone wybuchem', color: '#D97847' },
+4065: { y: 'Wymóg', name: 'Dozór UDT', sub: 'Polska', body: 'Zbiorniki ciśnieniowe', color: '#C6A87C' },
+4066: { y: 'Norma', name: 'EN ISO 15614', sub: 'Spawalnictwo', body: 'Kwalifikacja procesów spawania', color: '#4ADE80' },
+4067: { y: 'Zgodność', name: 'ISO 12944', sub: 'Powłoki', body: 'Antykorozja C5', color: '#4ADE80' },
+4084: Każdy projekt projektujemy do ośmiu zewnętrznych norm. Nie wymieniamy ich dla marketingu — wymieniamy, bo definiują zakres odpowiedzialności wobec inwestora i organów dozoru.
+4139: { n: 'I', q: 'Inżynier nie wierzy w „prawie szczelne". Inżynier mierzy.', who: 'Pierwsza zasada konstrukcyjna' },
+4140: { n: 'II', q: 'Każda biogazownia jest tak dobra jak najsłabsza spawa. Każdą sprawdzamy testem nieniszczącym.', who: 'Dział kontroli jakości' },
+4141: { n: 'III', q: 'Bakterie metanogenne nie negocjują. Ani ceny prądu, ani warunków pogodowych. Pracują 24/7.', who: 'Dział biologii' },
+4184: ['Pojemność reaktora I + II', '7 200 m³'],
+4185: ['Średnica każdej komory', '24.0 m'],
+4186: ['Wysokość konstrukcji', '8.0 m'],
+4187: ['Grubość ścian żelbetowych', '0.40 m'],
+4189: ['Powierzchnia działki min.', '1.20 ha'],
+4200: ['Wsad dobowy', '21 t / dobę'],
+4210: ['Sprawność elektryczna CHP', '44.2 %'],
+4211: ['Sprawność termiczna', '46.0 %'],
+4212: ['Sprawność całkowita', '90.2 %'],
+4217: cat: 'Wymagania środowiskowe',
+4220: ['Hałas (granica działki) max', '45 dB(A) noc'],
+4223: ['Wykorzystanie odpadów', '7 650 t / rok'],
+4314: { name: "ABB", role: "NAPĘDY & SILNIKI", delay: 100, hue: "#ff0000" },
+4316: { name: "XYLEM", role: "DYNAMIKA PŁYNÓW", delay: 300, hue: "#00a3e0" },
+4372: Green Plant Tech to nowy podmiot, ale nie uczymy się na błędach inwestora. Nasz zespół wnosi ponad 50 lat skumulowanego doświadczenia z projektów infrastrukturalnych w Europie.
+4410: Umów wstępny audyt technologiczny. Weryfikujemy potencjał Twojego zakładu i szacujemy bazowy CAPEX.

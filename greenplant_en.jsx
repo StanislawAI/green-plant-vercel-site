@@ -648,7 +648,7 @@ const Hero = () => {
           {/* reactor body (vertical) */}
           <line x1="220" y1="180" x2="220" y2="620" stroke="#C8A97D" strokeOpacity="0.7" />
           <line x1="580" y1="180" x2="580" y2="620" stroke="#C8A97D" strokeOpacity="0.7" />
-          {/* top dome */}
+          {/* top Homee */}
           <path d="M 220 180 Q 400 60 580 180" fill="none" stroke="#C8A97D" strokeOpacity="0.7" />
           <path d="M 240 170 Q 400 80 560 170" fill="none" stroke="#C8A97D" strokeOpacity="0.4" strokeDasharray="2 3" />
           <path d="M 260 160 Q 400 100 540 160" fill="none" stroke="#C8A97D" strokeOpacity="0.25" strokeDasharray="1 4" />
@@ -713,7 +713,7 @@ const Hero = () => {
             <h1 className="text-[4.5rem] md:text-[8rem] lg:text-[11rem] font-serif text-[#F2EDE4] leading-[0.88] pb-4 tracking-tighter mb-12 font-light">
               <KineticHeading delay={200} stagger={45}>Stability</KineticHeading>
               <br />
-              <span className="italic text-[#C8A97D] font-normal pl-4 md:pl-16 inline-block">
+              <span className="italic text-[#C8A97D] font-Standardl pl-4 md:pl-16 inline-block">
                 <KineticHeading delay={650} stagger={55}>industrial.</KineticHeading>
               </span>
             </h1>
@@ -725,7 +725,7 @@ const Hero = () => {
 
           <div>
             <p className="text-xl md:text-2xl text-[#F2EDE4]/70 leading-relaxed max-w-xl font-serif font-light italic mb-16">
-              Preparation of biogas plant projects 0.5 MW. Budujemy aktywa energetyczne, które transformują odpady w przewidywalny kapitał i niezależność operacyjną.
+              Preparation of biogas plant projects 0.5 MW. We build energy assets that transform waste into predictable capital and operational independence.
             </p>
           </div>
 
@@ -804,7 +804,7 @@ const HeroSCADAPanel = () => {
           </div>
           <div className="text-right">
             <div className="font-mono text-[8px] text-[#C8A97D]/60 tracking-[0.3em] mb-1">REF. MODELU</div>
-            <div className="font-mono text-[10px] text-[#F2EDE4]/80">REAKTOR-A1</div>
+            <div className="font-mono text-[10px] text-[#F2EDE4]/80">Reactor-A1</div>
           </div>
         </div>
 
@@ -830,7 +830,7 @@ const HeroSCADAPanel = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
           {[
             { l: 'CH4 Purity', v: ch4, u: '%', g: parseFloat(ch4) > 62 },
-            { l: 'Temp. Reaktora', v: temp, u: '°C', g: true },
+            { l: 'Temp. Reactora', v: temp, u: '°C', g: true },
             { l: 'Gas Pressure', v: pressure, u: 'mbar', g: true },
             { l: 'Engine Load', v: load, u: '%', g: parseFloat(load) > 80 },
           ].map((m, i) => (
@@ -860,7 +860,7 @@ const HeroSCADAPanel = () => {
 const TickerTape = () => {
   const dataItems = ['Methane Purity: 62.4%', 'Grid Load: 0.49MW', 'Service Interval: 8 000h', 'CO2 Savings: 2.1t/d', 'Reactor Temp: 38.4°C', 'pH: 7.62', 'H₂S: <50ppm', 'VFA: 1.8g/L'];
   const editorialItems = ['Profit engineering', 'Matter into energy', 'Closed loop', 'Zero waste'];
-  const refItems = ['DWG-014/REV.C', 'PROC-ADM-01', 'CYB-SEC-PRO', 'TECH-HYD-V4', 'LOG-BIO-S7', 'DYREKTYWA 2014/34/UE'];
+  const refItems = ['DWG-014/REV.C', 'PROC-ADM-01', 'CYB-SEC-PRO', 'TECH-HYD-V4', 'LOG-BIO-S7', 'Directive 2014/34/UE'];
   return (
     <div className="bg-[#050505] py-2 overflow-hidden relative z-10 border-y border-[#C6A87C]/10" data-testid="ticker-tape">
       {/* Layer 1: mono data, fast */}
@@ -920,7 +920,7 @@ const Approach = () => {
         {/* Section label running vertical */}
         <div className="absolute left-0 top-1/2 -translate-y-1/2 hidden xl:block">
           <div className="vertical-writing font-mono text-[9px] tracking-[0.4em] uppercase text-[#C6A87C]/30">
-            § I — Filozofia inżynierska // GP / 26
+            § I — Engineering Philosophy // GP / 26
           </div>
         </div>
 
@@ -934,13 +934,13 @@ const Approach = () => {
               </div>
               <h2 className="text-7xl md:text-[10rem] font-serif text-[#EAE6DF] leading-[0.92] pb-6 mb-12 font-light tracking-tight">
                 <KineticHeading delay={100} stagger={40}>Materia w</KineticHeading><br/>
-                <span className="italic text-[#C6A87C] font-normal"><KineticHeading delay={500} stagger={50}>energy.</KineticHeading></span>
+                <span className="italic text-[#C6A87C] font-Standardl"><KineticHeading delay={500} stagger={50}>energy.</KineticHeading></span>
               </h2>
 
               {/* Editorial drop-cap body */}
               <div className="max-w-2xl">
                 <p className="text-[#EAE6DF]/70 font-serif text-2xl leading-[1.55] mb-8 font-light">
-                  <span className="float-left font-serif text-7xl md:text-[8rem] leading-[0.92] pb-2 text-[#C6A87C] italic mr-5 mt-2 font-normal">B</span>
+                  <span className="float-left font-serif text-7xl md:text-[8rem] leading-[0.92] pb-2 text-[#C6A87C] italic mr-5 mt-2 font-Standardl">B</span>
                   A biogas plant is not just a collection of concrete tanks. It is a precisely tuned ecosystem where <span className="italic text-[#C6A87C]">biologia</span> meets heavy mechanical engineering — methanogenic bacteria, PLC controllers, acid-resistant steel, and double EPDM membranes work together in one closed system.
                 </p>
                 <p className="text-[#EAE6DF]/40 font-serif italic text-xl leading-relaxed mb-14 font-light">
@@ -994,7 +994,7 @@ const Approach = () => {
                     <rect x="40" y="60" width="120" height="100" fill="url(#iso)" stroke="#C6A87C" strokeOpacity="0.5" />
                     {/* base ellipse (bottom) */}
                     <ellipse cx="100" cy="160" rx="60" ry="14" fill="#0a0c0b" stroke="#C6A87C" strokeOpacity="0.6" />
-                    {/* dome */}
+                    {/* Homee */}
                     <path d="M 40 60 Q 100 -10 160 60" fill="none" stroke="#C6A87C" strokeOpacity="0.6" />
                     <path d="M 50 55 Q 100 15 150 55" fill="none" stroke="#C6A87C" strokeOpacity="0.3" strokeDasharray="2 3" />
                     {/* center mixer line */}
@@ -1038,9 +1038,9 @@ const Approach = () => {
 
 const BlueprintProcesss = () => {
   const steps = [
-    { num: "01", title: "Substrate Analysis", desc: "Badamy potencjał metanowy Twojej biomasy w laboratorium. Na tej podstawie kalibrujemy pojemność reaktorów.", color: "#34D399" },
-    { num: "02", title: "Inżynieria Processu", desc: "Projektujemy układ hydrauliczny, systemy mieszania oraz wymiany ciepła. Optymalizujemy przepływ wsadu.", color: "#60A5FA" },
-    { num: "03", title: "Investor Supervision", desc: "Nadzorujemy wylewanie szczelnych komór żelbetowych i instalację agregatów CHP klasy Tier-1.", color: "#FBBF24" }
+    { num: "01", title: "Substrate Analysis", desc: "We test the methane potential of your biomass in the lab. Based on this, we calibrate the reactor capacity.", color: "#34D399" },
+    { num: "02", title: "Process Engineering", desc: "We design the hydraulic layout, mixing, and heat exchange systems. We optimize feedstock flow.", color: "#60A5FA" },
+    { num: "03", title: "Investor Supervision", desc: "We supervise the pouring of gas-tight reinforced concrete chambers and the installation of Tier-1 CHP units.", color: "#FBBF24" }
   ];
 
   return (
@@ -1100,11 +1100,11 @@ const FeedstockMatrix = () => {
   const [hoveredRow, setHoveredRow] = useState(0);
 
   const substrates = [
-    { id: "MTRL-01", name: "Gnojowica Bydlęca", category: "Agricultural Waste", yield: "25", ch4: "58", temp: "38°C" },
-    { id: "MTRL-02", name: "Obornik Świński", category: "Agricultural Waste", yield: "60", ch4: "62", temp: "42°C" },
+    { id: "MTRL-01", name: "Cattle Slurry", category: "Agricultural Waste", yield: "25", ch4: "58", temp: "38°C" },
+    { id: "MTRL-02", name: "Pig Manure", category: "Agricultural Waste", yield: "60", ch4: "62", temp: "42°C" },
     { id: "MTRL-03", name: "Kiszonka Kukurydzy", category: "Uprawa Celowa", yield: "210", ch4: "54", temp: "40°C" },
-    { id: "MTRL-04", name: "Wysłodki Buraczane", category: "Industrial Waste", yield: "125", ch4: "52", temp: "39°C" },
-    { id: "MTRL-05", name: "Odpady Poubojowe", category: "Industrial Waste", yield: "320", ch4: "68", temp: "45°C" }
+    { id: "MTRL-04", name: "Beet Pulp", category: "Industrial Waste", yield: "125", ch4: "52", temp: "39°C" },
+    { id: "MTRL-05", name: "slaughterhouse waste", category: "Industrial Waste", yield: "320", ch4: "68", temp: "45°C" }
   ];
 
   return (
@@ -1119,11 +1119,11 @@ const FeedstockMatrix = () => {
                 Laboratorium Surowcowe
               </h2>
               <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
-                Macierz <br/><span className="italic text-[#C6A87C] font-normal">Substratów.</span>
+                Macierz <br/><span className="italic text-[#C6A87C] font-Standardl">Substratów.</span>
               </h3>
             </div>
             <p className="text-[#EAE6DF]/40 font-serif italic text-2xl font-light max-w-sm leading-relaxed text-right">
-              Precyzyjna kalibracja reaktora pod kątem charakterystyki fizykochemicznej wsadu.
+              Precise reactor calibration tailored to the physicochemical characteristics of the feedstock.
             </p>
           </div>
         </FadeIn>
@@ -1158,7 +1158,7 @@ const FeedstockMatrix = () => {
                    <Leaf className="w-32 h-32 text-[#C6A87C]" strokeWidth={0.5} />
                 </div>
                 
-                <h5 className="font-mono text-[9px] text-[#C6A87C] tracking-[0.4em] uppercase mb-12 border-b border-[#C6A87C]/20 pb-4">Analiza Detaliczna: {substrates[hoveredRow].id}</h5>
+                <h5 className="font-mono text-[9px] text-[#C6A87C] tracking-[0.4em] uppercase mb-12 border-b border-[#C6A87C]/20 pb-4">Analysis Detaliczna: {substrates[hoveredRow].id}</h5>
                 
                 <div className="space-y-12">
                    <div>
@@ -1205,18 +1205,18 @@ const EconomicsSection = () => {
           <FadeIn direction="right">
             <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Financial Engineering</div>
             <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[1] mb-12 font-light">
-              Analiza <br/>
-              <span className="italic text-[#C6A87C] font-normal">profitability.</span>
+              Analysis <br/>
+              <span className="italic text-[#C6A87C] font-Standardl">profitability.</span>
             </h2>
             <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
-              We model the return on capital based on real RES auctions and self-consumption optimization. Biogazownia to stabilne aktywo energetyczne działające 8000h rocznie.
+              We model the return on capital based on real RES auctions and self-consumption optimization. A biogas plant is a stable energy asset operating 8,000 hours per year.
             </p>
             
             <div className="space-y-10">
               {[
                 { title: "Electrical Revenue", desc: "Aukcje OZE lub PPA. Stabilna cena zakontraktowana na 15 lat.", val: "70%" },
-                { title: "Thermal Energy", desc: "Odzysk ciepła z chłodzenia silników i spalin. Zero kosztów ogrzewania.", val: "20%" },
-                { title: "Fertilizer Substitution", desc: "Poferment jako darmowa alternatywa dla mocznika i fosforanów.", val: "10%" }
+                { title: "Thermal Energy", desc: "Heat recovery from engine cooling and exhaust gases. Zero heating costs.", val: "20%" },
+                { title: "Fertilizer Substitution", desc: "Digestate as a free alternative to urea and phosphates.", val: "10%" }
               ].map((item, i) => (
                 <div key={i} className="flex justify-between items-start group border-b border-[#C6A87C]/10 pb-8 last:border-0">
                   <div className="max-w-md">
@@ -1283,7 +1283,7 @@ const SmartGrid = () => {
               <Zap className="w-4 h-4" /> Dystrybucja i Integracja
             </h2>
             <h3 className="text-6xl md:text-9xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
-              Węzeł <br/><span className="italic text-[#C6A87C] font-normal">Systemowy.</span>
+              Węzeł <br/><span className="italic text-[#C6A87C] font-Standardl">Systemowy.</span>
             </h3>
           </div>
         </FadeIn>
@@ -1346,7 +1346,7 @@ const CircularImpact = () => {
           <path id="textPath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="transparent" />
           <text fill="#C6A87C" className="font-mono text-[8.5px] tracking-[0.25em] uppercase">
             <textPath href="#textPath" startOffset="0%" textLength="471">
-              • OBIEG ZAMKNIĘTY • ZERO ODPADÓW • ROLNICTWO CYRKULARNE • OBIEG ZAMKNIĘTY • ZERO ODPADÓW • ROLNICTWO CYRKULARNE 
+              • CLOSED LOOP • ZERO WASTE • CIRCULAR AGRICULTURE • CLOSED LOOP • ZERO WASTE • CIRCULAR AGRICULTURE 
             </textPath>
           </text>
         </svg>
@@ -1360,10 +1360,10 @@ const CircularImpact = () => {
             <span className="italic text-[#C6A87C] font-light">Poferment.</span>
           </h2>
           <p className="text-[#EAE6DF]/60 font-light text-xl leading-relaxed mb-10 font-serif italic max-w-lg">
-            Process fermentacji metanowej nie tylko produkuje biogaz. Przekształca on uciążliwe odpady rolnicze w doskonały, bezwonny nawóz organiczny.
+            The methane fermentation process does not only produce biogas. It transforms burdensome agricultural waste into excellent, odorless organic fertilizer.
           </p>
           <ul className="space-y-6">
-            {['Zastępuje drogie nawozy syntetyczne (N-P-K).', 'Poprawia strukturę gleby i retencję wody.', 'Pozbawiony nasion chwastów i patogenów.', 'Brak uciążliwych odorów podczas rozlewania.'].map((item, i) => (
+            {['Replaces expensive synthetic fertilizers (N-P-K).', 'Improves soil structure and water retention.', 'Free from weed seeds and pathogens.', 'No troublesome odors during spreading.'].map((item, i) => (
               <li key={i} className="flex items-start gap-4">
                 <CheckCircle2 className="w-5 h-5 text-[#C6A87C] shrink-0 mt-1" strokeWidth={1} />
                 <span className="font-mono text-[11px] text-[#EAE6DF]/70 tracking-widest leading-relaxed uppercase">{item}</span>
@@ -1390,7 +1390,7 @@ const EnvironmentalImpact = () => {
               <span className="italic text-[#C6A87C] font-light text-outline">footprint.</span>
             </h2>
             <p className="text-[#EAE6DF]/60 font-light text-xl leading-relaxed mb-12 font-serif italic max-w-lg">
-              Biogazownia nie tylko produkuje zieloną energy. Utylizując gnojowicę i obornik, zapobiega samoistnej emisji metanu do atmosfery, czyniąc proces ekstremalnie przyjaznym dla klimatu.
+              A biogas plant doesn't just produce green energy. By utilizing slurry and manure, it prevents spontaneous methane emissions into the atmosphere, making the process extremely climate-friendly.
             </p>
             <div className="inline-flex items-center gap-4 border border-[#C6A87C]/20 px-6 py-4 bg-[#050606]">
               <ShieldCheck className="w-5 h-5 text-[#C6A87C]" />
@@ -1423,9 +1423,9 @@ const ProjectsGallery = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const projects = [
-    { title: "Typ A — Agricultural", spec: "0.5 MW · gnojowica + kiszonka", location: "Wsad: 21 t / dobę", img: "/assets/img/rolnicza.png" },
-    { title: "Typ B — Municipal", spec: "0.5 MW · odpady miejskie", location: "Wsad: 18 t / dobę", img: "/assets/img/komunalny.webp" },
-    { title: "Typ C — Industrial", spec: "0.5 MW · odpady poubojowe", location: "Wsad: 21 t / dobę", img: "/assets/img/przemyslowy.webp" }
+    { title: "Typ A — Agricultural", spec: "0.5 MW · slurry + silage", location: "Feedstock: 21 t / day", img: "/assets/img/rolnicza.png" },
+    { title: "Typ B — Municipal", spec: "0.5 MW · municipal waste", location: "Feedstock: 18 t / day", img: "/assets/img/komunalny.webp" },
+    { title: "Typ C — Industrial", spec: "0.5 MW · slaughterhouse waste", location: "Feedstock: 21 t / day", img: "/assets/img/przemyslowy.webp" }
   ];
 
   return (
@@ -1470,7 +1470,7 @@ const ProjectsGallery = () => {
                 
                 <div className={`flex items-center gap-12 transition-all duration-700 ${activeIndex === i ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
                   <div className="text-right">
-                    <p className="font-mono text-[8px] tracking-[0.3em] text-[#C6A87C] uppercase mb-2">Specyfikacja // Wsad dobowy</p>
+                    <p className="font-mono text-[8px] tracking-[0.3em] text-[#C6A87C] uppercase mb-2">Specyfikacja // Daily feedstock</p>
                     <p className="font-serif text-2xl text-[#EAE6DF] italic">{proj.location} — {proj.spec}</p>
                   </div>
                   <div className="w-16 h-16 rounded-full border border-[#C6A87C] flex items-center justify-center group-hover:bg-[#C6A87C] group-hover:text-[#030404] transition-all">
@@ -1501,7 +1501,7 @@ const ScadaSystem = () => {
               Cyfrowy <br/><span className="text-[#C6A87C] not-italic">bliźniak.</span>
             </h2>
             <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
-              System SCADA to kręgosłup operacyjny instalacji. Agreguje dane z setek czujników i precyzyjnie zarządza pracą mieszadeł, pomp oraz systemów CHP, zapewniając stabilność biologiczną reaktora i maksymalizację uzysku metanu.
+              The SCADA system is the operational backbone of the installation. It aggregates data from hundreds of sensors and precisely manages mixers, pumps, and CHP systems, ensuring biological reactor stability and maximizing methane yield.
             </p>
           </FadeIn>
 
@@ -1522,8 +1522,8 @@ const ScadaSystem = () => {
                        key={i} 
                        className="bg-[#C6A87C]/20 border-t border-[#C6A87C]/40" 
                        style={{ 
-                         height: `${30 + Math.random() * 60}%`,
-                         animation: `pulse ${1 + Math.random()}s infinite alternate`
+                         height: `${30 + Math.ranHome() * 60}%`,
+                         animation: `pulse ${1 + Math.ranHome()}s infinite alternate`
                        }}
                      ></div>
                    ))}
@@ -1574,14 +1574,14 @@ const ResearchAndDevelopment = () => {
               <span className="text-outline italic">analityczne.</span>
             </h2>
             <p className="text-[#EAE6DF]/60 font-light text-lg leading-relaxed mb-12 font-serif italic max-w-lg">
-              Nie opieramy się na przypuszczeniach. Zanim zaprojektujemy reaktory, próbki Twojej biomasy przechodzą rygorystyczne testy wydajności metanowej (BMP).
+              We do not rely on assumptions. Before we design the reactors, samples of your biomass undergo rigorous Biochemical Methane Potential (BMP) testing.
             </p>
             
             <div className="space-y-6">
               {[
-                { title: "BMP Tests (Biochemical Methane Potential)", desc: "Dokładne określenie ile metanu wyprodukuje tona Twojego surowca." },
-                { title: "Physicochemical Analysis", desc: "Badanie suchej masy, zawartości popiołu oraz stosunku węgla do azotu (C:N)." },
-                { title: "Symulacja Fermentacji", desc: "Przeprowadzenie miniaturowego procesu w reaktorach laboratoryjnych." }
+                { title: "BMP Tests (Biochemical Methane Potential)", desc: "Accurate determination of how much methane a ton of your feedstock will produce." },
+                { title: "Physicochemical Analysis", desc: "Analysis of dry matter, ash content, and carbon-to-nitrogen (C:N) ratio." },
+                { title: "Symulacja Fermentacji", desc: "Przeprowadzenie miniaturowego procesu w Reactorach laboratoryjnych." }
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-5 group">
                   <div className="font-serif text-2xl text-[#C6A87C] italic opacity-50 group-hover:opacity-100 transition-opacity">0{i+1}</div>
@@ -1604,7 +1604,7 @@ const Leadership = () => {
     { 
       role: "Lead Project Engineer", 
       name: "Construction Department", 
-      exp: "Nadzór nad precyzją montażu izolacji termicznej i wylewek żelbetowych. Pełna sterylność środowiska.",
+      exp: "Supervision of thermal insulation assembly and reinforced concrete pouring precision. Complete environmental sterility.",
       img: "/assets/img/konstrukcyjny.webp",
       id: "AUTORYZACJA_LVL_4",
       clearance: "TOP SECRET // INDUSTRIAL"
@@ -1612,7 +1612,7 @@ const Leadership = () => {
     { 
       role: "Lead RES Technologist", 
       name: "Biology Department", 
-      exp: "Eksperci od fermentacji metanowej. Parametryzacja środowiska pod kątem maksymalizacji uzysku z powierzonej biomasy.",
+      exp: "Methane fermentation experts. Environmental parameterization to maximize yield from the entrusted biomass.",
       img: "/assets/img/biologiczny.webp",
       id: "AUTORYZACJA_LVL_4",
       clearance: "TOP SECRET // BIOLOGICAL"
@@ -1631,7 +1631,7 @@ const Leadership = () => {
               <p className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Nadzór <br/><span className="italic font-light text-[#C6A87C]">Weryfikowany.</span></p>
             </div>
             <p className="text-[#EAE6DF]/40 text-2xl font-serif italic max-w-md leading-relaxed text-right">
-              Kadra inżynierska z uprawnieniami do projektowania instalacji o wysokim ryzyku gazowym.
+              Engineering staff authorized to design high gas risk installations.
             </p>
           </div>
         </FadeIn>
@@ -1698,10 +1698,10 @@ const OperationsMaintenance = () => {
             <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Control Center // O&M</div>
             <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 mb-12 font-light">
               Utrzymanie <br/>
-              <span className="italic text-[#C6A87C] font-normal">ruchu.</span>
+              <span className="italic text-[#C6A87C] font-Standardl">ruchu.</span>
             </h2>
             <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
-              Przekazanie kluczy to dopiero początek. Nasze centrum operacyjne monitoruje parametry biologiczne i mechaniczne 24/7, zapewniając ciągłość generacji.
+              Handing over the keys is just the beginning. Our operations center monitors biological and mechanical parameters 24/7, ensuring continuous generation.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
@@ -1719,7 +1719,7 @@ const OperationsMaintenance = () => {
           <div className="lg:col-span-6 grid grid-cols-1 gap-6">
             {[
               { title: "Remote SCADA Diagnostics", desc: "Podgląd na żywo każdego zaworu i mieszadła. Wykrywanie anomalii zanim staną się awarią.", icon: <Zap className="w-6 h-6" /> },
-              { title: "Technologist Supervision", desc: "Cotygodniowa analiza parametrów fermentacji. Optymalizacja diety reaktora.", icon: <Leaf className="w-6 h-6" /> },
+              { title: "Technologist Supervision", desc: "Cotygodniowa Analysis parametrów fermentacji. Optymalizacja diety Reactora.", icon: <Leaf className="w-6 h-6" /> },
               { title: "Tier-1 Mechanical Service", desc: "Autoryzowany serwis agregatów CHP i systemów pompujących. Oryginalne części.", icon: <Factory className="w-6 h-6" /> }
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 150} className="group glass-morphism p-10 flex gap-8 items-center rounded-[2.5rem] hover:border-[#C6A87C]/40 transition-all duration-700">
@@ -1741,10 +1741,10 @@ const OperationsMaintenance = () => {
 
 const SafetyStandards = () => {
   const standards = [
-    { title: "ATEX Directive", desc: "Zabezpieczenie przeciwwybuchowe EX dla stref zagrożonych metanem.", code: "DYREKTYWA 2014/34/UE", hue: "#FBBF24" },
-    { title: "Standards UDT", desc: "Dozór techniczny nad zbiornikami ciśnieniowymi i rurociągami.", code: "ROZPORZĄDZENIE UDT", hue: "#60A5FA" },
-    { title: "Fire Protection", desc: "Zintegrowane systemy oddymiania i aktywne pochodnie bezpieczeństwa.", code: "NORMY NFPA-EN", hue: "#F87171" },
-    { title: "CE Certification", desc: "Zgodność z europejskimi normami maszynowymi i bezpieczeństwa pracy.", code: "MD 2006/42/WE", hue: "#34D399" }
+    { title: "ATEX Directive", desc: "EX explosion protection for methane hazard zones.", code: "Directive 2014/34/UE", hue: "#FBBF24" },
+    { title: "Standards UDT", desc: "Technical supervision over pressure vessels and pipelines.", code: "ROZPORZĄDZENIE UDT", hue: "#60A5FA" },
+    { title: "Fire Protection", desc: "Integrated smoke exhaust systems and active safety flares.", code: "NORMY NFPA-EN", hue: "#F87171" },
+    { title: "CE Certification", desc: "Compliance with European machinery and occupational safety standards.", code: "MD 2006/42/WE", hue: "#34D399" }
   ];
 
   return (
@@ -1755,7 +1755,7 @@ const SafetyStandards = () => {
              <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 flex items-center gap-4">
                <ShieldCheck className="w-5 h-5" /> Technical Compliance Framework
              </h2>
-             <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Bezpieczeństwo <br/><span className="italic text-[#C6A87C] font-normal">normatywne.</span></h3>
+             <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Bezpieczeństwo <br/><span className="italic text-[#C6A87C] font-Standardl">Standardtywne.</span></h3>
           </div>
         </FadeIn>
 
@@ -1790,10 +1790,10 @@ const TechnicalFAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   const faqs = [
-    { q: "Metodologia Pozyskiwania Decyzji", a: "Board of Directorszamy pełnym procesem administracyjnym: od Karty Informacyjnej Przedsięwzięcia (KIP), przez raport środowiskowy, aż po ostateczne PNB i koncesję energetyczną.", doc: "PROC-ADM-01" },
-    { q: "Parametryzacja Hydrauliki Processowej", a: "Stosujemy autorskie algorytmy doboru mocy mieszadeł i wydajności pomp w zależności od reologii substratu, co redukuje zużycie energii o 15%.", doc: "TECH-HYD-V4" },
-    { q: "Architektura Cyberbezpieczeństwa", a: "Systemy SCADA pracują w odizolowanych sieciach VLAN z szyfrowanym dostępem VPN, zapewniając ochronę przed nieautoryzowanym dostępem do sterowników PLC.", doc: "CYB-SEC-PRO" },
-    { q: "Logistyka Pofermentu i Odwadniania", a: "Projektujemy zintegrowane systemy separacji faz i magazynowania pofermentu, optymalizując koszty transportu i nawożenia na polach.", doc: "LOG-BIO-S7" }
+    { q: "Permit Acquisition Methodology", a: "We manage the full administrative process: from the Project Information Sheet (KIP), through the environmental report, to the final building permit and energy concession.", doc: "PROC-ADM-01" },
+    { q: "Process Hydraulics Parameterization", a: "We use proprietary algorithms to select mixer power and pump efficiency depending on substrate rheology, reducing energy consumption by 15%.", doc: "TECH-HYD-V4" },
+    { q: "Cybersecurity Architecture", a: "SCADA systems operate in isolated VLAN networks with encrypted VPN access, ensuring protection against unauthorized access to PLC controllers.", doc: "CYB-SEC-PRO" },
+    { q: "Digestate and Dewatering Logistics", a: "We design integrated phase separation and digestate storage systems, optimizing transport and field fertilization costs.", doc: "LOG-BIO-S7" }
   ];
 
   return (
@@ -1807,10 +1807,10 @@ const TechnicalFAQ = () => {
 
              <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
                Dokumentacja <br/>
-               <span className="italic text-[#C6A87C] font-normal">operacyjna.</span>
+               <span className="italic text-[#C6A87C] font-Standardl">operacyjna.</span>
              </h3>
              <p className="text-[#EAE6DF]/40 font-serif italic text-2xl font-light mt-12 leading-relaxed">
-               Zbiór procedur i standardów technicznych definiujących każdą fazę życia instalacji.
+               A set of technical procedures and standards defining each phase of the installation's lifecycle.
              </p>
          </FadeIn>
 
@@ -1861,16 +1861,16 @@ const ServiceCoverage = () => {
         <FadeIn>
           <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] px-6 py-1 mx-auto w-fit">Logistyka Regionalna</div>
           <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 mb-12 font-light">
-            Zasięg <br/><span className="italic text-[#C6A87C] font-normal">operacyjny.</span>
+            Zasięg <br/><span className="italic text-[#C6A87C] font-Standardl">operacyjny.</span>
           </h2>
           <p className="text-[#EAE6DF]/50 font-serif italic text-2xl max-w-3xl mx-auto leading-relaxed mb-20">
-            Nasze zespoły inżynierskie i serwisowe operują na terenie całego kraju, zapewniając wsparcie techniczne w każdym zakątku Polski.
+            Our engineering and service teams operate nationwide, providing technical support in every corner of the country.
           </p>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px bg-[#C6A87C]/10 border border-[#C6A87C]/10 w-full">
              {[
                { region: "Northern Poland", city: "Hub Gdańsk", status: "Operational" },
-               { region: "Polska Centralna", city: "Warszawa HQ", status: "Operational" },
+               { region: "Polska Centralna", city: "Warsaw HQ", status: "Operational" },
                { region: "Western Poland", city: "Hub Poznań", status: "Active" },
                { region: "Southern Poland", city: "Hub Kraków", status: "Operational" }
              ].map((node, i) => (
@@ -1919,7 +1919,7 @@ const CTA = () => {
             <div className="lg:col-span-5">
               <div className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-4">— Inicjacja kontraktu</div>
               <p className="font-serif italic text-2xl md:text-3xl text-[#F2EDE4]/70 leading-[1.4] font-light">
-                Weryfikujemy technologię, szacujemy CAPEX, projektujemy, budujemy. Pierwszy m³ biogazu — w 14 miesięcy.
+                We verify technology, estimate CAPEX, design, build. The first m³ of biogas — in 14 months.
               </p>
             </div>
 
@@ -1942,7 +1942,7 @@ const CTA = () => {
                 &lt;24<span className="text-2xl italic text-[#C8A97D]/60 ml-2">h</span>
               </div>
               <div className="font-mono text-[8px] text-[#F2EDE4]/30 tracking-[0.3em] uppercase mt-3">
-                Dział handlowy + inżynier
+                Sales department + engineer
               </div>
             </div>
           </div>
@@ -1985,7 +1985,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-[#EAE6DF]/40 max-w-sm font-serif italic font-light text-lg leading-relaxed mb-10">
-              Preparation of biogas plant projects rolniczych i komunalnych. Design, investor supervision, and technical support — zoptymalizowane pod kątem uzysku metanowego.
+              Preparation of biogas plant projects agricultural and municipal. Design, investor supervision, and technical support — optimized for methane yield.
             </p>
             <div className="flex flex-wrap gap-x-12 gap-y-4 font-mono text-[10px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase">
               <div>ul. Stanisława Wyspiańskiego 8 // 05-400 Otwock</div>
@@ -2027,10 +2027,10 @@ const Footer = () => {
           <div className="md:col-span-12">
             <h4 className="text-[#C6A87C] font-mono mb-6 uppercase text-[9px] tracking-[0.4em]">Kolofon</h4>
             <div className="flex flex-wrap gap-x-12 gap-y-6 font-mono text-[9px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase leading-relaxed">
-              <div>Złożono krojem <span className="text-[#C6A87C]/80 font-serif italic normal-case tracking-normal text-sm">Cormorant Garamond</span> oraz <span className="text-[#C6A87C]/80 font-mono normal-case tracking-normal text-sm">Space Mono</span></div>
+              <div>Złożono krojem <span className="text-[#C6A87C]/80 font-serif italic Standardl-case tracking-Standardl text-sm">Cormorant Garamond</span> oraz <span className="text-[#C6A87C]/80 font-mono Standardl-case tracking-Standardl text-sm">Space Mono</span></div>
               <div className="flex gap-12">
                 <div>Zaprojektowano w Warszawie</div>
-                <div>Substrat — z polskich pól</div>
+                <div>Feedstock — from local fields</div>
               </div>
               <div className="flex gap-12">
                 <div>Wydanie N° 04 // 2026</div>
@@ -2042,7 +2042,7 @@ const Footer = () => {
 
         <div className="border-t border-[#C6A87C]/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[#EAE6DF]/30 text-[9px] font-mono uppercase tracking-[0.3em]">
-            &copy; 2026 Green Plant Technologies Sp. z o.o. // Wszelkie prawa zastrzeżone
+            &copy; 2026 Green Plant Technologies Sp. z o.o. // All rights reserved
           </p>
           <div className="font-mono text-[9px] text-[#EAE6DF]/30 uppercase tracking-[0.3em]">
             LAT 52.2297 // LON 21.0122
@@ -2063,14 +2063,14 @@ const Footer = () => {
 const ReactorAnatomy = () => {
   const [active, setActive] = useState(0);
   const parts = [
-    { id: '01', name: 'Submersible mixer', desc: 'Stal nierdzewna 1.4571. Trzy łopaty hydrodynamiczne 18.5 kW.', x: 30, y: 35 },
-    { id: '02', name: 'Double EPDM membrane', desc: 'Biogas storage 600 m³. Odporność termiczna -40 do +80°C.', x: 50, y: 12 },
+    { id: '01', name: 'Submersible mixer', desc: 'Stainless steel 1.4571. Three hydrodynamic blades 18.5 kW.', x: 30, y: 35 },
+    { id: '02', name: 'Double EPDM membrane', desc: 'Biogas storage 600 m³. Thermal resistance -40 to +80°C.', x: 50, y: 12 },
     { id: '03', name: 'Heating coil', desc: 'Stabilizacja procesu mezofilowego. 38.4 °C ±0.3.', x: 22, y: 60 },
-    { id: '04', name: 'Reinforced concrete tank', desc: 'Beton klasy C35/45. Szczelność gazowa P10. Izolacja 20cm wełna mineralna.', x: 50, y: 60 },
-    { id: '05', name: 'Substrate inlet', desc: 'Dozownik z homogenizatorem. 21 t/dobę. Czujnik suchej masy.', x: 8, y: 50 },
-    { id: '06', name: 'Digestate outlet', desc: 'Separator faz. Suchy nawóz organiczny + ciecz pofermentacyjna.', x: 88, y: 50 },
-    { id: '07', name: 'Measuring probe', desc: 'pH, ORP, temperatura, lotne kwasy tłuszczowe (VFA). Próbkowanie ciągłe.', x: 70, y: 40 },
-    { id: '08', name: 'Emergency flare', desc: 'Spalanie biogazu w razie nadciśnienia. Norma ATEX zone 1.', x: 78, y: 8 },
+    { id: '04', name: 'Reinforced concrete tank', desc: 'Concrete class C35/45. Gas tightness P10. Insulation 20cm mineral wool.', x: 50, y: 60 },
+    { id: '05', name: 'Substrate inlet', desc: 'Dispenser with homogenizer. 21 t/day. Dry matter sensor.', x: 8, y: 50 },
+    { id: '06', name: 'Digestate outlet', desc: 'Phase separator. Dry organic fertilizer + liquid digestate.', x: 88, y: 50 },
+    { id: '07', name: 'Measuring probe', desc: 'pH, ORP, temperature, volatile fatty acids (VFA). Continuous sampling.', x: 70, y: 40 },
+    { id: '08', name: 'Emergency flare', desc: 'Biogas flaring in case of overpressure. ATEX zone 1 standard.', x: 78, y: 8 },
   ];
   return (
     <section className="relative py-48 bg-[#030404] overflow-hidden" data-testid="reactor-anatomy">
@@ -2084,12 +2084,12 @@ const ReactorAnatomy = () => {
                 <CrosshairIcon className="w-3.5 h-3.5" strokeWidth={1} /> Schemat techniczny // Widok rozstrzelony
               </div>
               <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Anatomia <br/><span className="italic text-[#C6A87C] font-normal">reaktora.</span>
+                Anatomia <br/><span className="italic text-[#C6A87C] font-Standardl">Reactora.</span>
               </h2>
             </div>
             <div className="lg:col-span-4 lg:col-start-9">
               <p className="font-serif italic text-2xl text-[#EAE6DF]/50 leading-relaxed">
-                Każdy komponent reaktora pracuje w warunkach skrajnych — od korozyjnego H₂S po nadciśnienie gazowe. Zero compromises.
+                Every reactor component operates in extreme conditions — from corrosive H₂S to gas overpressure. Zero compromises.
               </p>
               <div className="mt-8 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">
                 Doc. ref: GP-MECH-DWG-014 / Rev. C
@@ -2125,7 +2125,7 @@ const ReactorAnatomy = () => {
                 <ellipse cx="400" cy="490" rx="240" ry="40" fill="#0a0c0b" stroke="#C6A87C" strokeOpacity="0.55" />
                 <rect x="160" y="220" width="480" height="270" fill="url(#rgrad)" stroke="#C6A87C" strokeOpacity="0.55" />
                 <ellipse cx="400" cy="220" rx="240" ry="40" fill="#0a0c0b" stroke="#C6A87C" strokeOpacity="0.55" />
-                {/* gas dome */}
+                {/* gas Homee */}
                 <path d="M 160 220 Q 400 60 640 220" fill="none" stroke="#C6A87C" strokeOpacity="0.55" />
                 <path d="M 200 200 Q 400 100 600 200" fill="none" stroke="#C6A87C" strokeOpacity="0.3" strokeDasharray="3 4" />
                 {/* mixer shaft */}
@@ -2208,10 +2208,10 @@ const ReactorAnatomy = () => {
 // Molecular process — 4-stage fermentation breakdown with animated SVG molecules
 const MolecularProcesss = () => {
   const stages = [
-    { phase: 'I', name: 'Hydroliza', formula: 'C₆H₁₀O₅ → C₆H₁₂O₆', time: '0–24h', desc: 'Enzymy zewnątrzkomórkowe rozkładają wielocukry, białka i tłuszcze do prostych monomerów rozpuszczalnych w wodzie.' },
-    { phase: 'II', name: 'Acydogeneza', formula: 'C₆H₁₂O₆ → CH₃COOH + H₂', time: '24–72h', desc: 'Bakterie fermentacyjne przekształcają monomery w krótkołańcuchowe kwasy tłuszczowe, wodór i dwutlenek węgla.' },
-    { phase: 'III', name: 'Acetogeneza', formula: 'CH₃CH₂COOH → CH₃COOH + H₂', time: '3–7 dni', desc: 'Bakterie acetogenne utleniają wyższe kwasy tłuszczowe do octanu — substratu właściwego dla metanogenów.' },
-    { phase: 'IV', name: 'Metanogeneza', formula: 'CH₃COOH → CH₄ + CO₂', time: '14–28 dni', desc: 'Archeony metanogenne syntezują metan z octanu i wodoru. Sercem ekonomii biogazowni jest właśnie ta faza.' },
+    { phase: 'I', name: 'Hydrolysis', formula: 'C₆H₁₀O₅ → C₆H₁₂O₆', time: '0–24h', desc: 'Extracellular enzymes break down polysaccharides, proteins, and fats into simple water-soluble monomers.' },
+    { phase: 'II', name: 'Acidogenesis', formula: 'C₆H₁₂O₆ → CH₃COOH + H₂', time: '24–72h', desc: 'Fermentative bacteria convert monomers into short-chain fatty acids, hydrogen, and carbon dioxide.' },
+    { phase: 'III', name: 'Acetogenesis', formula: 'CH₃CH₂COOH → CH₃COOH + H₂', time: '3–7 dni', desc: 'Acetogenic bacteria oxidize higher fatty acids to acetate — the proper substrate for methanogens.' },
+    { phase: 'IV', name: 'Methanogenesis', formula: 'CH₃COOH → CH₄ + CO₂', time: '14–28 dni', desc: 'Methanogenic archaea synthesize methane from acetate and hydrogen. The heart of the biogas plant economy is this very phase.' },
   ];
   return (
     <section className="relative py-48 bg-[#020202] overflow-hidden" data-testid="molecular-process">
@@ -2223,11 +2223,11 @@ const MolecularProcesss = () => {
               <Atom className="w-3.5 h-3.5" strokeWidth={1} /> Biochemia procesu
             </div>
             <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light mb-10">
-              Cztery <span className="italic text-[#C6A87C] font-normal">fazy</span><br/>
-              jednej cząsteczki.
+              Cztery <span className="italic text-[#C6A87C] font-Standardl">fazy</span><br/>
+              one molecule.
             </h2>
             <p className="font-serif italic text-2xl text-[#EAE6DF]/50 leading-relaxed">
-              Od kiszonki do metanu w 28 dni. Każda faza fermentacji ma własną mikroflorę, własne pH, własne tempo. Sztuka inżynierii biologicznej polega na tym, by te cztery światy współistniały w jednej komorze.
+              From silage to methane in 28 days. Each fermentation phase has its own microflora, its own pH, its own pace. The art of biological engineering lies in making these four worlds coexist in one chamber.
             </p>
           </div>
         </FadeIn>
@@ -2272,11 +2272,11 @@ const EditorialQuote = () => {
         </div>
         <blockquote className="font-serif text-5xl md:text-[6.5rem] text-[#EAE6DF] leading-[1.05] font-light tracking-tight">
           <span className="text-[#C6A87C] italic">„</span>
-          Czas, w którym energia <br/>
+          The time when energy <br/>
           była przywilejem <span className="italic text-[#C6A87C]">miast</span>,<br/>
-          dobiega końca. Nadchodzi <br/>
-          epoka, w której każde <br/>
-          gospodarstwo staje się <br/>
+          comes to an end. The era <br/>
+          is arriving where every <br/>
+          farm becomes <br/>
           <span className="italic text-[#C6A87C]">elektrownią.</span>
           <span className="text-[#C6A87C] italic">"</span>
         </blockquote>
@@ -2286,7 +2286,7 @@ const EditorialQuote = () => {
             <div className="font-serif italic text-[#EAE6DF]/40 text-lg mt-2">Manifest Energii Rolniczej, 2026</div>
           </div>
           <div className="font-mono text-[9px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase hidden md:block">
-            Złożono krojem Cormorant Garamond
+            Typeset in Cormorant Garamond
           </div>
         </div>
       </div>
@@ -2298,13 +2298,13 @@ const EditorialQuote = () => {
 const PolandMap = () => {
   const sites = [
     { x: 38, y: 28, name: 'Pomorze', mw: '32', sub: 'Odpady mleczarskie, ryby' },
-    { x: 60, y: 25, name: 'Warmia-Mazury', mw: '21', sub: 'Bydło, drób' },
+    { x: 60, y: 25, name: 'Warmia-Mazury', mw: '21', sub: 'Cattle, poultry' },
     { x: 50, y: 48, name: 'Mazowsze', mw: '58', sub: 'Mieszane rolnicze' },
-    { x: 32, y: 52, name: 'Wielkopolska', mw: '94', sub: 'Trzoda, kukurydza' },
-    { x: 72, y: 56, name: 'Lubelszczyzna', mw: '38', sub: 'Buraki, bydło' },
-    { x: 48, y: 75, name: 'Małopolska', mw: '17', sub: 'Odpady komunalne' },
-    { x: 28, y: 78, name: 'Dolny Śląsk', mw: '42', sub: 'Wywar gorzelniany' },
-    { x: 64, y: 38, name: 'Warszawa', mw: 'HQ', sub: 'Centrala operacyjna', hq: true },
+    { x: 32, y: 52, name: 'Wielkopolska', mw: '94', sub: 'Trzoda, Corn' },
+    { x: 72, y: 56, name: 'Lubelszczyzna', mw: '38', sub: 'Beets, cattle' },
+    { x: 48, y: 75, name: 'Małopolska', mw: '17', sub: 'Municipal waste' },
+    { x: 28, y: 78, name: 'Dolny Śląsk', mw: '42', sub: 'Distillery stillage' },
+    { x: 64, y: 38, name: 'Warsaw', mw: 'HQ', sub: 'Centrala operacyjna', hq: true },
   ];
   const [active, setActive] = useState(3);
   return (
@@ -2318,11 +2318,11 @@ const PolandMap = () => {
                 <Radar className="w-3.5 h-3.5" strokeWidth={1} /> Polska mapa biogazu rolniczego
               </div>
               <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Rynek <br/><span className="italic text-[#C6A87C] font-normal">regionalny.</span>
+                Market <br/><span className="italic text-[#C6A87C] font-Standardl">regionalny.</span>
               </h2>
             </div>
             <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Ok. 180 czynnych biogazowni rolniczych w Polsce. Najgęściej w Wielkopolsce i Mazowszu — tam, gdzie koncentruje się hodowla i przemysł rolno-spożywczy.
+              Approx. 180 active agricultural biogas plants in Poland. Most densely in Greater Poland and Mazovia — where livestock breeding and agri-food industry are concentrated.
             </p>
           </div>
         </FadeIn>
@@ -2423,20 +2423,20 @@ const Manifesto = () => {
               <Hexagon className="w-3 h-3" strokeWidth={1} /> Engineering Manifesto
             </div>
             <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] font-light mb-12">
-              Wierzymy, że <span className="italic">biogazownia</span> nie jest tylko źródłem prądu. To narzędzie, które rozwiązuje trzy problemy naraz: odpady, energię, nawożenie.
+              We believe that a <span className="italic">biogas plant</span> is not just a source of electricity. It is a tool that solves three problems at once: waste, energy, fertilization.
             </h2>
             <div className="space-y-6 font-serif text-xl leading-relaxed text-[#0a0c0b]/80 max-w-3xl">
               <p>
-                Rolnictwo, które kiedyś żywiło naród, dziś jest oskarżane o emisję metanu, smród gnojowicy, wyjałowienie gleby. Niesłusznie. Wystarczy zamknąć obieg.
+                Agriculture, which once fed the nation, is today accused of methane emissions, slurry stench, and soil depletion. Unjustly. It is enough to close the loop.
               </p>
               <p>
-                <span className="font-serif italic text-[#C6A87C]">Każda</span> tona obornika to nie problem — to 60 m³ biogazu, 0.13 MWh prądu, 22 kg potasu i fosforu wracającego do gleby zamiast jezior. Wystarczy mieć narzędzia.
+                <span className="font-serif italic text-[#C6A87C]">Every</span> ton of manure is not a problem — it is 60 m³ of biogas, 0.13 MWh of electricity, 22 kg of potassium and phosphorus returning to the soil instead of lakes. You just need the tools.
               </p>
               <p>
-                Naszą rolą jest dostarczyć te narzędzia w jakości, w której nic się nie psuje przez 25 lat. Stal nierdzewna 1.4571. Beton W10 XA3. Silniki Tier-1. Sterowniki ABB. Bez compromises na specyfikacji materiałowej.
+                Our role is to provide these tools with a quality where nothing breaks for 25 years. Stainless steel 1.4571. Concrete W10 XA3. Tier-1 engines. ABB controllers. Zero compromises on material specification.
               </p>
               <p className="italic text-[#0a0c0b]/60">
-                Bo energia rolnicza nie zasługuje na mniej.
+                Because agricultural energy deserves no less.
               </p>
             </div>
             <div className="mt-16 pt-8 border-t border-[#0a0c0b]/15 flex items-end justify-between">
@@ -2444,11 +2444,11 @@ const Manifesto = () => {
                 <svg viewBox="0 0 200 60" className="w-48 h-14 mb-2">
                   <path d="M 10 40 Q 30 10, 50 30 Q 70 50, 90 25 Q 110 5, 130 35 Q 150 50, 175 20" fill="none" stroke="#0a0c0b" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
-                <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#0a0c0b]/60">Założyciele, Green Plant Tech.</div>
+                <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#0a0c0b]/60">Founders, Green Plant Tech.</div>
               </div>
               <div className="text-right">
-                <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#0a0c0b]/40 mb-2">Warszawa</div>
-                <div className="font-serif italic text-lg">10. maja 2026</div>
+                <div className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#0a0c0b]/40 mb-2">Warsaw</div>
+                <div className="font-serif italic text-lg">May 10, 2026</div>
               </div>
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-full border border-[#C6A87C]/40 flex items-center justify-center bg-[#EAE6DF] wax-seal">
@@ -2473,45 +2473,45 @@ const FieldToElectricity = () => {
   const chapters = [
     {
       no: 'I',
-      title: 'Kukurydza',
-      lead: 'Wiosna. 12 tysięcy nasion na hektar. Każda łodyga to przyszłe 0.4 m³ biogazu.',
-      body: 'W pierwszym roku współpracy mierzymy nie tylko areał — mierzymy słońce, deszcz i pH gleby. Polska kukurydza energetyczna ma jedne z najwyższych w Europie potencjałów metanowych: 210 m³ biogazu z tony świeżej masy.',
+      title: 'Corn',
+      lead: 'Spring. 12 thousand seeds per hectare. Every stalk is a future 0.4 m³ of biogas.',
+      body: 'W pierwszym roku współpracy mierzymy nie tylko areał — mierzymy Solar, deszcz i pH gleby. Polska Corn energetyczna ma jedne z najwyższych w Europie potencjałów metanowych: 210 m³ biogazu z tony świeżej masy.',
       stat: '210 m³/t',
       ref: 'CH-01 / FIELD',
       hue: '#4ADE80',
     },
     {
       no: 'II',
-      title: 'Reaktor',
-      lead: '38.4 °C. pH 7.6. 28 dni. Cisza w której archeony pracują bez przerwy.',
-      body: 'Kiszonka wjeżdża do dozownika o 6:00 rano. Mieszadła obracają się wolno, 8 obrotów na minutę. Bakterie metanogenne nie znoszą tlenu, hałasu, gwałtownych zmian. To jest fabryka, w której najgłośniejszym dźwiękiem jest szum wentylatora chłodnicy.',
+      title: 'Reactor',
+      lead: '38.4 °C. pH 7.6. 28 dni. Silence in which archaea work non-stop.',
+      body: 'Silage enters the dispenser at 6:00 AM. Mixers rotate slowly, 8 revolutions per minute. Methanogenic bacteria cannot stand oxygen, noise, or sudden changes. This is a factory where the loudest sound is the roar of the cooler fan.',
       stat: '38.4 °C',
       ref: 'CH-02 / REACTOR',
       hue: '#C6A87C',
     },
     {
       no: 'III',
-      title: 'Sieć',
-      lead: 'Po 28 dniach biogaz przepływa przez ssawę silnika Tier-1. 499 kW elektrycznych. Smart Grid Sync.',
-      body: 'Silnik Jenbacher J312 spala biogaz z dokładnością miliampera. Energia trafia do krajowej sieci, sprzedawana w aukcjach OZE po cenie zakontraktowanej na 15 lat. Każda godzina pracy to ok. 550 zł brutto — niezależnie od pogody, pory roku, geopolityki.',
+      title: 'Grid',
+      lead: 'After 28 days, biogas flows through the intake of the Tier-1 engine. 499 electrical kW. Smart Grid Sync.',
+      body: 'The Jenbacher J312 engine burns biogas with milliampere precision. Energy goes to the national grid, sold in RES auctions at a price contracted for 15 years. Every hour of operation is approx. 130 EUR gross — regardless of weather, season, or geopolitics.',
       stat: '499 kW',
       ref: 'CH-03 / GRID',
       hue: '#D97847',
     },
     {
       no: 'IV',
-      title: 'Dom',
-      lead: '1 600 polskich gospodarstw domowych zasilanych z jednej biogazowni. 24/7.',
-      body: 'W odróżnieniu od wiatru i słońca — biogaz pracuje w nocy. Pracuje w grudniu. Pracuje, gdy giełda energii skoczy do 1500 zł/MWh w mroźny wieczór. Tu nie ma kryzysu energetycznego — bo źródło rośnie na sąsiednim polu.',
+      title: 'Home',
+      lead: '1 600 polskich gospodarstw Homeowych zasilanych z jednej biogazowni. 24/7.',
+      body: 'Unlike wind and solar — biogas works at night. It works in December. It works when the energy exchange jumps to 400 EUR/MWh on a frosty evening. There is no energy crisis here — because the source grows in the neighboring field.',
       stat: '1 600',
       ref: 'CH-04 / HOUSEHOLD',
       hue: '#EAE6DF',
     },
     {
       no: 'V',
-      title: 'Powrót',
-      lead: 'Poferment wraca na pole. 30 ton dziennie pełnowartościowego nawozu NPK — zamknięcie obiegu.',
-      body: 'To, co wyszło z gleby jako kukurydza, wraca jako nawóz. Bez nasion chwastów, bez patogenów, bez smrodu. Polski rolnik przestaje kupować mocznik i fosforany — bo wytwarza je sam, w swojej fabryce metanu.',
+      title: 'Return',
+      lead: 'Digestate returns to the field. 30 tons daily of full-value NPK fertilizer — closing the loop.',
+      body: 'To, co wyszło z gleby jako Corn, wraca jako nawóz. Bez nasion chwastów, bez patogenów, bez smrodu. Polski rolnik przestaje kupować mocznik i fosforany — bo wytwarza je sam, w swojej fabryce metanu.',
       stat: '30 t/d',
       ref: 'CH-05 / RETURN',
       hue: '#4ADE80',
@@ -2524,14 +2524,14 @@ const FieldToElectricity = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-32 border-b border-[#C6A87C]/15 pb-12">
             <div>
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
-                <Workflow className="w-3.5 h-3.5" strokeWidth={1} /> Sekwencja narracyjna — 5 rozdziałów
+                <Workflow className="w-3.5 h-3.5" strokeWidth={1} /> Narrative sequence — 5 chapters
               </div>
               <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Z pola <br/><span className="italic text-[#C6A87C] font-normal">do prądu.</span>
+                From the field <br/><span className="italic text-[#C6A87C] font-Standardl">to power.</span>
               </h2>
             </div>
             <p className="font-serif italic text-2xl text-[#EAE6DF]/50 max-w-md leading-relaxed text-right">
-              Pięć rozdziałów. Jeden obieg. Setki kilometrów kabli, tysiące archeonów, dwa pokolenia rolników.
+              Five chapters. One loop. Hundreds of kilometers of cables, thousands of archaea, two generations of farmers.
             </p>
           </div>
         </FadeIn>
@@ -2569,7 +2569,7 @@ const FieldToElectricity = () => {
                   <div className="glass-morphism p-10 rounded-[2rem] relative overflow-hidden">
                     <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundColor: c.hue }} />
                     <div className="font-mono text-[9px] tracking-[0.4em] uppercase mb-8" style={{ color: c.hue }}>
-                      Liczba rozdziału
+                      Chapter number
                     </div>
                     <div className="font-serif font-light text-[#EAE6DF] leading-none mb-8" style={{ fontSize: '6rem' }}>
                       {c.stat}
@@ -2650,13 +2650,13 @@ const ReactorClock = () => {
     return () => clearInterval(id);
   }, []);
   const events = {
-    0: { l: 'Cisza nocna', d: 'Reaktor pracuje w trybie podtrzymania. Mieszadła wolne — 4 obr/min. Temperatura stała 38.4 °C.' },
+    0: { l: 'Night silence', d: 'Reactor pracuje w trybie podtrzymania. Mieszadła wolne — 4 obr/min. Temperatura stała 38.4 °C.' },
     6: { l: 'Dozowanie poranne', d: 'Pierwsza porcja kiszonki: 18 t. Sucha masa 32%. pH wlotu 6.8.' },
-    9: { l: 'Pik gazowy', d: 'Maksymalna produkcja CH₄. CHP Efficiency osiąga 44.2%. Tłoczenie do sieci na pełnej mocy.' },
-    12: { l: 'Kontrola operatora', d: 'Wizyta technika. Pobór próbki do laboratorium. Sprawdzenie szczelności gazu.' },
-    15: { l: 'Dozowanie popołudniowe', d: 'Druga porcja substratu: 16 t. Stabilizacja procesu. Sonda lambda potwierdza skład.' },
-    18: { l: 'Sprzedaż peak shaving', d: 'Najwyższe ceny energii w godzinach 18-21. Algorytm SCADA maksymalizuje wyjście.' },
-    21: { l: 'Cool down', d: 'Powolne wytracanie mocy. Mieszadła zwalniają. Sieć przechodzi w noc.' },
+    9: { l: 'Gas peak', d: 'Maximum CH₄ production. CHP Efficiency reaches 44.2%. Pumping to the grid at full power.' },
+    12: { l: 'Operator control', d: 'Technician visit. Taking a sample to the lab. Gas tightness check.' },
+    15: { l: 'Afternoon dosing', d: 'Second portion of substrate: 16 t. Process stabilization. Lambda probe confirms composition.' },
+    18: { l: 'Sprzedaż peak shaving', d: 'Highest energy prices between 6-9 PM. SCADA algorithm maximizes output.' },
+    21: { l: 'Cool down', d: 'Powolne wytracanie mocy. Mieszadła zwalniają. Grid przechodzi w noc.' },
   };
   const labelEvents = [0, 6, 9, 12, 15, 18, 21];
   return (
@@ -2669,10 +2669,10 @@ const ReactorClock = () => {
               <Cog className="w-3.5 h-3.5" strokeWidth={1} /> Cykl dobowy biogazowni
             </div>
             <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-              Dwadzieścia cztery <br/><span className="italic text-[#C6A87C] font-normal">godziny.</span>
+              Dwadzieścia cztery <br/><span className="italic text-[#C6A87C] font-Standardl">godziny.</span>
             </h2>
             <p className="font-serif italic text-2xl text-[#EAE6DF]/50 max-w-2xl mx-auto mt-12 leading-relaxed">
-              Jeden cykl. 7 punktów krytycznych. Algorytm, który pracuje, gdy ty śpisz.
+              One cycle. 7 critical points. An algorithm that works while you sleep.
             </p>
           </div>
         </FadeIn>
@@ -2795,41 +2795,41 @@ const MicrobialTaxonomy = () => {
       genus: 'Methanosarcina',
       species: 'M. barkeri',
       role: 'Metanogen acetoklastyczny',
-      desc: 'Archeon o nieregularnym kształcie wielokątnym. Produkuje 70% metanu w reaktorze, rozkładając octan na CH₄ i CO₂. Optimum pH 6.8–7.4.',
+      desc: 'Archeon o nieregularnym kształcie wielokątnym. Produkuje 70% metanu w Reactorze, rozkładając octan na CH₄ i CO₂. Optimum pH 6.8–7.4.',
       phylum: 'Euryarchaeota',
       yield: '0.42',
       svg: 'sarcina',
-      kingdom: 'Archaea',
+      kingHome: 'Archaea',
     },
     {
       genus: 'Methanobacterium',
       species: 'M. formicicum',
       role: 'Metanogen hydrogenotroficzny',
-      desc: 'Pałeczka długości 2–8 µm. Wykorzystuje wodór i CO₂ do produkcji metanu. Niezbędny w fazie wstępnej, gdy dominują wolne kwasy tłuszczowe.',
+      desc: 'Pałeczka długości 2–8 µm. Wykorzystuje wodór i CO₂ do produkcji metanu. Niezbędny w fazie wstępnej, gdy Homeinują wolne kwasy tłuszczowe.',
       phylum: 'Euryarchaeota',
       yield: '0.28',
       svg: 'rod',
-      kingdom: 'Archaea',
+      kingHome: 'Archaea',
     },
     {
       genus: 'Ruminococcus',
       species: 'R. albus',
       role: 'Bakteria hydrolityczna',
-      desc: 'Beztlenowiec rozkładający celulozę i hemicelulozę. Pierwszy szczebel łańcucha pokarmowego w reaktorze. Pracuje wydajnie w procesie mezofilowym (38 °C).',
+      desc: 'Beztlenowiec rozkładający celulozę i hemicelulozę. Pierwszy szczebel łańcucha pokarmowego w Reactorze. Pracuje wydajnie w procesie mezofilowym (38 °C).',
       phylum: 'Bacillota',
       yield: '—',
       svg: 'rod',
-      kingdom: 'Bacteria',
+      kingHome: 'Bacteria',
     },
     {
       genus: 'Bacteroides',
       species: 'B. cellulosolvens',
       role: 'Bakteria fermentacyjna',
-      desc: 'Beztlenowa pałeczka G(-). Przekształca cukry proste w lotne kwasy tłuszczowe (LKT) — paliwo dla metanogenów.',
+      desc: 'Anaerobic Gram-negative rod. Converts simple sugars into volatile fatty acids (VFA) — fuel for methanogens.',
       phylum: 'Bacteroidetes',
       yield: '—',
       svg: 'curve',
-      kingdom: 'Bacteria',
+      kingHome: 'Bacteria',
     },
   ];
   return (
@@ -2840,14 +2840,14 @@ const MicrobialTaxonomy = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-end mb-24 border-b border-[#C6A87C]/15 pb-12">
             <div className="lg:col-span-7">
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
-                <Beaker className="w-3.5 h-3.5" strokeWidth={1} /> Taxonomia mikrobiologiczna — żywa kadra reaktora
+                <Beaker className="w-3.5 h-3.5" strokeWidth={1} /> Taxonomia mikrobiologiczna — żywa kadra Reactora
               </div>
               <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Niewidzialni <br/><span className="italic text-[#C6A87C] font-normal">pracownicy.</span>
+                Niewidzialni <br/><span className="italic text-[#C6A87C] font-Standardl">pracownicy.</span>
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              W jednej kropli substratu pracuje 10⁹ komórek. Bakterie i archeony to nasi prawdziwi inżynierowie — wybieramy najefektywniejsze szczepy, dostosowane do polskiej diety reaktora.
+              W jednej kropli substratu pracuje 10⁹ komórek. Bakterie i archeony to nasi prawdziwi inżynierowie — wybieramy najefektywniejsze szczepy, dostosowane do polskiej diety Reactora.
             </p>
           </div>
         </FadeIn>
@@ -2859,7 +2859,7 @@ const MicrobialTaxonomy = () => {
               <div className="flex justify-between items-start mb-8">
                 <div>
                   <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-1">Specimen N° {String(i + 1).padStart(3, '0')}</div>
-                  <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase">{m.kingdom} / {m.phylum}</div>
+                  <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase">{m.kingHome} / {m.phylum}</div>
                 </div>
                 <div className="w-10 h-10 rounded-full border border-[#C6A87C]/30 flex items-center justify-center wax-seal">
                   <Atom className="w-4 h-4 text-[#C6A87C]/60" strokeWidth={1} />
@@ -2929,12 +2929,12 @@ const MicrobialTaxonomy = () => {
 // Press wall — as featured in
 const PressWall = () => {
   const press = [
-    { outlet: 'PULS BIZNESU', date: '08.2024', headline: 'Biogazownie rolnicze mają w Polsce wielki potencjał', cat: 'Rynek', url: 'https://www.pb.pl/biogazownie-rolnicze-maja-w-polsce-wielki-potencjal-1193306' },
-    { outlet: 'FORBES POLSKA', date: '12.2023', headline: 'Od 2026 r. polskie firmy i domy może zasilać błękitne paliwo', cat: 'Analiza', url: 'https://news.google.com/rss/articles/CBMilgFBVV95cUxOUWV4ZmpIZ0ZVS3lSMDB2UE9tS1BwU01tNVhtamw0WlUweHpxNzlqOVRmUllEajItM281RzQ4S281REszeDBJNEJ4Z3c3ZDBIek82Xy02T2lRdlF3bm16YW84RE9tV3YteWVvNGQ5MkpJd0J0S3psclRRMmJqWjBxbVBNUW1qZnl4aTR4TzF3eWRsSWxQcVE?oc=5' },
+    { outlet: 'PULS BIZNESU', date: '08.2024', headline: 'Agricultural biogas plants have great potential in Poland', cat: 'Market', url: 'https://www.pb.pl/biogazownie-rolnicze-maja-w-polsce-wielki-potencjal-1193306' },
+    { outlet: 'FORBES POLSKA', date: '12.2023', headline: 'Od 2026 r. polskie firmy i Homey może zasilać błękitne paliwo', cat: 'Analysis', url: 'https://news.google.com/rss/articles/CBMilgFBVV95cUxOUWV4ZmpIZ0ZVS3lSMDB2UE9tS1BwU01tNVhtamw0WlUweHpxNzlqOVRmUllEajItM281RzQ4S281REszeDBJNEJ4Z3c3ZDBIek82Xy02T2lRdlF3bm16YW84RE9tV3YteWVvNGQ5MkpJd0J0S3psclRRMmJqWjBxbVBNUW1qZnl4aTR4TzF3eWRsSWxQcVE?oc=5' },
     { outlet: 'RZECZPOSPOLITA', date: '09.2023', headline: 'Polska jest u progu nowej, zielonej rewolucji. Motorem biogaz.', cat: 'Energetyka', url: 'https://news.google.com/rss/articles/CBMisgFBVV95cUxNb1htZWRwSElPZHJ4dER1TmhfT2pLdmZxbUhjckc2Rnlhbjd5Uk1wTHpIT21XSVcxQ1hOZUw4TjBtb0YxUkV1aTh4aU04dFh2YWVIVV9rY1g4TkxXQ2h6WjQxdmF0RGJNS0hHWHB2Y0lXNWZqTEp3akM3NEpIRnlqTW5fOGQ3aWw2YmVfTVQxUWxGNDJqZmxNUXF2aVdNRDBzWUNNbVl2N2FkNVVndGZpSFFn?oc=5' },
-    { outlet: 'FORUM ENERGII', date: '02.2024', headline: 'Biometan w Polsce. Ocena potencjału (Raport)', cat: 'Raport', url: 'https://news.google.com/rss/articles/CBMiY0FVX3lxTE9GWHg1SVRLd2R6RFRZSHp0cmhYcmVEd3dtWXZ0V3lIWGpMV0k5NW1jajFvLXZtWnFYX0wwRUZzUUtjZkoyUjVlOFJFRWdmbG1pTmh2ektyXzN2Z3E0OU1ZckQ0VQ?oc=5' },
-    { outlet: 'AGRO PROFIL', date: '01.2024', headline: 'Nowe odmiany kukurydzy na ziarno, kiszonkę i biogaz', cat: 'Edukacja', url: 'https://news.google.com/rss/articles/CBMilgFBVV95cUxQbnNfMXlrWGtjSV9Vd2dQcEl3UE1HVmM4ZXNUcUJPSExmempLTzhOQ2I2Zk5NRkd4cG1lYm1zSWNEaVk2MC0tSm9aQ2p2dnMtVk5NZGZUZS1pektLY1pVTlpwYkRXMlgyeklGWTk1SEJPY0t5a0tjUXVab0l5ZUlhem9wcW80eG1keVNsSmE0LTdqLXdlNWc?oc=5' },
-    { outlet: 'RYNEK ENERGII', date: '05.2023', headline: 'Agricultural biogas as an element of the circular economy', cat: 'Analiza', url: 'https://news.google.com/rss/articles/CBMiTkFVX3lxTFBhMWw4Vy1vTE9qVWpuNjhPenlRNm9aeUVTVmlpcGFNQ0R5d2VMMEN5bkhqZWpiTVJpWjJzU2hMVDdoYzNMbzFRSGpLU3BIdw?oc=5' },
+    { outlet: 'FORUM ENERGII', date: '02.2024', headline: 'Biomethane in Poland. Potential Assessment (Report)', cat: 'Report', url: 'https://news.google.com/rss/articles/CBMiY0FVX3lxTE9GWHg1SVRLd2R6RFRZSHp0cmhYcmVEd3dtWXZ0V3lIWGpMV0k5NW1jajFvLXZtWnFYX0wwRUZzUUtjZkoyUjVlOFJFRWdmbG1pTmh2ektyXzN2Z3E0OU1ZckQ0VQ?oc=5' },
+    { outlet: 'AGRO PROFIL', date: '01.2024', headline: 'New varieties of corn for grain, silage, and biogas', cat: 'Education', url: 'https://news.google.com/rss/articles/CBMilgFBVV95cUxQbnNfMXlrWGtjSV9Vd2dQcEl3UE1HVmM4ZXNUcUJPSExmempLTzhOQ2I2Zk5NRkd4cG1lYm1zSWNEaVk2MC0tSm9aQ2p2dnMtVk5NZGZUZS1pektLY1pVTlpwYkRXMlgyeklGWTk1SEJPY0t5a0tjUXVab0l5ZUlhem9wcW80eG1keVNsSmE0LTdqLXdlNWc?oc=5' },
+    { outlet: 'Market ENERGII', date: '05.2023', headline: 'Agricultural biogas as an element of the circular economy', cat: 'Analysis', url: 'https://news.google.com/rss/articles/CBMiTkFVX3lxTFBhMWw4Vy1vTE9qVWpuNjhPenlRNm9aeUVTVmlpcGFNQ0R5d2VMMEN5bkhqZWpiTVJpWjJzU2hMVDdoYzNMbzFRSGpLU3BIdw?oc=5' },
   ];
   return (
     <section className="relative py-40 bg-[#020202] overflow-hidden" data-testid="press-wall">
@@ -2947,7 +2947,7 @@ const PressWall = () => {
                 <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Recommended reading — industry briefing
               </div>
               <h2 className="text-5xl md:text-[7rem] font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
-                Polecane <br/><span className="italic text-[#C6A87C] font-normal">lektury.</span>
+                Polecane <br/><span className="italic text-[#C6A87C] font-Standardl">lektury.</span>
               </h2>
             </div>
             <div className="lg:col-span-4 text-right">
@@ -3009,17 +3009,17 @@ const PressWall = () => {
 const GanttBuild = () => {
   const months = ['M01', 'M02', 'M03', 'M04', 'M05', 'M06', 'M07', 'M08', 'M09', 'M10', 'M11', 'M12', 'M13', 'M14'];
   const phases = [
-    { name: 'Analiza BMP + studium wykonalności', start: 0, end: 2, color: '#C6A87C', cat: 'PRE' },
-    { name: 'Pozwolenia + KIP + decyzja środowiskowa', start: 1, end: 4, color: '#C6A87C', cat: 'ADM' },
+    { name: 'Analysis BMP + studium wykonalności', start: 0, end: 2, color: '#C6A87C', cat: 'PRE' },
+    { name: 'Permits + PIS + environmental decision', start: 1, end: 4, color: '#C6A87C', cat: 'ADM' },
     { name: 'Projekt budowlany + PNB', start: 3, end: 6, color: '#C6A87C', cat: 'ENG' },
     { name: 'Roboty ziemne + fundamenty', start: 5, end: 7, color: '#D97847', cat: 'CIV' },
-    { name: 'Wylewki żelbetowe komór', start: 6, end: 9, color: '#D97847', cat: 'CIV' },
-    { name: 'Instalacja membran EPDM + zbiorników', start: 8, end: 10, color: '#D97847', cat: 'MECH' },
-    { name: 'Montaż CHP + układów pomp', start: 9, end: 11, color: '#D97847', cat: 'MECH' },
-    { name: 'Instalacja SCADA + sieć energetyczna', start: 10, end: 12, color: '#4ADE80', cat: 'I&C' },
-    { name: 'Inokulacja + napełnianie startowe', start: 11, end: 12, color: '#4ADE80', cat: 'BIO' },
+    { name: 'Reinforced concrete pouring of chambers', start: 6, end: 9, color: '#D97847', cat: 'CIV' },
+    { name: 'Installation of EPDM membranes + tanks', start: 8, end: 10, color: '#D97847', cat: 'MECH' },
+    { name: 'CHP assembly + pump systems', start: 9, end: 11, color: '#D97847', cat: 'MECH' },
+    { name: 'Instalacja SCADA + Grid energetyczna', start: 10, end: 12, color: '#4ADE80', cat: 'I&C' },
+    { name: 'Inoculation + start-up filling', start: 11, end: 12, color: '#4ADE80', cat: 'BIO' },
     { name: 'Rozruch technologiczny + odbiory UDT', start: 12, end: 13, color: '#4ADE80', cat: 'CMS' },
-    { name: 'Komercyjna eksploatacja (COD)', start: 13, end: 14, color: '#4ADE80', cat: 'COD' },
+    { name: 'Komercyjna Operation (COD)', start: 13, end: 14, color: '#4ADE80', cat: 'COD' },
   ];
   return (
     <section className="relative py-48 bg-[#030404] overflow-hidden" data-testid="gantt-build">
@@ -3032,11 +3032,11 @@ const GanttBuild = () => {
                 <GitBranch className="w-3.5 h-3.5" strokeWidth={1} /> Harmonogram — 14 miesięcy
               </div>
               <h2 className="text-5xl md:text-[7.5rem] font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
-                Od podpisu <br/>do pierwszego <br/><span className="italic text-[#C6A87C] font-normal">m³ biogazu.</span>
+                Od podpisu <br/>do pierwszego <br/><span className="italic text-[#C6A87C] font-Standardl">m³ biogazu.</span>
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Standardowy projekt biogazowni 0.5 MW. 11 faz, 14 miesięcy, 3 kategorie wykonawcze. Bez poślizgów — zabezpieczone karami kontraktowymi.
+              Standard 0.5 MW biogas plant design. 11 phases, 14 months, 3 execution categories. No delays — secured by contractual penalties.
             </p>
           </div>
         </FadeIn>
@@ -3114,7 +3114,7 @@ const GanttBuild = () => {
             { c: '#C6A87C', l: 'Faza przygotowawcza', d: 'Analizy, pozwolenia, projekt' },
             { c: '#D97847', l: 'Wykonawstwo', d: 'Cywilne + mechaniczne' },
             { c: '#4ADE80', l: 'Rozruch', d: 'I&C, BIO, odbiory' },
-            { c: '#EAE6DF', l: 'Eksploatacja', d: 'COD — pełna moc operacyjna' },
+            { c: '#EAE6DF', l: 'Operation', d: 'COD — full operational power' },
           ].map((l, i) => (
             <div key={i} className="flex items-start gap-4">
               <div className="w-6 h-6 mt-1 rounded" style={{ backgroundColor: l.c, opacity: 0.7, boxShadow: `0 0 12px ${l.c}40` }} />
@@ -3135,27 +3135,27 @@ const EnergyComparison = () => {
   const dims = [
     { key: 'Stability dostaw (8000h/rok)', max: 100, sources: [
       { n: 'Biogaz', v: 95, hi: true },
-      { n: 'Węgiel', v: 90 },
+      { n: 'Coal', v: 90 },
       { n: 'Wiatr', v: 26 },
-      { n: 'Słońce', v: 12 },
+      { n: 'Solar', v: 12 },
     ]},
     { key: 'Emisja CO₂ ekw. (g/kWh)', max: 1100, inverted: true, sources: [
       { n: 'Biogaz', v: -25, hi: true },
-      { n: 'Węgiel', v: 1040 },
+      { n: 'Coal', v: 1040 },
       { n: 'Wiatr', v: 11 },
-      { n: 'Słońce', v: 45 },
+      { n: 'Solar', v: 45 },
     ]},
     { key: 'Powierzchnia (m²/MWh)', max: 60, inverted: true, sources: [
       { n: 'Biogaz', v: 8, hi: true },
-      { n: 'Węgiel', v: 4 },
+      { n: 'Coal', v: 4 },
       { n: 'Wiatr', v: 55 },
-      { n: 'Słońce', v: 18 },
+      { n: 'Solar', v: 18 },
     ]},
     { key: 'CAPEX (M€/MW)', max: 8, inverted: true, sources: [
       { n: 'Biogaz', v: 3.5, hi: true },
-      { n: 'Węgiel', v: 2.2 },
+      { n: 'Coal', v: 2.2 },
       { n: 'Wiatr', v: 1.6 },
-      { n: 'Słońce', v: 0.9 },
+      { n: 'Solar', v: 0.9 },
     ]},
   ];
   return (
@@ -3166,14 +3166,14 @@ const EnergyComparison = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-end mb-24 border-b border-[#C6A87C]/15 pb-12">
             <div className="lg:col-span-8">
               <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-8 flex items-center gap-4">
-                <Gauge className="w-3.5 h-3.5" strokeWidth={1} /> Analiza porównawcza źródeł energii
+                <Gauge className="w-3.5 h-3.5" strokeWidth={1} /> Analysis porównawcza źródeł energii
               </div>
               <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Cztery źródła, <br/><span className="italic text-[#C6A87C] font-normal">jedno równanie.</span>
+                Cztery źródła, <br/><span className="italic text-[#C6A87C] font-Standardl">jedno równanie.</span>
               </h2>
             </div>
             <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Biogaz nie jest najtańszy. Nie jest najmniej powierzchniochłonny. Jest jedyny, który łączy stabilność z ujemnym śladem węglowym.
+              Biogas is not the cheapest. It is not the most space-saving. It is the only one that combines stability with a negative carbon footprint.
             </p>
           </div>
         </FadeIn>
@@ -3231,19 +3231,19 @@ const EnergyComparison = () => {
             <div>
               <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-3">Źródło danych</div>
               <p className="font-serif italic text-sm text-[#EAE6DF]/50 leading-relaxed">
-                Forum Energii 2025, IEA World Energy Outlook 2024, dane branżowe sektora biogazu rolniczego w UE. Wartości uśrednione dla projektu 0.5 MW.
+                Energy Forum 2025, IEA World Energy Outlook 2024, industry data of the agricultural biogas sector in the EU. Averaged values for a 0.5 MW project.
               </p>
             </div>
             <div>
               <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-3">Dlaczego ujemny CO₂</div>
               <p className="font-serif italic text-sm text-[#EAE6DF]/50 leading-relaxed">
-                Biogazownia nie tylko nie emituje — utylizuje metan, który i tak wydostałby się z gnojowicy do atmosfery. Stąd −25 g/kWh.
+                A biogas plant not only does not emit — it utilizes methane that would escape from slurry into the atmosphere anyway. Hence −25 g/kWh.
               </p>
             </div>
             <div>
               <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-3">Czego nie pokazuje wykres</div>
               <p className="font-serif italic text-sm text-[#EAE6DF]/50 leading-relaxed">
-                Przychodu z pofermentu, kosztu utylizacji gnojowicy, niezależności energetycznej, wpływu na lokalne rolnictwo. To zmieniłoby równanie.
+                Digestate revenue, slurry disposal costs, energy independence, impact on local agriculture. This would change the equation.
               </p>
             </div>
           </div>
@@ -3256,20 +3256,20 @@ const EnergyComparison = () => {
 // Glossary lexicon — encyclopedia-style technical terms
 const GlossaryLexicon = () => {
   const terms = [
-    { letter: 'A', name: 'ATEX', latin: 'Directive 2014/34/EU', def: 'Europejska dyrektywa regulująca urządzenia w strefach zagrożonych wybuchem. Wszystkie elementy reaktora pracujące z metanem klasyfikowane są jako EX zone 1 lub 2.', ref: 'STD' },
-    { letter: 'B', name: 'BMP', latin: 'Biochemical Methane Potential', def: 'Test laboratoryjny mierzący maksymalny uzysk metanu z danej biomasy. Trwa 30–60 dni. Podstawa do każdej decyzji projektowej.', ref: 'TEST' },
-    { letter: 'C', name: 'CHP', latin: 'Combined Heat and Power', def: 'Skojarzona produkcja energii elektrycznej i cieplnej. Sprawność całkowita do 90% — w przeciwieństwie do 35% przy samym prądzie.', ref: 'TECH' },
-    { letter: 'D', name: 'Dyspozycyjność', latin: 'Availability factor', def: 'Procent czasu, w którym instalacja jest gotowa do pracy. GP zapewnia 98% — ok. 8 600 godzin rocznie.', ref: 'METRIC' },
-    { letter: 'E', name: 'EPC', latin: 'Engineering, Procurement, Construction', def: 'Model kontraktowy "pod klucz". Wykonawca odpowiada za projekt, dostawy i realizację inwestycji, dostarczając gotową instalację z celem uzysku.', ref: 'LEGAL' },
-    { letter: 'F', name: 'Fermentacja mezofilowa', latin: 'Mesophilic digestion', def: 'Process fermentacji w temperaturze 35–40 °C. Najczęściej stosowany — kompromis między tempem rozkładu a stabilnością mikrobiomu.', ref: 'PROC' },
-    { letter: 'H', name: 'H₂S', latin: 'Siarkowodór', def: 'Toksyczny gaz korozyjny. Przekroczenie limitów (np. powyżej 200 ppm) grozi uszkodzeniem silnika CHP.', ref: 'BIO' },
-    { letter: 'K', name: 'KIP', latin: 'Karta Informacyjna Przedsięwzięcia', def: 'Pierwszy dokument urzędowy w procesie pozyskiwania pozwolenia środowiskowego. Zawiera lokalizację, technologię, planowane emisje.', ref: 'ADM' },
-    { letter: 'L', name: 'LKT', latin: 'Lotne Kwasy Tłuszczowe', def: 'Produkty pośrednie fermentacji. Ich nadmiar (limit ok. 3-4 g/L) sygnalizuje zaburzenie procesu — tzw. kwasicę reaktora.', ref: 'BIO' },
-    { letter: 'M', name: 'Metanogeneza', latin: 'Methanogenesis', def: 'Ostatnia faza fermentacji beztlenowej. Archeony przekształcają octan i wodór w metan i dwutlenek węgla. Sercem biznesu jest właśnie ta faza.', ref: 'BIO' },
-    { letter: 'O', name: 'OZE', latin: 'Odnawialne Źródła Energii', def: 'Polski system wsparcia obejmujący aukcje i taryfy wsparcia (FIT). Biogaz rolniczy ma własny koszyk — bez konkurencji z wiatrem i słońcem.', ref: 'LEGAL' },
-    { letter: 'P', name: 'Poferment', latin: 'Digestate', def: 'Produkt uboczny fermentacji. Bezzapachowy, bogaty w azot, fosfor, potas. Zastępuje syntetyczne nawozy. 30 ton dziennie z 0.5 MW.', ref: 'PROD' },
-    { letter: 'S', name: 'SCADA', latin: 'Supervisory Control and Data Acquisition', def: 'System nadzoru, kontroli i akwizycji danych. Tysiące zmiennych na sekundę. Algorytm sterujący każdym zaworem, każdą pompą.', ref: 'I&C' },
-    { letter: 'U', name: 'UDT', latin: 'Urząd Dozoru Technicznego', def: 'Polski organ regulacyjny nadzorujący zbiorniki ciśnieniowe, rurociągi i urządzenia poddozorowe. Każda biogazownia podlega corocznym kontrolom.', ref: 'ADM' },
+    { letter: 'A', name: 'ATEX', latin: 'Directive 2014/34/EU', def: 'Europejska Directive regulująca urządzenia w strefach zagrożonych wybuchem. Wszystkie elementy Reactora pracujące z metanem klasyfikowane są jako EX zone 1 lub 2.', ref: 'STD' },
+    { letter: 'B', name: 'BMP', latin: 'Biochemical Methane Potential', def: 'Laboratory test measuring maximum methane yield from a given biomass. Lasts 30–60 days. The basis for every design decision.', ref: 'TEST' },
+    { letter: 'C', name: 'CHP', latin: 'Combined Heat and Power', def: 'Combined production of electricity and heat. Total efficiency up to 90% — contrary to 35% with power alone.', ref: 'TECH' },
+    { letter: 'D', name: 'Availability factor', latin: 'Availability factor', def: 'Percentage of time the installation is ready to operate. GP provides 98% — approx. 8,600 hours per year.', ref: 'METRIC' },
+    { letter: 'E', name: 'EPC', latin: 'Engineering, Procurement, Construction', def: 'Turnkey contract model. The contractor is responsible for the design, procurement, and execution of the investment, delivering a ready installation with a yield goal.', ref: 'LEGAL' },
+    { letter: 'F', name: 'Mesophilic digestion', latin: 'Mesophilic digestion', def: 'Fermentation process at 35–40 °C. Most commonly used — a compromise between decomposition rate and microbiome stability.', ref: 'PROC' },
+    { letter: 'H', name: 'H₂S', latin: 'Hydrogen sulfide', def: 'Toxic corrosive gas. Exceeding limits (e.g., above 200 ppm) risks damaging the CHP engine.', ref: 'BIO' },
+    { letter: 'K', name: 'KIP', latin: 'Project Information Sheet', def: 'The first official document in the environmental permit acquisition process. Contains location, technology, planned emissions.', ref: 'ADM' },
+    { letter: 'L', name: 'LKT', latin: 'Volatile Fatty Acids', def: 'Produkty pośrednie fermentacji. Ich nadmiar (limit ok. 3-4 g/L) sygnalizuje zaburzenie procesu — tzw. kwasicę Reactora.', ref: 'BIO' },
+    { letter: 'M', name: 'Methanogenesis', latin: 'Methanogenesis', def: 'The final phase of anaerobic fermentation. Archaea transform acetate and hydrogen into methane and carbon dioxide. The heart of the business is this very phase.', ref: 'BIO' },
+    { letter: 'O', name: 'OZE', latin: 'Renewable Energy Sources', def: 'Polski system wsparcia obejmujący aukcje i taryfy wsparcia (FIT). Biogaz rolniczy ma własny koszyk — bez konkurencji z wiatrem i Solarm.', ref: 'LEGAL' },
+    { letter: 'P', name: 'Poferment', latin: 'Digestate', def: 'Fermentation byproduct. Odorless, rich in nitrogen, phosphorus, potassium. Replaces synthetic fertilizers. 30 tons daily from 0.5 MW.', ref: 'PROD' },
+    { letter: 'S', name: 'SCADA', latin: 'Supervisory Control and Data Acquisition', def: 'Supervisory control and data acquisition system. Thousands of variables per second. An algorithm controlling every valve, every pump.', ref: 'I&C' },
+    { letter: 'U', name: 'UDT', latin: 'Office of Technical Inspection', def: 'Regulatory body supervising pressure vessels, pipelines, and supervised equipment. Every biogas plant is subject to annual inspections.', ref: 'ADM' },
   ];
   return (
     <section className="relative py-48 bg-[#020202] overflow-hidden" data-testid="glossary-lexicon">
@@ -3282,11 +3282,11 @@ const GlossaryLexicon = () => {
                 <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Leksykon biogazowni — A do U
               </div>
               <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Słownik <br/><span className="italic text-[#C6A87C] font-normal">branżowy.</span>
+                Słownik <br/><span className="italic text-[#C6A87C] font-Standardl">branżowy.</span>
               </h2>
             </div>
             <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Każda branża ma swój język. Tutaj 14 terminów, które oddzielają inżyniera od dyletanta. Czyta się jak Encyklopedię Britannica.
+              Every industry has its language. Here are 14 terms that separate an engineer from a dilettante. Reads like the Encyclopaedia Britannica.
             </p>
           </div>
         </FadeIn>
@@ -3318,18 +3318,18 @@ const MaterialSamples = () => {
   const materials = [
     {
       name: 'Beton C35/45',
-      cat: 'Konstrukcja nośna',
+      cat: 'Load-bearing structure',
       spec: 'Klasa ekspozycji XA3 / XF2 / W10',
-      desc: 'Beton hydrotechniczny o szczelności gazowej P10. 28-dniowa wytrzymałość na ściskanie 45 MPa. Zbrojony stalą rebariową BSt 500 S.',
+      desc: 'Hydrotechnical concrete with P10 gas tightness. 28-day compressive strength 45 MPa. Reinforced with BSt 500 S rebar.',
       thick: '40 cm',
-      origin: 'PL · Górażdże',
+      origin: 'EU · Górażdże',
       visual: 'concrete',
     },
     {
       name: 'Stal 1.4571',
       cat: 'Komponenty kontaktowe',
       spec: 'AISI 316Ti / X6CrNiMoTi17-12-2',
-      desc: 'Austenityczna stal kwasoodporna z dodatkiem tytanu. Odporność na H₂S, NH₃ i lotne kwasy tłuszczowe. Spawana metodą TIG w atmosferze argonu.',
+      desc: 'Austenityczna stal kwasoodporna z dodatkiem tytanu. Odporność na H₂S, NH₃ i Volatile Fatty Acids. Spawana metodą TIG w atmosferze argonu.',
       thick: '4 mm',
       origin: 'DE · Outokumpu',
       visual: 'steel',
@@ -3338,16 +3338,16 @@ const MaterialSamples = () => {
       name: 'EPDM Vario-D',
       cat: 'Membrana gazoszczelna',
       spec: 'Etylen-Propylen-Dien M-class',
-      desc: 'Dwuwarstwowa membrana podwójna. Górna magazynuje biogaz, dolna chroni przed wnikaniem tlenu. Żywotność 25 lat w warunkach polskich.',
+      desc: 'Double-layer membrane. The upper stores biogas, the lower protects against oxygen ingress. 25-year lifespan.',
       thick: '1.5 mm',
       origin: 'AT · Sattler',
       visual: 'membrane',
     },
     {
-      name: 'Miedź Cu-DHP',
-      cat: 'Wymienniki ciepła',
+      name: 'Copper Cu-DHP',
+      cat: 'Heat exchangers',
       spec: 'Cu-DHP (CW024A) / 99.90% Cu',
-      desc: 'Miedź beztlenowa wysokoprzewodząca. Przewodność cieplna 380 W/m·K. Wymienniki płytowe Alfa Laval do odzysku ciepła ze spalin CHP.',
+      desc: 'Oxygen-free high-conductivity copper. Thermal conductivity 380 W/m·K. Alfa Laval plate heat exchangers for heat recovery from CHP exhaust gases.',
       thick: '2 mm',
       origin: 'SE · Alfa Laval',
       visual: 'copper',
@@ -3364,11 +3364,11 @@ const MaterialSamples = () => {
                 <Wrench className="w-3.5 h-3.5" strokeWidth={1} /> Material sample — architect's moodboard
               </div>
               <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Z czego <br/><span className="italic text-[#C6A87C] font-normal">to się składa.</span>
+                Z czego <br/><span className="italic text-[#C6A87C] font-Standardl">to się składa.</span>
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Beton z Górażdży. Stal z Tornio. Membrana z Grazu. Miedź z Linköping. Cztery materiały, które razem ważą 320 ton i przetrwają 25 polskich zim.
+              Concrete from Górażdże. Steel from Tornio. Membrane from Graz. Copper from Linköping. Four materials that together weigh 320 tons and will survive 25 winters.
             </p>
           </div>
         </FadeIn>
@@ -3430,7 +3430,7 @@ const MaterialSamples = () => {
                 {/* Sample number */}
                 <div className="absolute top-6 left-6">
                   <div className="font-mono text-[8px] text-[#EAE6DF]/70 tracking-[0.3em] uppercase backdrop-blur-sm bg-black/30 px-2 py-1 rounded">
-                    PRÓBKA NR {String(i + 1).padStart(3, '0')}
+                    SAMPLE NO {String(i + 1).padStart(3, '0')}
                   </div>
                 </div>
                 {/* Thickness label */}
@@ -3463,10 +3463,10 @@ const MaterialSamples = () => {
 // Kinetic break II — diagonal overlapping massive type
 const KineticBreakII = () => {
   const layers = [
-    { txt: 'PROJEKT · NADZÓR · OPTYMALIZACJA · SERWIS ·', size: '12rem', dir: 'normal', dur: '50s', color: 'transparent', stroke: true, ts: '-0.04em' },
+    { txt: 'DESIGN · SUPERVISION · OPTIMIZATION · SERVICE ·', size: '12rem', dir: 'Standardl', dur: '50s', color: 'transparent', stroke: true, ts: '-0.04em' },
     { txt: 'biologia × technologia × ekonomia ×', size: '8rem', dir: 'reverse', dur: '35s', color: '#C6A87C', italic: true, opacity: 0.7, ts: '-0.02em' },
-    { txt: 'CH₄ + CO₂ → CZYSTY KAPITAŁ · CH₄ + CO₂ → CZYSTY KAPITAŁ ·', size: '5rem', dir: 'normal', dur: '40s', color: '#4ADE80', opacity: 0.5, ts: '0.02em' },
-    { txt: 'SUBSTRAT → REAKTOR → ENERGIA → POFERMENT ·', size: '9rem', dir: 'reverse', dur: '60s', color: '#EAE6DF', italic: true, opacity: 0.15, ts: '-0.03em' },
+    { txt: 'CH₄ + CO₂ → PURE CAPITAL · CH₄ + CO₂ → PURE CAPITAL ·', size: '5rem', dir: 'Standardl', dur: '40s', color: '#4ADE80', opacity: 0.5, ts: '0.02em' },
+    { txt: 'SUBSTRAT → Reactor → ENERGIA → POFERMENT ·', size: '9rem', dir: 'reverse', dur: '60s', color: '#EAE6DF', italic: true, opacity: 0.15, ts: '-0.03em' },
   ];
   return (
     <section className="relative py-32 bg-[#020202] overflow-hidden" data-testid="kinetic-break-2">
@@ -3529,10 +3529,10 @@ const KineticBreakIII = () => {
           <h2 className="font-serif text-5xl md:text-[6rem] text-[#EAE6DF] leading-[0.95] font-light mb-12 tracking-tight">
             Metan jest <br/>
             <span className="italic text-[#C6A87C]">produktem rolnym</span> <br/>
-            jak mleko, zboże, mięso.
+            like milk, grain, meat.
           </h2>
           <p className="font-serif italic text-2xl text-[#EAE6DF]/55 max-w-3xl mx-auto leading-relaxed">
-            Każdy kilogram, który wytworzymy w reaktorze, to kilogram, który nie wydostał się z gnojowicy do atmosfery. To nie tylko energia — to <span className="text-[#C6A87C] not-italic">utylizacja, która sama się amortyzuje</span>.
+            Każdy kilogram, który wytworzymy w Reactorze, to kilogram, który nie wydostał się z gnojowicy do atmosfery. To nie tylko energia — to <span className="text-[#C6A87C] not-italic">utylizacja, która sama się amortyzuje</span>.
           </p>
         </FadeIn>
       </div>
@@ -3548,15 +3548,15 @@ const KineticBreakIII = () => {
 // Vertical company history timeline since 2008
 const TimelineSince2008 = () => {
   const events = [
-    { year: '2005', title: 'Ustawa o biokomponentach', desc: 'Pierwsze regulacje prawne tworzące ramę dla produkcji energii z biogazu rolniczego w Polsce.', cat: 'POLICY' },
-    { year: '2008', title: 'Zielone certyfikaty', desc: 'Wprowadzenie systemu wsparcia kogeneracji odnawialnej. Powstają pierwsze biogazownie rolnicze 0.5–1 MW.', cat: 'GENESIS' },
-    { year: '2011', title: 'Pierwsza setka instalacji', desc: 'Liczba czynnych biogazowni rolniczych w Polsce przekracza 30. Dominują projekty oparte o kiszonkę kukurydzy.', cat: 'GROWTH' },
-    { year: '2015', title: 'Ustawa OZE — aukcje', desc: 'Wprowadzenie systemu aukcyjnego. Biogaz rolniczy zyskuje osobny koszyk kontraktowy bez konkurencji z wiatrem i słońcem.', cat: 'POLICY' },
-    { year: '2018', title: 'Dyrektywa RED II', desc: 'Unia definiuje kryteria zrównoważonego rozwoju dla bioenergii. Każdy m³ biogazu wymaga dokumentacji pochodzenia biomasy.', cat: 'EU' },
-    { year: '2021', title: 'Pakiet Fit for 55', desc: 'Nacisk na biometan i biogazownie komunalne. Otwarcie nowych ścieżek finansowych w ramach Krajowego Planu Odbudowy.', cat: 'EU' },
-    { year: '2023', title: 'Strategia biometanu', desc: 'Polski rząd publikuje strategię docelową — 250 biogazowni do 2030 r., 4 mld m³ biometanu rocznie.', cat: 'POLICY' },
-    { year: '2025', title: 'Boom inwestycyjny', desc: 'Liczba projektów w pozwoleniach na budowę przekracza 180. BGK, BOŚ i EBOiR uruchamiają dedykowane linie finansowe.', cat: 'CAPITAL' },
-    { year: '2026', title: 'Tu jesteśmy', desc: 'Wchodzimy na rynek z jednym mandatem: industrializacja procesu. Biogazownia jako produkt powtarzalny, projektowany do tych samych norm co rafineria — nie eksperyment.', cat: 'NOW', live: true },
+    { year: '2005', title: 'Biocomponents Act', desc: 'The first legal regulations creating a framework for energy production from agricultural biogas.', cat: 'POLICY' },
+    { year: '2008', title: 'Green certificates', desc: 'Introduction of a support system for renewable cogeneration. The first 0.5–1 MW agricultural biogas plants are built.', cat: 'GENESIS' },
+    { year: '2011', title: 'The first hundred installations', desc: 'Liczba czynnych biogazowni rolniczych w Polsce przekracza 30. Homeinują projekty oparte o kiszonkę kukurydzy.', cat: 'GROWTH' },
+    { year: '2015', title: 'RES Act — auctions', desc: 'Wprowadzenie systemu aukcyjnego. Biogaz rolniczy zyskuje osobny koszyk kontraktowy bez konkurencji z wiatrem i Solarm.', cat: 'POLICY' },
+    { year: '2018', title: 'RED II Directive', desc: 'The Union defines sustainability criteria for bioenergy. Every m³ of biogas requires documentation of biomass origin.', cat: 'EU' },
+    { year: '2021', title: 'Fit for 55 Package', desc: 'Emphasis on biomethane and municipal biogas plants. Opening of new financial paths under the National Recovery Plan.', cat: 'EU' },
+    { year: '2023', title: 'Biomethane strategy', desc: 'Target strategy published — 250 biogas plants by 2030, 4 billion m³ of biomethane annually.', cat: 'POLICY' },
+    { year: '2025', title: 'Investment boom', desc: 'The number of projects in building permits exceeds 180. BGK, BOŚ and EBRD launch dedicated financial lines.', cat: 'CAPITAL' },
+    { year: '2026', title: 'We are here', desc: 'Wchodzimy na Market z jednym mandatem: industrializacja procesu. Biogazownia jako produkt powtarzalny, projektowany do tych samych norm co rafineria — nie eksperyment.', cat: 'NOW', live: true },
   ];
   return (
     <section className="relative py-48 bg-[#030404] overflow-hidden" data-testid="timeline-2008">
@@ -3569,11 +3569,11 @@ const TimelineSince2008 = () => {
                 <Activity className="w-3.5 h-3.5" strokeWidth={1} /> Linia czasu — 21 lat regulacji
               </div>
               <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Polski biogaz <br/><span className="italic text-[#C6A87C] font-normal">od 2005.</span>
+                Polski biogaz <br/><span className="italic text-[#C6A87C] font-Standardl">od 2005.</span>
               </h2>
             </div>
             <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Dziewięć kamieni milowych. Trzy ustawy krajowe, dwie dyrektywy unijne, jeden trend wzrostowy. Tak dojrzewała branża biogazu rolniczego w Polsce.
+              Nine milestones. Three national laws, two EU directives, one upward trend. This is how the agricultural biogas industry matured.
             </p>
           </div>
         </FadeIn>
@@ -3636,16 +3636,16 @@ const TimelineSince2008 = () => {
 // Engineering drawing margin annotations
 const BlueprintMargin = () => {
   const notes = [
-    { code: 'N.001', txt: 'Wszystkie wymiary w mm chyba że zaznaczono inaczej.' },
-    { code: 'N.002', txt: 'Tolerancja wymiarowa wg ISO 2768-mK dla wymiarów liniowych.' },
+    { code: 'N.001', txt: 'All dimensions in mm unless otherwise noted.' },
+    { code: 'N.002', txt: 'Dimensional tolerance acc. to ISO 2768-mK for linear dimensions.' },
     { code: 'N.003', txt: 'Spawanie wg EN ISO 15614-1. Wszystkie spoiny klasy B.' },
-    { code: 'N.004', txt: 'Powłoki antykorozyjne — system C5 wg ISO 12944.' },
+    { code: 'N.004', txt: 'Anticorrosion coatings — C5 system acc. to ISO 12944.' },
     { code: 'N.005', txt: 'Beton hydrotechniczny klasa C35/45 W10 XA3.' },
     { code: 'N.006', txt: 'Zbrojenie konstrukcyjne stal BSt 500 S, otulina min. 50 mm.' },
-    { code: 'N.007', txt: 'Próba szczelności gazowej przed odbiorem UDT — nadciśnienie 50 mbar / 24h.' },
-    { code: 'N.008', txt: 'Strefy zagrożone wybuchem — klasyfikacja wg PN-EN 60079-10-1.' },
-    { code: 'N.009', txt: 'Uziemienie ekwipotencjalne wszystkich elementów metalowych — rezystancja < 10 Ω.' },
-    { code: 'N.010', txt: 'Sprawdzenie szczelności silnika lambdą — interwał 200 mth.' },
+    { code: 'N.007', txt: 'Gas tightness test before UDT acceptance — 50 mbar / 24h overpressure.' },
+    { code: 'N.008', txt: 'Explosive atmospheres — classification acc. to EN 60079-10-1.' },
+    { code: 'N.009', txt: 'Equipotential bonding of all metal elements — resistance < 10 Ω.' },
+    { code: 'N.010', txt: 'Engine tightness check with lambda — 200 mth interval.' },
   ];
   return (
     <section className="relative py-32 bg-[#020202] overflow-hidden" data-testid="blueprint-margin">
@@ -3709,14 +3709,14 @@ const BlueprintMargin = () => {
                 <rect x="230" y="250" width="340" height="250" fill="none" stroke="#C6A87C" strokeOpacity="0.55" />
                 <ellipse cx="400" cy="250" rx="170" ry="25" fill="#0a0c0b" stroke="#C6A87C" strokeOpacity="0.55" />
                 <path d="M 230 250 Q 400 130 570 250" fill="none" stroke="#C6A87C" strokeOpacity="0.55" />
-                <text x="400" y="380" textAnchor="middle" fill="#C6A87C" fillOpacity="0.6" fontSize="12" className="font-mono">REAKTOR I</text>
+                <text x="400" y="380" textAnchor="middle" fill="#C6A87C" fillOpacity="0.6" fontSize="12" className="font-mono">Reactor I</text>
                 <text x="400" y="395" textAnchor="middle" fill="#C6A87C" fillOpacity="0.4" fontSize="9" className="font-mono">2400 m³</text>
 
                 <ellipse cx="800" cy="500" rx="170" ry="25" fill="#0a0c0b" stroke="#C6A87C" strokeOpacity="0.55" />
                 <rect x="630" y="280" width="340" height="220" fill="none" stroke="#C6A87C" strokeOpacity="0.55" />
                 <ellipse cx="800" cy="280" rx="170" ry="25" fill="#0a0c0b" stroke="#C6A87C" strokeOpacity="0.55" />
                 <path d="M 630 280 Q 800 170 970 280" fill="none" stroke="#C6A87C" strokeOpacity="0.55" />
-                <text x="800" y="380" textAnchor="middle" fill="#C6A87C" fillOpacity="0.6" fontSize="12" className="font-mono">REAKTOR II</text>
+                <text x="800" y="380" textAnchor="middle" fill="#C6A87C" fillOpacity="0.6" fontSize="12" className="font-mono">Reactor II</text>
                 <text x="800" y="395" textAnchor="middle" fill="#C6A87C" fillOpacity="0.4" fontSize="9" className="font-mono">2400 m³</text>
 
                 {/* CHP building */}
@@ -3783,11 +3783,11 @@ const BlueprintMargin = () => {
         <FadeIn>
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mt-8">
             {[
-              { n: '01', l: 'Silage silo', d: 'Pojemność 900 t. Geomembrana EPDM.' },
-              { n: '02', l: 'Reactor I — hydrolysis', d: 'Faza wstępna. Mezofile 38 °C.' },
-              { n: '03', l: 'Reactor II — methanogenesis', d: 'Faza właściwa. Czas retencji 28 dni.' },
+              { n: '01', l: 'Silage silo', d: 'Capacity 900 t. EPDM geomembrane.' },
+              { n: '02', l: 'Reactor I — hydrolysis', d: 'Initial phase. Mesophiles 38 °C.' },
+              { n: '03', l: 'Reactor II — methanogenesis', d: 'Main phase. Retention time 28 days.' },
               { n: '04', l: 'Maszynownia CHP', d: 'Silnik Jenbacher J312. 499 kWe.' },
-              { n: '05', l: 'Biogas storage', d: 'Membrana podwójna 600 m³.' },
+              { n: '05', l: 'Biogas storage', d: 'Double membrane 600 m³.' },
             ].map((a, i) => (
               <div key={i} className="border border-[#C6A87C]/15 p-5 bg-[#020202]/40">
                 <div className="flex items-center gap-3 mb-3">
@@ -3926,11 +3926,11 @@ const SiteAerial = () => {
                 <MapPin className="w-3.5 h-3.5" strokeWidth={1} /> Rzut sytuacyjny — 1.2 ha
               </div>
               <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Z lotu <br/><span className="italic text-[#C6A87C] font-normal">ptaka.</span>
+                Z lotu <br/><span className="italic text-[#C6A87C] font-Standardl">ptaka.</span>
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Standardowa biogazownia 0.5 MW na 1.2 hektarze. 10 obiektów, 320 metrów rurociągów, 3 kilometry kabli sterowniczych. Każdy element ma swoje miejsce — i swój dokument.
+              Standard 0.5 MW biogas plant on 1.2 hectares. 10 facilities, 320 meters of pipelines, 3 kilometers of control cables. Every element has its place — and its document.
             </p>
           </div>
         </FadeIn>
@@ -4057,14 +4057,14 @@ const SiteAerial = () => {
 // Awards and certifications — wax-seal stamps grid
 const AwardsAndCertifications = () => {
   const items = [
-    { y: 'Standard', name: 'ISO 14001', sub: 'Środowisko', body: 'Board of Directorszanie środowiskowe', color: '#C6A87C' },
-    { y: 'Standard', name: 'ISO 9001', sub: 'Jakość', body: 'System zarządzania jakością', color: '#C6A87C' },
-    { y: 'Zgodność', name: 'ISO 45001', sub: 'BHP', body: 'Bezpieczeństwo pracy', color: '#C6A87C' },
-    { y: 'Dyrektywa', name: 'ATEX', sub: 'Wybuchowość', body: 'Strefy zagrożone wybuchem', color: '#D97847' },
-    { y: 'Norma', name: 'EN 60079', sub: 'Strefy EX', body: 'Klasyfikacja ATEX zone 1/2', color: '#D97847' },
-    { y: 'Wymóg', name: 'Dozór UDT', sub: 'Polska', body: 'Zbiorniki ciśnieniowe', color: '#C6A87C' },
-    { y: 'Norma', name: 'EN ISO 15614', sub: 'Spawalnictwo', body: 'Kwalifikacja procesów spawania', color: '#4ADE80' },
-    { y: 'Zgodność', name: 'ISO 12944', sub: 'Powłoki', body: 'Antykorozja C5', color: '#4ADE80' },
+    { y: 'Standard', name: 'ISO 14001', sub: 'Environment', body: 'Board of Directorszanie Environmentwe', color: '#C6A87C' },
+    { y: 'Standard', name: 'ISO 9001', sub: 'Quality', body: 'Quality management system', color: '#C6A87C' },
+    { y: 'Compliance', name: 'ISO 45001', sub: 'OHS', body: 'Occupational safety', color: '#C6A87C' },
+    { y: 'Directive', name: 'ATEX', sub: 'Explosiveness', body: 'Explosive atmospheres', color: '#D97847' },
+    { y: 'Standard', name: 'EN 60079', sub: 'Strefy EX', body: 'Klasyfikacja ATEX zone 1/2', color: '#D97847' },
+    { y: 'Requirement', name: 'Technical Inspection', sub: 'Polska', body: 'Pressure vessels', color: '#C6A87C' },
+    { y: 'Standard', name: 'EN ISO 15614', sub: 'Welding', body: 'Welding process qualification', color: '#4ADE80' },
+    { y: 'Compliance', name: 'ISO 12944', sub: 'Coatings', body: 'Anticorrosion C5', color: '#4ADE80' },
   ];
   return (
     <section className="relative py-48 bg-[#020202] overflow-hidden" data-testid="awards-cert">
@@ -4077,11 +4077,11 @@ const AwardsAndCertifications = () => {
                 <ShieldCheck className="w-3.5 h-3.5" strokeWidth={1} /> Standards referencyjne — według czego projektujemy
               </div>
               <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Osiem norm, <br/><span className="italic text-[#C6A87C] font-normal">jedna jakość.</span>
+                Osiem norm, <br/><span className="italic text-[#C6A87C] font-Standardl">jedna Quality.</span>
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Każdy projekt projektujemy do ośmiu zewnętrznych norm. Nie wymieniamy ich dla marketingu — wymieniamy, bo definiują zakres odpowiedzialności wobec inwestora i organów dozoru.
+              We design every project to eight external standards. We do not list them for marketing — we list them because they define the scope of responsibility towards the investor and supervisory bodies.
             </p>
           </div>
         </FadeIn>
@@ -4136,9 +4136,9 @@ const AwardsAndCertifications = () => {
 // Numbered editorial epigraphs
 const NumberedEpigraphs = () => {
   const epi = [
-    { n: 'I', q: 'Inżynier nie wierzy w „prawie szczelne". Inżynier mierzy.', who: 'Pierwsza zasada konstrukcyjna' },
-    { n: 'II', q: 'Każda biogazownia jest tak dobra jak najsłabsza spawa. Każdą sprawdzamy testem nieniszczącym.', who: 'Dział kontroli jakości' },
-    { n: 'III', q: 'Bakterie metanogenne nie negocjują. Ani ceny prądu, ani warunków pogodowych. Pracują 24/7.', who: 'Dział biologii' },
+    { n: 'I', q: `An engineer doesn't believe in "almost tight". An engineer measures.`, who: 'First design principle' },
+    { n: 'II', q: 'Every biogas plant is only as good as its weakest weld. We check each one with a non-destructive test.', who: 'Quality control department' },
+    { n: 'III', q: 'Methanogenic bacteria do not negotiate. Neither electricity prices nor weather conditions. They work 24/7.', who: 'Biology department' },
   ];
   return (
     <section className="relative py-40 bg-[#030404] overflow-hidden" data-testid="numbered-epigraphs">
@@ -4181,12 +4181,12 @@ const TechnicalSpecSheet = () => {
       cat: 'Wymiary konstrukcyjne',
       ref: 'CON',
       items: [
-        ['Pojemność reaktora I + II', '7 200 m³'],
-        ['Średnica każdej komory', '24.0 m'],
-        ['Wysokość konstrukcji', '8.0 m'],
-        ['Grubość ścian żelbetowych', '0.40 m'],
+        ['Pojemność Reactora I + II', '7 200 m³'],
+        ['Diameter of each chamber', '24.0 m'],
+        ['Construction height', '8.0 m'],
+        ['Reinforced concrete wall thickness', '0.40 m'],
         ['Klasa betonu', 'C35/45 W10 XA3'],
-        ['Powierzchnia działki min.', '1.20 ha'],
+        ['Plot area min.', '1.20 ha'],
       ],
     },
     {
@@ -4197,7 +4197,7 @@ const TechnicalSpecSheet = () => {
         ['pH operacyjne', '7.4 — 7.8'],
         ['Czas retencji hydraulicznej', '28 dni'],
         ['Sucha masa wsadu', '8 — 12% TS'],
-        ['Wsad dobowy', '21 t / dobę'],
+        ['Daily feedstock', '21 t / dobę'],
         ['Uzysk biogazu', '210 m³ / t TS'],
       ],
     },
@@ -4207,20 +4207,20 @@ const TechnicalSpecSheet = () => {
       items: [
         ['Moc elektryczna nominalna', '499 kWe'],
         ['Moc cieplna', '510 kWt'],
-        ['Sprawność elektryczna CHP', '44.2 %'],
-        ['Sprawność termiczna', '46.0 %'],
-        ['Sprawność całkowita', '90.2 %'],
+        ['CHP electrical efficiency', '44.2 %'],
+        ['Thermal efficiency', '46.0 %'],
+        ['Total efficiency', '90.2 %'],
         ['Roczna produkcja energii', '4 050 MWh'],
       ],
     },
     {
-      cat: 'Wymagania środowiskowe',
+      cat: 'Wymagania Environmentwe',
       ref: 'ENV',
       items: [
-        ['Hałas (granica działki) max', '45 dB(A) noc'],
+        ['Noise (plot boundary) max', '45 dB(A) noc'],
         ['Emisja NOx', '< 500 mg/Nm³'],
         ['Emisja CO', '< 650 mg/Nm³'],
-        ['Wykorzystanie odpadów', '7 650 t / rok'],
+        ['Waste utilization', '7 650 t / rok'],
         ['Redukcja CO₂', '7 250 t / rok'],
         ['Produkcja pofermentu', '4 015 t / rok'],
       ],
@@ -4237,7 +4237,7 @@ const TechnicalSpecSheet = () => {
                 <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Karta techniczna — REF: GP-2026-X
               </div>
               <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Pełna <br/><span className="italic text-[#C6A87C] font-normal">specyfikacja.</span>
+                Pełna <br/><span className="italic text-[#C6A87C] font-Standardl">specyfikacja.</span>
               </h2>
             </div>
             <div className="lg:col-span-5 space-y-4">
@@ -4311,9 +4311,9 @@ const TechnicalSpecSheet = () => {
 const TechnologyPartners = () => {
   const partners = [
     { name: "SIEMENS", role: "SCADA & AUTOMATYKA", delay: 0, hue: "#009adb" },
-    { name: "ABB", role: "NAPĘDY & SILNIKI", delay: 100, hue: "#ff0000" },
+    { name: "ABB", role: "DRIVES & MOTORS", delay: 100, hue: "#ff0000" },
     { name: "JENBACHER", role: "KOGENERACJA CHP", delay: 200, hue: "#ff8c00" },
-    { name: "XYLEM", role: "DYNAMIKA PŁYNÓW", delay: 300, hue: "#00a3e0" },
+    { name: "XYLEM", role: "FLUID DYNAMICS", delay: 300, hue: "#00a3e0" },
     { name: "ENDRESS+HAUSER", role: "METROLOGIA", delay: 400, hue: "#005aab" },
     { name: "WOLF", role: "POCHODNIE BIOGAZOWE", delay: 500, hue: "#6c8c1e" }
   ];
@@ -4364,12 +4364,12 @@ const EngineeringDNA = () => {
           <FadeIn className="lg:col-span-5">
             <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">About Us // Company Profile</div>
             <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 mb-12 font-light">
-              Inżynieria <br/><span className="italic text-[#C6A87C] font-normal">procesowa.</span>
+              Inżynieria <br/><span className="italic text-[#C6A87C] font-Standardl">procesowa.</span>
             </h2>
           </FadeIn>
           <FadeIn className="lg:col-span-7" delay={200}>
             <p className="font-serif italic text-3xl text-[#EAE6DF]/80 leading-relaxed mb-10 font-light">
-              Green Plant Tech to nowy podmiot, ale nie uczymy się na błędach inwestora. Nasz zespół wnosi ponad 50 lat skumulowanego doświadczenia z projektów infrastrukturalnych w Europie.
+              Green Plant Tech is a new entity, but we do not learn from the investor's mistakes. Our team brings over 50 years of accumulated experience from infrastructure projects in Europe.
             </p>
             <div className="grid md:grid-cols-2 gap-12 pt-10 border-t border-[#C6A87C]/15">
               <div>
@@ -4404,10 +4404,10 @@ const ProcesssInitiation = () => {
                 <span className="font-mono text-[#EAE6DF] text-[9px] tracking-[0.4em] uppercase">Status: Ready for deployment</span>
               </div>
               <h2 className="font-serif text-[#F2EDE4] leading-[0.92] pb-2 font-light text-[4.5rem] md:text-[8rem] tracking-tight mb-8">
-                Inicjacja <br/><span className="italic text-[#C6A87C] font-normal">procesu.</span>
+                Inicjacja <br/><span className="italic text-[#C6A87C] font-Standardl">procesu.</span>
               </h2>
               <p className="font-serif italic text-2xl text-[#EAE6DF]/60 leading-relaxed max-w-2xl mb-16">
-                Umów wstępny audyt technologiczny. Weryfikujemy potencjał Twojego zakładu i szacujemy bazowy CAPEX.
+                Schedule an initial technological audit. We verify the potential of your facility and estimate the base CAPEX.
               </p>
               <div className="flex flex-wrap items-center gap-8">
                 <MagneticButton>
