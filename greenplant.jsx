@@ -607,10 +607,10 @@ const Navbar = () => {
             ))}
           </div>
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-3 font-mono text-[10px] tracking-[0.2em] uppercase text-[#F2EDE4]/60">
-              <a href="/" className="text-[#C8A97D] hover:text-[#F2EDE4] transition-colors interactive-element">PL</a>
-              <span className="text-[#C8A97D]/30">/</span>
-              <a href="/en" className="hover:text-[#F2EDE4] transition-colors interactive-element">EN</a>
+            <div className="flex items-center gap-4 font-mono text-[11px] tracking-[0.3em] uppercase bg-[#050505]/60 backdrop-blur-md px-5 py-2.5 rounded-full border border-[#C8A97D]/20 shadow-2xl">
+              <a href="/" className="text-[#C8A97D] hover:text-[#F2EDE4] transition-all duration-300 interactive-element font-black">PL</a>
+              <span className="text-[#C8A97D]/30 font-light">/</span>
+              <a href="/en" className="hover:text-[#C8A97D] transition-all duration-300 interactive-element font-bold opacity-60 hover:opacity-100">EN</a>
             </div>
             <a href="tel:+48601944451" className="hidden md:flex font-mono text-[12px] text-[#C8A97D] tracking-[0.2em] hover:text-[#F2EDE4] transition-colors items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse"></span>
