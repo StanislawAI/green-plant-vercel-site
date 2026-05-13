@@ -1209,14 +1209,14 @@ const EconomicsSection = () => {
               <span className="italic text-[#C6A87C] font-Standardl">profitability.</span>
             </h2>
             <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
-              We model the return on capital based on real RES auctions and self-consumption optimization. A biogas plant is a stable energy asset operating 8,000 hours per year.
+              We model the return on capital based on real RES auctions and self-consumption optimization. A biogas plant is a stable baseload energy asset operating 8,000 hours a year.
             </p>
             
             <div className="space-y-10">
               {[
                 { title: "Electrical Revenue", desc: "Aukcje OZE lub PPA. Stabilna cena zakontraktowana na 15 lat.", val: "70%" },
-                { title: "Thermal Energy", desc: "Heat recovery from engine cooling and exhaust gases. Zero heating costs.", val: "20%" },
-                { title: "Fertilizer Substitution", desc: "Digestate as a free alternative to urea and phosphates.", val: "10%" }
+                { title: "Thermal Energy", desc: "Heat recovery from engine cooling systems and exhaust gases. Zero heating costs.", val: "20%" },
+                { title: "Fertilizer Substitution", desc: "Digestate serves as a free alternative to urea and phosphates.", val: "10%" }
               ].map((item, i) => (
                 <div key={i} className="flex justify-between items-start group border-b border-[#C6A87C]/10 pb-8 last:border-0">
                   <div className="max-w-md">
@@ -1360,10 +1360,10 @@ const CircularImpact = () => {
             <span className="italic text-[#C6A87C] font-light">Poferment.</span>
           </h2>
           <p className="text-[#EAE6DF]/60 font-light text-xl leading-relaxed mb-10 font-serif italic max-w-lg">
-            The methane fermentation process does not only produce biogas. It transforms burdensome agricultural waste into excellent, odorless organic fertilizer.
+            The methane fermentation process does more than just produce biogas. It transforms burdensome agricultural waste into a premium, odorless organic fertilizer.
           </p>
           <ul className="space-y-6">
-            {['Replaces expensive synthetic fertilizers (N-P-K).', 'Improves soil structure and water retention.', 'Free from weed seeds and pathogens.', 'No troublesome odors during spreading.'].map((item, i) => (
+            {['Replaces expensive synthetic fertilizers (N-P-K).', 'Improves soil structure and water retention.', 'Completely free from weed seeds and pathogens.', 'Free from the troublesome odors typical of raw manure spreading.'].map((item, i) => (
               <li key={i} className="flex items-start gap-4">
                 <CheckCircle2 className="w-5 h-5 text-[#C6A87C] shrink-0 mt-1" strokeWidth={1} />
                 <span className="font-mono text-[11px] text-[#EAE6DF]/70 tracking-widest leading-relaxed uppercase">{item}</span>
@@ -1390,7 +1390,7 @@ const EnvironmentalImpact = () => {
               <span className="italic text-[#C6A87C] font-light text-outline">footprint.</span>
             </h2>
             <p className="text-[#EAE6DF]/60 font-light text-xl leading-relaxed mb-12 font-serif italic max-w-lg">
-              A biogas plant doesn't just produce green energy. By utilizing slurry and manure, it prevents spontaneous methane emissions into the atmosphere, making the process extremely climate-friendly.
+              A biogas plant does more than produce green energy. By utilizing slurry and manure, it prevents spontaneous atmospheric methane emissions, making the process highly climate-friendly.
             </p>
             <div className="inline-flex items-center gap-4 border border-[#C6A87C]/20 px-6 py-4 bg-[#050606]">
               <ShieldCheck className="w-5 h-5 text-[#C6A87C]" />
@@ -1501,7 +1501,7 @@ const ScadaSystem = () => {
               Cyfrowy <br/><span className="text-[#C6A87C] not-italic">bliźniak.</span>
             </h2>
             <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
-              The SCADA system is the operational backbone of the installation. It aggregates data from hundreds of sensors and precisely manages mixers, pumps, and CHP systems, ensuring biological reactor stability and maximizing methane yield.
+              The SCADA system is the operational backbone of the plant. It aggregates data from hundreds of sensors and precisely controls mixers, pumps, and CHP systems to ensure biological stability and maximize methane yield.
             </p>
           </FadeIn>
 
@@ -1574,12 +1574,12 @@ const ResearchAndDevelopment = () => {
               <span className="text-outline italic">analityczne.</span>
             </h2>
             <p className="text-[#EAE6DF]/60 font-light text-lg leading-relaxed mb-12 font-serif italic max-w-lg">
-              We do not rely on assumptions. Before we design the reactors, samples of your biomass undergo rigorous Biochemical Methane Potential (BMP) testing.
+              We don't rely on guesswork. Before designing the reactors, we subject samples of your biomass to rigorous Biochemical Methane Potential (BMP) testing.
             </p>
             
             <div className="space-y-6">
               {[
-                { title: "BMP Tests (Biochemical Methane Potential)", desc: "Accurate determination of how much methane a ton of your feedstock will produce." },
+                { title: "BMP Tests (Biochemical Methane Potential)", desc: "Precise determination of the methane yield per ton of your feedstock." },
                 { title: "Physicochemical Analysis", desc: "Analysis of dry matter, ash content, and carbon-to-nitrogen (C:N) ratio." },
                 { title: "Symulacja Fermentacji", desc: "Przeprowadzenie miniaturowego procesu w Reactorach laboratoryjnych." }
               ].map((item, i) => (
@@ -1604,7 +1604,7 @@ const Leadership = () => {
     { 
       role: "Lead Project Engineer", 
       name: "Construction Department", 
-      exp: "Supervision of thermal insulation assembly and reinforced concrete pouring precision. Complete environmental sterility.",
+      exp: "Precision supervision of thermal insulation and reinforced concrete pouring. Ensuring a completely sterile environment.",
       img: "/assets/img/konstrukcyjny.webp",
       id: "AUTORYZACJA_LVL_4",
       clearance: "TOP SECRET // INDUSTRIAL"
@@ -1612,7 +1612,7 @@ const Leadership = () => {
     { 
       role: "Lead RES Technologist", 
       name: "Biology Department", 
-      exp: "Methane fermentation experts. Environmental parameterization to maximize yield from the entrusted biomass.",
+      exp: "Methane fermentation experts. We parameterize the environment to maximize the yield of the entrusted biomass.",
       img: "/assets/img/biologiczny.webp",
       id: "AUTORYZACJA_LVL_4",
       clearance: "TOP SECRET // BIOLOGICAL"
@@ -1631,7 +1631,7 @@ const Leadership = () => {
               <p className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Nadzór <br/><span className="italic font-light text-[#C6A87C]">Weryfikowany.</span></p>
             </div>
             <p className="text-[#EAE6DF]/40 text-2xl font-serif italic max-w-md leading-relaxed text-right">
-              Engineering staff authorized to design high gas risk installations.
+              Engineering staff certified to design high-risk gas installations.
             </p>
           </div>
         </FadeIn>
@@ -1701,7 +1701,7 @@ const OperationsMaintenance = () => {
               <span className="italic text-[#C6A87C] font-Standardl">ruchu.</span>
             </h2>
             <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
-              Handing over the keys is just the beginning. Our operations center monitors biological and mechanical parameters 24/7, ensuring continuous generation.
+              Handing over the keys is just the beginning. Our operations center monitors biological and mechanical parameters 24/7 to ensure continuous power generation.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
@@ -1790,10 +1790,10 @@ const TechnicalFAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   const faqs = [
-    { q: "Permit Acquisition Methodology", a: "We manage the full administrative process: from the Project Information Sheet (KIP), through the environmental report, to the final building permit and energy concession.", doc: "PROC-ADM-01" },
-    { q: "Process Hydraulics Parameterization", a: "We use proprietary algorithms to select mixer power and pump efficiency depending on substrate rheology, reducing energy consumption by 15%.", doc: "TECH-HYD-V4" },
+    { q: "Permit Acquisition Methodology", a: "We handle the entire administrative process: from the Project Information Sheet (KIP) and environmental reports, to the final building permit and energy concession.", doc: "PROC-ADM-01" },
+    { q: "Process Hydraulics Parameterization", a: "We apply proprietary algorithms to optimize mixer power and pump efficiency based on substrate rheology, reducing energy consumption by 15%.", doc: "TECH-HYD-V4" },
     { q: "Cybersecurity Architecture", a: "SCADA systems operate in isolated VLAN networks with encrypted VPN access, ensuring protection against unauthorized access to PLC controllers.", doc: "CYB-SEC-PRO" },
-    { q: "Digestate and Dewatering Logistics", a: "We design integrated phase separation and digestate storage systems, optimizing transport and field fertilization costs.", doc: "LOG-BIO-S7" }
+    { q: "Digestate and Dewatering Logistics", a: "We design integrated phase separation and digestate storage systems to optimize transport and field fertilization costs.", doc: "LOG-BIO-S7" }
   ];
 
   return (
@@ -1810,7 +1810,7 @@ const TechnicalFAQ = () => {
                <span className="italic text-[#C6A87C] font-Standardl">operacyjna.</span>
              </h3>
              <p className="text-[#EAE6DF]/40 font-serif italic text-2xl font-light mt-12 leading-relaxed">
-               A set of technical procedures and standards defining each phase of the installation's lifecycle.
+               A comprehensive set of technical procedures and standards defining every phase of the plant's lifecycle.
              </p>
          </FadeIn>
 
@@ -1919,7 +1919,7 @@ const CTA = () => {
             <div className="lg:col-span-5">
               <div className="font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.4em] uppercase mb-4">— Inicjacja kontraktu</div>
               <p className="font-serif italic text-2xl md:text-3xl text-[#F2EDE4]/70 leading-[1.4] font-light">
-                We verify technology, estimate CAPEX, design, build. The first m³ of biogas — in 14 months.
+                We verify the technology, estimate CAPEX, design, and build. Your first m³ of biogas—in 14 months.
               </p>
             </div>
 
@@ -2089,7 +2089,7 @@ const ReactorAnatomy = () => {
             </div>
             <div className="lg:col-span-4 lg:col-start-9">
               <p className="font-serif italic text-2xl text-[#EAE6DF]/50 leading-relaxed">
-                Every reactor component operates in extreme conditions — from corrosive H₂S to gas overpressure. Zero compromises.
+                Every reactor component operates under extreme conditions—from corrosive H₂S to gas overpressure. Zero compromises.
               </p>
               <div className="mt-8 font-mono text-[9px] text-[#C6A87C]/60 tracking-[0.3em] uppercase">
                 Doc. ref: GP-MECH-DWG-014 / Rev. C
@@ -2208,10 +2208,10 @@ const ReactorAnatomy = () => {
 // Molecular process — 4-stage fermentation breakdown with animated SVG molecules
 const MolecularProcesss = () => {
   const stages = [
-    { phase: 'I', name: 'Hydrolysis', formula: 'C₆H₁₀O₅ → C₆H₁₂O₆', time: '0–24h', desc: 'Extracellular enzymes break down polysaccharides, proteins, and fats into simple water-soluble monomers.' },
+    { phase: 'I', name: 'Hydrolysis', formula: 'C₆H₁₀O₅ → C₆H₁₂O₆', time: '0–24h', desc: 'Extracellular enzymes break down polysaccharides, proteins, and fats into simple, water-soluble monomers.' },
     { phase: 'II', name: 'Acidogenesis', formula: 'C₆H₁₂O₆ → CH₃COOH + H₂', time: '24–72h', desc: 'Fermentative bacteria convert monomers into short-chain fatty acids, hydrogen, and carbon dioxide.' },
     { phase: 'III', name: 'Acetogenesis', formula: 'CH₃CH₂COOH → CH₃COOH + H₂', time: '3–7 dni', desc: 'Acetogenic bacteria oxidize higher fatty acids to acetate — the proper substrate for methanogens.' },
-    { phase: 'IV', name: 'Methanogenesis', formula: 'CH₃COOH → CH₄ + CO₂', time: '14–28 dni', desc: 'Methanogenic archaea synthesize methane from acetate and hydrogen. The heart of the biogas plant economy is this very phase.' },
+    { phase: 'IV', name: 'Methanogenesis', formula: 'CH₃COOH → CH₄ + CO₂', time: '14–28 dni', desc: 'Methanogenic archaea synthesize methane from acetate and hydrogen. This phase is the economic engine of the biogas plant.' },
   ];
   return (
     <section className="relative py-48 bg-[#020202] overflow-hidden" data-testid="molecular-process">
@@ -2227,7 +2227,7 @@ const MolecularProcesss = () => {
               one molecule.
             </h2>
             <p className="font-serif italic text-2xl text-[#EAE6DF]/50 leading-relaxed">
-              From silage to methane in 28 days. Each fermentation phase has its own microflora, its own pH, its own pace. The art of biological engineering lies in making these four worlds coexist in one chamber.
+              From silage to methane in 28 days. Each fermentation phase has its own microflora, pH, and pace. The art of biological engineering lies in harmonizing these four worlds within a single chamber.
             </p>
           </div>
         </FadeIn>
@@ -2423,20 +2423,20 @@ const Manifesto = () => {
               <Hexagon className="w-3 h-3" strokeWidth={1} /> Engineering Manifesto
             </div>
             <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] font-light mb-12">
-              We believe that a <span className="italic">biogas plant</span> is not just a source of electricity. It is a tool that solves three problems at once: waste, energy, fertilization.
+              We believe a <span className="italic">biogas plant</span> is more than just a power source. It is a comprehensive tool that simultaneously solves three challenges: waste, energy, and fertilization.
             </h2>
             <div className="space-y-6 font-serif text-xl leading-relaxed text-[#0a0c0b]/80 max-w-3xl">
               <p>
-                Agriculture, which once fed the nation, is today accused of methane emissions, slurry stench, and soil depletion. Unjustly. It is enough to close the loop.
+                Agriculture, which once fed the nation, is now blamed for methane emissions, slurry odors, and soil depletion. This is unjust. The solution is simply closing the loop.
               </p>
               <p>
-                <span className="font-serif italic text-[#C6A87C]">Every</span> ton of manure is not a problem — it is 60 m³ of biogas, 0.13 MWh of electricity, 22 kg of potassium and phosphorus returning to the soil instead of lakes. You just need the tools.
+                <span className="font-serif italic text-[#C6A87C]">Every</span> ton of manure is not a liability—it's 60 m³ of biogas, 0.13 MWh of electricity, and 22 kg of potassium and phosphorus returned to the soil rather than our lakes. You just need the right tools.
               </p>
               <p>
-                Our role is to provide these tools with a quality where nothing breaks for 25 years. Stainless steel 1.4571. Concrete W10 XA3. Tier-1 engines. ABB controllers. Zero compromises on material specification.
+                Our role is to deliver these tools with a build quality designed to run flawlessly for 25 years. Stainless steel 1.4571. Concrete W10 XA3. Tier-1 engines. ABB controllers. Zero compromises on material specifications.
               </p>
               <p className="italic text-[#0a0c0b]/60">
-                Because agricultural energy deserves no less.
+                Because agricultural energy deserves nothing less.
               </p>
             </div>
             <div className="mt-16 pt-8 border-t border-[#0a0c0b]/15 flex items-end justify-between">
@@ -2474,7 +2474,7 @@ const FieldToElectricity = () => {
     {
       no: 'I',
       title: 'Corn',
-      lead: 'Spring. 12 thousand seeds per hectare. Every stalk is a future 0.4 m³ of biogas.',
+      lead: 'Spring. 12,000 seeds per hectare. Every stalk represents a future 0.4 m³ of biogas.',
       body: 'W pierwszym roku współpracy mierzymy nie tylko areał — mierzymy Solar, deszcz i pH gleby. Polska Corn energetyczna ma jedne z najwyższych w Europie potencjałów metanowych: 210 m³ biogazu z tony świeżej masy.',
       stat: '210 m³/t',
       ref: 'CH-01 / FIELD',
@@ -2483,8 +2483,8 @@ const FieldToElectricity = () => {
     {
       no: 'II',
       title: 'Reactor',
-      lead: '38.4 °C. pH 7.6. 28 dni. Silence in which archaea work non-stop.',
-      body: 'Silage enters the dispenser at 6:00 AM. Mixers rotate slowly, 8 revolutions per minute. Methanogenic bacteria cannot stand oxygen, noise, or sudden changes. This is a factory where the loudest sound is the roar of the cooler fan.',
+      lead: '38.4 °C. pH 7.6. 28 dni. A silent environment where archaea work relentlessly.',
+      body: 'Silage enters the dispenser at 6:00 AM. Mixers rotate slowly at 8 revolutions per minute. Methanogenic bacteria cannot tolerate oxygen, noise, or sudden changes. This is a biological factory where the loudest sound is the hum of the cooling fan.',
       stat: '38.4 °C',
       ref: 'CH-02 / REACTOR',
       hue: '#C6A87C',
@@ -2492,8 +2492,8 @@ const FieldToElectricity = () => {
     {
       no: 'III',
       title: 'Grid',
-      lead: 'After 28 days, biogas flows through the intake of the Tier-1 engine. 499 electrical kW. Smart Grid Sync.',
-      body: 'The Jenbacher J312 engine burns biogas with milliampere precision. Energy goes to the national grid, sold in RES auctions at a price contracted for 15 years. Every hour of operation is approx. 130 EUR gross — regardless of weather, season, or geopolitics.',
+      lead: 'After 28 days, biogas flows into the intake of a Tier-1 engine. 499 kW of electrical power. Smart Grid Sync.',
+      body: 'The Jenbacher J312 engine burns biogas with milliampere precision. The energy is fed into the national grid and sold in RES auctions at a contracted price locked in for 15 years. Every hour of operation yields approx. 130 EUR gross—regardless of weather, season, or geopolitics.',
       stat: '499 kW',
       ref: 'CH-03 / GRID',
       hue: '#D97847',
@@ -2502,7 +2502,7 @@ const FieldToElectricity = () => {
       no: 'IV',
       title: 'Home',
       lead: '1 600 polskich gospodarstw Homeowych zasilanych z jednej biogazowni. 24/7.',
-      body: 'Unlike wind and solar — biogas works at night. It works in December. It works when the energy exchange jumps to 400 EUR/MWh on a frosty evening. There is no energy crisis here — because the source grows in the neighboring field.',
+      body: 'Unlike wind and solar, biogas works at night. It works in December. It works when energy exchange prices spike to 400 EUR/MWh on a freezing winter evening. There is no energy crisis here—because the fuel grows in the neighboring field.',
       stat: '1 600',
       ref: 'CH-04 / HOUSEHOLD',
       hue: '#EAE6DF',
@@ -2510,7 +2510,7 @@ const FieldToElectricity = () => {
     {
       no: 'V',
       title: 'Return',
-      lead: 'Digestate returns to the field. 30 tons daily of full-value NPK fertilizer — closing the loop.',
+      lead: 'The digestate returns to the field. 30 tons of premium NPK fertilizer daily—closing the loop.',
       body: 'To, co wyszło z gleby jako Corn, wraca jako nawóz. Bez nasion chwastów, bez patogenów, bez smrodu. Polski rolnik przestaje kupować mocznik i fosforany — bo wytwarza je sam, w swojej fabryce metanu.',
       stat: '30 t/d',
       ref: 'CH-05 / RETURN',
@@ -2652,10 +2652,10 @@ const ReactorClock = () => {
   const events = {
     0: { l: 'Night silence', d: 'Reactor pracuje w trybie podtrzymania. Mieszadła wolne — 4 obr/min. Temperatura stała 38.4 °C.' },
     6: { l: 'Dozowanie poranne', d: 'Pierwsza porcja kiszonki: 18 t. Sucha masa 32%. pH wlotu 6.8.' },
-    9: { l: 'Gas peak', d: 'Maximum CH₄ production. CHP Efficiency reaches 44.2%. Pumping to the grid at full power.' },
+    9: { l: 'Gas peak', d: 'Peak CH₄ production. CHP efficiency reaches 44.2%. Exporting to the grid at maximum capacity.' },
     12: { l: 'Operator control', d: 'Technician visit. Taking a sample to the lab. Gas tightness check.' },
     15: { l: 'Afternoon dosing', d: 'Second portion of substrate: 16 t. Process stabilization. Lambda probe confirms composition.' },
-    18: { l: 'Sprzedaż peak shaving', d: 'Highest energy prices between 6-9 PM. SCADA algorithm maximizes output.' },
+    18: { l: 'Sprzedaż peak shaving', d: 'Highest energy prices between 6:00 PM and 9:00 PM. The SCADA algorithm maximizes output.' },
     21: { l: 'Cool down', d: 'Powolne wytracanie mocy. Mieszadła zwalniają. Grid przechodzi w noc.' },
   };
   const labelEvents = [0, 6, 9, 12, 15, 18, 21];
@@ -3173,7 +3173,7 @@ const EnergyComparison = () => {
               </h2>
             </div>
             <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Biogas is not the cheapest. It is not the most space-saving. It is the only one that combines stability with a negative carbon footprint.
+              Biogas isn't the cheapest. It isn't the most space-efficient. But it is the only energy source that combines baseload stability with a negative carbon footprint.
             </p>
           </div>
         </FadeIn>
@@ -3237,13 +3237,13 @@ const EnergyComparison = () => {
             <div>
               <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-3">Dlaczego ujemny CO₂</div>
               <p className="font-serif italic text-sm text-[#EAE6DF]/50 leading-relaxed">
-                A biogas plant not only does not emit — it utilizes methane that would escape from slurry into the atmosphere anyway. Hence −25 g/kWh.
+                A biogas plant doesn't just achieve zero emissions—it actively utilizes methane that would otherwise escape from slurry into the atmosphere. Hence, a footprint of −25 g/kWh.
               </p>
             </div>
             <div>
               <div className="font-mono text-[8px] text-[#C6A87C] tracking-[0.4em] uppercase mb-3">Czego nie pokazuje wykres</div>
               <p className="font-serif italic text-sm text-[#EAE6DF]/50 leading-relaxed">
-                Digestate revenue, slurry disposal costs, energy independence, impact on local agriculture. This would change the equation.
+                Revenue from digestate, eliminated slurry disposal costs, energy independence, and the positive impact on local agriculture. This fundamentally changes the equation.
               </p>
             </div>
           </div>
@@ -3258,18 +3258,18 @@ const GlossaryLexicon = () => {
   const terms = [
     { letter: 'A', name: 'ATEX', latin: 'Directive 2014/34/EU', def: 'Europejska Directive regulująca urządzenia w strefach zagrożonych wybuchem. Wszystkie elementy Reactora pracujące z metanem klasyfikowane są jako EX zone 1 lub 2.', ref: 'STD' },
     { letter: 'B', name: 'BMP', latin: 'Biochemical Methane Potential', def: 'Laboratory test measuring maximum methane yield from a given biomass. Lasts 30–60 days. The basis for every design decision.', ref: 'TEST' },
-    { letter: 'C', name: 'CHP', latin: 'Combined Heat and Power', def: 'Combined production of electricity and heat. Total efficiency up to 90% — contrary to 35% with power alone.', ref: 'TECH' },
-    { letter: 'D', name: 'Availability factor', latin: 'Availability factor', def: 'Percentage of time the installation is ready to operate. GP provides 98% — approx. 8,600 hours per year.', ref: 'METRIC' },
-    { letter: 'E', name: 'EPC', latin: 'Engineering, Procurement, Construction', def: 'Turnkey contract model. The contractor is responsible for the design, procurement, and execution of the investment, delivering a ready installation with a yield goal.', ref: 'LEGAL' },
+    { letter: 'C', name: 'CHP', latin: 'Combined Heat and Power', def: 'Combined Heat and Power. Reaches total efficiency of up to 90%—compared to just 35% for standalone electricity generation.', ref: 'TECH' },
+    { letter: 'D', name: 'Availability factor', latin: 'Availability factor', def: 'The percentage of time the plant is fully operational. GP guarantees 98% availability—approx. 8,600 hours per year.', ref: 'METRIC' },
+    { letter: 'E', name: 'EPC', latin: 'Engineering, Procurement, Construction', def: 'A turnkey contract model. The contractor is fully responsible for the design, procurement, and execution of the investment, delivering a fully operational plant meeting specified yield guarantees.', ref: 'LEGAL' },
     { letter: 'F', name: 'Mesophilic digestion', latin: 'Mesophilic digestion', def: 'Fermentation process at 35–40 °C. Most commonly used — a compromise between decomposition rate and microbiome stability.', ref: 'PROC' },
-    { letter: 'H', name: 'H₂S', latin: 'Hydrogen sulfide', def: 'Toxic corrosive gas. Exceeding limits (e.g., above 200 ppm) risks damaging the CHP engine.', ref: 'BIO' },
+    { letter: 'H', name: 'H₂S', latin: 'Hydrogen sulfide', def: 'A toxic, highly corrosive gas. Exceeding limits (e.g., above 200 ppm) risks severe damage to the CHP engine.', ref: 'BIO' },
     { letter: 'K', name: 'KIP', latin: 'Project Information Sheet', def: 'The first official document in the environmental permit acquisition process. Contains location, technology, planned emissions.', ref: 'ADM' },
     { letter: 'L', name: 'LKT', latin: 'Volatile Fatty Acids', def: 'Produkty pośrednie fermentacji. Ich nadmiar (limit ok. 3-4 g/L) sygnalizuje zaburzenie procesu — tzw. kwasicę Reactora.', ref: 'BIO' },
-    { letter: 'M', name: 'Methanogenesis', latin: 'Methanogenesis', def: 'The final phase of anaerobic fermentation. Archaea transform acetate and hydrogen into methane and carbon dioxide. The heart of the business is this very phase.', ref: 'BIO' },
+    { letter: 'M', name: 'Methanogenesis', latin: 'Methanogenesis', def: 'The final phase of anaerobic fermentation. Archaea transform acetate and hydrogen into methane and carbon dioxide. This phase is the true economic heart of the business.', ref: 'BIO' },
     { letter: 'O', name: 'OZE', latin: 'Renewable Energy Sources', def: 'Polski system wsparcia obejmujący aukcje i taryfy wsparcia (FIT). Biogaz rolniczy ma własny koszyk — bez konkurencji z wiatrem i Solarm.', ref: 'LEGAL' },
-    { letter: 'P', name: 'Poferment', latin: 'Digestate', def: 'Fermentation byproduct. Odorless, rich in nitrogen, phosphorus, potassium. Replaces synthetic fertilizers. 30 tons daily from 0.5 MW.', ref: 'PROD' },
-    { letter: 'S', name: 'SCADA', latin: 'Supervisory Control and Data Acquisition', def: 'Supervisory control and data acquisition system. Thousands of variables per second. An algorithm controlling every valve, every pump.', ref: 'I&C' },
-    { letter: 'U', name: 'UDT', latin: 'Office of Technical Inspection', def: 'Regulatory body supervising pressure vessels, pipelines, and supervised equipment. Every biogas plant is subject to annual inspections.', ref: 'ADM' },
+    { letter: 'P', name: 'Poferment', latin: 'Digestate', def: 'A fermentation byproduct. Odorless and rich in nitrogen, phosphorus, and potassium. Fully replaces synthetic fertilizers. A 0.5 MW plant yields 30 tons daily.', ref: 'PROD' },
+    { letter: 'S', name: 'SCADA', latin: 'Supervisory Control and Data Acquisition', def: 'The Supervisory Control and Data Acquisition system. It processes thousands of variables per second, with an algorithm precisely controlling every valve and pump.', ref: 'I&C' },
+    { letter: 'U', name: 'UDT', latin: 'Office of Technical Inspection', def: 'The regulatory body supervising pressure vessels, pipelines, and critical equipment. Every biogas plant is subject to strict annual inspections.', ref: 'ADM' },
   ];
   return (
     <section className="relative py-48 bg-[#020202] overflow-hidden" data-testid="glossary-lexicon">
@@ -3286,7 +3286,7 @@ const GlossaryLexicon = () => {
               </h2>
             </div>
             <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Every industry has its language. Here are 14 terms that separate an engineer from a dilettante. Reads like the Encyclopaedia Britannica.
+              Every industry has its own language. Here are 14 terms that separate the engineer from the dilettante. It reads like the Encyclopaedia Britannica.
             </p>
           </div>
         </FadeIn>
@@ -4081,7 +4081,7 @@ const AwardsAndCertifications = () => {
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              We design every project to eight external standards. We do not list them for marketing — we list them because they define the scope of responsibility towards the investor and supervisory bodies.
+              We design every project according to eight rigorous external standards. We don't list them for marketing purposes—we list them because they define our strict scope of responsibility to both the investor and supervisory bodies.
             </p>
           </div>
         </FadeIn>
@@ -4136,8 +4136,8 @@ const AwardsAndCertifications = () => {
 // Numbered editorial epigraphs
 const NumberedEpigraphs = () => {
   const epi = [
-    { n: 'I', q: `An engineer doesn't believe in "almost tight". An engineer measures.`, who: 'First design principle' },
-    { n: 'II', q: 'Every biogas plant is only as good as its weakest weld. We check each one with a non-destructive test.', who: 'Quality control department' },
+    { n: 'I', q: `An engineer doesn't believe in "almost tight." An engineer measures.`, who: 'First design principle' },
+    { n: 'II', q: 'A biogas plant is only as reliable as its weakest weld. We verify every single one with non-destructive testing.', who: 'Quality control department' },
     { n: 'III', q: 'Methanogenic bacteria do not negotiate. Neither electricity prices nor weather conditions. They work 24/7.', who: 'Biology department' },
   ];
   return (
@@ -4369,7 +4369,7 @@ const EngineeringDNA = () => {
           </FadeIn>
           <FadeIn className="lg:col-span-7" delay={200}>
             <p className="font-serif italic text-3xl text-[#EAE6DF]/80 leading-relaxed mb-10 font-light">
-              Green Plant Tech is a new entity, but we do not learn from the investor's mistakes. Our team brings over 50 years of accumulated experience from infrastructure projects in Europe.
+              Green Plant Tech may be a new entity, but we don't learn at the investor's expense. Our team brings over 50 years of combined experience executing major infrastructure projects across Europe.
             </p>
             <div className="grid md:grid-cols-2 gap-12 pt-10 border-t border-[#C6A87C]/15">
               <div>
