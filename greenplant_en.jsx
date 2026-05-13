@@ -1869,10 +1869,10 @@ const ServiceCoverage = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px bg-[#C6A87C]/10 border border-[#C6A87C]/10 w-full">
              {[
-               { region: "Northern Poland", city: "Hub Gdańsk", status: "Operational" },
+               { region: "Northern Poland", city: "Gdansk Hub", status: "Operational" },
                { region: "Polska Centralna", city: "Warsaw HQ", status: "Operational" },
-               { region: "Western Poland", city: "Hub Poznań", status: "Active" },
-               { region: "Southern Poland", city: "Hub Kraków", status: "Operational" }
+               { region: "Western Poland", city: "Poznan Hub", status: "Active" },
+               { region: "Southern Poland", city: "Krakow Hub", status: "Operational" }
              ].map((node, i) => (
                <div key={i} className="bg-[#020202] p-10 group hover:bg-[#050606] transition-all">
                   <div className="font-mono text-[7px] text-[#C6A87C] tracking-[0.3em] uppercase mb-4 opacity-40">{node.status}</div>
@@ -1988,7 +1988,7 @@ const Footer = () => {
               Preparation of biogas plant projects agricultural and municipal. Design, investor supervision, and technical support — optimized for methane yield.
             </p>
             <div className="flex flex-wrap gap-x-12 gap-y-4 font-mono text-[10px] text-[#EAE6DF]/40 tracking-[0.2em] uppercase">
-              <div>ul. Stanisława Wyspiańskiego 8 // 05-400 Otwock</div>
+              <div>8 Stanislaw Wyspianski St. // 05-400 Otwock</div>
               <div>NIP 5322124348 // REGON 544014417 // KRS 0001224533</div>
               <div>+48 601 944 451 // kontakt@greenplant.tech</div>
             </div>
@@ -2302,8 +2302,8 @@ const PolandMap = () => {
     { x: 50, y: 48, name: 'Mazowsze', mw: '58', sub: 'Mieszane rolnicze' },
     { x: 32, y: 52, name: 'Wielkopolska', mw: '94', sub: 'Trzoda, Corn' },
     { x: 72, y: 56, name: 'Lubelszczyzna', mw: '38', sub: 'Beets, cattle' },
-    { x: 48, y: 75, name: 'Małopolska', mw: '17', sub: 'Municipal waste' },
-    { x: 28, y: 78, name: 'Dolny Śląsk', mw: '42', sub: 'Distillery stillage' },
+    { x: 48, y: 75, name: 'Lesser Poland', mw: '17', sub: 'Municipal waste' },
+    { x: 28, y: 78, name: 'Lower Silesia', mw: '42', sub: 'Distillery stillage' },
     { x: 64, y: 38, name: 'Warsaw', mw: 'HQ', sub: 'Centrala operacyjna', hq: true },
   ];
   const [active, setActive] = useState(3);
@@ -3322,7 +3322,7 @@ const MaterialSamples = () => {
       spec: 'Klasa ekspozycji XA3 / XF2 / W10',
       desc: 'Hydrotechnical concrete with P10 gas tightness. 28-day compressive strength 45 MPa. Reinforced with BSt 500 S rebar.',
       thick: '40 cm',
-      origin: 'EU · Górażdże',
+      origin: 'EU · Ganddze',
       visual: 'concrete',
     },
     {
@@ -3368,7 +3368,7 @@ const MaterialSamples = () => {
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
-              Concrete from Górażdże. Steel from Tornio. Membrane from Graz. Copper from Linköping. Four materials that together weigh 320 tons and will survive 25 winters.
+              Concrete from Ganddze. Steel from Tornio. Membrane from Graz. Copper from Linköping. Four materials that together weigh 320 tons and will survive 25 winters.
             </p>
           </div>
         </FadeIn>
