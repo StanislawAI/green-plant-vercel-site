@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:deck-css": "tailwindcss -i public/assets/deck-tailwind.input.css -o public/assets/deck-tailwind.css --content public/presentation.html --minify",
+    "build:deck-css": "tailwindcss -i public/assets/deck-tailwind.input.css -o public/assets/deck-tailwind.css --content public/presentation.html public/presentation_en.html --minify",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -17,7 +17,15 @@
             "destination": "/presentation.html"
         },
         {
-            "source": "/((?!presentation.html|assets|fonts|favicon).*)",
+            "source": "/presentation",
+            "destination": "/presentation_en.html"
+        },
+        {
+            "source": "/presentation/",
+            "destination": "/presentation_en.html"
+        },
+        {
+            "source": "/((?!presentation.html|presentation_en.html|assets|fonts|favicon).*)",
             "destination": "/index.html"
         }
     ],
@@ -45,6 +53,15 @@
         },
         {
             "source": "/presentation.html",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=0, s-maxage=300, stale-while-revalidate=86400"
+                }
+            ]
+        },
+        {
+            "source": "/presentation_en.html",
             "headers": [
                 {
                     "key": "Cache-Control",
