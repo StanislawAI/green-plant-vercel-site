@@ -1290,7 +1290,7 @@ const SmartGrid = () => {
              {[
                { icon: <Zap className="w-8 h-8" />, title: "Smart Grid", desc: "Zautomatyzowana sprzedaż nadwyżek energii w oparciu o algorytmy Peak Shaving i spotowe ceny energii.", val: "499 kW" },
                { icon: <Factory className="w-8 h-8" />, title: "Ciepło Systemowe", desc: "Redukcja kosztów operacyjnych poprzez zasilanie lokalnej infrastruktury darmową energią cieplną.", val: "510 kWt" },
-               { icon: <Leaf className="w-8 h-8" />, title: "Cyrkulacja Nawozów", desc: "Zamknięcie obiegu pierwiastków poprzez dystrybucję stabilizowanego, bezzapachowego pofermentu.", val: "11 t/d" }
+               { icon: <Leaf className="w-8 h-8" />, title: "Cyrkulacja Nawozów", desc: "Zamknięcie obiegu pierwiastków poprzez dystrybucję stabilizowanego, bezzapachowego pofermentu.", val: "30 t/d" }
              ].map((node, i) => (
                 <FadeIn key={i} delay={i * 200} className={`glass-morphism p-12 flex flex-col items-center text-center group hover:border-[#C6A87C]/60 transition-all duration-700 interactive-element rounded-[3rem] ${i === 1 ? 'md:-translate-y-20' : 'md:translate-y-20'}`}>
                   <div className="w-24 h-24 rounded-full border border-[#C6A87C]/20 flex items-center justify-center mb-10 bg-[#020202] text-[#C6A87C] group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(198,168,124,0.2)] transition-all duration-700">
@@ -2418,14 +2418,14 @@ const Manifesto = () => {
               <Hexagon className="w-3 h-3" strokeWidth={1} /> Manifest Inżynierski
             </div>
             <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] font-light mb-12">
-              Wierzymy, że <span className="italic">biogazownia</span> nie jest tylko źródłem prądu. To narzędzie, które rozwiązuje <span className="italic">trzy problemy naraz</span>: odpady, energię, nawożenie.
+              Wierzymy, że <span className="italic">biogazownia</span> nie jest tylko źródłem prądu. To narzędzie, które rozwiązuje trzy problemy naraz: odpady, energię, nawożenie.
             </h2>
             <div className="space-y-6 font-serif text-xl leading-relaxed text-[#0a0c0b]/80 max-w-3xl">
               <p>
                 Rolnictwo, które kiedyś żywiło naród, dziś jest oskarżane o emisję metanu, smród gnojowicy, wyjałowienie gleby. Niesłusznie. Wystarczy zamknąć obieg.
               </p>
               <p>
-                <span className="font-serif italic text-[#C6A87C]">Każda</span> tona obornika to nie problem — to 60 m³ metanu, 0.13 MWh prądu, 22 kg potasu i fosforu wracającego do gleby zamiast jezior. Wystarczy mieć narzędzia.
+                <span className="font-serif italic text-[#C6A87C]">Każda</span> tona obornika to nie problem — to 60 m³ biogazu, 0.13 MWh prądu, 22 kg potasu i fosforu wracającego do gleby zamiast jezior. Wystarczy mieć narzędzia.
               </p>
               <p>
                 Naszą rolą jest dostarczyć te narzędzia w jakości, w której nic się nie psuje przez 25 lat. Stal nierdzewna 1.4571. Beton W10 XA3. Silniki Tier-1. Sterowniki ABB. Bez kompromisów na specyfikacji materiałowej.
@@ -2469,7 +2469,7 @@ const FieldToElectricity = () => {
     {
       no: 'I',
       title: 'Kukurydza',
-      lead: 'Wiosna. 12 tysięcy nasion na hektar. Każda łodyga to przyszłe 0.4 m³ metanu.',
+      lead: 'Wiosna. 12 tysięcy nasion na hektar. Każda łodyga to przyszłe 0.4 m³ biogazu.',
       body: 'W pierwszym roku współpracy mierzymy nie tylko areał — mierzymy słońce, deszcz i pH gleby. Polska kukurydza energetyczna ma jedne z najwyższych w Europie potencjałów metanowych: 210 m³ biogazu z tony świeżej masy.',
       stat: '210 m³/t',
       ref: 'CH-01 / FIELD',
@@ -2487,7 +2487,7 @@ const FieldToElectricity = () => {
     {
       no: 'III',
       title: 'Sieć',
-      lead: 'Po 28 dniach metan przepływa przez ssawę silnika Tier-1. 499 kW elektrycznych. Smart Grid Sync.',
+      lead: 'Po 28 dniach biogaz przepływa przez ssawę silnika Tier-1. 499 kW elektrycznych. Smart Grid Sync.',
       body: 'Silnik Jenbacher J312 spala biogaz z dokładnością miliampera. Energia trafia do krajowej sieci, sprzedawana w aukcjach OZE po cenie zakontraktowanej na 15 lat. Każda godzina pracy to ok. 550 zł brutto — niezależnie od pogody, pory roku, geopolityki.',
       stat: '499 kW',
       ref: 'CH-03 / GRID',
@@ -2505,9 +2505,9 @@ const FieldToElectricity = () => {
     {
       no: 'V',
       title: 'Powrót',
-      lead: 'Poferment wraca na pole. 11 ton dziennie azotu, fosforu, potasu — zamknięcie obiegu.',
+      lead: 'Poferment wraca na pole. 30 ton dziennie pełnowartościowego nawozu NPK — zamknięcie obiegu.',
       body: 'To, co wyszło z gleby jako kukurydza, wraca jako nawóz. Bez nasion chwastów, bez patogenów, bez smrodu. Polski rolnik przestaje kupować mocznik i fosforany — bo wytwarza je sam, w swojej fabryce metanu.',
-      stat: '11 t/d',
+      stat: '30 t/d',
       ref: 'CH-05 / RETURN',
       hue: '#4ADE80',
     },
@@ -2807,11 +2807,11 @@ const MicrobialTaxonomy = () => {
       kingdom: 'Archaea',
     },
     {
-      genus: 'Clostridium',
-      species: 'C. thermocellum',
+      genus: 'Ruminococcus',
+      species: 'R. albus',
       role: 'Bakteria hydrolityczna',
-      desc: 'Beztlenowiec rozkładający celulozę. Pierwszy szczebel łańcucha pokarmowego w reaktorze. Pracuje w 60 °C — bardziej agresywnie niż mezofile.',
-      phylum: 'Firmicutes',
+      desc: 'Beztlenowiec rozkładający celulozę i hemicelulozę. Pierwszy szczebel łańcucha pokarmowego w reaktorze. Pracuje wydajnie w procesie mezofilowym (38 °C).',
+      phylum: 'Bacillota',
       yield: '—',
       svg: 'rod',
       kingdom: 'Bacteria',
@@ -3027,7 +3027,7 @@ const GanttBuild = () => {
                 <GitBranch className="w-3.5 h-3.5" strokeWidth={1} /> Harmonogram — 14 miesięcy
               </div>
               <h2 className="text-5xl md:text-[7.5rem] font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
-                Od podpisu <br/>do pierwszego <br/><span className="italic text-[#C6A87C] font-normal">m³ metanu.</span>
+                Od podpisu <br/>do pierwszego <br/><span className="italic text-[#C6A87C] font-normal">m³ biogazu.</span>
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
@@ -3087,7 +3087,7 @@ const GanttBuild = () => {
                 <span className="w-1.5 h-1.5 bg-[#4ADE80] rounded-full" /> Kamienie milowe
               </div>
               {months.map((_, m) => {
-                const ms = { 1: 'KIP', 3: 'PNB', 6: 'GW', 11: 'M&E', 13: 'COD' }[m];
+                const ms = { 1: 'KIP', 3: 'PNB', 6: 'CIV', 11: 'M&E', 13: 'COD' }[m];
                 return (
                   <div key={m} className="text-center">
                     {ms && (
@@ -3257,12 +3257,12 @@ const GlossaryLexicon = () => {
     { letter: 'D', name: 'Dyspozycyjność', latin: 'Availability factor', def: 'Procent czasu, w którym instalacja jest gotowa do pracy. GP zapewnia 98% — ok. 8 600 godzin rocznie.', ref: 'METRIC' },
     { letter: 'E', name: 'EPC', latin: 'Engineering, Procurement, Construction', def: 'Model kontraktowy "pod klucz". Wykonawca odpowiada za projekt, dostawy i realizację inwestycji, dostarczając gotową instalację z celem uzysku.', ref: 'LEGAL' },
     { letter: 'F', name: 'Fermentacja mezofilowa', latin: 'Mesophilic digestion', def: 'Proces fermentacji w temperaturze 35–40 °C. Najczęściej stosowany — kompromis między tempem rozkładu a stabilnością mikrobiomu.', ref: 'PROC' },
-    { letter: 'H', name: 'H₂S', latin: 'Siarkowodór', def: 'Toksyczny gaz tworzący się w reaktorze przy nadmiarze siarki. Limit: <50 ppm w biogazie wsadowym do silnika. Usuwany biologicznie (sonda tlenowa) lub chemicznie.', ref: 'CHEM' },
+    { letter: 'H', name: 'H₂S', latin: 'Siarkowodór', def: 'Toksyczny gaz korozyjny. Przekroczenie limitów (np. powyżej 200 ppm) grozi uszkodzeniem silnika CHP.', ref: 'BIO' },
     { letter: 'K', name: 'KIP', latin: 'Karta Informacyjna Przedsięwzięcia', def: 'Pierwszy dokument urzędowy w procesie pozyskiwania pozwolenia środowiskowego. Zawiera lokalizację, technologię, planowane emisje.', ref: 'ADM' },
-    { letter: 'L', name: 'LKT', latin: 'Lotne Kwasy Tłuszczowe (VFA)', def: 'Octan, propionian, maślan. Półprodukty fermentacji. Nadmiar (>3 g/L) sygnalizuje zaburzenie procesu — kwasica reaktora.', ref: 'BIO' },
-    { letter: 'M', name: 'Metanogenza', latin: 'Methanogenesis', def: 'Ostatnia faza fermentacji beztlenowej. Archeony przekształcają octan i wodór w metan i dwutlenek węgla. Sercem biznesu jest właśnie ta faza.', ref: 'BIO' },
+    { letter: 'L', name: 'LKT', latin: 'Lotne Kwasy Tłuszczowe', def: 'Produkty pośrednie fermentacji. Ich nadmiar (limit ok. 3-4 g/L) sygnalizuje zaburzenie procesu — tzw. kwasicę reaktora.', ref: 'BIO' },
+    { letter: 'M', name: 'Metanogeneza', latin: 'Methanogenesis', def: 'Ostatnia faza fermentacji beztlenowej. Archeony przekształcają octan i wodór w metan i dwutlenek węgla. Sercem biznesu jest właśnie ta faza.', ref: 'BIO' },
     { letter: 'O', name: 'OZE', latin: 'Odnawialne Źródła Energii', def: 'Polski system wsparcia obejmujący aukcje i taryfy wsparcia (FIT). Biogaz rolniczy ma własny koszyk — bez konkurencji z wiatrem i słońcem.', ref: 'LEGAL' },
-    { letter: 'P', name: 'Poferment', latin: 'Digestate', def: 'Produkt uboczny fermentacji. Bezzapachowy, bogaty w azot, fosfor, potas. Zastępuje syntetyczne nawozy. 11 ton dziennie z 0.5 MW.', ref: 'PROD' },
+    { letter: 'P', name: 'Poferment', latin: 'Digestate', def: 'Produkt uboczny fermentacji. Bezzapachowy, bogaty w azot, fosfor, potas. Zastępuje syntetyczne nawozy. 30 ton dziennie z 0.5 MW.', ref: 'PROD' },
     { letter: 'S', name: 'SCADA', latin: 'Supervisory Control and Data Acquisition', def: 'System nadzoru, kontroli i akwizycji danych. Tysiące zmiennych na sekundę. Algorytm sterujący każdym zaworem, każdą pompą.', ref: 'I&C' },
     { letter: 'U', name: 'UDT', latin: 'Urząd Dozoru Technicznego', def: 'Polski organ regulacyjny nadzorujący zbiorniki ciśnieniowe, rurociągi i urządzenia poddozorowe. Każda biogazownia podlega corocznym kontrolom.', ref: 'ADM' },
   ];
@@ -4176,7 +4176,7 @@ const TechnicalSpecSheet = () => {
       cat: 'Wymiary konstrukcyjne',
       ref: 'CON',
       items: [
-        ['Pojemność reaktora I + II', '4 800 m³'],
+        ['Pojemność reaktora I + II', '7 200 m³'],
         ['Średnica każdej komory', '24.0 m'],
         ['Wysokość konstrukcji', '8.0 m'],
         ['Grubość ścian żelbetowych', '0.40 m'],
