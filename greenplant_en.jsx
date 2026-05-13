@@ -713,7 +713,7 @@ const Hero = () => {
             <h1 className="text-[4.5rem] md:text-[8rem] lg:text-[11rem] font-serif text-[#F2EDE4] leading-[0.88] pb-4 tracking-tighter mb-12 font-light">
               <KineticHeading delay={200} stagger={45}>Stability</KineticHeading>
               <br />
-              <span className="italic text-[#C8A97D] font-Standardl pl-4 md:pl-16 inline-block">
+              <span className="italic text-[#C8A97D] font-normal pl-4 md:pl-16 inline-block">
                 <KineticHeading delay={650} stagger={55}>industrial.</KineticHeading>
               </span>
             </h1>
@@ -934,13 +934,13 @@ const Approach = () => {
               </div>
               <h2 className="text-7xl md:text-[10rem] font-serif text-[#EAE6DF] leading-[0.92] pb-6 mb-12 font-light tracking-tight">
                 <KineticHeading delay={100} stagger={40}>Materia w</KineticHeading><br/>
-                <span className="italic text-[#C6A87C] font-Standardl"><KineticHeading delay={500} stagger={50}>energy.</KineticHeading></span>
+                <span className="italic text-[#C6A87C] font-normal"><KineticHeading delay={500} stagger={50}>energy.</KineticHeading></span>
               </h2>
 
               {/* Editorial drop-cap body */}
               <div className="max-w-2xl">
                 <p className="text-[#EAE6DF]/70 font-serif text-2xl leading-[1.55] mb-8 font-light">
-                  <span className="float-left font-serif text-7xl md:text-[8rem] leading-[0.92] pb-2 text-[#C6A87C] italic mr-5 mt-2 font-Standardl">B</span>
+                  <span className="float-left font-serif text-7xl md:text-[8rem] leading-[0.92] pb-2 text-[#C6A87C] italic mr-5 mt-2 font-normal">B</span>
                   A biogas plant is not just a collection of concrete tanks. It is a precisely tuned ecosystem where <span className="italic text-[#C6A87C]">biologia</span> meets heavy mechanical engineering — methanogenic bacteria, PLC controllers, acid-resistant steel, and double EPDM membranes work together in one closed system.
                 </p>
                 <p className="text-[#EAE6DF]/40 font-serif italic text-xl leading-relaxed mb-14 font-light">
@@ -1119,7 +1119,7 @@ const FeedstockMatrix = () => {
                 Laboratorium Surowcowe
               </h2>
               <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
-                Substrate <br/><span className="italic text-[#C6A87C] font-Standardl">Matrix.</span>
+                Substrate <br/><span className="italic text-[#C6A87C] font-normal">Matrix.</span>
               </h3>
             </div>
             <p className="text-[#EAE6DF]/40 font-serif italic text-2xl font-light max-w-sm leading-relaxed text-right">
@@ -1206,7 +1206,7 @@ const EconomicsSection = () => {
             <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Financial Engineering</div>
             <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[1] mb-12 font-light">
               Analysis <br/>
-              <span className="italic text-[#C6A87C] font-Standardl">profitability.</span>
+              <span className="italic text-[#C6A87C] font-normal">profitability.</span>
             </h2>
             <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
               We model the return on capital based on real RES auctions and self-consumption optimization. A biogas plant is a stable baseload energy asset operating 8,000 hours a year.
@@ -1283,7 +1283,7 @@ const SmartGrid = () => {
               <Zap className="w-4 h-4" /> Dystrybucja i Integracja
             </h2>
             <h3 className="text-6xl md:text-9xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
-              System <br/><span className="italic text-[#C6A87C] font-Standardl">Node.</span>
+              System <br/><span className="italic text-[#C6A87C] font-normal">Node.</span>
             </h3>
           </div>
         </FadeIn>
@@ -1357,7 +1357,7 @@ const CircularImpact = () => {
           <div className="font-mono text-[#C6A87C] text-[10px] tracking-[0.4em] uppercase mb-8 border-l border-[#C6A87C] pl-4">Sustainable profit</div>
           <h2 className="text-5xl md:text-6xl font-serif text-[#EAE6DF] leading-[1.1] mb-8">
             Added value:<br/>
-            <span className="italic text-[#C6A87C] font-light">Poferment.</span>
+            <span className="italic text-[#C6A87C] font-light">Digestate.</span>
           </h2>
           <p className="text-[#EAE6DF]/60 font-light text-xl leading-relaxed mb-10 font-serif italic max-w-lg">
             The methane fermentation process does more than just produce biogas. It transforms burdensome agricultural waste into a premium, odorless organic fertilizer.
@@ -1698,7 +1698,7 @@ const OperationsMaintenance = () => {
             <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">Control Center // O&M</div>
             <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 mb-12 font-light">
               Utrzymanie <br/>
-              <span className="italic text-[#C6A87C] font-Standardl">ruchu.</span>
+              <span className="italic text-[#C6A87C] font-normal">movement.</span>
             </h2>
             <p className="text-[#EAE6DF]/50 font-light text-2xl leading-relaxed mb-16 font-serif italic max-w-xl">
               Handing over the keys is just the beginning. Our operations center monitors biological and mechanical parameters 24/7 to ensure continuous power generation.
@@ -1755,7 +1755,7 @@ const SafetyStandards = () => {
              <h2 className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 flex items-center gap-4">
                <ShieldCheck className="w-5 h-5" /> Technical Compliance Framework
              </h2>
-             <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Standard <br/><span className="italic text-[#C6A87C] font-Standardl">Safety.</span></h3>
+             <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">Standard <br/><span className="italic text-[#C6A87C] font-normal">Safety.</span></h3>
           </div>
         </FadeIn>
 
@@ -1807,7 +1807,7 @@ const TechnicalFAQ = () => {
 
              <h3 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
                Dokumentacja <br/>
-               <span className="italic text-[#C6A87C] font-Standardl">operacyjna.</span>
+               <span className="italic text-[#C6A87C] font-normal">operational.</span>
              </h3>
              <p className="text-[#EAE6DF]/40 font-serif italic text-2xl font-light mt-12 leading-relaxed">
                A comprehensive set of technical procedures and standards defining every phase of the plant's lifecycle.
@@ -1861,7 +1861,7 @@ const ServiceCoverage = () => {
         <FadeIn>
           <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] px-6 py-1 mx-auto w-fit">Logistyka Regionalna</div>
           <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 mb-12 font-light">
-            Operational <br/><span className="italic text-[#C6A87C] font-Standardl">reach.</span>
+            Operational <br/><span className="italic text-[#C6A87C] font-normal">reach.</span>
           </h2>
           <p className="text-[#EAE6DF]/50 font-serif italic text-2xl max-w-3xl mx-auto leading-relaxed mb-20">
             Our engineering and service teams operate nationwide, providing technical support in every corner of the country.
@@ -2084,7 +2084,7 @@ const ReactorAnatomy = () => {
                 <CrosshairIcon className="w-3.5 h-3.5" strokeWidth={1} /> Schemat techniczny // Widok rozstrzelony
               </div>
               <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Anatomia <br/><span className="italic text-[#C6A87C] font-Standardl">Reactora.</span>
+                Anatomy <br/><span className="italic text-[#C6A87C] font-normal">Reactora.</span>
               </h2>
             </div>
             <div className="lg:col-span-4 lg:col-start-9">
@@ -2223,7 +2223,7 @@ const MolecularProcesss = () => {
               <Atom className="w-3.5 h-3.5" strokeWidth={1} /> Biochemia procesu
             </div>
             <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light mb-10">
-              Cztery <span className="italic text-[#C6A87C] font-Standardl">fazy</span><br/>
+              Four <span className="italic text-[#C6A87C] font-normal">phases</span><br/>
               one molecule.
             </h2>
             <p className="font-serif italic text-2xl text-[#EAE6DF]/50 leading-relaxed">
@@ -2318,7 +2318,7 @@ const PolandMap = () => {
                 <Radar className="w-3.5 h-3.5" strokeWidth={1} /> Polska mapa biogazu rolniczego
               </div>
               <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Market <br/><span className="italic text-[#C6A87C] font-Standardl">regionalny.</span>
+                Market <br/><span className="italic text-[#C6A87C] font-normal">regionalny.</span>
               </h2>
             </div>
             <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
@@ -2527,7 +2527,7 @@ const FieldToElectricity = () => {
                 <Workflow className="w-3.5 h-3.5" strokeWidth={1} /> Narrative sequence — 5 chapters
               </div>
               <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                From the field <br/><span className="italic text-[#C6A87C] font-Standardl">to power.</span>
+                From the field <br/><span className="italic text-[#C6A87C] font-normal">to power.</span>
               </h2>
             </div>
             <p className="font-serif italic text-2xl text-[#EAE6DF]/50 max-w-md leading-relaxed text-right">
@@ -2669,7 +2669,7 @@ const ReactorClock = () => {
               <Cog className="w-3.5 h-3.5" strokeWidth={1} /> Cykl dobowy biogazowni
             </div>
             <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-              Twenty-four <br/><span className="italic text-[#C6A87C] font-Standardl">hours.</span>
+              Twenty-four <br/><span className="italic text-[#C6A87C] font-normal">hours.</span>
             </h2>
             <p className="font-serif italic text-2xl text-[#EAE6DF]/50 max-w-2xl mx-auto mt-12 leading-relaxed">
               One cycle. 7 critical points. An algorithm that works while you sleep.
@@ -2843,7 +2843,7 @@ const MicrobialTaxonomy = () => {
                 <Beaker className="w-3.5 h-3.5" strokeWidth={1} /> Microbiological taxonomy — the living staff of the reactor
               </div>
               <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Niewidzialni <br/><span className="italic text-[#C6A87C] font-Standardl">pracownicy.</span>
+                Niewidzialni <br/><span className="italic text-[#C6A87C] font-normal">pracownicy.</span>
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
@@ -2947,7 +2947,7 @@ const PressWall = () => {
                 <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Recommended reading — industry briefing
               </div>
               <h2 className="text-5xl md:text-[7rem] font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
-                Polecane <br/><span className="italic text-[#C6A87C] font-Standardl">lektury.</span>
+                Polecane <br/><span className="italic text-[#C6A87C] font-normal">lektury.</span>
               </h2>
             </div>
             <div className="lg:col-span-4 text-right">
@@ -3032,7 +3032,7 @@ const GanttBuild = () => {
                 <GitBranch className="w-3.5 h-3.5" strokeWidth={1} /> Schedule — 14 months
               </div>
               <h2 className="text-5xl md:text-[7.5rem] font-serif text-[#EAE6DF] leading-[0.95] pb-1 font-light">
-                Od podpisu <br/>do pierwszego <br/><span className="italic text-[#C6A87C] font-Standardl">m³ biogazu.</span>
+                Od podpisu <br/>do pierwszego <br/><span className="italic text-[#C6A87C] font-normal">m³ biogazu.</span>
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
@@ -3169,7 +3169,7 @@ const EnergyComparison = () => {
                 <Gauge className="w-3.5 h-3.5" strokeWidth={1} /> Comparative energy source analysis
               </div>
               <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Four sources, <br/><span className="italic text-[#C6A87C] font-Standardl">one equation.</span>
+                Four sources, <br/><span className="italic text-[#C6A87C] font-normal">one equation.</span>
               </h2>
             </div>
             <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
@@ -3267,7 +3267,7 @@ const GlossaryLexicon = () => {
     { letter: 'L', name: 'LKT', latin: 'Volatile Fatty Acids', def: 'Intermediate fermentation products. Their excess (limit approx. 3-4 g/L) signals a process disturbance — so-called Reactor acidosis.', ref: 'BIO' },
     { letter: 'M', name: 'Methanogenesis', latin: 'Methanogenesis', def: 'The final phase of anaerobic fermentation. Archaea transform acetate and hydrogen into methane and carbon dioxide. This phase is the true economic heart of the business.', ref: 'BIO' },
     { letter: 'O', name: 'OZE', latin: 'Renewable Energy Sources', def: 'Polish support system including auctions and support tariffs (FIT). Agricultural biogas has its own basket — without competition from wind and solar.', ref: 'LEGAL' },
-    { letter: 'P', name: 'Poferment', latin: 'Digestate', def: 'A fermentation byproduct. Odorless and rich in nitrogen, phosphorus, and potassium. Fully replaces synthetic fertilizers. A 0.5 MW plant yields 30 tons daily.', ref: 'PROD' },
+    { letter: 'P', name: 'Digestate', latin: 'Digestate', def: 'A fermentation byproduct. Odorless and rich in nitrogen, phosphorus, and potassium. Fully replaces synthetic fertilizers. A 0.5 MW plant yields 30 tons daily.', ref: 'PROD' },
     { letter: 'S', name: 'SCADA', latin: 'Supervisory Control and Data Acquisition', def: 'The Supervisory Control and Data Acquisition system. It processes thousands of variables per second, with an algorithm precisely controlling every valve and pump.', ref: 'I&C' },
     { letter: 'U', name: 'UDT', latin: 'Office of Technical Inspection', def: 'The regulatory body supervising pressure vessels, pipelines, and critical equipment. Every biogas plant is subject to strict annual inspections.', ref: 'ADM' },
   ];
@@ -3282,7 +3282,7 @@ const GlossaryLexicon = () => {
                 <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Leksykon biogazowni — A do U
               </div>
               <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Industry <br/><span className="italic text-[#C6A87C] font-Standardl">glossary.</span>
+                Industry <br/><span className="italic text-[#C6A87C] font-normal">glossary.</span>
               </h2>
             </div>
             <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
@@ -3364,7 +3364,7 @@ const MaterialSamples = () => {
                 <Wrench className="w-3.5 h-3.5" strokeWidth={1} /> Material sample — architect's moodboard
               </div>
               <h2 className="text-6xl md:text-[8.5rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                What <br/><span className="italic text-[#C6A87C] font-Standardl">it consists of.</span>
+                What <br/><span className="italic text-[#C6A87C] font-normal">it consists of.</span>
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
@@ -3466,7 +3466,7 @@ const KineticBreakII = () => {
     { txt: 'DESIGN · SUPERVISION · OPTIMIZATION · SERVICE ·', size: '12rem', dir: 'Standardl', dur: '50s', color: 'transparent', stroke: true, ts: '-0.04em' },
     { txt: 'biologia × technologia × ekonomia ×', size: '8rem', dir: 'reverse', dur: '35s', color: '#C6A87C', italic: true, opacity: 0.7, ts: '-0.02em' },
     { txt: 'CH₄ + CO₂ → PURE CAPITAL · CH₄ + CO₂ → PURE CAPITAL ·', size: '5rem', dir: 'Standardl', dur: '40s', color: '#4ADE80', opacity: 0.5, ts: '0.02em' },
-    { txt: 'SUBSTRAT → Reactor → ENERGIA → POFERMENT ·', size: '9rem', dir: 'reverse', dur: '60s', color: '#EAE6DF', italic: true, opacity: 0.15, ts: '-0.03em' },
+    { txt: 'SUBSTRAT → Reactor → ENERGY → DIGESTATE ·', size: '9rem', dir: 'reverse', dur: '60s', color: '#EAE6DF', italic: true, opacity: 0.15, ts: '-0.03em' },
   ];
   return (
     <section className="relative py-32 bg-[#020202] overflow-hidden" data-testid="kinetic-break-2">
@@ -3555,7 +3555,7 @@ const TimelineSince2008 = () => {
     { year: '2018', title: 'RED II Directive', desc: 'The Union defines sustainability criteria for bioenergy. Every m³ of biogas requires documentation of biomass origin.', cat: 'EU' },
     { year: '2021', title: 'Fit for 55 Package', desc: 'Emphasis on biomethane and municipal biogas plants. Opening of new financial paths under the National Recovery Plan.', cat: 'EU' },
     { year: '2023', title: 'Biomethane strategy', desc: 'Target strategy published — 250 biogas plants by 2030, 4 billion m³ of biomethane annually.', cat: 'POLICY' },
-    { year: '2025', title: 'Investment boom', desc: 'The number of projects in building permits exceeds 180. BGK, BOŚ and EBRD launch dedicated financial lines.', cat: 'CAPITAL' },
+    { year: '2025', title: 'Investment boom', desc: 'The number of projects in building permits exceeds 180. BGK, BOS Bank and EBRD launch dedicated financial lines.', cat: 'CAPITAL' },
     { year: '2026', title: 'We are here', desc: 'Wchodzimy na Market z jednym mandatem: industrializacja procesu. Biogazownia jako produkt powtarzalny, projektowany do tych samych norm co rafineria — nie eksperyment.', cat: 'NOW', live: true },
   ];
   return (
@@ -3569,7 +3569,7 @@ const TimelineSince2008 = () => {
                 <Activity className="w-3.5 h-3.5" strokeWidth={1} /> Linia czasu — 21 lat regulacji
               </div>
               <h2 className="text-6xl md:text-[9rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Polski biogaz <br/><span className="italic text-[#C6A87C] font-Standardl">od 2005.</span>
+                Polski biogaz <br/><span className="italic text-[#C6A87C] font-normal">od 2005.</span>
               </h2>
             </div>
             <p className="lg:col-span-4 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
@@ -3832,7 +3832,7 @@ const SectionIndex = () => {
         if (rect.top <= vh * 0.4) activeIdx = i;
       });
       const labels = {
-        'reactor-anatomy': 'Anatomia',
+        'reactor-anatomy': 'Anatomy',
         'molecular-process': 'Biochemia',
         'editorial-quote': 'Editorial',
         'poland-map': 'Polska',
@@ -3926,7 +3926,7 @@ const SiteAerial = () => {
                 <MapPin className="w-3.5 h-3.5" strokeWidth={1} /> Rzut sytuacyjny — 1.2 ha
               </div>
               <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Z lotu <br/><span className="italic text-[#C6A87C] font-Standardl">ptaka.</span>
+                Z lotu <br/><span className="italic text-[#C6A87C] font-normal">ptaka.</span>
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
@@ -4077,7 +4077,7 @@ const AwardsAndCertifications = () => {
                 <ShieldCheck className="w-3.5 h-3.5" strokeWidth={1} /> Reference standards — what we design against
               </div>
               <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Osiem norm, <br/><span className="italic text-[#C6A87C] font-Standardl">jedna Quality.</span>
+                Osiem norm, <br/><span className="italic text-[#C6A87C] font-normal">jedna Quality.</span>
               </h2>
             </div>
             <p className="lg:col-span-5 font-serif italic text-xl text-[#EAE6DF]/50 leading-relaxed">
@@ -4237,7 +4237,7 @@ const TechnicalSpecSheet = () => {
                 <FileText className="w-3.5 h-3.5" strokeWidth={1} /> Karta techniczna — REF: GP-2026-X
               </div>
               <h2 className="text-6xl md:text-[8rem] font-serif text-[#EAE6DF] leading-[0.92] pb-2 font-light">
-                Full <br/><span className="italic text-[#C6A87C] font-Standardl">specification.</span>
+                Full <br/><span className="italic text-[#C6A87C] font-normal">specification.</span>
               </h2>
             </div>
             <div className="lg:col-span-5 space-y-4">
@@ -4364,7 +4364,7 @@ const EngineeringDNA = () => {
           <FadeIn className="lg:col-span-5">
             <div className="font-mono text-[#C6A87C] text-[9px] tracking-[0.5em] uppercase mb-10 border-l-2 border-[#C6A87C] pl-6 py-1">About Us // Company Profile</div>
             <h2 className="text-6xl md:text-8xl font-serif text-[#EAE6DF] leading-[0.95] pb-1 mb-12 font-light">
-              Process <br/><span className="italic text-[#C6A87C] font-Standardl">engineering.</span>
+              Process <br/><span className="italic text-[#C6A87C] font-normal">engineering.</span>
             </h2>
           </FadeIn>
           <FadeIn className="lg:col-span-7" delay={200}>
@@ -4404,7 +4404,7 @@ const ProcesssInitiation = () => {
                 <span className="font-mono text-[#EAE6DF] text-[9px] tracking-[0.4em] uppercase">Status: Ready for deployment</span>
               </div>
               <h2 className="font-serif text-[#F2EDE4] leading-[0.92] pb-2 font-light text-[4.5rem] md:text-[8rem] tracking-tight mb-8">
-                Inicjacja <br/><span className="italic text-[#C6A87C] font-Standardl">procesu.</span>
+                Inicjacja <br/><span className="italic text-[#C6A87C] font-normal">procesu.</span>
               </h2>
               <p className="font-serif italic text-2xl text-[#EAE6DF]/60 leading-relaxed max-w-2xl mb-16">
                 Schedule an initial technological audit. We verify the potential of your facility and estimate the base CAPEX.
