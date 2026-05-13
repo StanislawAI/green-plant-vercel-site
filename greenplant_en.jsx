@@ -1522,8 +1522,8 @@ const ScadaSystem = () => {
                        key={i} 
                        className="bg-[#C6A87C]/20 border-t border-[#C6A87C]/40" 
                        style={{ 
-                         height: `${30 + Math.ranHome() * 60}%`,
-                         animation: `pulse ${1 + Math.ranHome()}s infinite alternate`
+                         height: `${30 + Math.random() * 60}%`,
+                         animation: `pulse ${1 + Math.random()}s infinite alternate`
                        }}
                      ></div>
                    ))}
@@ -2501,7 +2501,7 @@ const FieldToElectricity = () => {
     {
       no: 'IV',
       title: 'Home',
-      lead: '1 600 polskich gospodarstw Homeowych zasilanych z jednej biogazowni. 24/7.',
+      lead: '1,600 Polish households powered by a single biogas plant. 24/7.',
       body: 'Unlike wind and solar, biogas works at night. It works in December. It works when energy exchange prices spike to 400 EUR/MWh on a freezing winter evening. There is no energy crisis here—because the fuel grows in the neighboring field.',
       stat: '1 600',
       ref: 'CH-04 / HOUSEHOLD',
@@ -2799,7 +2799,7 @@ const MicrobialTaxonomy = () => {
       phylum: 'Euryarchaeota',
       yield: '0.42',
       svg: 'sarcina',
-      kingHome: 'Archaea',
+      kingdom: 'Archaea',
     },
     {
       genus: 'Methanobacterium',
@@ -2809,7 +2809,7 @@ const MicrobialTaxonomy = () => {
       phylum: 'Euryarchaeota',
       yield: '0.28',
       svg: 'rod',
-      kingHome: 'Archaea',
+      kingdom: 'Archaea',
     },
     {
       genus: 'Ruminococcus',
@@ -2819,7 +2819,7 @@ const MicrobialTaxonomy = () => {
       phylum: 'Bacillota',
       yield: '—',
       svg: 'rod',
-      kingHome: 'Bacteria',
+      kingdom: 'Bacteria',
     },
     {
       genus: 'Bacteroides',
@@ -2829,7 +2829,7 @@ const MicrobialTaxonomy = () => {
       phylum: 'Bacteroidetes',
       yield: '—',
       svg: 'curve',
-      kingHome: 'Bacteria',
+      kingdom: 'Bacteria',
     },
   ];
   return (
@@ -2859,7 +2859,7 @@ const MicrobialTaxonomy = () => {
               <div className="flex justify-between items-start mb-8">
                 <div>
                   <div className="font-mono text-[8px] text-[#C6A87C]/60 tracking-[0.3em] uppercase mb-1">Specimen N° {String(i + 1).padStart(3, '0')}</div>
-                  <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase">{m.kingHome} / {m.phylum}</div>
+                  <div className="font-mono text-[8px] text-[#EAE6DF]/30 tracking-[0.3em] uppercase">{m.kingdom} / {m.phylum}</div>
                 </div>
                 <div className="w-10 h-10 rounded-full border border-[#C6A87C]/30 flex items-center justify-center wax-seal">
                   <Atom className="w-4 h-4 text-[#C6A87C]/60" strokeWidth={1} />
